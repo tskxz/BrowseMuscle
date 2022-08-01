@@ -1,2 +1,0 @@
-# PAP
-Projeto Aptidão Profissional
