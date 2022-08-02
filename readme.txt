@@ -47,16 +47,24 @@ Cada equipamento vai ter uma tabela de conjunto de exercícios, vai haver relaç
 Cada equipamento tem vários exercícios.
 Cada grupo muscular tem vários equipamentos
 
-Vai tabelas de grupo muscular:
+Vai ter as seguintes tabelas de grupo muscular:
 	- Quadriceps
 	- Hamstrings
 	- Costas
 	- Lats
 	- Ombros
 	- Peito
+	- Gémeos
+	- Antebraço
+	- Biceps
+	- Triceps
+	- Abdominais
+	- Traps
 
-Vai haver tabelas de equipamentos
+
+Vai haver tabelas de equipamentos com os seguintes campos:
 	- Maquina
 	- Bodyweight
 	- Cabos
 	- Halteres
+	- Elástico
