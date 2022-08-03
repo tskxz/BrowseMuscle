@@ -1,6 +1,6 @@
 /* Nome do projeto */
 
-CREATE DATABASE projeto;
+CREATE DATABASE BrowseMuscle;
 
 /* Grupo Muscular */
 
@@ -86,9 +86,82 @@ CREATE TABLE Equipamentos(
 	nome VARCHAR(100) NOT NULL
 );
 
+CREATE TABLE Exercicios_Bodyweight(
+	id INT(6) AUTO_INCREMENT PRIMARY KEY NOT NULL,
+	nome_exercicio VARCHAR(100) NOT NULL,
+	nome_equipamento varchar(100) NOT NULL
+);
+
+CREATE TABLE Exercicios_Maquina(
+	id INT(6) AUTO_INCREMENT PRIMARY KEY NOT NULL,
+	nome_exercicio VARCHAR(100) NOT NULL,
+	nome_equipamento varchar(100) NOT NULL
+);
+
+CREATE TABLE Exercicios_Halteres(
+	id INT(6) AUTO_INCREMENT PRIMARY KEY NOT NULL,
+	nome_exercicio VARCHAR(100) NOT NULL,
+	nome_equipamento varchar(100) NOT NULL
+);
+
+CREATE TABLE Exercicios_Elastico(
+	id INT(6) AUTO_INCREMENT PRIMARY KEY NOT NULL,
+	nome_exercicio VARCHAR(100) NOT NULL,
+	nome_equipamento varchar(100) NOT NULL
+);
+
+CREATE TABLE Exercicios_Cabos(
+	id INT(6) AUTO_INCREMENT PRIMARY KEY NOT NULL,
+	nome_exercicio VARCHAR(100) NOT NULL,
+	nome_equipamento varchar(100) NOT NULL
+);
+
 /* Tabela dificuldades */
 
 CREATE TABLE Dificuldades(
 	id INT(6) AUTO_INCREMENT PRIMARY KEY NOT NULL,
 	nome VARCHAR(100) NOT NULL
 );
+
+CREATE TABLE Exercicios_Iniciante(
+	id INT(6) AUTO_INCREMENT PRIMARY KEY NOT NULL,
+	nome_exercicio varchar(100) NOT NULL,
+	dificuldade_exercicio varchar(100) not null
+);
+
+CREATE TABLE Exercicios_Intermediario(
+	id INT(6) AUTO_INCREMENT PRIMARY KEY NOT NULL,
+	nome_exercicio varchar(100) NOT NULL,
+	dificuldade_exercicio varchar(100) not null
+);
+
+CREATE TABLE Exercicios_Avancado(
+	id INT(6) AUTO_INCREMENT PRIMARY KEY NOT NULL,
+	nome_exercicio varchar(100) NOT NULL,
+	dificuldade_exercicio varchar(100) not null
+);
+
+/*
++--------------------------+
+| Tables_in_browsemuscle   |
++--------------------------+
+| abdominais               |
+| antebraco                |
+| biceps                   |
+| costas                   |
+| dificuldades             |
+| equipamentos             |
+| exercicios_avancado      |
+| exercicios_cabos         |
+| exercicios_iniciante     |
+| exercicios_intermediario |
+| gemeos                   |
+| hamstrings               |
+| lats                     |
+| ombros                   |
+| peito                    |
+| quadriceps               |
+| traps                    |
+| triceps                  |
++--------------------------+
+*/
