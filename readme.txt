@@ -68,3 +68,42 @@ Vai haver tabelas de equipamentos com os seguintes campos:
 	- Cabos
 	- Halteres
 	- Elástico
+
+Um utilizador pode visualizar e ver os exercícios de cada dificuldade.
+Por exemplo se o utilizador só quiser exercícios de dificuldade avançada, vai clicar na tabela avançada que irá mostrar apenas exercícios com dificuldade avançada.
+
+Mesma coisa com os equipamentos. Se o utilizador quiser apenas visualizar exercicios de bodyweight, irá escolher a tabela Bodyweight
+que irá mostrar todos os exercícios disponíveis para bodyweight.
+
+Igualmente com os grupos musculares, se quiser um musculo, irá obter todos os exercícios dísponíveis para esse grupo muscular.
+
+Iremos obter as seguintes tabelas:
+
+// Tabela das dificuldades
+
+exercicios_iniciante
+exercicios_intermediario
+exercicios_avancado
+
+// Tabelas de Equipamentos
+
+exercicios_maquina
+exercicios_bodyweight
+exercicios_cabos
+exercicios_halteres
+exercicios_elastico
+
+// Tabela de grupos musculares
+
+exercicios_peito
+exercicios_ombro
+exercicios_tricep
+exercicios_costas
+exercicios_lats
+exercicios_traps
+exercicios_biceps
+exercicios_quads
+exercicios_hamstrings
+exercicios_gemeos
+exercicios_antebraco
+exercicios_abdominais
