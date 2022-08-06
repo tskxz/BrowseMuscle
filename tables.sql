@@ -165,3 +165,29 @@ CREATE TABLE Exercicios_Avancado(
 | triceps                  |
 +--------------------------+
 */
+
+/* Adicionar a chave estrangeira equipamento para todas as tabelas musculares*/
+
+ALTER TABLE `ombros` ADD FOREIGN KEY (`equipamento`) REFERENCES `equipamentos`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE `peito` ADD FOREIGN KEY (`equipamento`) REFERENCES `equipamentos`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE `quadriceps` ADD FOREIGN KEY (`equipamento`) REFERENCES `equipamentos`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE `traps` ADD FOREIGN KEY (`equipamento`) REFERENCES `equipamentos`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE `triceps` ADD FOREIGN KEY (`equipamento`) REFERENCES `equipamentos`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE `lats` ADD FOREIGN KEY (`equipamento`) REFERENCES `equipamentos`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE `hamstrings` ADD FOREIGN KEY (`equipamento`) REFERENCES `equipamentos`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE `gemeos` ADD FOREIGN KEY (`equipamento`) REFERENCES `equipamentos`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE `costas` ADD FOREIGN KEY (`equipamento`) REFERENCES `equipamentos`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE `biceps` ADD FOREIGN KEY (`equipamento`) REFERENCES `equipamentos`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE `antebraco` ADD FOREIGN KEY (`equipamento`) REFERENCES `equipamentos`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE `abdominais` ADD FOREIGN KEY (`equipamento`) REFERENCES `equipamentos`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT;
