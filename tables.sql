@@ -168,6 +168,8 @@ CREATE TABLE Exercicios_Avancado(
 
 /* Adicionar a chave estrangeira equipamento para todas as tabelas musculares*/
 
+ALTER TABLE `browsemuscle`.`equipamentos` ADD UNIQUE (`nome`);
+
 ALTER TABLE `ombros` ADD FOREIGN KEY (`equipamento`) REFERENCES `equipamentos`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 ALTER TABLE `peito` ADD FOREIGN KEY (`equipamento`) REFERENCES `equipamentos`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT;
@@ -191,3 +193,32 @@ ALTER TABLE `biceps` ADD FOREIGN KEY (`equipamento`) REFERENCES `equipamentos`(`
 ALTER TABLE `antebraco` ADD FOREIGN KEY (`equipamento`) REFERENCES `equipamentos`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 ALTER TABLE `abdominais` ADD FOREIGN KEY (`equipamento`) REFERENCES `equipamentos`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+
+/* Adicionar chave estrangeira dificuldade para todas as tabelas */
+
+ALTER TABLE `browsemuscle`.`dificuldades` ADD UNIQUE (`nome`);
+
+ALTER TABLE `abdominais` ADD FOREIGN KEY (`dificuldade`) REFERENCES `dificuldades`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE `antebraco` ADD FOREIGN KEY (`dificuldade`) REFERENCES `dificuldades`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE `biceps` ADD FOREIGN KEY (`dificuldade`) REFERENCES `dificuldades`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE `costas` ADD FOREIGN KEY (`dificuldade`) REFERENCES `dificuldades`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE `gemeos` ADD FOREIGN KEY (`dificuldade`) REFERENCES `dificuldades`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE `hamstrings` ADD FOREIGN KEY (`dificuldade`) REFERENCES `dificuldades`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE `lats` ADD FOREIGN KEY (`dificuldade`) REFERENCES `dificuldades`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE `ombros` ADD FOREIGN KEY (`dificuldade`) REFERENCES `dificuldades`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE `peito` ADD FOREIGN KEY (`dificuldade`) REFERENCES `dificuldades`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE `quadriceps` ADD FOREIGN KEY (`dificuldade`) REFERENCES `dificuldades`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE `traps` ADD FOREIGN KEY (`dificuldade`) REFERENCES `dificuldades`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE `triceps` ADD FOREIGN KEY (`dificuldade`) REFERENCES `dificuldades`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT;
