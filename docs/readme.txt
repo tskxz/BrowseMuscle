@@ -77,7 +77,7 @@ que irá mostrar todos os exercícios disponíveis para bodyweight.
 
 Igualmente com os grupos musculares, se quiser um musculo, irá obter todos os exercícios dísponíveis para esse grupo muscular.
 
-Iremos obter as seguintes tabelas:
+Iremos obter as seguintes tabelas que podemos conseguir visualizar no site:
 
 // Tabela das dificuldades
 
