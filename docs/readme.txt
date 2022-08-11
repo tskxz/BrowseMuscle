@@ -107,3 +107,36 @@ exercicios_hamstrings
 exercicios_gemeos
 exercicios_antebraco
 exercicios_abdominais
+
+Dia 11/08/2022
+
+// Update
+
+Devia se ter uma tabela em que mostre todos os exercícios disponíveis numa só tabela
+
+Uma tabela chamada 'exercícios'
+Essa tabela vai ter os seguintes campos:
+
+exercícios (
+	nome_exercicio,
+	nome_equipamento,
+	nome_dificuldade,
+	nome_musculo
+)
+
+Já que tenho as tabelas de cada musculo, cada tabela muscular deve obter também um campo músculo
+
+Igualmente como:
+
+	- exercicios_iniciante
+	- exercicios_intermediario
+	- exercicios_avancado
+	- exercicios_bodyweight
+	- exercicios_cabos
+	- exercicios_elastico
+	- exercicios_halteres
+	- exercicios_maquina
+
+E também devia existir uma tabela musculos
+
+musculo(nome)

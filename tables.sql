@@ -8,75 +8,87 @@ CREATE TABLE Ombros(
 	id INT(6) AUTO_INCREMENT PRIMARY KEY NOT NULL,
 	nome VARCHAR(100) NOT NULL,
 	equipamento VARCHAR(100) NOT NULL,
-	dificuldade VARCHAR(100) NOT NULL
+	dificuldade VARCHAR(100) NOT NULL,
+	musculo VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE Peito(
 	id INT(6) AUTO_INCREMENT PRIMARY KEY NOT NULL,
 	nome VARCHAR(100) NOT NULL,
 	equipamento VARCHAR(100) NOT NULL,
-	dificuldade VARCHAR(100) NOT NULL
+	dificuldade VARCHAR(100) NOT NULL,
+	musculo VARCHAR(100) NOT NULL
 );
 CREATE TABLE Costas(
 	id INT(6) AUTO_INCREMENT PRIMARY KEY NOT NULL,
 	nome VARCHAR(100) NOT NULL,
 	equipamento VARCHAR(100) NOT NULL,
-	dificuldade VARCHAR(100) NOT NULL
+	dificuldade VARCHAR(100) NOT NULL,
+	musculo VARCHAR(100) NOT NULL
 );
 CREATE TABLE Lats(
 	id INT(6) AUTO_INCREMENT PRIMARY KEY NOT NULL,
 	nome VARCHAR(100) NOT NULL,
 	equipamento VARCHAR(100) NOT NULL,
-	dificuldade VARCHAR(100) NOT NULL
+	dificuldade VARCHAR(100) NOT NULL,
+	musculo VARCHAR(100) NOT NULL
 );
 CREATE TABLE Quadriceps(
 	id INT(6) AUTO_INCREMENT PRIMARY KEY NOT NULL,
 	nome VARCHAR(100) NOT NULL,
 	equipamento VARCHAR(100) NOT NULL,
-	dificuldade VARCHAR(100) NOT NULL
+	dificuldade VARCHAR(100) NOT NULL,
+	musculo VARCHAR(100) NOT NULL
 );
 CREATE TABLE Hamstrings(
 	id INT(6) AUTO_INCREMENT PRIMARY KEY NOT NULL,
 	nome VARCHAR(100) NOT NULL,
 	equipamento VARCHAR(100) NOT NULL,
-	dificuldade VARCHAR(100) NOT NULL
+	dificuldade VARCHAR(100) NOT NULL,
+	musculo VARCHAR(100) NOT NULL
 );
 CREATE TABLE Gemeos(
 	id INT(6) AUTO_INCREMENT PRIMARY KEY NOT NULL,
 	nome VARCHAR(100) NOT NULL,
 	equipamento VARCHAR(100) NOT NULL,
-	dificuldade VARCHAR(100) NOT NULL
+	dificuldade VARCHAR(100) NOT NULL,
+	musculo VARCHAR(100) NOT NULL
 );
 CREATE TABLE Antebraco(
 	id INT(6) AUTO_INCREMENT PRIMARY KEY NOT NULL,
 	nome VARCHAR(100) NOT NULL,
 	equipamento VARCHAR(100) NOT NULL,
-	dificuldade VARCHAR(100) NOT NULL
+	dificuldade VARCHAR(100) NOT NULL,
+	musculo VARCHAR(100) NOT NULL
 );
 CREATE TABLE Biceps(
 	id INT(6) AUTO_INCREMENT PRIMARY KEY NOT NULL,
 	nome VARCHAR(100) NOT NULL,
 	equipamento VARCHAR(100) NOT NULL,
-	dificuldade VARCHAR(100) NOT NULL
+	dificuldade VARCHAR(100) NOT NULL,
+	musculo VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE Triceps(
 	id INT(6) AUTO_INCREMENT PRIMARY KEY NOT NULL,
 	nome VARCHAR(100) NOT NULL,
 	equipamento VARCHAR(100) NOT NULL,
-	dificuldade VARCHAR(100) NOT NULL
+	dificuldade VARCHAR(100) NOT NULL,
+	musculo VARCHAR(100) NOT NULL
 );
 CREATE TABLE Abdominais(
 	id INT(6) AUTO_INCREMENT PRIMARY KEY NOT NULL,
 	nome VARCHAR(100) NOT NULL,
 	equipamento VARCHAR(100) NOT NULL,
-	dificuldade VARCHAR(100) NOT NULL
+	dificuldade VARCHAR(100) NOT NULL,
+	musculo VARCHAR(100) NOT NULL
 );
 CREATE TABLE Traps(
 	id INT(6) AUTO_INCREMENT PRIMARY KEY NOT NULL,
 	nome VARCHAR(100) NOT NULL,
 	equipamento VARCHAR(100) NOT NULL,
-	dificuldade VARCHAR(100) NOT NULL
+	dificuldade VARCHAR(100) NOT NULL,
+	musculo VARCHAR(100) NOT NULL
 );
 
 /* Tabela Equipamentos */
@@ -90,35 +102,40 @@ CREATE TABLE Exercicios_Bodyweight(
 	id INT(6) AUTO_INCREMENT PRIMARY KEY NOT NULL,
 	nome_exercicio VARCHAR(100) NOT NULL,
 	nome_dificuldade varchar(100) NOT NULL,
-	nome_equipamento VARCHAR(100) NOT NULL
+	nome_equipamento VARCHAR(100) NOT NULL,
+	nome_musculo VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE Exercicios_Maquina(
 	id INT(6) AUTO_INCREMENT PRIMARY KEY NOT NULL,
 	nome_exercicio VARCHAR(100) NOT NULL,
 	nome_dificuldade varchar(100) NOT NULL,
-	nome_equipamento VARCHAR(100) NOT NULL
+	nome_equipamento VARCHAR(100) NOT NULL,
+	nome_musculo VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE Exercicios_Halteres(
 	id INT(6) AUTO_INCREMENT PRIMARY KEY NOT NULL,
 	nome_exercicio VARCHAR(100) NOT NULL,
 	nome_dificuldade varchar(100) NOT NULL,
-	nome_equipamento VARCHAR(100) NOT NULL
+	nome_equipamento VARCHAR(100) NOT NULL,
+	nome_musculo VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE Exercicios_Elastico(
 	id INT(6) AUTO_INCREMENT PRIMARY KEY NOT NULL,
 	nome_exercicio VARCHAR(100) NOT NULL,
 	nome_dificuldade varchar(100) NOT NULL,
-	nome_equipamento VARCHAR(100) NOT NULL
+	nome_equipamento VARCHAR(100) NOT NULL,
+	nome_musculo VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE Exercicios_Cabos(
 	id INT(6) AUTO_INCREMENT PRIMARY KEY NOT NULL,
 	nome_exercicio VARCHAR(100) NOT NULL,
 	nome_dificuldade varchar(100) NOT NULL,
-	nome_equipamento VARCHAR(100) NOT NULL
+	nome_equipamento VARCHAR(100) NOT NULL,
+	nome_musculo VARCHAR(100) NOT NULL
 );
 
 /* Tabela dificuldades */
@@ -132,21 +149,24 @@ CREATE TABLE Exercicios_Iniciante(
 	id INT(6) AUTO_INCREMENT PRIMARY KEY NOT NULL,
 	nome_exercicio varchar(100) NOT NULL,
 	nome_equipamento varchar(100) not null,
-	nome_dificuldade varchar(100) not null
+	nome_dificuldade varchar(100) not null,
+	nome_musculo VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE Exercicios_Intermediario(
 	id INT(6) AUTO_INCREMENT PRIMARY KEY NOT NULL,
 	nome_exercicio varchar(100) NOT NULL,
 	nome_equipamento varchar(100) not null,
-	nome_dificuldade varchar(100) not null
+	nome_dificuldade varchar(100) not null,
+	nome_musculo VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE Exercicios_Avancado(
 	id INT(6) AUTO_INCREMENT PRIMARY KEY NOT NULL,
 	nome_exercicio varchar(100) NOT NULL,
 	nome_equipamento varchar(100) not null,
-	nome_dificuldade varchar(100) not null
+	nome_dificuldade varchar(100) not null,
+	nome_musculo VARCHAR(100) NOT NULL
 );
 
 /*
@@ -236,3 +256,25 @@ ALTER TABLE `quadriceps` ADD FOREIGN KEY (`dificuldade`) REFERENCES `dificuldade
 ALTER TABLE `traps` ADD FOREIGN KEY (`dificuldade`) REFERENCES `dificuldades`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 ALTER TABLE `triceps` ADD FOREIGN KEY (`dificuldade`) REFERENCES `dificuldades`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+
+/* Adicionar a chave estrangeira nome, dificuldade e equipamento para cada tabela de dificuldades */
+
+ALTER TABLE `exercicios_iniciante` ADD FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE `exercicios_iniciante` ADD FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+/* UPDATE 11/08/2022 */
+
+CREATE TABLE exercicios(
+	id INT(6) AUTO_INCREMENT PRIMARY KEY NOT NULL,
+	nome_exercicio VARCHAR(100) NOT NULL,
+	nome_equipamento VARCHAR(100) NOT NULL,
+	nome_dificuldade VARCHAR(100) NOT NULL,
+	nome_musculo VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE Musculo(
+	id INT(6) AUTO_INCREMENT PRIMARY KEY NOT NULL,
+	nome VARCHAR(100) NOT NULL
+);
