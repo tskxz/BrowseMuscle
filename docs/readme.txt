@@ -139,4 +139,6 @@ Igualmente como:
 
 E também devia existir uma tabela musculos
 
-musculo(nome)
+musculo(nome_musculo)
+
+O nome_musculo na tabela musculo vai ser do tipo único.
