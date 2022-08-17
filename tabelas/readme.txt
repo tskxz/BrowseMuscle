@@ -77,7 +77,7 @@ que irá mostrar todos os exercícios disponíveis para bodyweight.
 
 Igualmente com os grupos musculares, se quiser um musculo, irá obter todos os exercícios dísponíveis para esse grupo muscular.
 
-Iremos obter as seguintes tabelas:
+Iremos obter as seguintes tabelas que podemos conseguir visualizar no site:
 
 // Tabela das dificuldades
 
@@ -107,3 +107,86 @@ exercicios_hamstrings
 exercicios_gemeos
 exercicios_antebraco
 exercicios_abdominais
+
+Dia 11/08/2022
+
+// Update
+
+Devia se ter uma tabela em que mostre todos os exercícios disponíveis numa só tabela
+
+Uma tabela chamada 'exercícios'
+Essa tabela vai ter os seguintes campos:
+
+exercícios (
+	nome_exercicio,
+	nome_equipamento,
+	nome_dificuldade,
+	nome_musculo
+)
+
+Já que tenho as tabelas de cada musculo, cada tabela muscular deve obter também um campo músculo
+
+Igualmente como:
+
+	- exercicios_iniciante
+	- exercicios_intermediario
+	- exercicios_avancado
+	- exercicios_bodyweight
+	- exercicios_cabos
+	- exercicios_elastico
+	- exercicios_halteres
+	- exercicios_maquina
+	- exercicios_barra
+
+E também devia existir uma tabela musculos
+
+musculo(nome_musculo)
+
+O nome_musculo na tabela musculo vai ser do tipo único.
+
+Na tabela exercícios, vai obter conjunto de todos os exercícios existentes.
+
+Todos os campos são únicos.
+
+Dia 17/08/2022
+
+Conclui os fundamentos para o início da construção da base de dados que se começou com o planeamento depois de seguida, criação das tabelas com MYSQL. Ouve alterações da organização das tabelas ao caminho da criação da base de dados. De certeza, futuramente irá haver ainda mais alterações, mas para já, este é os fundamentos e as principais tabelas para começar a criar o projeto.
+
+A base de dados browsemuscle possui no total 25 tabelas.
+A principal tabela vai ser a tabela exercícios. A tabela exercícios demonstra todos os exercícios disponiveis e criados dentro de browsemuscle. A partir dessa tabela, pode se criar e visualizar todos os exercícios existentes.
+
+As seguintes tabelas aqui em baixo, são listas existentes que irão ser representados como tipo único para serem chave estrangeira de outras tabelas:
+
+- musculo
+- dificuldades
+- equipamentos
+
+Existem exercícios com equipamentos diferentes. Existem exercícios que se faz somente com peso corporal ou barra ou com cabos ou com halteres e etc... Podemos filtrar e visualizar apenas os exercícios com o equipamento adequado que desejamos visualizar. Por exemplo, eu só quero visualizar exercícios com equipamento barra. Então vou ter a possibilidade de visualizar apenas exerícios com equipamento barra. Também como os outros. Então existem para já:
+
+- exercicios_bodyweight
+- exercicios_cabos
+- exercicios_elastico
+- exercicios_halteres
+- exercicios_maquina
+- exercicios_barra
+
+Também temos a possibilidade de filtrar e visualizar apenas exercícios com a dificuldade que desejamos. Por exemplo, quero apenas visualizar os exercícios de dificuldade iniciante. Então vamos obter as tabelas:
+
+- exrcicios_iniciante
+- exercicios_intermediario
+- exercicios_avancado
+
+Cada exercício atinge um músculo principal especifico. Cada tabela muscular, vai obter lista de exercícios que atinge esse musculo.
+Temos as seguintes tabelas
+
+- antebraco
+- bicep
+- costas
+- gemeos
+- hamstrings
+- lats
+- ombros
+- peito
+- quadriceps
+- traps
+- triceps
