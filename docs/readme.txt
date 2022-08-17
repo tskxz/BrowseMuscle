@@ -136,6 +136,7 @@ Igualmente como:
 	- exercicios_elastico
 	- exercicios_halteres
 	- exercicios_maquina
+	- exercicios_barra
 
 E também devia existir uma tabela musculos
 

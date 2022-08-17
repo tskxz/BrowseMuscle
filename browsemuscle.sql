@@ -138,6 +138,14 @@ CREATE TABLE Exercicios_Cabos(
 	nome_musculo VARCHAR(100) NOT NULL
 );
 
+CREATE TABLE Exercicios_Barra(
+	id INT(6) AUTO_INCREMENT PRIMARY KEY NOT NULL,
+	nome_exercicio VARCHAR(100) NOT NULL,
+	nome_dificuldade varchar(100) NOT NULL,
+	nome_equipamento VARCHAR(100) NOT NULL,
+	nome_musculo VARCHAR(100) NOT NULL
+);
+
 /* Tabela dificuldades */
 
 CREATE TABLE Dificuldades(
@@ -304,3 +312,5 @@ ALTER TABLE `exercicios_halteres` ADD FOREIGN KEY (`nome_dificuldade`) REFERENCE
 /* Adicionar as chaves estrangeiras dos campos (nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo) na tabela exercicios_maquina */
 
 ALTER TABLE `exercicios_maquina` ADD FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT; ALTER TABLE `exercicios_maquina` ADD FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT; ALTER TABLE `exercicios_maquina` ADD FOREIGN KEY (`nome_exercicio`) REFERENCES `exercicios`(`nome_exercicio`) ON DELETE RESTRICT ON UPDATE RESTRICT; ALTER TABLE `exercicios_maquina` ADD FOREIGN KEY (`nome_musculo`) REFERENCES `musculo`(`nome_musculo`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE `exercicios_barra` ADD FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT; ALTER TABLE `exercicios_barra` ADD FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT; ALTER TABLE `exercicios_barra` ADD FOREIGN KEY (`nome_exercicio`) REFERENCES `exercicios`(`nome_exercicio`) ON DELETE RESTRICT ON UPDATE RESTRICT; ALTER TABLE `exercicios_barra` ADD FOREIGN KEY (`nome_musculo`) REFERENCES `musculo`(`nome_musculo`) ON DELETE RESTRICT ON UPDATE RESTRICT;
