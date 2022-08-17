@@ -228,3 +228,54 @@ ALTER TABLE `exercicios` ADD FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificu
 
 ALTER TABLE `browsemuscle`.`equipamentos` ADD UNIQUE (`nome`);
 ALTER TABLE `exercicios` ADD FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+/* Adicionar tipo unico da tabela exercicios */
+ALTER TABLE `browsemuscle`.`exercicios` ADD UNIQUE (`nome_exercicio`);
+
+/* Adicionar as chaves estrangeiras dos campos (nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo) na tabela abdominais */
+
+ALTER TABLE `abdominais` ADD FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT; ALTER TABLE `abdominais` ADD FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT; ALTER TABLE `abdominais` ADD FOREIGN KEY (`nome_exercicio`) REFERENCES `exercicios`(`nome_exercicio`) ON DELETE RESTRICT ON UPDATE RESTRICT; ALTER TABLE `abdominais` ADD FOREIGN KEY (`nome_musculo`) REFERENCES `musculo`(`nome_musculo`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+/* Adicionar as chaves estrangeiras dos campos (nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo) na tabela antebraco */
+
+ALTER TABLE `antebraco` ADD FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT; ALTER TABLE `antebraco` ADD FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT; ALTER TABLE `antebraco` ADD FOREIGN KEY (`nome_exercicio`) REFERENCES `exercicios`(`nome_exercicio`) ON DELETE RESTRICT ON UPDATE RESTRICT; ALTER TABLE `antebraco` ADD FOREIGN KEY (`nome_musculo`) REFERENCES `musculo`(`nome_musculo`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+/* Adicionar as chaves estrangeiras dos campos (nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo) na tabela biceps */
+
+ALTER TABLE `biceps` ADD FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT; ALTER TABLE `biceps` ADD FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT; ALTER TABLE `biceps` ADD FOREIGN KEY (`nome_exercicio`) REFERENCES `exercicios`(`nome_exercicio`) ON DELETE RESTRICT ON UPDATE RESTRICT; ALTER TABLE `biceps` ADD FOREIGN KEY (`nome_musculo`) REFERENCES `musculo`(`nome_musculo`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+/* Adicionar as chaves estrangeiras dos campos (nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo) na tabela costas */
+
+ALTER TABLE `costas` ADD FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT; ALTER TABLE `costas` ADD FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT; ALTER TABLE `costas` ADD FOREIGN KEY (`nome_exercicio`) REFERENCES `exercicios`(`nome_exercicio`) ON DELETE RESTRICT ON UPDATE RESTRICT; ALTER TABLE `costas` ADD FOREIGN KEY (`nome_musculo`) REFERENCES `musculo`(`nome_musculo`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+/* Adicionar as chaves estrangeiras dos campos (nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo) na tabela gemeos */
+
+ALTER TABLE `gemeos` ADD FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT; ALTER TABLE `gemeos` ADD FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT; ALTER TABLE `gemeos` ADD FOREIGN KEY (`nome_exercicio`) REFERENCES `exercicios`(`nome_exercicio`) ON DELETE RESTRICT ON UPDATE RESTRICT; ALTER TABLE `gemeos` ADD FOREIGN KEY (`nome_musculo`) REFERENCES `musculo`(`nome_musculo`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+/* Adicionar as chaves estrangeiras dos campos (nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo) na tabela hamstrings */
+
+ALTER TABLE `hamstrings` ADD FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT; ALTER TABLE `hamstrings` ADD FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT; ALTER TABLE `hamstrings` ADD FOREIGN KEY (`nome_exercicio`) REFERENCES `exercicios`(`nome_exercicio`) ON DELETE RESTRICT ON UPDATE RESTRICT; ALTER TABLE `hamstrings` ADD FOREIGN KEY (`nome_musculo`) REFERENCES `musculo`(`nome_musculo`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+/* Adicionar as chaves estrangeiras dos campos (nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo) na tabela lats */
+
+ALTER TABLE `lats` ADD FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT; ALTER TABLE `lats` ADD FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT; ALTER TABLE `lats` ADD FOREIGN KEY (`nome_exercicio`) REFERENCES `exercicios`(`nome_exercicio`) ON DELETE RESTRICT ON UPDATE RESTRICT; ALTER TABLE `lats` ADD FOREIGN KEY (`nome_musculo`) REFERENCES `musculo`(`nome_musculo`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+/* Adicionar as chaves estrangeiras dos campos (nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo) na tabela ombros */
+
+ALTER TABLE `ombros` ADD FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT; ALTER TABLE `ombros` ADD FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT; ALTER TABLE `ombros` ADD FOREIGN KEY (`nome_exercicio`) REFERENCES `exercicios`(`nome_exercicio`) ON DELETE RESTRICT ON UPDATE RESTRICT; ALTER TABLE `ombros` ADD FOREIGN KEY (`nome_musculo`) REFERENCES `musculo`(`nome_musculo`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+/* Adicionar as chaves estrangeiras dos campos (nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo) na tabela peito */
+
+ALTER TABLE `peito` ADD FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT; ALTER TABLE `peito` ADD FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT; ALTER TABLE `peito` ADD FOREIGN KEY (`nome_exercicio`) REFERENCES `exercicios`(`nome_exercicio`) ON DELETE RESTRICT ON UPDATE RESTRICT; ALTER TABLE `peito` ADD FOREIGN KEY (`nome_musculo`) REFERENCES `musculo`(`nome_musculo`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+/* Adicionar as chaves estrangeiras dos campos (nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo) na tabela quadriceps */
+
+ALTER TABLE `quadriceps` ADD FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT; ALTER TABLE `quadriceps` ADD FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT; ALTER TABLE `quadriceps` ADD FOREIGN KEY (`nome_exercicio`) REFERENCES `exercicios`(`nome_exercicio`) ON DELETE RESTRICT ON UPDATE RESTRICT; ALTER TABLE `quadriceps` ADD FOREIGN KEY (`nome_musculo`) REFERENCES `musculo`(`nome_musculo`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+/* Adicionar as chaves estrangeiras dos campos (nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo) na tabela traps */
+
+ALTER TABLE `traps` ADD FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT; ALTER TABLE `traps` ADD FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT; ALTER TABLE `traps` ADD FOREIGN KEY (`nome_exercicio`) REFERENCES `exercicios`(`nome_exercicio`) ON DELETE RESTRICT ON UPDATE RESTRICT; ALTER TABLE `traps` ADD FOREIGN KEY (`nome_musculo`) REFERENCES `musculo`(`nome_musculo`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+/* Adicionar as chaves estrangeiras dos campos (nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo) na tabela triceps */
+
+ALTER TABLE `triceps` ADD FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT; ALTER TABLE `triceps` ADD FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT; ALTER TABLE `triceps` ADD FOREIGN KEY (`nome_exercicio`) REFERENCES `exercicios`(`nome_exercicio`) ON DELETE RESTRICT ON UPDATE RESTRICT; ALTER TABLE `triceps` ADD FOREIGN KEY (`nome_musculo`) REFERENCES `musculo`(`nome_musculo`) ON DELETE RESTRICT ON UPDATE RESTRICT;

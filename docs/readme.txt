@@ -142,3 +142,7 @@ E também devia existir uma tabela musculos
 musculo(nome_musculo)
 
 O nome_musculo na tabela musculo vai ser do tipo único.
+
+Na tabela exercícios, vai obter conjunto de todos os exercícios existentes.
+
+Todos os campos são únicos
