@@ -3,7 +3,7 @@
 Neste projeto, vai obter vários gráficos para ter a possibilidade de analisar e perceber como é que está a progressão de algum objetivo como por exemplo perder peso ou ganhar peso e até mesmo entender como é que os alimentos que nós comemos contribui para as calorias dárias, macronutrientes e micronutrientes.
 Um exemplo de um simples gráfico que analisa um alimento que é a pizza carbonara da pizza hut 100G
 
-<img src="https://raw.githubusercontent.com/8fn/browsemuscle/docs/grafico_macronutrientes.png">
+<img src="https://raw.githubusercontent.com/8fn/BrowseMuscle/blob/graficos/docs/grafico_macronutrientes.png">
 
 O gráfico representa os macronutrientes da pizza.
 
