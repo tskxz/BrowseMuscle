@@ -1,0 +1,25 @@
+{
+  "name": "browsemuscle",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/8fn/BrowseMuscle.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/8fn/BrowseMuscle/issues"
+  },
+  "homepage": "https://github.com/8fn/BrowseMuscle#readme",
+  "dependencies": {
+    "chart.js": "^3.9.1"
+  }
+}
