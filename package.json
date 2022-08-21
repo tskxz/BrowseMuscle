@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/8fn/BrowseMuscle#readme",
   "dependencies": {
-    "chart.js": "^3.9.1"
+    "chart.js": "^3.9.1",
+    "mysql": "^2.18.1"
   }
 }
