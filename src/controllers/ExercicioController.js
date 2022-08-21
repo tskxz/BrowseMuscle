@@ -1,0 +1,1 @@
+const ExercicioService = require('../services/ExercicioService');
