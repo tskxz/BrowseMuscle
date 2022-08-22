@@ -32,5 +32,32 @@ module.exports = {
 		}
 
 		res.json(json);
+	},
+
+	inserir: async (req, res) => {
+		let json = {error:'', result:[]};
+
+		let nome_exercicio = req.body.nome_exercicio;
+		let nome_equipamento = req.body.nome_equipamento;
+		let nome_dificuldade = req.body.nome_dificuldade;
+		let nome_musculo = req.body.nome_musculo;
+
+		
+
+		if(nome_equipamento && nome_equipamento && nome_dificuldade && nome_musculo){
+			let ExercicioId = await ExercicioService.inserir(nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo);
+			json.result = {
+				id: ExercicioId,
+				nome_exercicio,
+				nome_equipamento,
+				nome_dificuldade,
+				nome_musculo
+			};
+		} else {
+			json.error = 'Error!';
+		}
+
+		res.json(json);
 	}
+
 }
