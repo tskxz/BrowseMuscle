@@ -58,6 +58,33 @@ module.exports = {
 		}
 
 		res.json(json);
+	},
+
+	alterar: async (req, res) => {
+		let json = {error:'', result:[]};
+
+		let id = req.params.id;
+		let nome_exercicio = req.body.nome_exercicio;
+		let nome_equipamento = req.body.nome_equipamento;
+		let nome_dificuldade = req.body.nome_dificuldade;
+		let nome_musculo = req.body.nome_musculo;
+
+		
+
+		if(id && nome_equipamento && nome_equipamento && nome_dificuldade && nome_musculo){
+			await ExercicioService.alterar(id, nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo);
+			json.result = {
+				id,
+				nome_exercicio,
+				nome_equipamento,
+				nome_dificuldade,
+				nome_musculo
+			};
+		} else {
+			json.error = 'Error!';
+		}
+
+		res.json(json);
 	}
 
 }
