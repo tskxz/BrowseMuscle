@@ -1,5 +1,10 @@
 # BrowseMuscle
 
+## 🚧 - Em Progresso 
+
+#### - 26/08/2022
+Fetch API - [Pull request em construção Fetch API para FrontEnd](https://github.com/8fn/BrowseMuscle/pull/15)
+
 ## Updates
 
 #### - 25/08/2022
