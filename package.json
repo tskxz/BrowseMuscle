@@ -7,6 +7,7 @@
     "doc": "docs"
   },
   "scripts": {
+    "start": "nodemon ./src/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,7 +21,14 @@
   },
   "homepage": "https://github.com/8fn/BrowseMuscle#readme",
   "dependencies": {
+    "body-parser": "^1.20.0",
     "chart.js": "^3.9.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
     "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
   }
 }
