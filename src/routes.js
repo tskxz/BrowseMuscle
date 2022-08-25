@@ -1,8 +1,13 @@
 const express = require('express');
 const router = express.Router();
+const path = require('path');
 
 const ExercicioController = require('./controllers/ExercicioController')
 const MusculoController = require('./controllers/MusculoController');
+
+router.get('/', function(req, res) {
+	res.sendFile(path.join(__dirname, '/views/exercicios.html'))
+})
 
 router.get('/exercicios', ExercicioController.buscarTodos)
 router.get('/exercicio/:id', ExercicioController.buscarUm);
