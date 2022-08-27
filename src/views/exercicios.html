@@ -9,13 +9,27 @@
 			.then(res => res.json())
 			.then(data => {
 		 			 	const nome_exercicios = data.result.map((item) => item.nome_exercicio);
-		  				console.log(nome_exercicios);
+		 			 	renderNames(nome_exercicios);
+		  				
 					})
-			.then(data => console.log(data))
-			.catch(error => console.log('Error.'))
-
+			
 			
 
+		function renderNames(names){
+			const container = document.getElementById('exercicios');
+			container.innerHtml = '';
+				for (const name of names) {
+				  const p = document.createElement('p');
+				  const textNode = document.createTextNode(name);
+				  p.appendChild(textNode);
+				  container.appendChild(p);
+				}
+		}
+
 	</script>
+
+	<div id="exercicios">
+		
+	</div>
 </body>
 </html>
