@@ -5,8 +5,22 @@
 </head>
 <body>
 	<script>
-		fetch('http://localhost:3000/api/exercicios')
-			.then(res => res.json())
+		fetch('http://localhost:3000/api/exercicio/', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+
+			body: JSON.stringify({
+				nome_exercicio: 'Leg Press',
+				nome_equipamento: 'maquina',
+				nome_dificuldade: 'iniciante',
+				nome_musculo: 'quadriceps'
+			})
+		})
+			.then(res => {
+				return res.json()
+			})
 			.then(data => console.log(data))
 			.catch(error => console.log('Error.'))
 	</script>
