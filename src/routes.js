@@ -6,6 +6,10 @@ const ExercicioController = require('./controllers/ExercicioController')
 const MusculoController = require('./controllers/MusculoController');
 
 router.get('/', function(req, res) {
+	res.sendFile(path.join(__dirname, '/views/exercicios_POST.html'))
+})
+
+router.get('/view', function(req, res) {
 	res.sendFile(path.join(__dirname, '/views/exercicios.html'))
 })
 
