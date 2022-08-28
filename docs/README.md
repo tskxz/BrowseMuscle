@@ -2,10 +2,13 @@
 
 ## 🚧 - Em Progresso 
 
-#### 28/08/2022
-JSON para FrontEnd
+Render Tables Data into HTML
 
 ## Updates
+
+#### 28/08/2022
+
+JSON para FrontEnd - [Pull request Fetch Function Data JSON para HTML](https://github.com/8fn/BrowseMuscle/pull/17)
 
 #### - 27/08/2022
 Fetch API - [Pull request em construção Fetch API](https://github.com/8fn/BrowseMuscle/pull/15)
