@@ -13,6 +13,10 @@ router.get('/view', function(req, res) {
 	res.sendFile(path.join(__dirname, '/views/exercicios.html'))
 })
 
+router.get('/tabela_exercicios', function(req, res){
+	res.sendFile(path.join(__dirname, '/views/tabela_exercicios.html'))
+})
+
 router.get('/exercicios', ExercicioController.buscarTodos)
 router.get('/exercicio/:id', ExercicioController.buscarUm);
 router.post('/exercicio', ExercicioController.inserir);
