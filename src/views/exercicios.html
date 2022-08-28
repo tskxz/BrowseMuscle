@@ -7,8 +7,29 @@
 	<script>
 		fetch('http://localhost:3000/api/exercicios/')
 			.then(res => res.json())
-			.then(data => console.log(data))
-			.catch(error => console.log('Error.'))
+			.then(data => {
+		 			 	const nome_exercicios = data.result.map((item) => item.nome_exercicio);
+		 			 	renderNames(nome_exercicios);
+		  				
+					})
+			
+			
+
+		function renderNames(names){
+			const container = document.getElementById('exercicios');
+			container.innerHtml = '';
+				for (const name of names) {
+				  const p = document.createElement('p');
+				  const textNode = document.createTextNode(name);
+				  p.appendChild(textNode);
+				  container.appendChild(p);
+				}
+		}
+
 	</script>
+
+	<div id="exercicios">
+		
+	</div>
 </body>
 </html>
