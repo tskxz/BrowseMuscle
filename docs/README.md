@@ -1,10 +1,10 @@
 # BrowseMuscle
 
-## 🚧 - Em Progresso 
+## 🚧 - Updates
 
-Render Tables Data into HTML
+#### 29/08/2022
 
-## Updates
+Render Tables Data into HTML - [Pull request criar uma tabela para visualizar exercicios](https://github.com/8fn/BrowseMuscle/pull/18)
 
 #### 28/08/2022
 
