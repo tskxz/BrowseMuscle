@@ -30,4 +30,3 @@ const lineChart = new Chart(ctx, {
     	}
     }
 });
-
