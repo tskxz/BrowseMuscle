@@ -4,7 +4,7 @@
 
 #### 30/08/2022
 
-Filter by Muscle insert - [Pull request inserir dado na tabela do musculo ao inserir um novo dado exercício](https://github.com/8fn/BrowseMuscle/pull/21)
+Filter by Muscle insert - [Pull request inserir dado na tabela do musculo ao inserir um novo dado exercício](https://github.com/8fn/BrowseMuscle/pull/21)  
 MYSQL Credenciais para windows e linux - [Commit do mysql.js e var.env](https://github.com/8fn/BrowseMuscle/pull/20/commits/407a0fd9bc2c9228369693efb57377cc0ffc4353)
 
 #### 29/08/2022
