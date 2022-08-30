@@ -25,8 +25,8 @@ module.exports = {
 	
 	inserir: (nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo)=> {
 		return new Promise( (aceito, rejeitado) => {
-			db.query('INSERT INTO exercicios (nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo) VALUES(?,?,?,?)', 
-				[nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo],
+			db.query('INSERT INTO exercicios (nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo) VALUES(?,?,?,?); INSERT INTO ?? SELECT * FROM exercicios where nome_musculo = ?', 
+				[nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo, nome_musculo, nome_musculo],
 				(error, results)=>{
 					if(error){ rejeitado(error); return; }
 					aceito(results.insertId);
