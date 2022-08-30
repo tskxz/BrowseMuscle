@@ -2,6 +2,9 @@
 
 ## 🚧 - Updates
 
+#### 30/08/2022
+
+Filter by Muscle insert - [Pull request inserir dado na tabela do musculo ao inserir um novo dado exercício](https://github.com/8fn/BrowseMuscle/pull/21)
 #### 29/08/2022
 
 Render Tables Data into HTML - [Pull request criar uma tabela para visualizar exercicios](https://github.com/8fn/BrowseMuscle/pull/18)
