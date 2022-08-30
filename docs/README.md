@@ -1,5 +1,67 @@
 # BrowseMuscle
 
+## 📝 - Sobre o projeto
+
+Este projeto ainda está em **construção** e é um projeto de aptidão profissional que possa servir futuramente para ajudar as pessoas a poderem obter mais informação sobre vários exercícios.  
+
+Para quem está a começar a ir para o ginásio e não tem muito conhecimento nem experiência sobre treino e é completamente iniciante, BrowseMuscle vai ser útil para conhecer vários exercícios.  
+
+BrowseMuscle tem várias tabelas que mostram todos os exercícios disponíveis que é possível realizar num ginásio ou até mesmo em casa.  
+Cada exercício atinge os músculos principais e com BrowseMuscle, podemos realizar a pesquisa por cada grupo muscular. Também é possivel realizar a pesquisa através do filtro da dificuldade (iniciante, intermediario, avancado) e equipamentos (cabos, halteres, barra, peso corporal, maquina).
+
+Aspetos importantes do BrowseMuscle
+- Visualizar os exercícios através de cada dificuldades
+- Visualizar os exercícios através de cada equipamentos
+- Visualizar os exercícios através de cada principal grupo múscular
+- Explicação da execução de cada exercício disponível
+- Ilustração de cada execução biomecânica do exercício
+
+## 🗃️ - Tabelas
+Várias tabelas vão ter conjunto de exercícios.
+Existe a tabela principal que é a tabela que mostra todos os exercícios disponiveis da base de dados que se chama `exercícios`
+Essa tabela vai ter os seguintes campos:
+
+```
+exercícios {
+	nome_exercicio,
+	nome_equipamento,
+	nome_dificuldade,
+	nome_musculo
+}
+```
+
+Cada exercício atinge um músculo principal especifico. Cada tabela muscular, vai obter lista de exercícios que atinge esse musculo.
+As seguintes tabelas têm exatamente **os mesmos campos** que a tabela exercícios
+
+- antebraco
+- bicep
+- costas
+- gemeos
+- hamstrings
+- lats
+- ombros
+- peito
+- quadriceps
+- traps
+- triceps
+- gluteo
+
+Vão ter as tabelas de equipamentos que temos a possibilidade de visualizar todos exercícios com aquele equipamento
+
+- exercicios_bodyweight
+- exercicios_cabos
+- exercicios_elastico
+- exercicios_halteres
+- exercicios_maquina
+- exercicios_barra
+
+As tabelas dificuldades acontece o mesmo do que a tabela de equipamentos
+Também temos a possibilidade de filtrar e visualizar apenas exercícios com a dificuldade que desejamos.  Então vamos obter as tabelas:
+
+- exrcicios_iniciante
+- exercicios_intermediario
+- exercicios_avancado
+
 ## 🚧 - Updates
 
 #### 30/08/2022
