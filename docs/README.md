@@ -173,6 +173,31 @@ Servidor a rodar em: http://localhost:3000
 Conectado base de dados: browsemuscle
 ```
 
+Utilizo o POSTMAN para testar a API do projeto
+Website oficial do POSTMAN - https://www.postman.com/
+
+Ao acessar o método GET para ter todas os dados exercícios existentes
+
+![api_exercicios](https://raw.githubusercontent.com/8fn/BrowseMuscle/master/docs/imgs/api_exercicios.PNG "api_exercicios")  
+ 
+Ao acessar o método GET para ter apenas um dado ao pesquisar por ID
+![api_exercicio_pesquisa](https://raw.githubusercontent.com/8fn/BrowseMuscle/master/docs/imgs/api_exercicio_pesquisa.PNG "api_exercicio_pesquisa")  
+
+Ao acessar o método POST para inserir um novo dado `bent over row`
+![api_exercicio_bentover](https://raw.githubusercontent.com/8fn/BrowseMuscle/master/docs/imgs/api_exercicio_post_bentover.PNG "api_exercicio_bentover")
+
+Ao acessar o método PUT para alterar o dado recém criado de
+```json
+"nome_dificuldade": "intermediario"
+```
+para
+
+```json
+"nome_dificuldade": "avancado"
+```
+
+![api_exercicio_put](https://raw.githubusercontent.com/8fn/BrowseMuscle/master/docs/imgs/api_exercicio_put_bentover.PNG "api_exercicio_put")
+
 ## 🚧 - Updates
 
 #### 30/08/2022
