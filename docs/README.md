@@ -68,6 +68,54 @@ Também temos a possibilidade de filtrar e visualizar apenas exercícios com a d
 - exercicios_intermediario
 - exercicios_avancado
 
+## Começar a usar o projeto
+Instruções para rodar o projeto localmente.  Para rodar o projeto localmente e testar, segue as seguintes simples instruções
+
+### Pré-requisitos
+- npm
+```
+npm install npm@latest -g
+```
+- node.js
+Instalar node.js no website oficial https://nodejs.org/en/
+
+- mysql server ou xampp
+Instalar mysql server and mysql workbench https://dev.mysql.com/downloads/installer/
+OU
+Instalar xampp https://www.apachefriends.org/
+
+### Instalação
+Segue os seguintes passos e instruções para instalar e preparar o ambiente de trabalho para o projeto
+1. Clonar o repositório
+```
+git clone https://github.com/8fn/BrowseMuscle.git
+```
+2.   Instalar npm packages
+```
+npm install
+```
+3. Editar var.env a depender com as configurações do teu mysql server
+
+	```env
+	PORT=3000
+
+	DB_HOST=localhost
+	DB_USER=root
+	DB_PASS=
+	DB_PASS_LINUX=root
+	DB_NAME=browsemuscle
+	```
+
+	`src/mysql`
+	```js
+	const connection = mysql.createConnection({
+			host: process.env.DB_HOST,
+			user: process.env.DB_USER,
+			password: process.env.DB_PASS,
+			database: process.env.DB_NAME,
+			multipleStatements: true
+	});
+	```
 ## 🚧 - Updates
 
 #### 30/08/2022
