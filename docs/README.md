@@ -116,6 +116,63 @@ npm install
 			multipleStatements: true
 	});
 	```
+
+## Uso do projeto
+
+No `routes.js` estão definidos as rotas e estão as seguintes rotas que vao ser usadas para o servidor API
+
+```js
+router.get('/view', function(req, res) {
+	res.sendFile(path.join(__dirname, '/views/exercicios.html'))
+})
+
+router.get('/', function(req, res){
+	res.sendFile(path.join(__dirname, '/views/tabela_exercicios.html'))
+})
+
+router.get('/exercicios', ExercicioController.buscarTodos)
+router.get('/exercicio/:id', ExercicioController.buscarUm);
+router.post('/exercicio', ExercicioController.inserir);
+router.put('/exercicio/:id', ExercicioController.alterar);
+router.delete('/exercicio/:id', ExercicioController.apagar);
+
+router.get('/musculos', MusculoController.visualizarTodos);
+```
+
+Existem  as seguintes rotas:
+
+GET
+- `/`
+- `/exercicios`
+- `/exercicio/:id`
+- `/view`
+- `/musculos`
+
+POST
+- `/exercicio`
+
+PUT 
+- `/exercicio/:id`
+
+DELETE
+- `/exercicio/:id`
+
+Ao iniciar o servidor que está definido em `package.json` com 
+
+```json
+"start": "nodemon ./src/server.js",
+```
+```
+npm start
+```
+
+O resultado ao iniciar o projeto era suposto ser
+```
+[nodemon] starting `node ./src/server.js`
+Servidor a rodar em: http://localhost:3000
+Conectado base de dados: browsemuscle
+```
+
 ## 🚧 - Updates
 
 #### 30/08/2022
