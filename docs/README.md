@@ -205,10 +205,10 @@ para
 
 #### 31/08/2022
 
-Format Form data - [Pull request Form Data Bootstrap]
-Top Navegation - [Pull request top navegation bar table](https://github.com/8fn/BrowseMuscle/pull/29)
-Add link column - [Pull request nova coluna link](https://github.com/8fn/BrowseMuscle/pull/27)
-Form data - [Pull Request Form Data for POST](https://github.com/8fn/BrowseMuscle/pull/24)
+Format Form data - [Pull request Form Data Bootstrap](https://github.com/8fn/BrowseMuscle/pull/30)  
+Top Navegation - [Pull request top navegation bar table](https://github.com/8fn/BrowseMuscle/pull/29)  
+Add link column - [Pull request nova coluna link](https://github.com/8fn/BrowseMuscle/pull/27)  
+Form data - [Pull Request Form Data for POST](https://github.com/8fn/BrowseMuscle/pull/24)  
 
 #### 30/08/2022
 
