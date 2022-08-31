@@ -71,17 +71,19 @@ module.exports = {
 		let nome_equipamento = req.body.nome_equipamento;
 		let nome_dificuldade = req.body.nome_dificuldade;
 		let nome_musculo = req.body.nome_musculo;
+		let link_url = req.body.link_url;
 
 		
 
-		if(id && nome_equipamento && nome_equipamento && nome_dificuldade && nome_musculo){
-			await ExercicioService.alterar(id, nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo);
+		if(id && nome_equipamento && nome_equipamento && nome_dificuldade && nome_musculo && link_url){
+			await ExercicioService.alterar(id, nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo, link_url);
 			json.result = {
 				id,
 				nome_exercicio,
 				nome_equipamento,
 				nome_dificuldade,
-				nome_musculo
+				nome_musculo,
+				link_url
 			};
 		} else {
 			json.error = 'Error!';
