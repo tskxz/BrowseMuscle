@@ -203,6 +203,13 @@ para
 
 ## 🚧 - Updates
 
+#### 31/08/2022
+
+Format Form data - [Pull request Form Data Bootstrap]
+Top Navegation - [Pull request top navegation bar table](https://github.com/8fn/BrowseMuscle/pull/29)
+Add link column - [Pull request nova coluna link](https://github.com/8fn/BrowseMuscle/pull/27)
+Form data - [Pull Request Form Data for POST](https://github.com/8fn/BrowseMuscle/pull/24)
+
 #### 30/08/2022
 
 Filter by Muscle insert - [Pull request inserir dado na tabela do musculo ao inserir um novo dado exercício](https://github.com/8fn/BrowseMuscle/pull/21)  
