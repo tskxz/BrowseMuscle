@@ -336,70 +336,94 @@ ALTER TABLE `exercicios_intermediario` ADD FOREIGN KEY (`nome_dificuldade`) REFE
 
 ALTER TABLE `exercicios_avancado` ADD FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT; ALTER TABLE `exercicios_avancado` ADD FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos`(`nome`) ON DELETE RESTRICT ON UPDATE RESTRICT; ALTER TABLE `exercicios_avancado` ADD FOREIGN KEY (`nome_exercicio`) REFERENCES `exercicios`(`nome_exercicio`) ON DELETE RESTRICT ON UPDATE RESTRICT; ALTER TABLE `Exercicios_Avancado` ADD FOREIGN KEY (`nome_musculo`) REFERENCES `musculo`(`nome_musculo`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
-/* Adicionar chave estrangeira link em todas tabelas a partir da tabela exercícios */
+/* Adicionar coluna link */
 
-ALTER TABLE `abdominais` ADD `link` VARCHAR(500) NOT NULL AFTER `nome_musculo`, ADD INDEX (`link`(500));
-ALTER TABLE `abdominais` ADD FOREIGN KEY (`link`) REFERENCES `exercicios`(`link`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+/*ALTER TABLE `exercicios` ADD `link` VARCHAR(500) NOT NULL ;*/
+ALTER TABLE `exercicios` ADD `link_url` VARCHAR(500) NOT NULL , ADD INDEX (`link_url`(500));
 
-ALTER TABLE `antebraco` ADD `link` VARCHAR(500) NOT NULL AFTER `nome_musculo`, ADD INDEX (`link`(500));
-ALTER TABLE `antebraco` ADD FOREIGN KEY (`link`) REFERENCES `exercicios`(`link`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+ALTER TABLE `abdominais` ADD `link` VARCHAR(500) NOT NULL ;
+ALTER TABLE `antebraco` ADD `link` VARCHAR(500) NOT NULL ;
+ALTER TABLE `biceps` ADD `link` VARCHAR(500) NOT NULL ;
+ALTER TABLE `costas` ADD `link` VARCHAR(500) NOT NULL ;
+ALTER TABLE `exercicios_avancado` ADD `link` VARCHAR(500) NOT NULL ;
+ALTER TABLE `exercicios_barra` ADD `link` VARCHAR(500) NOT NULL ;
+ALTER TABLE `exercicios_bodyweight` ADD `link` VARCHAR(500) NOT NULL ;
+ALTER TABLE `exercicios_cabos` ADD `link` VARCHAR(500) NOT NULL ;
+ALTER TABLE `exercicios_elastico` ADD `link` VARCHAR(500) NOT NULL ;
+ALTER TABLE `exercicios_halteres` ADD `link` VARCHAR(500) NOT NULL ;
+ALTER TABLE `exercicios_iniciante` ADD `link` VARCHAR(500) NOT NULL ;
+ALTER TABLE `exercicios_intermediario` ADD `link` VARCHAR(500) NOT NULL ;
+ALTER TABLE `exercicios_maquina` ADD `link` VARCHAR(500) NOT NULL ;
+ALTER TABLE `gemeos` ADD `link` VARCHAR(500) NOT NULL ;
+ALTER TABLE `gluteo` ADD `link` VARCHAR(500) NOT NULL ;
+ALTER TABLE `hamstrings` ADD `link` VARCHAR(500) NOT NULL ;
+ALTER TABLE `lats` ADD `link` VARCHAR(500) NOT NULL ;
+ALTER TABLE `ombros` ADD `link` VARCHAR(500) NOT NULL ;
+ALTER TABLE `peito` ADD `link` VARCHAR(500) NOT NULL ;
+ALTER TABLE `quadriceps` ADD `link` VARCHAR(500) NOT NULL ;
+ALTER TABLE `traps` ADD `link` VARCHAR(500) NOT NULL ;
+ALTER TABLE `triceps` ADD `link` VARCHAR(500) NOT NULL ;
 
-ALTER TABLE `biceps` ADD `link` VARCHAR(500) NOT NULL AFTER `nome_musculo`, ADD INDEX (`link`(500));
-ALTER TABLE `biceps` ADD FOREIGN KEY (`link`) REFERENCES `exercicios`(`link`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+/* Criar tabela link */
+CREATE TABLE link(
+	id INT(6) AUTO_INCREMENT PRIMARY KEY NOT NULL,
+	link varchar(500) NOT NULL
+);
 
-ALTER TABLE `costas` ADD `link` VARCHAR(500) NOT NULL AFTER `nome_musculo`, ADD INDEX (`link`(500));
-ALTER TABLE `costas` ADD FOREIGN KEY (`link`) REFERENCES `exercicios`(`link`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+/* Chave estrangeira link */
 
-ALTER TABLE `exercicios_avancado` ADD `link` VARCHAR(500) NOT NULL AFTER `nome_musculo`, ADD INDEX (`link`(500));
-ALTER TABLE `exercicios_avancado` ADD FOREIGN KEY (`link`) REFERENCES `exercicios`(`link`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+ALTER TABLE `browsemuscle`.`link` ADD UNIQUE (`link`(500));
 
-ALTER TABLE `exercicios_barra` ADD `link` VARCHAR(500) NOT NULL AFTER `nome_musculo`, ADD INDEX (`link`(500));
-ALTER TABLE `exercicios_barra` ADD FOREIGN KEY (`link`) REFERENCES `exercicios`(`link`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+/* Adicionar relação link em todas as tabelas exercícios e grupos musculares */
 
-ALTER TABLE `exercicios_bodyweight` ADD `link` VARCHAR(500) NOT NULL AFTER `nome_musculo`, ADD INDEX (`link`(500));
-ALTER TABLE `exercicios_bodyweight` ADD FOREIGN KEY (`link`) REFERENCES `exercicios`(`link`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+ALTER TABLE `browsemuscle`.`exercicios` ADD INDEX (`link`(500));
 
-ALTER TABLE `exercicios_cabos` ADD `link` VARCHAR(500) NOT NULL AFTER `nome_musculo`, ADD INDEX (`link`(500));
-ALTER TABLE `exercicios_cabos` ADD FOREIGN KEY (`link`) REFERENCES `exercicios`(`link`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+/* Adicionar relacao na tabela exercícios */
+SET GLOBAL FOREIGN_KEY_CHECKS=0;
+ALTER TABLE `exercicios` ADD FOREIGN KEY (`link_url`) REFERENCES `link`(`link`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
-ALTER TABLE `exercicios_elastico` ADD `link` VARCHAR(500) NOT NULL AFTER `nome_musculo`, ADD INDEX (`link`(500));
-ALTER TABLE `exercicios_elastico` ADD FOREIGN KEY (`link`) REFERENCES `exercicios`(`link`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+ALTER TABLE `costas` CHANGE `link` `link_url` VARCHAR(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL;
+ALTER TABLE `biceps` CHANGE `link` `link_url` VARCHAR(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL;
+ALTER TABLE `antebraco` CHANGE `link` `link_url` VARCHAR(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL;
+ALTER TABLE `abdominais` CHANGE `link` `link_url` VARCHAR(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL;
+ALTER TABLE `exercicios_avancado` CHANGE `link` `link_url` VARCHAR(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL;
+ALTER TABLE `exercicios_barra` CHANGE `link` `link_url` VARCHAR(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL;
+ALTER TABLE `exercicios_bodyweight` CHANGE `link` `link_url` VARCHAR(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL;
+ALTER TABLE `exercicios_cabos` CHANGE `link` `link_url` VARCHAR(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL;
+ALTER TABLE `exercicios_elastico` CHANGE `link` `link_url` VARCHAR(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL;
+ALTER TABLE `exercicios_halteres` CHANGE `link` `link_url` VARCHAR(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL;
+ALTER TABLE `exercicios_iniciante` CHANGE `link` `link_url` VARCHAR(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL;
+ALTER TABLE `exercicios_intermediario` CHANGE `link` `link_url` VARCHAR(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL;
+ALTER TABLE `exercicios_maquina` CHANGE `link` `link_url` VARCHAR(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL;
+ALTER TABLE `gemeos` CHANGE `link` `link_url` VARCHAR(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL;
+ALTER TABLE `gluteo` CHANGE `link` `link_url` VARCHAR(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL;
+ALTER TABLE `hamstrings` CHANGE `link` `link_url` VARCHAR(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL;
+ALTER TABLE `lats` CHANGE `link` `link_url` VARCHAR(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL;
+ALTER TABLE `ombros` CHANGE `link` `link_url` VARCHAR(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL;
+ALTER TABLE `peito` CHANGE `link` `link_url` VARCHAR(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL;
+ALTER TABLE `quadriceps` CHANGE `link` `link_url` VARCHAR(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL;
+ALTER TABLE `traps` CHANGE `link` `link_url` VARCHAR(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL;
+ALTER TABLE `triceps` CHANGE `link` `link_url` VARCHAR(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL;
 
-ALTER TABLE `exercicios_halteres` ADD `link` VARCHAR(500) NOT NULL AFTER `nome_musculo`, ADD INDEX (`link`(500));
-ALTER TABLE `exercicios_halteres` ADD FOREIGN KEY (`link`) REFERENCES `exercicios`(`link`) ON DELETE RESTRICT ON UPDATE RESTRICT;
-
-ALTER TABLE `exercicios_iniciante` ADD `link` VARCHAR(500) NOT NULL AFTER `nome_musculo`, ADD INDEX (`link`(500));
-ALTER TABLE `exercicios_iniciante` ADD FOREIGN KEY (`link`) REFERENCES `exercicios`(`link`) ON DELETE RESTRICT ON UPDATE RESTRICT;
-
-ALTER TABLE `exercicios_intermediario` ADD `link` VARCHAR(500) NOT NULL AFTER `nome_musculo`, ADD INDEX (`link`(500));
-ALTER TABLE `exercicios_intermediario` ADD FOREIGN KEY (`link`) REFERENCES `exercicios`(`link`) ON DELETE RESTRICT ON UPDATE RESTRICT;
-
-ALTER TABLE `exercicios_maquina` ADD `link` VARCHAR(500) NOT NULL AFTER `nome_musculo`, ADD INDEX (`link`(500));
-ALTER TABLE `exercicios_maquina` ADD FOREIGN KEY (`link`) REFERENCES `exercicios`(`link`) ON DELETE RESTRICT ON UPDATE RESTRICT;
-
-ALTER TABLE `gemeos` ADD `link` VARCHAR(500) NOT NULL AFTER `nome_musculo`, ADD INDEX (`link`(500));
-ALTER TABLE `gemeos` ADD FOREIGN KEY (`link`) REFERENCES `exercicios`(`link`) ON DELETE RESTRICT ON UPDATE RESTRICT;
-
-ALTER TABLE `gluteo` ADD `link` VARCHAR(500) NOT NULL AFTER `nome_musculo`, ADD INDEX (`link`(500));
-ALTER TABLE `gluteo` ADD FOREIGN KEY (`link`) REFERENCES `exercicios`(`link`) ON DELETE RESTRICT ON UPDATE RESTRICT;
-
-ALTER TABLE `hamstrings` ADD `link` VARCHAR(500) NOT NULL AFTER `nome_musculo`, ADD INDEX (`link`(500));
-ALTER TABLE `hamstrings` ADD FOREIGN KEY (`link`) REFERENCES `exercicios`(`link`) ON DELETE RESTRICT ON UPDATE RESTRICT;
-
-ALTER TABLE `lats` ADD `link` VARCHAR(500) NOT NULL AFTER `nome_musculo`, ADD INDEX (`link`(500));
-ALTER TABLE `lats` ADD FOREIGN KEY (`link`) REFERENCES `exercicios`(`link`) ON DELETE RESTRICT ON UPDATE RESTRICT;
-
-ALTER TABLE `ombros` ADD `link` VARCHAR(500) NOT NULL AFTER `nome_musculo`, ADD INDEX (`link`(500));
-ALTER TABLE `ombros` ADD FOREIGN KEY (`link`) REFERENCES `exercicios`(`link`) ON DELETE RESTRICT ON UPDATE RESTRICT;
-
-ALTER TABLE `peito` ADD `link` VARCHAR(500) NOT NULL AFTER `nome_musculo`, ADD INDEX (`link`(500));
-ALTER TABLE `peito` ADD FOREIGN KEY (`link`) REFERENCES `exercicios`(`link`) ON DELETE RESTRICT ON UPDATE RESTRICT;
-
-ALTER TABLE `quadriceps` ADD `link` VARCHAR(500) NOT NULL AFTER `nome_musculo`, ADD INDEX (`link`(500));
-ALTER TABLE `quadriceps` ADD FOREIGN KEY (`link`) REFERENCES `exercicios`(`link`) ON DELETE RESTRICT ON UPDATE RESTRICT;
-
-ALTER TABLE `traps` ADD `link` VARCHAR(500) NOT NULL AFTER `nome_musculo`, ADD INDEX (`link`(500));
-ALTER TABLE `traps` ADD FOREIGN KEY (`link`) REFERENCES `exercicios`(`link`) ON DELETE RESTRICT ON UPDATE RESTRICT;
-
-ALTER TABLE `triceps` ADD `link` VARCHAR(500) NOT NULL AFTER `nome_musculo`, ADD INDEX (`link`(500));
-ALTER TABLE `triceps` ADD FOREIGN KEY (`link`) REFERENCES `exercicios`(`link`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+ALTER TABLE `costas` ADD FOREIGN KEY (`link_url`) REFERENCES `link`(`link`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+ALTER TABLE `biceps` ADD FOREIGN KEY (`link_url`) REFERENCES `link`(`link`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+ALTER TABLE `antebraco` ADD FOREIGN KEY (`link_url`) REFERENCES `link`(`link`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+ALTER TABLE `abdominais` ADD FOREIGN KEY (`link_url`) REFERENCES `link`(`link`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+ALTER TABLE `exercicios_avancado` ADD FOREIGN KEY (`link_url`) REFERENCES `link`(`link`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+ALTER TABLE `exercicios_barra` ADD FOREIGN KEY (`link_url`) REFERENCES `link`(`link`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+ALTER TABLE `exercicios_bodyweight` ADD FOREIGN KEY (`link_url`) REFERENCES `link`(`link`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+ALTER TABLE `exercicios_cabos` ADD FOREIGN KEY (`link_url`) REFERENCES `link`(`link`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+ALTER TABLE `exercicios_elastico` ADD FOREIGN KEY (`link_url`) REFERENCES `link`(`link`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+ALTER TABLE `exercicios_halteres` ADD FOREIGN KEY (`link_url`) REFERENCES `link`(`link`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+ALTER TABLE `exercicios_iniciante` ADD FOREIGN KEY (`link_url`) REFERENCES `link`(`link`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+ALTER TABLE `exercicios_intermediario` ADD FOREIGN KEY (`link_url`) REFERENCES `link`(`link`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+ALTER TABLE `exercicios_maquina` ADD FOREIGN KEY (`link_url`) REFERENCES `link`(`link`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+ALTER TABLE `gemeos` ADD FOREIGN KEY (`link_url`) REFERENCES `link`(`link`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+ALTER TABLE `gluteo` ADD FOREIGN KEY (`link_url`) REFERENCES `link`(`link`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+ALTER TABLE `hamstrings` ADD FOREIGN KEY (`link_url`) REFERENCES `link`(`link`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+ALTER TABLE `lats` ADD FOREIGN KEY (`link_url`) REFERENCES `link`(`link`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+ALTER TABLE `ombros` ADD FOREIGN KEY (`link_url`) REFERENCES `link`(`link`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+ALTER TABLE `peito` ADD FOREIGN KEY (`link_url`) REFERENCES `link`(`link`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+ALTER TABLE `quadriceps` ADD FOREIGN KEY (`link_url`) REFERENCES `link`(`link`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+ALTER TABLE `traps` ADD FOREIGN KEY (`link_url`) REFERENCES `link`(`link`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+ALTER TABLE `triceps` ADD FOREIGN KEY (`link_url`) REFERENCES `link`(`link`) ON DELETE RESTRICT ON UPDATE RESTRICT;
