@@ -18,9 +18,14 @@
 		<label for="inp_nome_musculo">Nome do Musculo</label>
 		<input type="text" name="nome_musculo" id="inp_nome_musculo">
 		<br>
-		<button type="submit">Inserir</button>
+		<button type="submit" onclick="myFunction()">Inserir</button>
 	</form>
 
+	<script>
+		function myFunction(){
+			window.location.href="http://localhost:3000/api/";
+		}
+	</script>
 	<script>
 		const myForm = document.getElementById('myForm');
 
