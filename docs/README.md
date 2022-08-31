@@ -1,4 +1,4 @@
-# BrowseMuscle
+<h1 align="center">BrowseMuscle</h1>
 
 ![browsemuscle](https://raw.githubusercontent.com/8fn/BrowseMuscle/master/docs/imgs/browsemuscle01.PNG "browsemuscle")
 
