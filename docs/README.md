@@ -1,7 +1,5 @@
 <h1 align="center">BrowseMuscle</h1>
 
-![browsemuscle](https://raw.githubusercontent.com/8fn/BrowseMuscle/master/docs/imgs/browsemuscle01.PNG "browsemuscle")
-
 ###### ✅- Construido com
 ![MySQL](https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white) ![JS](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black) ![nodejs](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white
 )  ![html](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white
@@ -199,6 +197,9 @@ para
 ```
 
 ![api_exercicio_put](https://raw.githubusercontent.com/8fn/BrowseMuscle/master/docs/imgs/api_exercicio_put_bentover.PNG "api_exercicio_put")
+
+## Tabela
+![browsemuscle](https://raw.githubusercontent.com/8fn/BrowseMuscle/master/docs/imgs/browsemuscle01.PNG "browsemuscle")
 
 ## 🚧 - Updates
 
