@@ -4,6 +4,7 @@ const path = require('path');
 
 const ExercicioController = require('./controllers/ExercicioController')
 const MusculoController = require('./controllers/MusculoController');
+const LinkController = require('./controllers/LinkController');
 
 router.get('/post_exercicios', function(req, res) {
 	res.sendFile(path.join(__dirname, '/views/exercicios_POST.html'))
@@ -24,5 +25,7 @@ router.put('/exercicio/:id', ExercicioController.alterar);
 router.delete('/exercicio/:id', ExercicioController.apagar);
 
 router.get('/musculos', MusculoController.visualizarTodos);
+
+router.get('/links', LinkController.visualizarTodos);
 
 module.exports = router;
