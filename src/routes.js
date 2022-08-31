@@ -18,6 +18,11 @@ router.get('/', function(req, res){
 	res.sendFile(path.join(__dirname, '/views/tabela_exercicios.html'))
 })
 
+// http://localhost:3000/api/agachamento
+router.get('/', function(req, res){
+	res.sendFile(path.join(__dirname, '/views/docs_page/agachamento.html'))
+})
+
 router.get('/exercicios', ExercicioController.buscarTodos)
 router.get('/exercicio/:id', ExercicioController.buscarUm);
 router.post('/exercicio', ExercicioController.inserir);
