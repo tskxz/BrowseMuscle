@@ -4,27 +4,52 @@
 	<title></title>
 </head>
 <body>
-	<script>
-		/*
-		fetch('http://localhost:3000/api/exercicio/', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json'
-			},
+	
+	<form class="form" id="myForm">
+		<label for="inp_nome_exercicio">Nome do Exercício</label>
+		<input type="text" name="nome_exercicio" id="inp_nome_exercicio">
+		<br>
+		<label for="inp_nome_equipamento">Nome do equipamento</label>
+		<input type="text" name="nome_equipamento" id="inp_nome_equipamento">
+		<br>
+		<label for="inp_nome_dificuldade">Nome da dificuldade</label>
+		<input type="text" name="nome_dificuldade" id="inp_nome_dificuldade">
+		<br>
+		<label for="inp_nome_musculo">Nome do Musculo</label>
+		<input type="text" name="nome_musculo" id="inp_nome_musculo">
+		<br>
+		<button type="submit">Inserir</button>
+	</form>
 
-			body: JSON.stringify({
-				nome_exercicio: 'Supino',
-				nome_equipamento: 'barra',
-				nome_dificuldade: 'avancado',
-				nome_musculo: 'peito'
+	<script>
+		const myForm = document.getElementById('myForm');
+
+		myForm.addEventListener('submit', function(e) {
+			e.preventDefault();
+
+			const formData = new FormData(this);
+
+			const formDataObject = Object.fromEntries(formData.entries());
+			const formDataJsonString = JSON.stringify(formDataObject);
+			// value.topics = formData.getAll("topics");
+			console.log(formDataJsonString);
+			fetch('http://localhost:3000/api/exercicio/', {
+				method: 'POST',
+				headers: {
+						'Content-Type': 'application/json'
+				},
+
+				body: formDataJsonString
+			}).then(function (response) {
+				return response.text();
+			}).then(function (text) {
+				console.log(text);
+			}).catch(function(error){
+				console.log(error);
 			})
+
 		})
-			.then(res => {
-				return res.json()
-			})
-			.then(data => console.log(data))
-			.catch(error => console.log('Error.'))
-			*/
 	</script>
+
 </body>
 </html>
