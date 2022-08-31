@@ -19,7 +19,7 @@ router.get('/', function(req, res){
 })
 
 // http://localhost:3000/api/agachamento
-router.get('/', function(req, res){
+router.get('/agachamento', function(req, res){
 	res.sendFile(path.join(__dirname, '/views/docs_page/agachamento.html'))
 })
 
