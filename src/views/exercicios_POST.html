@@ -9,38 +9,21 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	
-	<form class="form" id="myForm">
-		<label for="inp_nome_exercicio">Nome do Exercício</label>
-		<input type="text" name="nome_exercicio" id="inp_nome_exercicio">
-		<br>
-		<label for="inp_nome_equipamento">Nome do equipamento</label>
-		<input type="text" name="nome_equipamento" id="inp_nome_equipamento">
-		<br>
-		<label for="inp_nome_dificuldade">Nome da dificuldade</label>
-		<input type="text" name="nome_dificuldade" id="inp_nome_dificuldade">
-		<br>
-		<label for="inp_nome_musculo">Nome do Musculo</label>
-		<input type="text" name="nome_musculo" id="inp_nome_musculo">
-		<br>
-		<label for="inp_nome_musculo">Link</label>
-		<input type="text" name="link_url" id="inp_nome_musculo">
-		<br>
-		<button type="submit" onclick="myFunction()">Inserir</button>
-	</form>
+	
 
 
 
 
 
 
-<form>
+<form class="form" id="myForm">
   <div class="form-group">
     <label for="exampleFormControlInput1">Nome do Exercício</label>
-    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="nome do exercício">
+    <input type="text" class="form-control form-control-sm" id="exampleFormControlInput1" placeholder="nome do exercício" name="nome_exercicio">
   </div>
   <div class="form-group">
     <label for="exampleFormControlSelect1">Nome do equipamento</label>
-    <select class="form-control" id="exampleFormControlSelect1">
+    <select class="form-control form-control-sm" id="exampleFormControlSelect1" name="nome_equipamento">
       <option>bodyweight</option>
       <option>halteres</option>
       <option>barra</option>
@@ -51,7 +34,7 @@
   </div>
    <div class="form-group">
     <label for="exampleFormControlSelect2">Nome da dificuldade</label>
-    <select class="form-control" id="exampleFormControlSelect2">
+    <select class="form-control form-control-sm" id="exampleFormControlSelect2" name="nome_dificuldade">
       <option>iniciante</option>
       <option>intermediario</option>
       <option>avancado</option>
@@ -59,7 +42,7 @@
   </div>
   <div class="form-group">
     <label for="exampleFormControlSelect2">Nome do músculo</label>
-    <select class="form-control" id="exampleFormControlSelect2">
+    <select class="form-control form-control-sm" id="exampleFormControlSelect2" name="nome_musculo">
       <option>abdominais</option>
       <option>antebraco</option>
       <option>biceps</option>
@@ -80,7 +63,7 @@
   </div>
    <div class="form-group">
     <label for="exampleFormControlSelect2">Link</label>
-    <select class="form-control" id="exampleFormControlSelect2">
+    <select class="form-control form-control-sm" id="exampleFormControlSelect2" name="link_url">
       <option>http://localhost:3000/api/tricep_extension</option>
       <option>http://localhost:3000/api/traps</option>
       <option>http://localhost:3000/api/supino</option>
@@ -100,8 +83,10 @@
       <option>http://localhost:3000/api/bicep_curl</option>
       <option>http://localhost:3000/api/antebraco</option>
       <option>http://localhost:3000/api/agachamento</option>
+      <option>http://localhost:3000/api/abdominais</option>
     </select>
   </div>
+  <button type="submit" onclick="myFunction()">Inserir</button>
 </form>
 
 
