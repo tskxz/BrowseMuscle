@@ -13,7 +13,7 @@ module.exports = {
 				nome_equipamento: exercicios[i].nome_equipamento,
 				nome_dificuldade: exercicios[i].nome_dificuldade,
 				nome_musculo: exercicios[i].nome_musculo,
-				link: exercicios[i].link
+				link_url: exercicios[i].link_url
 			});
 		}
 		res.setHeader('Access-Control-Allow-Origin', '*');
@@ -42,19 +42,19 @@ module.exports = {
 		let nome_equipamento = req.body.nome_equipamento;
 		let nome_dificuldade = req.body.nome_dificuldade;
 		let nome_musculo = req.body.nome_musculo;
-		let link = req.body.link;
+		let link_url = req.body.link_url;
 
 		
 
-		if(nome_equipamento && nome_equipamento && nome_dificuldade && nome_musculo && link){
-			let ExercicioId = await ExercicioService.inserir(nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo, link);
+		if(nome_equipamento && nome_equipamento && nome_dificuldade && nome_musculo && link_url){
+			let ExercicioId = await ExercicioService.inserir(nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo, link_url);
 			json.result = {
 				id: ExercicioId,
 				nome_exercicio,
 				nome_equipamento,
 				nome_dificuldade,
 				nome_musculo,
-				link
+				link_url
 			};
 		} else {
 			json.error = 'Error!';

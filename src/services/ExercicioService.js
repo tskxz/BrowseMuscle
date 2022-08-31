@@ -23,10 +23,10 @@ module.exports = {
 		});
 	},
 	
-	inserir: (nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo, link)=> {
+	inserir: (nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo, link_url)=> {
 		return new Promise( (aceito, rejeitado) => {
-			db.query('INSERT INTO exercicios (nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo, link) VALUES(?,?,?,?,?); INSERT INTO ?? (nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo, link) VALUES (?,?,?,?,?)', 
-				[nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo, link, nome_musculo, nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo, link],
+			db.query('INSERT INTO exercicios (nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo, link_url) VALUES(?,?,?,?,?); INSERT INTO ?? (nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo, link_url) VALUES (?,?,?,?,?)', 
+				[nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo, link_url, nome_musculo, nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo, link_url],
 				(error, results)=>{
 					if(error){ rejeitado(error); return; }
 					aceito(results.insertId);
