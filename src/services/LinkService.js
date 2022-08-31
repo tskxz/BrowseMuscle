@@ -8,5 +8,14 @@ module.exports = {
 				aceito(results);
 			})
 		})
+	},
+
+	inserir: (link) => {
+		return new Promise( (aceito, rejeitado) => {
+			db.query('INSERT INTO link (link) VALUES (?)', [link], (error, results) => {
+				if(error){rejeitado(error); return;}
+				aceito(results.insertId);
+			})
+		})
 	}
 }

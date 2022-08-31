@@ -27,5 +27,6 @@ router.delete('/exercicio/:id', ExercicioController.apagar);
 router.get('/musculos', MusculoController.visualizarTodos);
 
 router.get('/links', LinkController.visualizarTodos);
+router.post('/link', LinkController.inserir);
 
 module.exports = router;
