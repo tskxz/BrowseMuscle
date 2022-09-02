@@ -23,6 +23,11 @@ router.get('/agachamento', function(req, res){
 	res.sendFile(path.join(__dirname, '/views/docs_page/agachamento.html'))
 })
 
+// http://localhost:3000/api/bor
+router.get('/bor', function(req, res){
+	res.sendFile(path.join(__dirname, 'views/docs_page/bor.html'))
+})
+
 router.get('/exercicios', ExercicioController.buscarTodos)
 router.get('/exercicio/:id', ExercicioController.buscarUm);
 router.post('/exercicio', ExercicioController.inserir);
