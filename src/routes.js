@@ -28,9 +28,14 @@ router.get('/bor', function(req, res){
 	res.sendFile(path.join(__dirname, 'views/docs_page/bor.html'))
 })
 
-// http://localhost:3000/api/bor
+// http://localhost:3000/api/leg_extensions
 router.get('/leg_extensions', function(req, res){
 	res.sendFile(path.join(__dirname, 'views/docs_page/leg_extensions.html'))
+})
+
+// http://localhost:3000/api/elevacao_pelvica
+router.get('/leg_extensions', function(req, res){
+	res.sendFile(path.join(__dirname, 'views/docs_page/elevacao_pelvica.html'))
 })
 
 
