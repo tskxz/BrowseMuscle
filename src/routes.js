@@ -34,7 +34,7 @@ router.get('/leg_extensions', function(req, res){
 })
 
 // http://localhost:3000/api/elevacao_pelvica
-router.get('/leg_extensions', function(req, res){
+router.get('/elevacao_pelvica', function(req, res){
 	res.sendFile(path.join(__dirname, 'views/docs_page/elevacao_pelvica.html'))
 })
 
