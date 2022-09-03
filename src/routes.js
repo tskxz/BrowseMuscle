@@ -28,6 +28,12 @@ router.get('/bor', function(req, res){
 	res.sendFile(path.join(__dirname, 'views/docs_page/bor.html'))
 })
 
+// http://localhost:3000/api/bor
+router.get('/leg_extensions', function(req, res){
+	res.sendFile(path.join(__dirname, 'views/docs_page/leg_extensions.html'))
+})
+
+
 router.get('/exercicios', ExercicioController.buscarTodos)
 router.get('/exercicio/:id', ExercicioController.buscarUm);
 router.post('/exercicio', ExercicioController.inserir);
