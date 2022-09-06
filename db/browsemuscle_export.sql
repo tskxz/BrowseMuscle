@@ -27,6 +27,9 @@ SET time_zone = "+00:00";
 -- Estrutura da tabela `abdominais`
 --
 
+CREATE DATABASE 'browsemuscle';
+use browsemuscle;
+
 CREATE TABLE `abdominais` (
   `id` int(6) NOT NULL,
   `nome_exercicio` varchar(100) NOT NULL,
