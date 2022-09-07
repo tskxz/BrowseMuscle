@@ -151,13 +151,13 @@ GET
 POST
 - `/exercicio`
 
-PUT 
+PUT
 - `/exercicio/:id`
 
 DELETE
 - `/exercicio/:id`
 
-Ao iniciar o servidor que está definido em `package.json` com 
+Ao iniciar o servidor que está definido em `package.json` com
 
 ```json
 "start": "nodemon ./src/server.js",
@@ -179,7 +179,7 @@ Website oficial do POSTMAN - https://www.postman.com/
 Ao acessar o método GET para ter todas os dados exercícios existentes
 
 ![api_exercicios](https://raw.githubusercontent.com/8fn/BrowseMuscle/master/docs/imgs/api_exercicios.PNG "api_exercicios")  
- 
+
 Ao acessar o método GET para ter apenas um dado ao pesquisar por ID
 ![api_exercicio_pesquisa](https://raw.githubusercontent.com/8fn/BrowseMuscle/master/docs/imgs/api_exercicio_pesquisa.PNG "api_exercicio_pesquisa")  
 
@@ -202,6 +202,9 @@ para
 ![browsemuscle](https://raw.githubusercontent.com/8fn/BrowseMuscle/master/docs/imgs/browsemuscle01.PNG "browsemuscle")
 
 ## 🚧 - Updates
+
+#### 7/09/2022
+Insert another tables - [Pull request insert data in another tables](https://github.com/8fn/BrowseMuscle/pull/36)
 
 #### 31/08/2022
 
