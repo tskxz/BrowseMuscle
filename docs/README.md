@@ -29,10 +29,10 @@ Essa tabela vai ter os seguintes campos:
 
 ```
 exercícios {
-	nome_exercicio,
-	nome_equipamento,
-	nome_dificuldade,
-	nome_musculo
+ nome_exercicio,
+ nome_equipamento,
+ nome_dificuldade,
+ nome_musculo
 }
 ```
 
