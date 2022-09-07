@@ -8,8 +8,8 @@
 <body>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	
-	
+
+
 
 
 
@@ -18,73 +18,83 @@
 
 <form class="form" id="myForm">
   <div class="form-group">
-    <label for="exampleFormControlInput1">Nome do Exercício</label>
-    <input type="text" class="form-control form-control-sm" id="exampleFormControlInput1" placeholder="nome do exercício" name="nome_exercicio">
+		<div class="col-2">
+	    <label for="exampleFormControlInput1">Nome do Exercício</label>
+	    <input type="text" class="form-control form-control-sm" id="exampleFormControlInput1" placeholder="nome do exercício" name="nome_exercicio">
+		</div>
   </div>
   <div class="form-group">
-    <label for="exampleFormControlSelect1">Nome do equipamento</label>
-    <select class="form-control form-control-sm" id="exampleFormControlSelect1" name="nome_equipamento">
-      <option>bodyweight</option>
-      <option>halteres</option>
-      <option>barra</option>
-      <option>cabos</option>
-      <option>maquina</option>
-      <option>elastico</option>
-    </select>
+		<div class="col-2">
+	    <label for="exampleFormControlSelect1">Nome do equipamento</label>
+	    <select class="form-control form-control-sm" id="exampleFormControlSelect1" name="nome_equipamento">
+	      <option>bodyweight</option>
+	      <option>halteres</option>
+	      <option>barra</option>
+	      <option>cabos</option>
+	      <option>maquina</option>
+	      <option>elastico</option>
+	    </select>
+		</div>
   </div>
    <div class="form-group">
-    <label for="exampleFormControlSelect2">Nome da dificuldade</label>
-    <select class="form-control form-control-sm" id="exampleFormControlSelect2" name="nome_dificuldade">
-      <option>iniciante</option>
-      <option>intermediario</option>
-      <option>avancado</option>
-    </select>
+		 <div class="col-2">
+	    <label for="exampleFormControlSelect2">Nome da dificuldade</label>
+	    <select class="form-control form-control-sm" id="exampleFormControlSelect2" name="nome_dificuldade">
+	      <option>iniciante</option>
+	      <option>intermediario</option>
+	      <option>avancado</option>
+	    </select>
+		</div>
   </div>
   <div class="form-group">
-    <label for="exampleFormControlSelect2">Nome do músculo</label>
-    <select class="form-control form-control-sm" id="exampleFormControlSelect2" name="nome_musculo">
-      <option>abdominais</option>
-      <option>antebraco</option>
-      <option>biceps</option>
-      <option>costas</option>
-      <option>gemeos</option>
-      <option>biceps</option>
-      <option>costas</option>	
-      <option>gemeos</option>
-      <option>gluteo</option>
-      <option>hamstrings</option>
-      <option>lats</option>
-      <option>ombros</option>
-      <option>peito</option>
-      <option>quadriceps</option>
-      <option>traps</option>
-      <option>triceps</option>
-    </select>
+		<div class="col-2">
+	    <label for="exampleFormControlSelect2">Nome do músculo</label>
+	    <select class="form-control form-control-sm" id="exampleFormControlSelect2" name="nome_musculo">
+	      <option>abdominais</option>
+	      <option>antebraco</option>
+	      <option>biceps</option>
+	      <option>costas</option>
+	      <option>gemeos</option>
+	      <option>biceps</option>
+	      <option>costas</option>
+	      <option>gemeos</option>
+	      <option>gluteo</option>
+	      <option>hamstrings</option>
+	      <option>lats</option>
+	      <option>ombros</option>
+	      <option>peito</option>
+	      <option>quadriceps</option>
+	      <option>traps</option>
+	      <option>triceps</option>
+	    </select>
+		</div>
   </div>
    <div class="form-group">
-    <label for="exampleFormControlSelect2">Link</label>
-    <select class="form-control form-control-sm" id="exampleFormControlSelect2" name="link_url">
-      <option>http://localhost:3000/api/tricep_extension</option>
-      <option>http://localhost:3000/api/traps</option>
-      <option>http://localhost:3000/api/supino</option>
-      <option>http://localhost:3000/api/shoulder_press</option>
-      <option>http://localhost:3000/api/posteriores</option>
-      <option>http://localhost:3000/api/peito_aberturas</option>
-      <option>http://localhost:3000/api/lunges</option>	
-      <option>http://localhost:3000/api/leg_press</option>
-      <option>http://localhost:3000/api/leg_extensions</option>
-      <option>http://localhost:3000/api/leg_curl</option>
-      <option>http://localhost:3000/api/lat_pull_down</option>
-      <option>http://localhost:3000/api/lateral_raises</option>
-      <option>http://localhost:3000/api/gemeos</option>
-      <option>http://localhost:3000/api/elevacao_pelvica</option>
-      <option>http://localhost:3000/api/deadlift</option>
-      <option>http://localhost:3000/api/bor</option>
-      <option>http://localhost:3000/api/bicep_curl</option>
-      <option>http://localhost:3000/api/antebraco</option>
-      <option>http://localhost:3000/api/agachamento</option>
-      <option>http://localhost:3000/api/abdominais</option>
-    </select>
+		 <div class="col-2">
+	    <label for="exampleFormControlSelect2">Link</label>
+	    <select class="form-control form-control-sm" id="exampleFormControlSelect2" name="link_url">
+	      <option>http://localhost:3000/api/tricep_extension</option>
+	      <option>http://localhost:3000/api/traps</option>
+	      <option>http://localhost:3000/api/supino</option>
+	      <option>http://localhost:3000/api/shoulder_press</option>
+	      <option>http://localhost:3000/api/posteriores</option>
+	      <option>http://localhost:3000/api/peito_aberturas</option>
+	      <option>http://localhost:3000/api/lunges</option>
+	      <option>http://localhost:3000/api/leg_press</option>
+	      <option>http://localhost:3000/api/leg_extensions</option>
+	      <option>http://localhost:3000/api/leg_curl</option>
+	      <option>http://localhost:3000/api/lat_pull_down</option>
+	      <option>http://localhost:3000/api/lateral_raises</option>
+	      <option>http://localhost:3000/api/gemeos</option>
+	      <option>http://localhost:3000/api/elevacao_pelvica</option>
+	      <option>http://localhost:3000/api/deadlift</option>
+	      <option>http://localhost:3000/api/bor</option>
+	      <option>http://localhost:3000/api/bicep_curl</option>
+	      <option>http://localhost:3000/api/antebraco</option>
+	      <option>http://localhost:3000/api/agachamento</option>
+	      <option>http://localhost:3000/api/abdominais</option>
+	    </select>
+		</div>
   </div>
   <button type="submit" onclick="myFunction()">Inserir</button>
 </form>
