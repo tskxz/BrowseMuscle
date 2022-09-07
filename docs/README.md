@@ -36,37 +36,49 @@ exercícios {
 }
 ```
 
+| Equipamento | Exercício    | Dificuldade | Musculo | Link |
+|:-----------:|:------------:|:-----------:|:-------:|------|
+
+
+
 Cada exercício atinge um músculo principal especifico. Cada tabela muscular, vai obter lista de exercícios que atinge esse musculo.
 As seguintes tabelas têm exatamente **os mesmos campos** que a tabela exercícios
 
-- antebraco
-- bicep
-- costas
-- gemeos
-- hamstrings
-- lats
-- ombros
-- peito
-- quadriceps
-- traps
-- triceps
-- gluteo
+|   Musculo  |
+|:----------:|
+| antebraco  |
+| bicep      |
+| costas     |
+| gemeos     |
+| hamstrings |
+| lats       |
+| ombros     |
+| peito      |
+| quadriceps |
+| traps      |
+| triceps    |
+| gluteo     |
 
 Vão ter as tabelas de equipamentos que temos a possibilidade de visualizar todos exercícios com aquele equipamento
 
-- exercicios_bodyweight
-- exercicios_cabos
-- exercicios_elastico
-- exercicios_halteres
-- exercicios_maquina
-- exercicios_barra
+| Equipamentos |
+|:------------:|
+| bodyweight   |
+| cabos        |
+| elastico     |
+| halteres     |
+| maquina      |
+| barra        |
+| gluteo       |
 
 As tabelas dificuldades acontece o mesmo do que a tabela de equipamentos
 Também temos a possibilidade de filtrar e visualizar apenas exercícios com a dificuldade que desejamos.  Então vamos obter as tabelas:
 
-- exrcicios_iniciante
-- exercicios_intermediario
-- exercicios_avancado
+|  Dificuldades |
+|:-------------:|
+| iniciante     |
+| intermediario |
+| avancado      |
 
 ## Começar a usar o projeto
 Instruções para rodar o projeto localmente.  Para rodar o projeto localmente e testar, segue as seguintes simples instruções
