@@ -427,3 +427,19 @@ ALTER TABLE `peito` ADD FOREIGN KEY (`link_url`) REFERENCES `link`(`link`) ON DE
 ALTER TABLE `quadriceps` ADD FOREIGN KEY (`link_url`) REFERENCES `link`(`link`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 ALTER TABLE `traps` ADD FOREIGN KEY (`link_url`) REFERENCES `link`(`link`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 ALTER TABLE `triceps` ADD FOREIGN KEY (`link_url`) REFERENCES `link`(`link`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+/* Mudar os nomes das tabelas */
+
+/* Dificuldades */
+RENAME TABLE `browsemuscle`.`exercicios_avancado` TO `browsemuscle`.`avancado`;
+	RENAME TABLE `browsemuscle`.`exercicios_iniciante` TO `browsemuscle`.`iniciante`;
+	RENAME TABLE `browsemuscle`.`exercicios_intermediario` TO `browsemuscle`.`intermediario`;
+
+
+/* Equipamentos */
+	RENAME TABLE `browsemuscle`.`exercicios_maquina` TO `browsemuscle`.`maquina`;
+	RENAME TABLE `browsemuscle`.`exercicios_bodyweight` TO `browsemuscle`.`bodyweight`;
+	RENAME TABLE `browsemuscle`.`exercicios_cabos` TO `browsemuscle`.`cabos`;
+	RENAME TABLE `browsemuscle`.`exercicios_halteres` TO `browsemuscle`.`halteres`;
+	RENAME TABLE `browsemuscle`.`exercicios_elastico` TO `browsemuscle`.`elastico`;
+	RENAME TABLE `browsemuscle`.`exercicios_barra` TO `browsemuscle`.`barra`;
