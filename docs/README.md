@@ -36,8 +36,8 @@ exercícios {
 }
 ```
 
-| Equipamento | Exercício    | Dificuldade | Musculo | Link |
-|:-----------:|:------------:|:-----------:|:-------:|------|
+| Exercício | Equipamento | Dificuldade | Musculo | Link |
+|:---------:|-------------|-------------|---------|------|
 
 
 
