@@ -5,7 +5,7 @@ const path = require('path');
 const ExercicioController = require('./controllers/ExercicioController')
 const MusculoController = require('./controllers/MusculoController');
 const LinkController = require('./controllers/LinkController');
-
+/*
 router.get('/post_exercicios', function(req, res) {
 	res.sendFile(path.join(__dirname, '/views/exercicios_POST.html'))
 })
@@ -17,7 +17,7 @@ router.get('/view', function(req, res) {
 router.get('/', function(req, res){
 	res.sendFile(path.join(__dirname, '/views/tabela_exercicios.html'))
 })
-
+*/
 router.get('/exercicios', ExercicioController.buscarTodos)
 router.get('/exercicio/:id', ExercicioController.buscarUm);
 router.post('/exercicio', ExercicioController.inserir);
