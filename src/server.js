@@ -4,7 +4,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 
 const routes = require('./routes');
-const tables = require('./tables');
+const admin = require('./admin');
 const app = require('./app');
 
 const server = express();
@@ -13,7 +13,7 @@ server.use(cors());
 server.use(bodyParser.json())
 
 server.use('/api', routes);
-server.use('/admin', tables);
+server.use('/admin', admin);
 server.use('/', app);
 
 server.listen(process.env.PORT, ()=>{
