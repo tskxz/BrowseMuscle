@@ -16,6 +16,8 @@ server.use('/api', routes);
 server.use('/admin', admin);
 server.use('/', app);
 
+server.use('/assets', express.static('./src/views/app/assets'));
+
 server.listen(process.env.PORT, ()=>{
 	console.log(`Servidor a rodar em: http://localhost:${process.env.PORT}`);
 })
