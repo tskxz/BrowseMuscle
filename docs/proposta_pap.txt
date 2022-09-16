@@ -1,0 +1,93 @@
+Este projeto pode servir para as pessoas com que obtenham conhecimento mais amplo sobre exercícios físicos.
+
+Para quem está a começar a ir para o ginásio e não tem muito conhecimento nem experiência sobre treino e é completamente iniciante, este projeto vai ser útil para conhecer vários exercícios e executa-los de forma correta.
+
+As pessoas mesmo que conheçam mas têm dificuldades de realizar, este projeto possa ser muito útil para o indivíduo que queira conhecer e aprender.
+
+O projeto irá se consistir num site em que se vai mostrar todos os exercícios possíveis e que cada exercício vai obter uma explicação da realização do movimento e vai ter uma demonstração da biomecânica do exercício.
+
+O projeto vai ter várias tabelas de cada grupo muscular que vai obter conjunto de exercícios.
+Temos por exemplo o grupo muscular peito, vamos ter a tabela peito que vai mostrar todos os exercícios possíveis para atingir esse músculo e cada exercício tem uma demonstração da realização do exercício.
+
+A página principal pode ser uma imagem a representar a estrutura muscular de um corpo humano e ter vários grupos musculares para escolher. Podemos escolher qualquer como por exemplo costas peito abdominais etc...
+
+Exemplo
+
+Tabela Ombros
+
++----------------------+-------------+-------------+
+|        Ombros        | Equipamento | Dificuldade |
++----------------------+-------------+-------------+
+|       Overhead Press |       Barra |    Avancado |
++----------------------+-------------+-------------+
+| Cable Lateral Raises |       Cabos |   Iniciante |
++----------------------+-------------+-------------+
+|            Face Pull |       Cabos |   Iniciante |
++----------------------+-------------+-------------+
+
+
+Tabela Quads
+
++-----------------------+-------------+---------------+
+|         Quads         | Equipamento |  Dificuldade  |
+|                       |             |               |
+|                       |             |               |
++-----------------------+-------------+---------------+
+|         Barbell Squat |       Barra |      Avancado |
+|                       |             |               |
++-----------------------+-------------+---------------+
+|             Leg Press |     Maquina | Intermediario |
+|                       |             |               | 
++-----------------------+-------------+---------------+
+| Bulgarian Split Squat |  Bodyweight |     Iniciante |
+|                       |             |               |
++-----------------------+-------------+---------------+
+
+
+Um utilizador pode visualizar e ver os exercícios de cada dificuldade.
+Por exemplo se o utilizador só quiser exercícios de dificuldade avançada, vai clicar na tabela avançada que irá mostrar apenas exercícios com dificuldade avançada.
+
+Mesma coisa com os equipamentos. Se o utilizador quiser apenas visualizar exercicios de bodyweight, irá escolher a tabela Bodyweight
+que irá mostrar todos os exercícios disponíveis para bodyweight.
+
+Igualmente com os grupos musculares, se quiser um musculo, irá obter todos os exercícios dísponíveis para esse grupo muscular.
+
+Iremos obter as seguintes tabelas que podemos conseguir visualizar no site:
+
+// Tabela das dificuldades
+
+iniciante
+intermediario
+avancado
+
+// Tabelas de Equipamentos
+
+maquina
+bodyweight
+cabos
+halteres
+elastico
+
+// Tabela de grupos musculares
+
+peito
+ombro
+tricep
+costas
+lats
+traps
+biceps
+quads
+hamstrings
+gemeos
+antebraco
+abdominais
+
+Neste projeto também planeio implementar a análise dos alimentos onde se pode pesquisar qualquer alimento que deseje e ver as macros como por exemplo:
+
+Bolachas Filipinos - 515 calorias
+Carboidratos: 62g
+Gorduras: 26g
+Proteinas: 6.7g
+
+Cada alimento vai obter um gráfico para visualizar a quantidade de macronutrientes
