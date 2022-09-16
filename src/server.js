@@ -27,3 +27,4 @@ server.use('/', app);
 server.listen(process.env.PORT, ()=>{
 	console.log(`Servidor a rodar em: http://localhost:${process.env.PORT}`);
 })
+	
