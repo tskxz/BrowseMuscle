@@ -1,6 +1,6 @@
 // dontenv - carrega as variáveis do ambiente num ficheiro .env
 // express - Framework para construçao de servidores web
-// cors - permite acesso ao API 
+// cors - permite acesso ao API
 // bodyParser - extrai informaçao a partir dos requests
 
 require('dotenv').config({path:'var.env'})
@@ -23,13 +23,9 @@ server.use('/api', routes);
 server.use('/admin', admin);
 server.use('/', app);
 
-<<<<<<< HEAD
 server.use('/assets', express.static('./src/views/app/assets'));
 
-=======
 // Servidor irá ser usado na porta 3000
->>>>>>> d36f10e8c578ed91e25039d8669bf4c223bc73a9
 server.listen(process.env.PORT, ()=>{
 	console.log(`Servidor a rodar em: http://localhost:${process.env.PORT}`);
 })
-	
