@@ -1,6 +1,8 @@
 const db = require('../mysql');
 
 module.exports = {
+
+	// Funcao para visualizar todos os links
 	visualizarTodos: () => {
 		return new Promise( (aceito, reijeitado) =>{
 			db.query('SELECT * FROM link', (error, results) => {
@@ -10,6 +12,7 @@ module.exports = {
 		})
 	},
 
+	// Funcao para inserir link
 	inserir: (link) => {
 		return new Promise( (aceito, rejeitado) => {
 			db.query('INSERT INTO link (link) VALUES (?)', [link], (error, results) => {
