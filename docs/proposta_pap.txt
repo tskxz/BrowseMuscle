@@ -94,8 +94,8 @@ Cada alimento vai obter um gráfico para visualizar a quantidade de macronutrien
 
 Um utilizador pode adicionar um alimento em que não exista na tabela da análise dos alimentos e pode preencher as informações necessárias e adiciona na tabela dos alimentos, a tabela dos alimentos vai ser pública. O problema é se o utilizador não preencher corretamente as informações e inventar os valores, o alimento não irá entrar na tabela publicamente. O administrador pode ver os alimentos que foram criados e escolher alimentos que irão para a tabela pública.
 
-Planeio também ter um track do treino, em que o utilizador pode montar o seu próprio plano de treino ou rotina e dar track a cada exercício.
-Um utilizador pode ter o seguinte treino como por exemplo um checklist e anotar as cargas ao longo do exercício:
+Planeio também ter um track do treino, em que o utilizador pode montar o seu próprio plano de treino desejado ou rotina e dar track a cada exercício.
+Um utilizador pode ter o seguinte plano de treino:
 
 Treino A (1 semana):
 
@@ -128,6 +128,7 @@ Nome do exercício | Peso | Reps
 - exercicio 5     | xKG  |  12
 - exercicio 6     | xKG  |  12
 - etc...
+O utilizador pode planear um plano de treino e quando for realizar o treino, tem a possibilidade de anotar a carga e número de repetições que fez e dar um checklist
 
 Em cada exercício, pode se ver a progressão de carga ou número de repetições ao longo de cada treino, por exemplo:
 
@@ -140,3 +141,12 @@ Quarta semana, o utilizador faz 90kg de supino
 Quando o utilizador seleciona o exercício supino no track do treino, o utilizador pode visualizar o gráfico de progresso desde o começo.
 Assim como todos os outros exercícios, quando o utilizador anota a carga e numero de repeticoes, irá ter a possibilidade de o utilizador poder visualizar o gráfico de progresso do exercício.
 
+O utilizador pode anotar o número de repetições em cada série deste tipo:
+
+Treino A (1 semana):
+
+Nome do exercício | Peso | Reps | Primeira série |
+- exercicio 1     | xKG  |  12  |        11      |
+- exercicio 2     | xKG  |  12  |        15      |
+- exercicio 3     | xKG  |  12  |        15      |
+- etc...
