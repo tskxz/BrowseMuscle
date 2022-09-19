@@ -52,7 +52,7 @@ que irá mostrar todos os exercícios disponíveis para bodyweight.
 
 Igualmente com os grupos musculares, se quiser um musculo, irá obter todos os exercícios dísponíveis para esse grupo muscular.
 
-Iremos obter as seguintes tabelas que podemos conseguir visualizar no site:
+Iremos obter as seguintes tabelas que podemos conseguir visualizar os exercícios disponiveis da seguinte categoria no site:
 
 // Tabela das dificuldades
 
@@ -91,3 +91,5 @@ Gorduras: 26g
 Proteinas: 6.7g
 
 Cada alimento vai obter um gráfico para visualizar a quantidade de macronutrientes
+
+Um utilizador pode adicionar um alimento em que não exista na tabela da análise dos alimentos e pode preencher as informações necessárias e adiciona na tabela dos alimentos, a tabela dos alimentos vai ser pública. O problema é se o utilizador não preencher corretamente as informações e inventar os valores, o alimento não irá entrar na tabela publicamente. O administrador pode ver os alimentos que foram criados e escolher alimentos que irão para a tabela pública.
