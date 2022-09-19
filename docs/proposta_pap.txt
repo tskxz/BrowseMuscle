@@ -93,3 +93,50 @@ Proteinas: 6.7g
 Cada alimento vai obter um gráfico para visualizar a quantidade de macronutrientes
 
 Um utilizador pode adicionar um alimento em que não exista na tabela da análise dos alimentos e pode preencher as informações necessárias e adiciona na tabela dos alimentos, a tabela dos alimentos vai ser pública. O problema é se o utilizador não preencher corretamente as informações e inventar os valores, o alimento não irá entrar na tabela publicamente. O administrador pode ver os alimentos que foram criados e escolher alimentos que irão para a tabela pública.
+
+Planeio também ter um track do treino, em que o utilizador pode montar o seu próprio plano de treino ou rotina e dar track a cada exercício.
+Um utilizador pode ter o seguinte treino como por exemplo um checklist e anotar as cargas ao longo do exercício:
+
+Treino A (1 semana):
+
+Nome do exercício | Peso | Reps
+- exercicio 1     | xKG  |  12
+- exercicio 2     | xKG  |  12
+- exercicio 3     | xKG  |  12
+- etc...
+
+Treino B (1 Semana):
+
+Nome do exercício | Peso | Reps
+- exercicio 4     | xKG  |  12
+- exercicio 5     | xKG  |  12
+- exercicio 6     | xKG  |  12
+- etc...
+
+Treino A (2 semana):
+
+Nome do exercício | Peso | Reps
+- exercicio 1     | xKG  |  12
+- exercicio 2     | xKG  |  12
+- exercicio 3     | xKG  |  12
+- etc...
+
+Treino B (2 Semana):
+
+Nome do exercício | Peso | Reps
+- exercicio 4     | xKG  |  12
+- exercicio 5     | xKG  |  12
+- exercicio 6     | xKG  |  12
+- etc...
+
+Em cada exercício, pode se ver a progressão de carga ou número de repetições ao longo de cada treino, por exemplo:
+
+No treino A
+Primeira semana, o utilizador faz 80kg de supino
+Segunda semana, o utilizador faz 82.5kg de supino
+Terceira semana, o utilizador faz 85kg de supino
+Quarta semana, o utilizador faz 90kg de supino
+
+Quando o utilizador seleciona o exercício supino no track do treino, o utilizador pode visualizar o gráfico de progresso desde o começo.
+Assim como todos os outros exercícios, quando o utilizador anota a carga e numero de repeticoes, irá ter a possibilidade de o utilizador poder visualizar o gráfico de progresso do exercício.
+
