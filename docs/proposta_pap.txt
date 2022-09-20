@@ -150,3 +150,6 @@ Nome do exercício | Peso | Reps | Primeira série | Segunda série | Terceira s
 - exercicio 2     | xKG  |  12  |        15      |      14       |      13        |
 - exercicio 3     | xKG  |  12  |        15      |      15       |      15        |
 - etc...
+
+Neste projeto, cada utilizador vai ter o seu perfil e pode editar as informações do seu perfil como por exemplo descrição, pode alterar a sua imagem de perfil e no perfil vai ter uma opção em que se quiser, pode mostrar o seu exercício favorito e o exercício que mais detesta (opcional).
+No perfil pode mostrar os melhores "lifts" recordes pessoais como por exemplo peso morto teve recorde pessoal de 200kg e vai poder destacar no perfil.
