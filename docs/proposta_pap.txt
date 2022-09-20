@@ -145,8 +145,8 @@ O utilizador pode anotar o número de repetições em cada série deste tipo:
 
 Treino A (1 semana):
 
-Nome do exercício | Peso | Reps | Primeira série |
-- exercicio 1     | xKG  |  12  |        11      |
-- exercicio 2     | xKG  |  12  |        15      |
-- exercicio 3     | xKG  |  12  |        15      |
+Nome do exercício | Peso | Reps | Primeira série | Segunda série | Terceira série |
+- exercicio 1     | xKG  |  12  |        11      |      10       |      9         |
+- exercicio 2     | xKG  |  12  |        15      |      14       |      13        |
+- exercicio 3     | xKG  |  12  |        15      |      15       |      15        |
 - etc...
