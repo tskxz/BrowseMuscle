@@ -7,7 +7,6 @@ const path = require('path');
 
 const ExercicioController = require('./controllers/ExercicioController')
 const MusculoController = require('./controllers/MusculoController');
-const LinkController = require('./controllers/LinkController');
 
 
 router.get('/exercicios', ExercicioController.buscarTodos) 	 // Rota do método GET para visualizar todos os exercícios
