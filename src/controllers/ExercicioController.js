@@ -1,4 +1,4 @@
-const ExercicioService = require('../services/ExercicioService'); // Usa o serviço para dar a resposta ao controlador 
+const ExercicioService = require('../services/ExercicioService'); // Usa o serviço para dar a resposta ao controlador
 
 module.exports = {
 
@@ -48,19 +48,17 @@ module.exports = {
 		let nome_equipamento = req.body.nome_equipamento;
 		let nome_dificuldade = req.body.nome_dificuldade;
 		let nome_musculo = req.body.nome_musculo;
-		let link_url = req.body.link_url;
 
-		
+
 		// Inserir exercício
-		if(nome_equipamento && nome_equipamento && nome_dificuldade && nome_musculo && link_url){
-			let ExercicioId = await ExercicioService.inserir(nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo, link_url);
+		if(nome_equipamento && nome_equipamento && nome_dificuldade && nome_musculo){
+			let ExercicioId = await ExercicioService.inserir(nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo);
 			json.result = {
 				id: ExercicioId,
 				nome_exercicio,
 				nome_equipamento,
 				nome_dificuldade,
-				nome_musculo,
-				link_url
+				nome_musculo
 			};
 		} else {
 			json.error = 'Error!';
@@ -81,7 +79,7 @@ module.exports = {
 		let nome_musculo = req.body.nome_musculo;
 		let link_url = req.body.link_url;
 
-		
+
 
 		if(id && nome_equipamento && nome_equipamento && nome_dificuldade && nome_musculo && link_url){
 			await ExercicioService.alterar(id, nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo, link_url);
