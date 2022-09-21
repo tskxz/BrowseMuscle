@@ -47,10 +47,10 @@ module.exports = {
 
 
 	// Funcao para alterar um exercício
-	alterar: (id, nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo, link_url)=> {
+	alterar: (id, nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo)=> {
 		return new Promise( (aceito, rejeitado) => {
-			db.query('UPDATE exercicios SET nome_exercicio = ?, nome_equipamento = ?, nome_dificuldade = ?, nome_musculo = ?, link_url = ? WHERE id = ?',
-				[nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo, link_url, id],
+			db.query('UPDATE exercicios SET nome_exercicio = ?, nome_equipamento = ?, nome_dificuldade = ?, nome_musculo = ? WHERE id = ?',
+				[nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo, id],
 				(error, results)=>{
 					if(error){ rejeitado(error); return; }
 					aceito(results);
