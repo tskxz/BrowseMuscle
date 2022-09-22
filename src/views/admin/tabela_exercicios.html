@@ -68,14 +68,15 @@
 
 		function buildTable(data){
 			var table = document.getElementById('myTable');
-
+      
+      // Mostrar todos os dados e meter a primeira palavra em maisculo
 			for(var i = 0; i<data.length; i++){
 				var row = ` <tr>
 								<td>${data[i].id}</td>
-								<td>${data[i].nome_exercicio}</td>
-								<td>${data[i].nome_equipamento}</td>
-								<td>${data[i].nome_dificuldade}</td>
-								<td>${data[i].nome_musculo}</td>
+								<td>${data[i].nome_exercicio.charAt(0).toUpperCase() + data[i].nome_exercicio.slice(1)}</td>
+								<td>${data[i].nome_equipamento.charAt(0).toUpperCase() + data[i].nome_equipamento.slice(1)}</td>
+								<td>${data[i].nome_dificuldade.charAt(0).toUpperCase() + data[i].nome_dificuldade.slice(1)}</td>
+								<td>${data[i].nome_musculo.charAt(0).toUpperCase() + data[i].nome_musculo.slice(1)}</td>
                 <td><button type="button" class="btn btn-success">Editar</button><button type="button" class="btn btn-danger">Apagar</button></td>
 							</tr>`
 				table.innerHTML += row
