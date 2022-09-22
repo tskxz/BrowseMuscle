@@ -89,8 +89,8 @@
 								<td>${data[i].nome_dificuldade.charAt(0).toUpperCase() + data[i].nome_dificuldade.slice(1)}</td>
 								<td>${data[i].nome_musculo.charAt(0).toUpperCase() + data[i].nome_musculo.slice(1)}</td>
                 <td>
-                  <button value="${data[i].id}" onclick="Idclick(this.value)" type="button" class="btn btn-success">Editar</button>
-                  <button value="${data[i].id}" onclick="Idclick(this.value)" type="button" class="btn btn-danger">Apagar</button>
+                  <button value="${data[i].id}" onclick="editar(this.value)" type="button" class="btn btn-success">Editar</button>
+                  <button value="${data[i].id}" onclick="apagar(this.value)" type="button" class="btn btn-danger">Apagar</button>
                 </td>
 							</tr>`
 				table.innerHTML += row
@@ -98,9 +98,16 @@
 
 
 		}
-    function Idclick(clicked){
-           console.log(clicked);
-       }
+    function editar(id){
+      url = "http://localhost:3000/admin/update_exercicios?id=";
+      console.log(id);
+       window.location = url + id;
+    }
+
+    function apagar(id){
+
+      console.log(id);
+    }
 
 
 
