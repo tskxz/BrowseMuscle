@@ -67,15 +67,21 @@
 
 
 	<script>
-  url = "http://localhost:3000/api/exercicio";
-  
-  fetch('http://localhost:3000/api/exercicios/')
-    .then(res => res.json())
-    .then(data => {
-          const nome_exercicios = data.result
-          console.log(nome_exercicios)
+  var url = new URL(window.location.href);
+  console.log(url)
 
-        })
+
+  var id = url.searchParams.get("id");
+  var nome_exercicio = url.searchParams.get("nome_exercicio");
+  var nome_equipamento = url.searchParams.get("nome_equipamento");
+  var nome_dificuldade = url.searchParams.get("nome_dificuldade");
+
+  console.log(id);
+  console.log(nome_exercicio);
+  console.log(nome_equipamento);
+  console.log(nome_dificuldade)
+
+
   </script>
 
 </body>

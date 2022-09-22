@@ -89,8 +89,8 @@
 								<td>${data[i].nome_dificuldade.charAt(0).toUpperCase() + data[i].nome_dificuldade.slice(1)}</td>
 								<td>${data[i].nome_musculo.charAt(0).toUpperCase() + data[i].nome_musculo.slice(1)}</td>
                 <td>
-                  <button value="${data[i].id}" onclick="editar(this.value)" type="button" class="btn btn-success">Editar</button>
-                  <button value="${data[i].id}" onclick="apagar(this.value)" type="button" class="btn btn-danger">Apagar</button>
+                  <button value="${data[i].id}&nome_exercicio=${data[i].nome_exercicio}&nome_equipamento=${data[i].nome_equipamento}&nome_dificuldade=${data[i].nome_dificuldade}&nome_musculo=${data[i].nome_musculo}" onclick="editar(this.value)" type="button" class="btn btn-success">Editar</button>
+                  <button value="${data[i].id}&nome_exercicio='${data[i].nome_exercicio}&nome_equipamento=${data[i].nome_equipamento}&nome_dificuldade=${data[i].nome_dificuldade}&nome_musculo=${data[i].nome_musculo}" onclick="apagar(this.value)" type="button" class="btn btn-danger">Apagar</button>
                 </td>
 							</tr>`
 				table.innerHTML += row
