@@ -28,14 +28,14 @@ module.exports = {
 	},
 
 	// Funcao para inserir exercício
-	inserir: (nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo, link_url)=> {
+	inserir: (nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo)=> {
 		return new Promise( (aceito, rejeitado) => {
-			db.query('INSERT INTO exercicios (nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo, link_url) VALUES(?,?,?,?,?); INSERT INTO ?? (nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo, link_url) VALUES (?,?,?,?,?); INSERT INTO ?? (nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo, link_url) VALUES (?,?,?,?,?); INSERT INTO ?? (nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo, link_url) VALUES (?,?,?,?,?);',
+			db.query('INSERT INTO exercicios (nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo) VALUES(?,?,?,?); INSERT INTO ?? (nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo) VALUES (?,?,?,?); INSERT INTO ?? (nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo) VALUES (?,?,?,?); INSERT INTO ?? (nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo) VALUES (?,?,?,?);',
 				[
-					nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo, link_url,
-					nome_musculo, nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo, link_url,
-					nome_equipamento, nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo, link_url,
-					nome_dificuldade, nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo, link_url
+					nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo,
+					nome_musculo, nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo,
+					nome_equipamento, nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo,
+					nome_dificuldade, nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo
 				],
 				(error, results)=>{
 					if(error){ rejeitado(error); return; }
@@ -47,10 +47,10 @@ module.exports = {
 
 
 	// Funcao para alterar um exercício
-	alterar: (id, nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo, link_url)=> {
+	alterar: (id, nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo)=> {
 		return new Promise( (aceito, rejeitado) => {
-			db.query('UPDATE exercicios SET nome_exercicio = ?, nome_equipamento = ?, nome_dificuldade = ?, nome_musculo = ?, link_url = ? WHERE id = ?',
-				[nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo, link_url, id],
+			db.query('UPDATE exercicios SET nome_exercicio = ?, nome_equipamento = ?, nome_dificuldade = ?, nome_musculo = ? WHERE id = ?',
+				[nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo, id],
 				(error, results)=>{
 					if(error){ rejeitado(error); return; }
 					aceito(results);
