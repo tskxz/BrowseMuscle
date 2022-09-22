@@ -172,10 +172,10 @@ CREATE TABLE `dificuldades` (
 --
 -- Dumping data for table `dificuldades`
 --
-INSERT INTO `dificuldades` (`id`, `nome`) VALUES
-(1, 'iniciante'),
-(2, 'intermediario'),
-(3, 'avancado');
+  INSERT INTO `dificuldades` (`id`, `nome`) VALUES
+  (1, 'iniciante'),
+  (2, 'intermediario'),
+  (3, 'avancado');
 -- --------------------------------------------------------
 
 --
