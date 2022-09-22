@@ -19,7 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `browsemuscle`
 --
-
+CREATE DATABASE browsemuscle;
+use browsemuscle;
 -- --------------------------------------------------------
 
 --
