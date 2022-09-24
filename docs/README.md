@@ -215,6 +215,9 @@ para
 
 ## 🚧 - Updates
 
+### Todas as Pull requests ao longo da produção do projeto
+[Pull requests todos](https://github.com/8fn/BrowseMuscle/pulls?q=)
+
 #### 7/09/2022
 Insert another tables - [Pull request insert data in another tables](https://github.com/8fn/BrowseMuscle/pull/36)
 
