@@ -12,17 +12,19 @@
 
 </form>
 <script>
-  
+
   function buildPut(){
     var form = document.getElementById('myForm');
 
     var url = new URL(window.location.href);
     console.log(url)
     var id = url.searchParams.get("id");
+		
     var nome_exercicio = url.searchParams.get("nome_exercicio");
     var nome_equipamento = url.searchParams.get("nome_equipamento");
     var nome_dificuldade = url.searchParams.get("nome_dificuldade");
-    
+		var nome_musculo = url.searchParams.get("nome_musculo");
+
     var value = `<div class="form-group">
         <label for="exampleFormControlInput1">Nome do Exercício</label>
         <input type="text" class="form-control form-control-sm" id="exampleFormControlInput1" placeholder="nome do exercício" name="nome_exercicio" value="${id}">
@@ -30,6 +32,7 @@
       <div class="form-group">
         <label for="exampleFormControlSelect1">Nome do equipamento</label>
         <select class="form-control form-control-sm" id="exampleFormControlSelect1" name="nome_equipamento">
+					<option>${nome_equipamento}</option>
           <option>bodyweight</option>
           <option>halteres</option>
           <option>barra</option>
@@ -41,6 +44,7 @@
        <div class="form-group">
         <label for="exampleFormControlSelect2">Nome da dificuldade</label>
         <select class="form-control form-control-sm" id="exampleFormControlSelect2" name="nome_dificuldade">
+					<option>${nome_dificuldade}</option>
           <option>iniciante</option>
           <option>intermediario</option>
           <option>avancado</option>
@@ -49,6 +53,8 @@
       <div class="form-group">
         <label for="exampleFormControlSelect2">Nome do músculo</label>
         <select class="form-control form-control-sm" id="exampleFormControlSelect2" name="nome_musculo">
+
+					<option>${nome_musculo}</option>
           <option>abdominais</option>
           <option>antebraco</option>
           <option>biceps</option>
@@ -74,17 +80,17 @@
   }
   buildPut();
 
-  
+
 </script>
 
- 
 
 
 
 
 
 
-	
+
+
 
 </body>
 </html>
