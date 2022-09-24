@@ -19,7 +19,7 @@
     var url = new URL(window.location.href);
     console.log(url)
     var id = url.searchParams.get("id");
-		
+
     var nome_exercicio = url.searchParams.get("nome_exercicio");
     var nome_equipamento = url.searchParams.get("nome_equipamento");
     var nome_dificuldade = url.searchParams.get("nome_dificuldade");
@@ -27,7 +27,7 @@
 
     var value = `<div class="form-group">
         <label for="exampleFormControlInput1">Nome do Exercício</label>
-        <input type="text" class="form-control form-control-sm" id="exampleFormControlInput1" placeholder="nome do exercício" name="nome_exercicio" value="${id}">
+        <input type="text" class="form-control form-control-sm" id="exampleFormControlInput1" placeholder="nome do exercício" name="nome_exercicio" value="${nome_exercicio}">
       </div>
       <div class="form-group">
         <label for="exampleFormControlSelect1">Nome do equipamento</label>
@@ -82,9 +82,53 @@
 
 
 </script>
+<script>
+	function myFunction(){
+		window.location.href="http://localhost:3000/admin";
+	}
+</script>
 
 
+<script>
+var url = new URL(window.location.href);
+var id = url.searchParams.get("id");
 
+url = "http://localhost:3000/api/exercicio/" + id;
+console.log(url);
+</script>
+
+<script>
+
+	const myForm = document.getElementById('myForm');
+
+	myForm.addEventListener('submit', function(e) {
+		e.preventDefault();
+
+		const formData = new FormData(this);
+
+		const formDataObject = Object.fromEntries(formData.entries());
+		const formDataJsonString = JSON.stringify(formDataObject);
+
+
+		console.log(formDataJsonString);
+		url = "http://localhost:3000/api/exercicio/" + id;
+		fetch(url, {
+			method: 'PUT',
+			headers: {
+					'Content-Type': 'application/json'
+			},
+
+			body: formDataJsonString
+		}).then(function (response) {
+			return response.text();
+		}).then(function (text) {
+			console.log(text);
+		}).catch(function(error){
+			console.log(error);
+		})
+
+	})
+</script>
 
 
 
