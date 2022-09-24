@@ -50,6 +50,17 @@
 
 					})
 
+          /* Ter todos os ids
+          fetch('http://localhost:3000/api/exercicios/')
+          			.then(res => res.json())
+          			.then(data => {
+          		 			 	const nome_exercicios = data.result
+                                  for(var i = 0; i<nome_exercicios.length; i++){
+                                      console.log(nome_exercicios[i].id)
+                                  }
+
+                      })
+          */
 
 		/*function getFullName(item){
 			return [item.nome_exercicio,item.nome_equipamento,item.nome_dificuldade,item.nome_musculo].join(" ");
@@ -68,7 +79,7 @@
 
 		function buildTable(data){
 			var table = document.getElementById('myTable');
-      
+
       // Mostrar todos os dados e meter a primeira palavra em maisculo
 			for(var i = 0; i<data.length; i++){
 				var row = ` <tr>
@@ -77,13 +88,33 @@
 								<td>${data[i].nome_equipamento.charAt(0).toUpperCase() + data[i].nome_equipamento.slice(1)}</td>
 								<td>${data[i].nome_dificuldade.charAt(0).toUpperCase() + data[i].nome_dificuldade.slice(1)}</td>
 								<td>${data[i].nome_musculo.charAt(0).toUpperCase() + data[i].nome_musculo.slice(1)}</td>
-                <td><button type="button" class="btn btn-success">Editar</button><button type="button" class="btn btn-danger">Apagar</button></td>
+                <td>
+                  <button value="${data[i].id}&nome_exercicio=${data[i].nome_exercicio}&nome_equipamento=${data[i].nome_equipamento}&nome_dificuldade=${data[i].nome_dificuldade}&nome_musculo=${data[i].nome_musculo}" onclick="editar(this.value)" type="button" class="btn btn-success">Editar</button>
+                  <button value="${data[i].id}&nome_exercicio='${data[i].nome_exercicio}&nome_equipamento=${data[i].nome_equipamento}&nome_dificuldade=${data[i].nome_dificuldade}&nome_musculo=${data[i].nome_musculo}" onclick="apagar(this.value)" type="button" class="btn btn-danger">Apagar</button>
+                </td>
 							</tr>`
 				table.innerHTML += row
 			}
-		}
 
-	</script>
+
+		}
+    function editar(id){
+      url = "http://localhost:3000/admin/update_exercicios?id=";
+      console.log(id);
+       window.location = url + id;
+    }
+
+    function apagar(id){
+
+      console.log(id);
+    }
+
+
+
+
+    </script>
+
+
 
 
 
@@ -91,6 +122,7 @@
 	<div class="topnav">
 		<a class="active" href="http://localhost:3000/admin">Visualizar Exercícios</a>
 		<a href="http://localhost:3000/admin/post_exercicios">Inserir Exercícios</a>
+    <a href="http://localhost:3000/admin/update_exercicios">Atualizar Exercícios</a>
 	</div>
 
 
