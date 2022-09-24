@@ -218,6 +218,21 @@ para
 ### Todas as Pull requests ao longo da produção do projeto
 [Pull requests todos](https://github.com/8fn/BrowseMuscle/pulls?q=)
 
+#### 24/09/2022
+Ter os valores para PUT form - [Atraves do URL, buscar os parametros para ter os valores do dado](https://github.com/8fn/BrowseMuscle/pull/52)
+Preencher no input os campos com valores - [Pull request valores no input](https://github.com/8fn/BrowseMuscle/pull/53)
+
+
+#### 22/09/2022
+Editar e apagar - [Pull request para acrescentar botoes editar e apagar dado na tabela exercícios](https://github.com/8fn/BrowseMuscle/pull/48)
+Resolver o erro foreign key constrain - [Pull request para resolver o erro do método PUT e DELETE](https://github.com/8fn/BrowseMuscle/pull/50)
+
+#### 17/09/2022
+Assets - [Pull request para adicionar js/css bootstrap](https://github.com/8fn/BrowseMuscle/pull/43)
+
+#### 8/09/2022
+Criar uma nova rota para app página principal - [Pull request mudar a estrutura e acrescentar rotas](https://github.com/8fn/BrowseMuscle/pull/42)
+
 #### 7/09/2022
 Insert another tables - [Pull request insert data in another tables](https://github.com/8fn/BrowseMuscle/pull/36)
 
