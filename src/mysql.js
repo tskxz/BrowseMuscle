@@ -3,7 +3,7 @@ const mysql = require('mysql');
 // Conectar a base de dados
 
 const connection = mysql.createConnection({
-	host: process.env.DB_HOST,				// localhost
+	host: process.env.DB_HOST,				// 132.145.18.76
 	user: process.env.DB_USER,				// root
 	password: process.env.DB_PASS_LINUX,			// root ou palavra passe vazia
 	database: process.env.DB_NAME,			// BrowseMuscle
