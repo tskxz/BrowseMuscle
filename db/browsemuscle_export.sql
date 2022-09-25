@@ -66,7 +66,7 @@ CREATE TABLE `antebraco` (
 --
 
 INSERT INTO `antebraco` (`id`, `nome_exercicio`, `nome_equipamento`, `nome_dificuldade`, `nome_musculo`, `link_url`) VALUES
-(1, 'Cable Reverse Curl', 'cabos', 'intermediario', 'antebraco', 'http://localhost:3000/api/antebraco');
+(1, 'Cable Reverse Curl', 'cabos', 'intermediario', 'antebraco', 'http://132.145.18.76:3000/api/antebraco');
 
 -- --------------------------------------------------------
 
@@ -88,7 +88,7 @@ CREATE TABLE `biceps` (
 --
 
 INSERT INTO `biceps` (`id`, `nome_exercicio`, `nome_equipamento`, `nome_dificuldade`, `nome_musculo`, `link_url`) VALUES
-(1, 'Rope Bicep Curl', 'cabos', 'iniciante', 'biceps', 'http://localhost:3000/api/bicep_curl');
+(1, 'Rope Bicep Curl', 'cabos', 'iniciante', 'biceps', 'http://132.145.18.76:3000/api/bicep_curl');
 
 -- --------------------------------------------------------
 
@@ -175,38 +175,38 @@ CREATE TABLE `exercicios` (
 --
 
 INSERT INTO `exercicios` (`id`, `nome_exercicio`, `nome_equipamento`, `nome_dificuldade`, `nome_musculo`, `link_url`) VALUES
-(1, 'Leg Extensions', 'maquina', 'iniciante', 'quadriceps', 'http://localhost:3000/api/leg_extensions'),
-(2, 'Elevacao Pelvica', 'barra', 'intermediario', 'gluteo', 'http://localhost:3000/api/elevacao_pelvica'),
-(3, 'Agachmento Livre', 'barra', 'avancado', 'quadriceps', 'http://localhost:3000/api/agachamento'),
-(4, 'Bicep Curl', 'barra', 'intermediario', 'biceps', 'http://localhost:3000/api/bicep_curl'),
-(6, 'Leg Press', 'maquina', 'iniciante', 'quadriceps', 'http://localhost:3000/api/leg_press'),
-(7, 'Supino', 'barra', 'avancado', 'peito', 'http://localhost:3000/api/supino'),
-(9, 'Lat Pull Down', 'maquina', 'intermediario', 'lats', 'http://localhost:3000/api/lat_pull_down'),
-(10, 'Hammer Curl', 'halteres', 'iniciante', 'biceps', 'http://localhost:3000/api/bicep_curl'),
-(11, 'Goblet Squat', 'halteres', 'iniciante', 'gluteo', 'http://localhost:3000/api/agachamento'),
-(12, 'Shoulder Press', 'maquina', 'iniciante', 'ombros', 'http://localhost:3000/api/shoulder_press'),
-(13, 'Smith Machine Squat', 'maquina', 'intermediario', 'quadriceps', 'http://localhost:3000/api/agachamento'),
-(14, 'Tricep Rope Pushdown', 'cabos', 'iniciante', 'triceps', 'http://localhost:3000/api/tricep_extension'),
-(15, 'Glute Bridge', 'bodyweight', 'intermediario', 'gluteo', 'http://localhost:3000/api/elevacao_pelvica'),
-(17, 'Cable Glute KickBack', 'cabos', 'iniciante', 'gluteo', 'http://localhost:3000/api/elevacao_pelvica'),
-(18, 'Cable Pull Over', 'cabos', 'intermediario', 'lats', 'http://localhost:3000/api/lat_pull_down'),
-(19, 'Half Kneeling One Arm Lat Pull Down', 'cabos', 'intermediario', 'lats', 'http://localhost:3000/api/lat_pull_down'),
-(20, 'Bent over row', 'barra', 'avancado', 'costas', 'http://localhost:3000/api/bor'),
-(21, 'Deadlift', 'barra', 'avancado', 'quadriceps', 'http://localhost:3000/api/deadlift'),
-(22, 'Cable Lateral Raises', 'barra', 'intermediario', 'ombros', 'http://localhost:3000/api/lateral_raises'),
-(23, 'Romanian Deadlift', 'barra', 'avancado', 'hamstrings', 'http://localhost:3000/api/deadlift'),
+(1, 'Leg Extensions', 'maquina', 'iniciante', 'quadriceps', 'http://132.145.18.76:3000/api/leg_extensions'),
+(2, 'Elevacao Pelvica', 'barra', 'intermediario', 'gluteo', 'http://132.145.18.76:3000/api/elevacao_pelvica'),
+(3, 'Agachmento Livre', 'barra', 'avancado', 'quadriceps', 'http://132.145.18.76:3000/api/agachamento'),
+(4, 'Bicep Curl', 'barra', 'intermediario', 'biceps', 'http://132.145.18.76:3000/api/bicep_curl'),
+(6, 'Leg Press', 'maquina', 'iniciante', 'quadriceps', 'http://132.145.18.76:3000/api/leg_press'),
+(7, 'Supino', 'barra', 'avancado', 'peito', 'http://132.145.18.76:3000/api/supino'),
+(9, 'Lat Pull Down', 'maquina', 'intermediario', 'lats', 'http://132.145.18.76:3000/api/lat_pull_down'),
+(10, 'Hammer Curl', 'halteres', 'iniciante', 'biceps', 'http://132.145.18.76:3000/api/bicep_curl'),
+(11, 'Goblet Squat', 'halteres', 'iniciante', 'gluteo', 'http://132.145.18.76:3000/api/agachamento'),
+(12, 'Shoulder Press', 'maquina', 'iniciante', 'ombros', 'http://132.145.18.76:3000/api/shoulder_press'),
+(13, 'Smith Machine Squat', 'maquina', 'intermediario', 'quadriceps', 'http://132.145.18.76:3000/api/agachamento'),
+(14, 'Tricep Rope Pushdown', 'cabos', 'iniciante', 'triceps', 'http://132.145.18.76:3000/api/tricep_extension'),
+(15, 'Glute Bridge', 'bodyweight', 'intermediario', 'gluteo', 'http://132.145.18.76:3000/api/elevacao_pelvica'),
+(17, 'Cable Glute KickBack', 'cabos', 'iniciante', 'gluteo', 'http://132.145.18.76:3000/api/elevacao_pelvica'),
+(18, 'Cable Pull Over', 'cabos', 'intermediario', 'lats', 'http://132.145.18.76:3000/api/lat_pull_down'),
+(19, 'Half Kneeling One Arm Lat Pull Down', 'cabos', 'intermediario', 'lats', 'http://132.145.18.76:3000/api/lat_pull_down'),
+(20, 'Bent over row', 'barra', 'avancado', 'costas', 'http://132.145.18.76:3000/api/bor'),
+(21, 'Deadlift', 'barra', 'avancado', 'quadriceps', 'http://132.145.18.76:3000/api/deadlift'),
+(22, 'Cable Lateral Raises', 'barra', 'intermediario', 'ombros', 'http://132.145.18.76:3000/api/lateral_raises'),
+(23, 'Romanian Deadlift', 'barra', 'avancado', 'hamstrings', 'http://132.145.18.76:3000/api/deadlift'),
 (24, 'Leg Seated Curl', 'maquina', 'iniciante', 'hamstrings', ''),
-(25, 'Prancha', 'bodyweight', 'intermediario', 'abdominais', 'http://localhost:3000/api/abdominais'),
-(26, 'Peck Deck', 'maquina', 'intermediario', 'peito', 'http://localhost:3000/api/peito_aberturas'),
-(28, 'Agachamento', 'bodyweight', 'iniciante', 'quadriceps', 'http://localhost:3000/api/agachamento'),
-(30, 'DB Bent over row', 'halteres', 'intermediario', 'costas', 'http://localhost:3000/api/bor'),
-(31, 'Lunges', 'bodyweight', 'intermediario', 'quadriceps', 'http://localhost:3000/api/lunges'),
-(35, 'Agachamento Corporal', 'bodyweight', 'intermediario', 'gluteo', 'http://localhost:3000/api/agachamento'),
-(37, 'Rope Bicep Curl', 'cabos', 'iniciante', 'biceps', 'http://localhost:3000/api/bicep_curl'),
-(38, 'Tricep Overhead Extension', 'cabos', 'intermediario', 'triceps', 'http://localhost:3000/api/tricep_extension'),
-(39, 'Cable Reverse Curl', 'cabos', 'intermediario', 'antebraco', 'http://localhost:3000/api/antebraco'),
-(40, 'Calf Raises', 'maquina', 'intermediario', 'gemeos', 'http://localhost:3000/api/gemeos'),
-(41, 'Shrugs', 'barra', 'iniciante', 'traps', 'http://localhost:3000/api/traps');
+(25, 'Prancha', 'bodyweight', 'intermediario', 'abdominais', 'http://132.145.18.76:3000/api/abdominais'),
+(26, 'Peck Deck', 'maquina', 'intermediario', 'peito', 'http://132.145.18.76:3000/api/peito_aberturas'),
+(28, 'Agachamento', 'bodyweight', 'iniciante', 'quadriceps', 'http://132.145.18.76:3000/api/agachamento'),
+(30, 'DB Bent over row', 'halteres', 'intermediario', 'costas', 'http://132.145.18.76:3000/api/bor'),
+(31, 'Lunges', 'bodyweight', 'intermediario', 'quadriceps', 'http://132.145.18.76:3000/api/lunges'),
+(35, 'Agachamento Corporal', 'bodyweight', 'intermediario', 'gluteo', 'http://132.145.18.76:3000/api/agachamento'),
+(37, 'Rope Bicep Curl', 'cabos', 'iniciante', 'biceps', 'http://132.145.18.76:3000/api/bicep_curl'),
+(38, 'Tricep Overhead Extension', 'cabos', 'intermediario', 'triceps', 'http://132.145.18.76:3000/api/tricep_extension'),
+(39, 'Cable Reverse Curl', 'cabos', 'intermediario', 'antebraco', 'http://132.145.18.76:3000/api/antebraco'),
+(40, 'Calf Raises', 'maquina', 'intermediario', 'gemeos', 'http://132.145.18.76:3000/api/gemeos'),
+(41, 'Shrugs', 'barra', 'iniciante', 'traps', 'http://132.145.18.76:3000/api/traps');
 
 -- --------------------------------------------------------
 
@@ -363,7 +363,7 @@ CREATE TABLE `gemeos` (
 --
 
 INSERT INTO `gemeos` (`id`, `nome_exercicio`, `nome_equipamento`, `nome_dificuldade`, `nome_musculo`, `link_url`) VALUES
-(1, 'Calf Raises', 'maquina', 'intermediario', 'gemeos', 'http://localhost:3000/api/gemeos');
+(1, 'Calf Raises', 'maquina', 'intermediario', 'gemeos', 'http://132.145.18.76:3000/api/gemeos');
 
 -- --------------------------------------------------------
 
@@ -452,25 +452,25 @@ CREATE TABLE `link` (
 --
 
 INSERT INTO `link` (`id`, `link`) VALUES
-(15, 'http://localhost:3000/api/abdominais'),
-(1, 'http://localhost:3000/api/agachamento'),
-(18, 'http://localhost:3000/api/antebraco'),
-(3, 'http://localhost:3000/api/bicep_curl'),
-(11, 'http://localhost:3000/api/bor'),
-(12, 'http://localhost:3000/api/deadlift'),
-(7, 'http://localhost:3000/api/elevacao_pelvica'),
-(19, 'http://localhost:3000/api/gemeos'),
-(13, 'http://localhost:3000/api/lateral_raises'),
-(9, 'http://localhost:3000/api/lat_pull_down'),
-(14, 'http://localhost:3000/api/leg_curl'),
-(4, 'http://localhost:3000/api/leg_extensions'),
-(8, 'http://localhost:3000/api/leg_press'),
-(17, 'http://localhost:3000/api/lunges'),
-(16, 'http://localhost:3000/api/peito_aberturas'),
-(10, 'http://localhost:3000/api/shoulder_press'),
-(6, 'http://localhost:3000/api/supino'),
-(20, 'http://localhost:3000/api/traps'),
-(5, 'http://localhost:3000/api/tricep_extension');
+(15, 'http://132.145.18.76:3000/api/abdominais'),
+(1, 'http://132.145.18.76:3000/api/agachamento'),
+(18, 'http://132.145.18.76:3000/api/antebraco'),
+(3, 'http://132.145.18.76:3000/api/bicep_curl'),
+(11, 'http://132.145.18.76:3000/api/bor'),
+(12, 'http://132.145.18.76:3000/api/deadlift'),
+(7, 'http://132.145.18.76:3000/api/elevacao_pelvica'),
+(19, 'http://132.145.18.76:3000/api/gemeos'),
+(13, 'http://132.145.18.76:3000/api/lateral_raises'),
+(9, 'http://132.145.18.76:3000/api/lat_pull_down'),
+(14, 'http://132.145.18.76:3000/api/leg_curl'),
+(4, 'http://132.145.18.76:3000/api/leg_extensions'),
+(8, 'http://132.145.18.76:3000/api/leg_press'),
+(17, 'http://132.145.18.76:3000/api/lunges'),
+(16, 'http://132.145.18.76:3000/api/peito_aberturas'),
+(10, 'http://132.145.18.76:3000/api/shoulder_press'),
+(6, 'http://132.145.18.76:3000/api/supino'),
+(20, 'http://132.145.18.76:3000/api/traps'),
+(5, 'http://132.145.18.76:3000/api/tricep_extension');
 
 -- --------------------------------------------------------
 
@@ -592,7 +592,7 @@ CREATE TABLE `traps` (
 --
 
 INSERT INTO `traps` (`id`, `nome_exercicio`, `nome_equipamento`, `nome_dificuldade`, `nome_musculo`, `link_url`) VALUES
-(1, 'Shrugs', 'barra', 'iniciante', 'traps', 'http://localhost:3000/api/traps');
+(1, 'Shrugs', 'barra', 'iniciante', 'traps', 'http://132.145.18.76:3000/api/traps');
 
 -- --------------------------------------------------------
 
@@ -615,7 +615,7 @@ CREATE TABLE `triceps` (
 
 INSERT INTO `triceps` (`id`, `nome_exercicio`, `nome_equipamento`, `nome_dificuldade`, `nome_musculo`, `link_url`) VALUES
 (14, 'Tricep Rope Pushdown', 'cabos', 'iniciante', 'triceps', ''),
-(15, 'Tricep Overhead Extension', 'cabos', 'intermediario', 'triceps', 'http://localhost:3000/api/tricep_extension');
+(15, 'Tricep Overhead Extension', 'cabos', 'intermediario', 'triceps', 'http://132.145.18.76:3000/api/tricep_extension');
 
 --
 -- Índices para tabelas despejadas
