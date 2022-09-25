@@ -42,7 +42,7 @@
 		<a href="http://localhost:3000/admin/post_exercicios">Inserir Exercícios</a>
 	</div>
 
-	<form class="form" id="myForm">
+	<form class="form was-validated" id="myForm">
 
 	</form>
 	<script>
@@ -71,40 +71,55 @@
 			<tbody>
 				<td>
 					<div class="form-group ">
-						<label for="exampleFormControlInput1">Nome do Exercício</label>
-						<input type="text" class="form-control form-control-sm" id="exampleFormControlInput1" placeholder="nome do exercício" name="nome_exercicio">
+						<label for="exampleFormControlInput1" class="form-label">Nome do Exercício</label>
+
+						<input type="text" class="form-control form-control-sm" id="exampleFormControlInput1" placeholder="nome do exercício" name="nome_exercicio" required>
+						<div class="valid-feedback">Valido!</div>
+						<div class="invalid-feedback">
+							Não pode estar vazio!
+						</div>
 					</div>
 				</td>
 				<td>
 				<div class="form-group">
 					<label for="exampleFormControlSelect1">Nome do equipamento</label>
-					<select class="form-control form-control-sm" id="exampleFormControlSelect1" name="nome_equipamento">
-					 <option selected>Escolhe uma opção do menu</option>
+					<select class="form-control form-control-sm" id="exampleFormControlSelect1" name="nome_equipamento" required>
+					 <option selected disabled value="">Escolhe uma opção do menu</option>
 						<option>bodyweight</option>
 						<option>halteres</option>
-						<option>barra</option>
+						<option>barra</Formoption>
 						<option>cabos</option>
 						<option>maquina</option>
 						<option>elastico</option>
 					</select>
+					<div class="valid-feedback">Valido!</div>
+					<div class="invalid-feedback">
+					*	Campo Obrigatório!
+					</div>
+				</div>
 				</div>
 				</td>
 				<td>
 					<div class="form-group">
 					 <label for="exampleFormControlSelect2">Nome da dificuldade</label>
-					 <select class="form-control form-control-sm" id="exampleFormControlSelect2" name="nome_dificuldade">
-					  <option selected>Escolhe uma opção do menu</option>
+					 <select class="form-control form-control-sm" id="exampleFormControlSelect2" name="nome_dificuldade" required>
+					  <option selected disable value="">Escolhe uma opção do menu</option>
 						 <option>iniciante</option>
 						 <option>intermediario</option>
 						 <option>avancado</option>
 					 </select>
+					 <div class="valid-feedback">Valido!</div>
+					 <div class="invalid-feedback">
+						* Campo obrigatorio!
+					 </div>
+				 </div>
 				 </div>
 				</td>
 				<td>
 					<div class="form-group">
 						<label for="exampleFormControlSelect2">Nome do músculo</label>
-						<select class="form-control form-control-sm" id="exampleFormControlSelect2" name="nome_musculo">
-						 <option selected disabled>Escolhe uma opção do menu</option>
+						<select class="form-control form-control-sm" id="exampleFormControlSelect2" name="nome_musculo" required>
+						 <option selected disabled value="">Escolhe uma opção do menu</option>
 							<option>abdominais</option>
 							<option>antebraco</option>
 							<option>biceps</option>
@@ -122,6 +137,11 @@
 							<option>traps</option>
 							<option>triceps</option>
 						</select>
+						<div class="valid-feedback">Valido!</div>
+						<div class="invalid-feedback">
+							* Campo obrigatorio!
+						</div>
+					</div>
 					</div>
 				</td>
 			</tbody>
@@ -143,8 +163,9 @@
 	</script>
 
 	<script>
+
 		function myFunction(){
-			window.location.href="http://localhost:3000/admin";
+			//window.location.href="http://localhost:3000/admin";
 		}
 	</script>
 
@@ -174,7 +195,7 @@
 			}).catch(function(error){
 				console.log(error);
 			})
-
+		window.location.href="http://localhost:3000/admin";
 		})
 	</script>
 
