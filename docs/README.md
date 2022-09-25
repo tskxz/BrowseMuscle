@@ -218,6 +218,8 @@ para
 ### Todas as Pull requests ao longo da produção do projeto
 [Pull requests todos](https://github.com/8fn/BrowseMuscle/pulls?q=)
 
+#### 25/09/2022
+Adicionar método delete - [Pull request Apagar dados com API delete](https://github.com/8fn/BrowseMuscle/pull/55)
 #### 24/09/2022
 Ter os valores para PUT form - [Atraves do URL, buscar os parametros para ter os valores do dado](https://github.com/8fn/BrowseMuscle/pull/52)  
 Preencher no input os campos com valores - [Pull request valores no input](https://github.com/8fn/BrowseMuscle/pull/53)
