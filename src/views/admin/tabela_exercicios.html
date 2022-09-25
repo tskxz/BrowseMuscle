@@ -81,33 +81,49 @@
 			var table = document.getElementById('myTable');
 
       // Mostrar todos os dados e meter a primeira palavra em maisculo
-			for(var i = 0; i<data.length; i++){
-				var row = ` <tr>
-								<td>${data[i].id}</td>
-								<td>${data[i].nome_exercicio.charAt(0).toUpperCase() + data[i].nome_exercicio.slice(1)}</td>
-								<td>${data[i].nome_equipamento.charAt(0).toUpperCase() + data[i].nome_equipamento.slice(1)}</td>
-								<td>${data[i].nome_dificuldade.charAt(0).toUpperCase() + data[i].nome_dificuldade.slice(1)}</td>
-								<td>${data[i].nome_musculo.charAt(0).toUpperCase() + data[i].nome_musculo.slice(1)}</td>
-                <td>
-                  <button value="${data[i].id}&nome_exercicio=${data[i].nome_exercicio}&nome_equipamento=${data[i].nome_equipamento}&nome_dificuldade=${data[i].nome_dificuldade}&nome_musculo=${data[i].nome_musculo}" onclick="editar(this.value)" type="button" class="btn btn-success">Editar</button>
-                  <button value="${data[i].id}&nome_exercicio='${data[i].nome_exercicio}&nome_equipamento=${data[i].nome_equipamento}&nome_dificuldade=${data[i].nome_dificuldade}&nome_musculo=${data[i].nome_musculo}" onclick="apagar(this.value)" type="button" class="btn btn-danger">Apagar</button>
-                </td>
-							</tr>`
-				table.innerHTML += row
-			}
+      if(data.length > 0){
+        for(var i = 0; i<data.length; i++){
+  				var row = ` <tr>
+  								<td>${data[i].id}</td>
+  								<td>${data[i].nome_exercicio.charAt(0).toUpperCase() + data[i].nome_exercicio.slice(1)}</td>
+  								<td>${data[i].nome_equipamento.charAt(0).toUpperCase() + data[i].nome_equipamento.slice(1)}</td>
+  								<td>${data[i].nome_dificuldade.charAt(0).toUpperCase() + data[i].nome_dificuldade.slice(1)}</td>
+  								<td>${data[i].nome_musculo.charAt(0).toUpperCase() + data[i].nome_musculo.slice(1)}</td>
+                  <td>
+                    <button value="${data[i].id}&nome_exercicio=${data[i].nome_exercicio}&nome_equipamento=${data[i].nome_equipamento}&nome_dificuldade=${data[i].nome_dificuldade}&nome_musculo=${data[i].nome_musculo}" onclick="editar(this.value)" type="button" class="btn btn-success">Editar</button>
+                    <button value="${data[i].id}" onclick="apagar(this.value)" type="button" class="btn btn-danger">Apagar</button>
+                  </td>
+  							</tr>`
+  				table.innerHTML += row
+  			}
+      } else {
+        var row = `<p>Nenhum exercício encontrado</p>`;
+        table.innerHTML += row;
+      }
+
 
 
 		}
     function editar(id){
       url = "http://localhost:3000/admin/update_exercicios?id=";
-      console.log(id);
+      //console.log(id);
        window.location = url + id;
     }
 
     function apagar(id){
+      url_api = "http://localhost:3000/api/exercicio/" + id;
+      console.log(url_api);
+      fetch(url_api, {
+        method: 'delete',
+        headers: {
+          'Content-Type': 'application/json'
+        },
 
-      console.log(id);
+      }).then(response => response.json());
+
+      window.location.href="http://localhost:3000/admin";
     }
+
 
 
 
