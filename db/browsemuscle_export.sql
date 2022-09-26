@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 4.6.6deb5ubuntu0.5
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Tempo de geração: 31-Ago-2022 às 16:33
--- Versão do servidor: 10.4.24-MariaDB
--- versão do PHP: 8.1.6
+-- Host: 132.145.18.76
+-- Generation Time: Sep 22, 2022 at 01:31 PM
+-- Server version: 5.7.39-0ubuntu0.18.04.2
+-- PHP Version: 7.2.34-28+ubuntu18.04.1+deb.sury.org+1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -18,38 +17,28 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `browsemuscle`
+-- Database: `browsemuscle`
 --
-
+CREATE DATABASE browsemuscle;
+use browsemuscle;
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `abdominais`
+-- Table structure for table `abdominais`
 --
-
-CREATE DATABASE browsemuscle;
-use browsemuscle;
 
 CREATE TABLE `abdominais` (
   `id` int(6) NOT NULL,
   `nome_exercicio` varchar(100) NOT NULL,
   `nome_equipamento` varchar(100) NOT NULL,
   `nome_dificuldade` varchar(100) NOT NULL,
-  `nome_musculo` varchar(100) NOT NULL,
-  `link_url` varchar(500) NOT NULL
+  `nome_musculo` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Extraindo dados da tabela `abdominais`
---
-
-INSERT INTO `abdominais` (`id`, `nome_exercicio`, `nome_equipamento`, `nome_dificuldade`, `nome_musculo`, `link_url`) VALUES
-(1, 'Prancha', 'bodyweight', 'intermediario', 'abdominais', '');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `antebraco`
+-- Table structure for table `antebraco`
 --
 
 CREATE TABLE `antebraco` (
@@ -57,21 +46,55 @@ CREATE TABLE `antebraco` (
   `nome_exercicio` varchar(100) NOT NULL,
   `nome_equipamento` varchar(100) NOT NULL,
   `nome_dificuldade` varchar(100) NOT NULL,
-  `nome_musculo` varchar(100) NOT NULL,
-  `link_url` varchar(500) NOT NULL
+  `nome_musculo` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Extraindo dados da tabela `antebraco`
---
-
-INSERT INTO `antebraco` (`id`, `nome_exercicio`, `nome_equipamento`, `nome_dificuldade`, `nome_musculo`, `link_url`) VALUES
-(1, 'Cable Reverse Curl', 'cabos', 'intermediario', 'antebraco', 'http://132.145.18.76:3000/api/antebraco');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `biceps`
+-- Table structure for table `avancado`
+--
+
+CREATE TABLE `avancado` (
+  `id` int(6) NOT NULL,
+  `nome_exercicio` varchar(100) NOT NULL,
+  `nome_equipamento` varchar(100) NOT NULL,
+  `nome_dificuldade` varchar(100) NOT NULL,
+  `nome_musculo` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `avancado`
+--
+
+INSERT INTO `avancado` (`id`, `nome_exercicio`, `nome_equipamento`, `nome_dificuldade`, `nome_musculo`) VALUES
+(2, 'Agachamento', 'barra', 'avancado', 'quadriceps');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `barra`
+--
+
+CREATE TABLE `barra` (
+  `id` int(6) NOT NULL,
+  `nome_exercicio` varchar(100) NOT NULL,
+  `nome_dificuldade` varchar(100) NOT NULL,
+  `nome_equipamento` varchar(100) NOT NULL,
+  `nome_musculo` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `barra`
+--
+
+INSERT INTO `barra` (`id`, `nome_exercicio`, `nome_dificuldade`, `nome_equipamento`, `nome_musculo`) VALUES
+(2, 'Agachamento', 'avancado', 'barra', 'quadriceps');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `biceps`
 --
 
 CREATE TABLE `biceps` (
@@ -79,21 +102,41 @@ CREATE TABLE `biceps` (
   `nome_exercicio` varchar(100) NOT NULL,
   `nome_equipamento` varchar(100) NOT NULL,
   `nome_dificuldade` varchar(100) NOT NULL,
-  `nome_musculo` varchar(100) NOT NULL,
-  `link_url` varchar(500) NOT NULL
+  `nome_musculo` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Extraindo dados da tabela `biceps`
---
-
-INSERT INTO `biceps` (`id`, `nome_exercicio`, `nome_equipamento`, `nome_dificuldade`, `nome_musculo`, `link_url`) VALUES
-(1, 'Rope Bicep Curl', 'cabos', 'iniciante', 'biceps', 'http://132.145.18.76:3000/api/bicep_curl');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `costas`
+-- Table structure for table `bodyweight`
+--
+
+CREATE TABLE `bodyweight` (
+  `id` int(6) NOT NULL,
+  `nome_exercicio` varchar(100) NOT NULL,
+  `nome_dificuldade` varchar(100) NOT NULL,
+  `nome_equipamento` varchar(100) NOT NULL,
+  `nome_musculo` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cabos`
+--
+
+CREATE TABLE `cabos` (
+  `id` int(6) NOT NULL,
+  `nome_exercicio` varchar(100) NOT NULL,
+  `nome_dificuldade` varchar(100) NOT NULL,
+  `nome_equipamento` varchar(100) NOT NULL,
+  `nome_musculo` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `costas`
 --
 
 CREATE TABLE `costas` (
@@ -101,21 +144,13 @@ CREATE TABLE `costas` (
   `nome_exercicio` varchar(100) NOT NULL,
   `nome_equipamento` varchar(100) NOT NULL,
   `nome_dificuldade` varchar(100) NOT NULL,
-  `nome_musculo` varchar(100) NOT NULL,
-  `link_url` varchar(500) NOT NULL
+  `nome_musculo` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Extraindo dados da tabela `costas`
---
-
-INSERT INTO `costas` (`id`, `nome_exercicio`, `nome_equipamento`, `nome_dificuldade`, `nome_musculo`, `link_url`) VALUES
-(1, 'Bent over row', 'barra', 'intermediario', 'costas', '');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `dificuldades`
+-- Table structure for table `dificuldades`
 --
 
 CREATE TABLE `dificuldades` (
@@ -124,7 +159,7 @@ CREATE TABLE `dificuldades` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `dificuldades`
+-- Dumping data for table `dificuldades`
 --
 
 INSERT INTO `dificuldades` (`id`, `nome`) VALUES
@@ -135,7 +170,21 @@ INSERT INTO `dificuldades` (`id`, `nome`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `equipamentos`
+-- Table structure for table `elastico`
+--
+
+CREATE TABLE `elastico` (
+  `id` int(6) NOT NULL,
+  `nome_exercicio` varchar(100) NOT NULL,
+  `nome_dificuldade` varchar(100) NOT NULL,
+  `nome_equipamento` varchar(100) NOT NULL,
+  `nome_musculo` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `equipamentos`
 --
 
 CREATE TABLE `equipamentos` (
@@ -144,7 +193,7 @@ CREATE TABLE `equipamentos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `equipamentos`
+-- Dumping data for table `equipamentos`
 --
 
 INSERT INTO `equipamentos` (`id`, `nome`) VALUES
@@ -158,7 +207,7 @@ INSERT INTO `equipamentos` (`id`, `nome`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `exercicios`
+-- Table structure for table `exercicios`
 --
 
 CREATE TABLE `exercicios` (
@@ -166,187 +215,20 @@ CREATE TABLE `exercicios` (
   `nome_exercicio` varchar(100) NOT NULL,
   `nome_equipamento` varchar(100) NOT NULL,
   `nome_dificuldade` varchar(100) NOT NULL,
-  `nome_musculo` varchar(100) NOT NULL,
-  `link_url` varchar(500) NOT NULL
+  `nome_musculo` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `exercicios`
+-- Dumping data for table `exercicios`
 --
 
-INSERT INTO `exercicios` (`id`, `nome_exercicio`, `nome_equipamento`, `nome_dificuldade`, `nome_musculo`, `link_url`) VALUES
-(1, 'Leg Extensions', 'maquina', 'iniciante', 'quadriceps', 'http://132.145.18.76:3000/api/leg_extensions'),
-(2, 'Elevacao Pelvica', 'barra', 'intermediario', 'gluteo', 'http://132.145.18.76:3000/api/elevacao_pelvica'),
-(3, 'Agachmento Livre', 'barra', 'avancado', 'quadriceps', 'http://132.145.18.76:3000/api/agachamento'),
-(4, 'Bicep Curl', 'barra', 'intermediario', 'biceps', 'http://132.145.18.76:3000/api/bicep_curl'),
-(6, 'Leg Press', 'maquina', 'iniciante', 'quadriceps', 'http://132.145.18.76:3000/api/leg_press'),
-(7, 'Supino', 'barra', 'avancado', 'peito', 'http://132.145.18.76:3000/api/supino'),
-(9, 'Lat Pull Down', 'maquina', 'intermediario', 'lats', 'http://132.145.18.76:3000/api/lat_pull_down'),
-(10, 'Hammer Curl', 'halteres', 'iniciante', 'biceps', 'http://132.145.18.76:3000/api/bicep_curl'),
-(11, 'Goblet Squat', 'halteres', 'iniciante', 'gluteo', 'http://132.145.18.76:3000/api/agachamento'),
-(12, 'Shoulder Press', 'maquina', 'iniciante', 'ombros', 'http://132.145.18.76:3000/api/shoulder_press'),
-(13, 'Smith Machine Squat', 'maquina', 'intermediario', 'quadriceps', 'http://132.145.18.76:3000/api/agachamento'),
-(14, 'Tricep Rope Pushdown', 'cabos', 'iniciante', 'triceps', 'http://132.145.18.76:3000/api/tricep_extension'),
-(15, 'Glute Bridge', 'bodyweight', 'intermediario', 'gluteo', 'http://132.145.18.76:3000/api/elevacao_pelvica'),
-(17, 'Cable Glute KickBack', 'cabos', 'iniciante', 'gluteo', 'http://132.145.18.76:3000/api/elevacao_pelvica'),
-(18, 'Cable Pull Over', 'cabos', 'intermediario', 'lats', 'http://132.145.18.76:3000/api/lat_pull_down'),
-(19, 'Half Kneeling One Arm Lat Pull Down', 'cabos', 'intermediario', 'lats', 'http://132.145.18.76:3000/api/lat_pull_down'),
-(20, 'Bent over row', 'barra', 'avancado', 'costas', 'http://132.145.18.76:3000/api/bor'),
-(21, 'Deadlift', 'barra', 'avancado', 'quadriceps', 'http://132.145.18.76:3000/api/deadlift'),
-(22, 'Cable Lateral Raises', 'barra', 'intermediario', 'ombros', 'http://132.145.18.76:3000/api/lateral_raises'),
-(23, 'Romanian Deadlift', 'barra', 'avancado', 'hamstrings', 'http://132.145.18.76:3000/api/deadlift'),
-(24, 'Leg Seated Curl', 'maquina', 'iniciante', 'hamstrings', ''),
-(25, 'Prancha', 'bodyweight', 'intermediario', 'abdominais', 'http://132.145.18.76:3000/api/abdominais'),
-(26, 'Peck Deck', 'maquina', 'intermediario', 'peito', 'http://132.145.18.76:3000/api/peito_aberturas'),
-(28, 'Agachamento', 'bodyweight', 'iniciante', 'quadriceps', 'http://132.145.18.76:3000/api/agachamento'),
-(30, 'DB Bent over row', 'halteres', 'intermediario', 'costas', 'http://132.145.18.76:3000/api/bor'),
-(31, 'Lunges', 'bodyweight', 'intermediario', 'quadriceps', 'http://132.145.18.76:3000/api/lunges'),
-(35, 'Agachamento Corporal', 'bodyweight', 'intermediario', 'gluteo', 'http://132.145.18.76:3000/api/agachamento'),
-(37, 'Rope Bicep Curl', 'cabos', 'iniciante', 'biceps', 'http://132.145.18.76:3000/api/bicep_curl'),
-(38, 'Tricep Overhead Extension', 'cabos', 'intermediario', 'triceps', 'http://132.145.18.76:3000/api/tricep_extension'),
-(39, 'Cable Reverse Curl', 'cabos', 'intermediario', 'antebraco', 'http://132.145.18.76:3000/api/antebraco'),
-(40, 'Calf Raises', 'maquina', 'intermediario', 'gemeos', 'http://132.145.18.76:3000/api/gemeos'),
-(41, 'Shrugs', 'barra', 'iniciante', 'traps', 'http://132.145.18.76:3000/api/traps');
+INSERT INTO `exercicios` (`id`, `nome_exercicio`, `nome_equipamento`, `nome_dificuldade`, `nome_musculo`) VALUES
+(50, 'Agachamento', 'bodyweight', 'avancado', 'quadriceps');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `exercicios_avancado`
---
-
-CREATE TABLE `exercicios_avancado` (
-  `id` int(6) NOT NULL,
-  `nome_exercicio` varchar(100) NOT NULL,
-  `nome_equipamento` varchar(100) NOT NULL,
-  `nome_dificuldade` varchar(100) NOT NULL,
-  `nome_musculo` varchar(100) NOT NULL,
-  `link_url` varchar(500) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `exercicios_barra`
---
-
-CREATE TABLE `exercicios_barra` (
-  `id` int(6) NOT NULL,
-  `nome_exercicio` varchar(100) NOT NULL,
-  `nome_dificuldade` varchar(100) NOT NULL,
-  `nome_equipamento` varchar(100) NOT NULL,
-  `nome_musculo` varchar(100) NOT NULL,
-  `link_url` varchar(500) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `exercicios_bodyweight`
---
-
-CREATE TABLE `exercicios_bodyweight` (
-  `id` int(6) NOT NULL,
-  `nome_exercicio` varchar(100) NOT NULL,
-  `nome_dificuldade` varchar(100) NOT NULL,
-  `nome_equipamento` varchar(100) NOT NULL,
-  `nome_musculo` varchar(100) NOT NULL,
-  `link_url` varchar(500) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `exercicios_cabos`
---
-
-CREATE TABLE `exercicios_cabos` (
-  `id` int(6) NOT NULL,
-  `nome_exercicio` varchar(100) NOT NULL,
-  `nome_dificuldade` varchar(100) NOT NULL,
-  `nome_equipamento` varchar(100) NOT NULL,
-  `nome_musculo` varchar(100) NOT NULL,
-  `link_url` varchar(500) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `exercicios_elastico`
---
-
-CREATE TABLE `exercicios_elastico` (
-  `id` int(6) NOT NULL,
-  `nome_exercicio` varchar(100) NOT NULL,
-  `nome_dificuldade` varchar(100) NOT NULL,
-  `nome_equipamento` varchar(100) NOT NULL,
-  `nome_musculo` varchar(100) NOT NULL,
-  `link_url` varchar(500) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `exercicios_halteres`
---
-
-CREATE TABLE `exercicios_halteres` (
-  `id` int(6) NOT NULL,
-  `nome_exercicio` varchar(100) NOT NULL,
-  `nome_dificuldade` varchar(100) NOT NULL,
-  `nome_equipamento` varchar(100) NOT NULL,
-  `nome_musculo` varchar(100) NOT NULL,
-  `link_url` varchar(500) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `exercicios_iniciante`
---
-
-CREATE TABLE `exercicios_iniciante` (
-  `id` int(6) NOT NULL,
-  `nome_exercicio` varchar(100) NOT NULL,
-  `nome_equipamento` varchar(100) NOT NULL,
-  `nome_dificuldade` varchar(100) NOT NULL,
-  `nome_musculo` varchar(100) NOT NULL,
-  `link_url` varchar(500) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `exercicios_intermediario`
---
-
-CREATE TABLE `exercicios_intermediario` (
-  `id` int(6) NOT NULL,
-  `nome_exercicio` varchar(100) NOT NULL,
-  `nome_equipamento` varchar(100) NOT NULL,
-  `nome_dificuldade` varchar(100) NOT NULL,
-  `nome_musculo` varchar(100) NOT NULL,
-  `link_url` varchar(500) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `exercicios_maquina`
---
-
-CREATE TABLE `exercicios_maquina` (
-  `id` int(6) NOT NULL,
-  `nome_exercicio` varchar(100) NOT NULL,
-  `nome_dificuldade` varchar(100) NOT NULL,
-  `nome_equipamento` varchar(100) NOT NULL,
-  `nome_musculo` varchar(100) NOT NULL,
-  `link_url` varchar(500) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `gemeos`
+-- Table structure for table `gemeos`
 --
 
 CREATE TABLE `gemeos` (
@@ -354,21 +236,13 @@ CREATE TABLE `gemeos` (
   `nome_exercicio` varchar(100) NOT NULL,
   `nome_equipamento` varchar(100) NOT NULL,
   `nome_dificuldade` varchar(100) NOT NULL,
-  `nome_musculo` varchar(100) NOT NULL,
-  `link_url` varchar(500) NOT NULL
+  `nome_musculo` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Extraindo dados da tabela `gemeos`
---
-
-INSERT INTO `gemeos` (`id`, `nome_exercicio`, `nome_equipamento`, `nome_dificuldade`, `nome_musculo`, `link_url`) VALUES
-(1, 'Calf Raises', 'maquina', 'intermediario', 'gemeos', 'http://132.145.18.76:3000/api/gemeos');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `gluteo`
+-- Table structure for table `gluteo`
 --
 
 CREATE TABLE `gluteo` (
@@ -376,24 +250,27 @@ CREATE TABLE `gluteo` (
   `nome_exercicio` varchar(100) NOT NULL,
   `nome_equipamento` varchar(100) NOT NULL,
   `nome_dificuldade` varchar(100) NOT NULL,
-  `nome_musculo` varchar(100) NOT NULL,
-  `link_url` varchar(500) NOT NULL
+  `nome_musculo` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Extraindo dados da tabela `gluteo`
---
-
-INSERT INTO `gluteo` (`id`, `nome_exercicio`, `nome_equipamento`, `nome_dificuldade`, `nome_musculo`, `link_url`) VALUES
-(2, 'Elevacao Pelvica', 'barra', 'intermediario', 'gluteo', ''),
-(11, 'Goblet Squat', 'halteres', 'iniciante', 'gluteo', ''),
-(15, 'Glute Bridge', 'bodyweight', 'intermediario', 'gluteo', ''),
-(16, 'Cable Glute KickBack', 'cabos', 'iniciante', 'gluteo', '');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `hamstrings`
+-- Table structure for table `halteres`
+--
+
+CREATE TABLE `halteres` (
+  `id` int(6) NOT NULL,
+  `nome_exercicio` varchar(100) NOT NULL,
+  `nome_dificuldade` varchar(100) NOT NULL,
+  `nome_equipamento` varchar(100) NOT NULL,
+  `nome_musculo` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `hamstrings`
 --
 
 CREATE TABLE `hamstrings` (
@@ -401,22 +278,41 @@ CREATE TABLE `hamstrings` (
   `nome_exercicio` varchar(100) NOT NULL,
   `nome_equipamento` varchar(100) NOT NULL,
   `nome_dificuldade` varchar(100) NOT NULL,
-  `nome_musculo` varchar(100) NOT NULL,
-  `link_url` varchar(500) NOT NULL
+  `nome_musculo` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Extraindo dados da tabela `hamstrings`
---
-
-INSERT INTO `hamstrings` (`id`, `nome_exercicio`, `nome_equipamento`, `nome_dificuldade`, `nome_musculo`, `link_url`) VALUES
-(1, 'Romanian Deadlift', 'barra', 'avancado', 'hamstrings', ''),
-(2, 'Leg Seated Curl', 'maquina', 'iniciante', 'hamstrings', '');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `lats`
+-- Table structure for table `iniciante`
+--
+
+CREATE TABLE `iniciante` (
+  `id` int(6) NOT NULL,
+  `nome_exercicio` varchar(100) NOT NULL,
+  `nome_equipamento` varchar(100) NOT NULL,
+  `nome_dificuldade` varchar(100) NOT NULL,
+  `nome_musculo` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `intermediario`
+--
+
+CREATE TABLE `intermediario` (
+  `id` int(6) NOT NULL,
+  `nome_exercicio` varchar(100) NOT NULL,
+  `nome_equipamento` varchar(100) NOT NULL,
+  `nome_dificuldade` varchar(100) NOT NULL,
+  `nome_musculo` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `lats`
 --
 
 CREATE TABLE `lats` (
@@ -424,58 +320,27 @@ CREATE TABLE `lats` (
   `nome_exercicio` varchar(100) NOT NULL,
   `nome_equipamento` varchar(100) NOT NULL,
   `nome_dificuldade` varchar(100) NOT NULL,
-  `nome_musculo` varchar(100) NOT NULL,
-  `link_url` varchar(500) NOT NULL
+  `nome_musculo` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Extraindo dados da tabela `lats`
---
-
-INSERT INTO `lats` (`id`, `nome_exercicio`, `nome_equipamento`, `nome_dificuldade`, `nome_musculo`, `link_url`) VALUES
-(1, 'Cable Pull Over', 'cabos', 'intermediario', 'lats', ''),
-(2, 'Half Kneeling One Arm Lat Pull Down', 'cabos', 'intermediario', 'lats', '');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `link`
+-- Table structure for table `maquina`
 --
 
-CREATE TABLE `link` (
+CREATE TABLE `maquina` (
   `id` int(6) NOT NULL,
-  `link` varchar(500) NOT NULL
+  `nome_exercicio` varchar(100) NOT NULL,
+  `nome_dificuldade` varchar(100) NOT NULL,
+  `nome_equipamento` varchar(100) NOT NULL,
+  `nome_musculo` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Extraindo dados da tabela `link`
---
-
-INSERT INTO `link` (`id`, `link`) VALUES
-(15, 'http://132.145.18.76:3000/api/abdominais'),
-(1, 'http://132.145.18.76:3000/api/agachamento'),
-(18, 'http://132.145.18.76:3000/api/antebraco'),
-(3, 'http://132.145.18.76:3000/api/bicep_curl'),
-(11, 'http://132.145.18.76:3000/api/bor'),
-(12, 'http://132.145.18.76:3000/api/deadlift'),
-(7, 'http://132.145.18.76:3000/api/elevacao_pelvica'),
-(19, 'http://132.145.18.76:3000/api/gemeos'),
-(13, 'http://132.145.18.76:3000/api/lateral_raises'),
-(9, 'http://132.145.18.76:3000/api/lat_pull_down'),
-(14, 'http://132.145.18.76:3000/api/leg_curl'),
-(4, 'http://132.145.18.76:3000/api/leg_extensions'),
-(8, 'http://132.145.18.76:3000/api/leg_press'),
-(17, 'http://132.145.18.76:3000/api/lunges'),
-(16, 'http://132.145.18.76:3000/api/peito_aberturas'),
-(10, 'http://132.145.18.76:3000/api/shoulder_press'),
-(6, 'http://132.145.18.76:3000/api/supino'),
-(20, 'http://132.145.18.76:3000/api/traps'),
-(5, 'http://132.145.18.76:3000/api/tricep_extension');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `musculo`
+-- Table structure for table `musculo`
 --
 
 CREATE TABLE `musculo` (
@@ -484,7 +349,7 @@ CREATE TABLE `musculo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `musculo`
+-- Dumping data for table `musculo`
 --
 
 INSERT INTO `musculo` (`id`, `nome_musculo`) VALUES
@@ -505,7 +370,7 @@ INSERT INTO `musculo` (`id`, `nome_musculo`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `ombros`
+-- Table structure for table `ombros`
 --
 
 CREATE TABLE `ombros` (
@@ -513,22 +378,13 @@ CREATE TABLE `ombros` (
   `nome_exercicio` varchar(100) NOT NULL,
   `nome_equipamento` varchar(100) NOT NULL,
   `nome_dificuldade` varchar(100) NOT NULL,
-  `nome_musculo` varchar(100) NOT NULL,
-  `link_url` varchar(500) NOT NULL
+  `nome_musculo` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Extraindo dados da tabela `ombros`
---
-
-INSERT INTO `ombros` (`id`, `nome_exercicio`, `nome_equipamento`, `nome_dificuldade`, `nome_musculo`, `link_url`) VALUES
-(12, 'Shoulder Press', 'maquina', 'iniciante', 'ombros', ''),
-(13, 'Cable Lateral Raises', 'barra', 'intermediario', 'ombros', '');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `peito`
+-- Table structure for table `peito`
 --
 
 CREATE TABLE `peito` (
@@ -536,21 +392,13 @@ CREATE TABLE `peito` (
   `nome_exercicio` varchar(100) NOT NULL,
   `nome_equipamento` varchar(100) NOT NULL,
   `nome_dificuldade` varchar(100) NOT NULL,
-  `nome_musculo` varchar(100) NOT NULL,
-  `link_url` varchar(500) NOT NULL
+  `nome_musculo` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Extraindo dados da tabela `peito`
---
-
-INSERT INTO `peito` (`id`, `nome_exercicio`, `nome_equipamento`, `nome_dificuldade`, `nome_musculo`, `link_url`) VALUES
-(7, 'Supino', 'barra', 'avancado', 'peito', '');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `quadriceps`
+-- Table structure for table `quadriceps`
 --
 
 CREATE TABLE `quadriceps` (
@@ -558,24 +406,20 @@ CREATE TABLE `quadriceps` (
   `nome_exercicio` varchar(100) NOT NULL,
   `nome_equipamento` varchar(100) NOT NULL,
   `nome_dificuldade` varchar(100) NOT NULL,
-  `nome_musculo` varchar(100) NOT NULL,
-  `link_url` varchar(500) NOT NULL
+  `nome_musculo` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `quadriceps`
+-- Dumping data for table `quadriceps`
 --
 
-INSERT INTO `quadriceps` (`id`, `nome_exercicio`, `nome_equipamento`, `nome_dificuldade`, `nome_musculo`, `link_url`) VALUES
-(1, 'Leg Extensions', 'maquina', 'intermediario', 'quadriceps', ''),
-(3, 'Agachmento Livre', 'barra', 'avancado', 'quadriceps', ''),
-(6, 'Leg Press', 'maquina', 'iniciante', 'quadriceps', ''),
-(7, 'Deadlift', 'barra', 'avancado', 'quadriceps', '');
+INSERT INTO `quadriceps` (`id`, `nome_exercicio`, `nome_equipamento`, `nome_dificuldade`, `nome_musculo`) VALUES
+(9, 'Agachamento', 'barra', 'avancado', 'quadriceps');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `traps`
+-- Table structure for table `traps`
 --
 
 CREATE TABLE `traps` (
@@ -583,21 +427,13 @@ CREATE TABLE `traps` (
   `nome_exercicio` varchar(100) NOT NULL,
   `nome_equipamento` varchar(100) NOT NULL,
   `nome_dificuldade` varchar(100) NOT NULL,
-  `nome_musculo` varchar(100) NOT NULL,
-  `link_url` varchar(500) NOT NULL
+  `nome_musculo` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Extraindo dados da tabela `traps`
---
-
-INSERT INTO `traps` (`id`, `nome_exercicio`, `nome_equipamento`, `nome_dificuldade`, `nome_musculo`, `link_url`) VALUES
-(1, 'Shrugs', 'barra', 'iniciante', 'traps', 'http://132.145.18.76:3000/api/traps');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `triceps`
+-- Table structure for table `triceps`
 --
 
 CREATE TABLE `triceps` (
@@ -605,710 +441,607 @@ CREATE TABLE `triceps` (
   `nome_exercicio` varchar(100) NOT NULL,
   `nome_equipamento` varchar(100) NOT NULL,
   `nome_dificuldade` varchar(100) NOT NULL,
-  `nome_musculo` varchar(100) NOT NULL,
-  `link_url` varchar(500) NOT NULL
+  `nome_musculo` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `triceps`
---
-
-INSERT INTO `triceps` (`id`, `nome_exercicio`, `nome_equipamento`, `nome_dificuldade`, `nome_musculo`, `link_url`) VALUES
-(14, 'Tricep Rope Pushdown', 'cabos', 'iniciante', 'triceps', ''),
-(15, 'Tricep Overhead Extension', 'cabos', 'intermediario', 'triceps', 'http://132.145.18.76:3000/api/tricep_extension');
-
---
--- Índices para tabelas despejadas
+-- Indexes for dumped tables
 --
 
 --
--- Índices para tabela `abdominais`
+-- Indexes for table `abdominais`
 --
 ALTER TABLE `abdominais`
   ADD PRIMARY KEY (`id`),
   ADD KEY `nome_dificuldade` (`nome_dificuldade`),
   ADD KEY `nome_equipamento` (`nome_equipamento`),
   ADD KEY `nome_exercicio` (`nome_exercicio`),
-  ADD KEY `nome_musculo` (`nome_musculo`),
-  ADD KEY `link_url` (`link_url`);
+  ADD KEY `nome_musculo` (`nome_musculo`);
 
 --
--- Índices para tabela `antebraco`
+-- Indexes for table `antebraco`
 --
 ALTER TABLE `antebraco`
   ADD PRIMARY KEY (`id`),
   ADD KEY `nome_dificuldade` (`nome_dificuldade`),
   ADD KEY `nome_equipamento` (`nome_equipamento`),
   ADD KEY `nome_exercicio` (`nome_exercicio`),
-  ADD KEY `nome_musculo` (`nome_musculo`),
-  ADD KEY `link_url` (`link_url`);
+  ADD KEY `nome_musculo` (`nome_musculo`);
 
 --
--- Índices para tabela `biceps`
+-- Indexes for table `avancado`
+--
+ALTER TABLE `avancado`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `nome_dificuldade` (`nome_dificuldade`),
+  ADD KEY `nome_equipamento` (`nome_equipamento`),
+  ADD KEY `nome_exercicio` (`nome_exercicio`),
+  ADD KEY `nome_musculo` (`nome_musculo`);
+
+--
+-- Indexes for table `barra`
+--
+ALTER TABLE `barra`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `nome_dificuldade` (`nome_dificuldade`),
+  ADD KEY `nome_equipamento` (`nome_equipamento`),
+  ADD KEY `nome_exercicio` (`nome_exercicio`),
+  ADD KEY `nome_musculo` (`nome_musculo`);
+
+--
+-- Indexes for table `biceps`
 --
 ALTER TABLE `biceps`
   ADD PRIMARY KEY (`id`),
   ADD KEY `nome_dificuldade` (`nome_dificuldade`),
   ADD KEY `nome_equipamento` (`nome_equipamento`),
   ADD KEY `nome_exercicio` (`nome_exercicio`),
-  ADD KEY `nome_musculo` (`nome_musculo`),
-  ADD KEY `link_url` (`link_url`);
+  ADD KEY `nome_musculo` (`nome_musculo`);
 
 --
--- Índices para tabela `costas`
+-- Indexes for table `bodyweight`
+--
+ALTER TABLE `bodyweight`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `nome_dificuldade` (`nome_dificuldade`),
+  ADD KEY `nome_equipamento` (`nome_equipamento`),
+  ADD KEY `nome_exercicio` (`nome_exercicio`),
+  ADD KEY `nome_musculo` (`nome_musculo`);
+
+--
+-- Indexes for table `cabos`
+--
+ALTER TABLE `cabos`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `nome_dificuldade` (`nome_dificuldade`),
+  ADD KEY `nome_equipamento` (`nome_equipamento`),
+  ADD KEY `nome_exercicio` (`nome_exercicio`),
+  ADD KEY `nome_musculo` (`nome_musculo`);
+
+--
+-- Indexes for table `costas`
 --
 ALTER TABLE `costas`
   ADD PRIMARY KEY (`id`),
   ADD KEY `nome_dificuldade` (`nome_dificuldade`),
   ADD KEY `nome_equipamento` (`nome_equipamento`),
   ADD KEY `nome_exercicio` (`nome_exercicio`),
-  ADD KEY `nome_musculo` (`nome_musculo`),
-  ADD KEY `link` (`link_url`);
+  ADD KEY `nome_musculo` (`nome_musculo`);
 
 --
--- Índices para tabela `dificuldades`
+-- Indexes for table `dificuldades`
 --
 ALTER TABLE `dificuldades`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `nome` (`nome`);
 
 --
--- Índices para tabela `equipamentos`
+-- Indexes for table `elastico`
+--
+ALTER TABLE `elastico`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `nome_dificuldade` (`nome_dificuldade`),
+  ADD KEY `nome_equipamento` (`nome_equipamento`),
+  ADD KEY `nome_exercicio` (`nome_exercicio`),
+  ADD KEY `nome_musculo` (`nome_musculo`);
+
+--
+-- Indexes for table `equipamentos`
 --
 ALTER TABLE `equipamentos`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `nome` (`nome`);
 
 --
--- Índices para tabela `exercicios`
+-- Indexes for table `exercicios`
 --
 ALTER TABLE `exercicios`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `nome_exercicio` (`nome_exercicio`),
   ADD KEY `nome_musculo` (`nome_musculo`),
   ADD KEY `nome_dificuldade` (`nome_dificuldade`),
-  ADD KEY `nome_equipamento` (`nome_equipamento`),
-  ADD KEY `link_url` (`link_url`);
+  ADD KEY `nome_equipamento` (`nome_equipamento`);
 
 --
--- Índices para tabela `exercicios_avancado`
---
-ALTER TABLE `exercicios_avancado`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `nome_dificuldade` (`nome_dificuldade`),
-  ADD KEY `nome_equipamento` (`nome_equipamento`),
-  ADD KEY `nome_exercicio` (`nome_exercicio`),
-  ADD KEY `nome_musculo` (`nome_musculo`),
-  ADD KEY `link` (`link_url`);
-
---
--- Índices para tabela `exercicios_barra`
---
-ALTER TABLE `exercicios_barra`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `nome_dificuldade` (`nome_dificuldade`),
-  ADD KEY `nome_equipamento` (`nome_equipamento`),
-  ADD KEY `nome_exercicio` (`nome_exercicio`),
-  ADD KEY `nome_musculo` (`nome_musculo`),
-  ADD KEY `link` (`link_url`);
-
---
--- Índices para tabela `exercicios_bodyweight`
---
-ALTER TABLE `exercicios_bodyweight`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `nome_dificuldade` (`nome_dificuldade`),
-  ADD KEY `nome_equipamento` (`nome_equipamento`),
-  ADD KEY `nome_exercicio` (`nome_exercicio`),
-  ADD KEY `nome_musculo` (`nome_musculo`),
-  ADD KEY `link` (`link_url`);
-
---
--- Índices para tabela `exercicios_cabos`
---
-ALTER TABLE `exercicios_cabos`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `nome_dificuldade` (`nome_dificuldade`),
-  ADD KEY `nome_equipamento` (`nome_equipamento`),
-  ADD KEY `nome_exercicio` (`nome_exercicio`),
-  ADD KEY `nome_musculo` (`nome_musculo`),
-  ADD KEY `link` (`link_url`);
-
---
--- Índices para tabela `exercicios_elastico`
---
-ALTER TABLE `exercicios_elastico`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `nome_dificuldade` (`nome_dificuldade`),
-  ADD KEY `nome_equipamento` (`nome_equipamento`),
-  ADD KEY `nome_exercicio` (`nome_exercicio`),
-  ADD KEY `nome_musculo` (`nome_musculo`),
-  ADD KEY `link` (`link_url`);
-
---
--- Índices para tabela `exercicios_halteres`
---
-ALTER TABLE `exercicios_halteres`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `nome_dificuldade` (`nome_dificuldade`),
-  ADD KEY `nome_equipamento` (`nome_equipamento`),
-  ADD KEY `nome_exercicio` (`nome_exercicio`),
-  ADD KEY `nome_musculo` (`nome_musculo`),
-  ADD KEY `link` (`link_url`);
-
---
--- Índices para tabela `exercicios_iniciante`
---
-ALTER TABLE `exercicios_iniciante`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `nome_dificuldade` (`nome_dificuldade`),
-  ADD KEY `nome_equipamento` (`nome_equipamento`),
-  ADD KEY `nome_exercicio` (`nome_exercicio`),
-  ADD KEY `nome_musculo` (`nome_musculo`),
-  ADD KEY `link` (`link_url`);
-
---
--- Índices para tabela `exercicios_intermediario`
---
-ALTER TABLE `exercicios_intermediario`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `nome_dificuldade` (`nome_dificuldade`),
-  ADD KEY `nome_equipamento` (`nome_equipamento`),
-  ADD KEY `nome_exercicio` (`nome_exercicio`),
-  ADD KEY `nome_musculo` (`nome_musculo`),
-  ADD KEY `link` (`link_url`);
-
---
--- Índices para tabela `exercicios_maquina`
---
-ALTER TABLE `exercicios_maquina`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `nome_dificuldade` (`nome_dificuldade`),
-  ADD KEY `nome_equipamento` (`nome_equipamento`),
-  ADD KEY `nome_exercicio` (`nome_exercicio`),
-  ADD KEY `nome_musculo` (`nome_musculo`),
-  ADD KEY `link` (`link_url`);
-
---
--- Índices para tabela `gemeos`
+-- Indexes for table `gemeos`
 --
 ALTER TABLE `gemeos`
   ADD PRIMARY KEY (`id`),
   ADD KEY `nome_dificuldade` (`nome_dificuldade`),
   ADD KEY `nome_equipamento` (`nome_equipamento`),
   ADD KEY `nome_exercicio` (`nome_exercicio`),
-  ADD KEY `nome_musculo` (`nome_musculo`),
-  ADD KEY `link` (`link_url`);
+  ADD KEY `nome_musculo` (`nome_musculo`);
 
 --
--- Índices para tabela `gluteo`
+-- Indexes for table `gluteo`
 --
 ALTER TABLE `gluteo`
   ADD PRIMARY KEY (`id`),
   ADD KEY `nome_dificuldade` (`nome_dificuldade`),
   ADD KEY `nome_equipamento` (`nome_equipamento`),
   ADD KEY `nome_exercicio` (`nome_exercicio`),
-  ADD KEY `nome_musculo` (`nome_musculo`),
-  ADD KEY `link` (`link_url`);
+  ADD KEY `nome_musculo` (`nome_musculo`);
 
 --
--- Índices para tabela `hamstrings`
+-- Indexes for table `halteres`
+--
+ALTER TABLE `halteres`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `nome_dificuldade` (`nome_dificuldade`),
+  ADD KEY `nome_equipamento` (`nome_equipamento`),
+  ADD KEY `nome_exercicio` (`nome_exercicio`),
+  ADD KEY `nome_musculo` (`nome_musculo`);
+
+--
+-- Indexes for table `hamstrings`
 --
 ALTER TABLE `hamstrings`
   ADD PRIMARY KEY (`id`),
   ADD KEY `nome_dificuldade` (`nome_dificuldade`),
   ADD KEY `nome_equipamento` (`nome_equipamento`),
   ADD KEY `nome_exercicio` (`nome_exercicio`),
-  ADD KEY `nome_musculo` (`nome_musculo`),
-  ADD KEY `link` (`link_url`);
+  ADD KEY `nome_musculo` (`nome_musculo`);
 
 --
--- Índices para tabela `lats`
+-- Indexes for table `iniciante`
+--
+ALTER TABLE `iniciante`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `nome_dificuldade` (`nome_dificuldade`),
+  ADD KEY `nome_equipamento` (`nome_equipamento`),
+  ADD KEY `nome_exercicio` (`nome_exercicio`),
+  ADD KEY `nome_musculo` (`nome_musculo`);
+
+--
+-- Indexes for table `intermediario`
+--
+ALTER TABLE `intermediario`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `nome_dificuldade` (`nome_dificuldade`),
+  ADD KEY `nome_equipamento` (`nome_equipamento`),
+  ADD KEY `nome_exercicio` (`nome_exercicio`),
+  ADD KEY `nome_musculo` (`nome_musculo`);
+
+--
+-- Indexes for table `lats`
 --
 ALTER TABLE `lats`
   ADD PRIMARY KEY (`id`),
   ADD KEY `nome_dificuldade` (`nome_dificuldade`),
   ADD KEY `nome_equipamento` (`nome_equipamento`),
   ADD KEY `nome_exercicio` (`nome_exercicio`),
-  ADD KEY `nome_musculo` (`nome_musculo`),
-  ADD KEY `link` (`link_url`);
+  ADD KEY `nome_musculo` (`nome_musculo`);
 
 --
--- Índices para tabela `link`
+-- Indexes for table `maquina`
 --
-ALTER TABLE `link`
+ALTER TABLE `maquina`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `link` (`link`);
+  ADD KEY `nome_dificuldade` (`nome_dificuldade`),
+  ADD KEY `nome_equipamento` (`nome_equipamento`),
+  ADD KEY `nome_exercicio` (`nome_exercicio`),
+  ADD KEY `nome_musculo` (`nome_musculo`);
 
 --
--- Índices para tabela `musculo`
+-- Indexes for table `musculo`
 --
 ALTER TABLE `musculo`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `nome_musculo` (`nome_musculo`);
 
 --
--- Índices para tabela `ombros`
+-- Indexes for table `ombros`
 --
 ALTER TABLE `ombros`
   ADD PRIMARY KEY (`id`),
   ADD KEY `nome_dificuldade` (`nome_dificuldade`),
   ADD KEY `nome_equipamento` (`nome_equipamento`),
   ADD KEY `nome_exercicio` (`nome_exercicio`),
-  ADD KEY `nome_musculo` (`nome_musculo`),
-  ADD KEY `link` (`link_url`);
+  ADD KEY `nome_musculo` (`nome_musculo`);
 
 --
--- Índices para tabela `peito`
+-- Indexes for table `peito`
 --
 ALTER TABLE `peito`
   ADD PRIMARY KEY (`id`),
   ADD KEY `nome_dificuldade` (`nome_dificuldade`),
   ADD KEY `nome_equipamento` (`nome_equipamento`),
   ADD KEY `nome_exercicio` (`nome_exercicio`),
-  ADD KEY `nome_musculo` (`nome_musculo`),
-  ADD KEY `link` (`link_url`);
+  ADD KEY `nome_musculo` (`nome_musculo`);
 
 --
--- Índices para tabela `quadriceps`
+-- Indexes for table `quadriceps`
 --
 ALTER TABLE `quadriceps`
   ADD PRIMARY KEY (`id`),
   ADD KEY `nome_dificuldade` (`nome_dificuldade`),
   ADD KEY `nome_equipamento` (`nome_equipamento`),
   ADD KEY `nome_exercicio` (`nome_exercicio`),
-  ADD KEY `nome_musculo` (`nome_musculo`),
-  ADD KEY `link` (`link_url`);
+  ADD KEY `nome_musculo` (`nome_musculo`);
 
 --
--- Índices para tabela `traps`
+-- Indexes for table `traps`
 --
 ALTER TABLE `traps`
   ADD PRIMARY KEY (`id`),
   ADD KEY `nome_dificuldade` (`nome_dificuldade`),
   ADD KEY `nome_equipamento` (`nome_equipamento`),
   ADD KEY `nome_exercicio` (`nome_exercicio`),
-  ADD KEY `nome_musculo` (`nome_musculo`),
-  ADD KEY `link` (`link_url`);
+  ADD KEY `nome_musculo` (`nome_musculo`);
 
 --
--- Índices para tabela `triceps`
+-- Indexes for table `triceps`
 --
 ALTER TABLE `triceps`
   ADD PRIMARY KEY (`id`),
   ADD KEY `nome_dificuldade` (`nome_dificuldade`),
   ADD KEY `nome_equipamento` (`nome_equipamento`),
   ADD KEY `nome_exercicio` (`nome_exercicio`),
-  ADD KEY `nome_musculo` (`nome_musculo`),
-  ADD KEY `link` (`link_url`);
+  ADD KEY `nome_musculo` (`nome_musculo`);
 
 --
--- AUTO_INCREMENT de tabelas despejadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de tabela `abdominais`
+-- AUTO_INCREMENT for table `abdominais`
 --
 ALTER TABLE `abdominais`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
--- AUTO_INCREMENT de tabela `antebraco`
+-- AUTO_INCREMENT for table `antebraco`
 --
 ALTER TABLE `antebraco`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT de tabela `biceps`
+-- AUTO_INCREMENT for table `avancado`
+--
+ALTER TABLE `avancado`
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `barra`
+--
+ALTER TABLE `barra`
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `biceps`
 --
 ALTER TABLE `biceps`
   MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
--- AUTO_INCREMENT de tabela `costas`
+-- AUTO_INCREMENT for table `bodyweight`
+--
+ALTER TABLE `bodyweight`
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `cabos`
+--
+ALTER TABLE `cabos`
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `costas`
 --
 ALTER TABLE `costas`
   MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
--- AUTO_INCREMENT de tabela `dificuldades`
+-- AUTO_INCREMENT for table `dificuldades`
 --
 ALTER TABLE `dificuldades`
   MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
--- AUTO_INCREMENT de tabela `equipamentos`
+-- AUTO_INCREMENT for table `elastico`
+--
+ALTER TABLE `elastico`
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `equipamentos`
 --
 ALTER TABLE `equipamentos`
   MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
 --
--- AUTO_INCREMENT de tabela `exercicios`
+-- AUTO_INCREMENT for table `exercicios`
 --
 ALTER TABLE `exercicios`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
-
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 --
--- AUTO_INCREMENT de tabela `exercicios_avancado`
---
-ALTER TABLE `exercicios_avancado`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de tabela `exercicios_barra`
---
-ALTER TABLE `exercicios_barra`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de tabela `exercicios_bodyweight`
---
-ALTER TABLE `exercicios_bodyweight`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de tabela `exercicios_cabos`
---
-ALTER TABLE `exercicios_cabos`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de tabela `exercicios_elastico`
---
-ALTER TABLE `exercicios_elastico`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de tabela `exercicios_halteres`
---
-ALTER TABLE `exercicios_halteres`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de tabela `exercicios_iniciante`
---
-ALTER TABLE `exercicios_iniciante`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de tabela `exercicios_intermediario`
---
-ALTER TABLE `exercicios_intermediario`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de tabela `exercicios_maquina`
---
-ALTER TABLE `exercicios_maquina`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de tabela `gemeos`
+-- AUTO_INCREMENT for table `gemeos`
 --
 ALTER TABLE `gemeos`
   MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
--- AUTO_INCREMENT de tabela `gluteo`
+-- AUTO_INCREMENT for table `gluteo`
 --
 ALTER TABLE `gluteo`
   MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-
 --
--- AUTO_INCREMENT de tabela `hamstrings`
+-- AUTO_INCREMENT for table `halteres`
+--
+ALTER TABLE `halteres`
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `hamstrings`
 --
 ALTER TABLE `hamstrings`
   MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
--- AUTO_INCREMENT de tabela `lats`
+-- AUTO_INCREMENT for table `iniciante`
+--
+ALTER TABLE `iniciante`
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `intermediario`
+--
+ALTER TABLE `intermediario`
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `lats`
 --
 ALTER TABLE `lats`
   MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
--- AUTO_INCREMENT de tabela `link`
+-- AUTO_INCREMENT for table `maquina`
 --
-ALTER TABLE `link`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
-
+ALTER TABLE `maquina`
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT de tabela `musculo`
+-- AUTO_INCREMENT for table `musculo`
 --
 ALTER TABLE `musculo`
   MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-
 --
--- AUTO_INCREMENT de tabela `ombros`
+-- AUTO_INCREMENT for table `ombros`
 --
 ALTER TABLE `ombros`
   MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-
 --
--- AUTO_INCREMENT de tabela `peito`
+-- AUTO_INCREMENT for table `peito`
 --
 ALTER TABLE `peito`
   MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
 --
--- AUTO_INCREMENT de tabela `quadriceps`
+-- AUTO_INCREMENT for table `quadriceps`
 --
 ALTER TABLE `quadriceps`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
--- AUTO_INCREMENT de tabela `traps`
+-- AUTO_INCREMENT for table `traps`
 --
 ALTER TABLE `traps`
   MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
--- AUTO_INCREMENT de tabela `triceps`
+-- AUTO_INCREMENT for table `triceps`
 --
 ALTER TABLE `triceps`
   MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+--
+-- Constraints for dumped tables
+--
 
 --
--- Restrições para despejos de tabelas
---
-
---
--- Limitadores para a tabela `abdominais`
+-- Constraints for table `abdominais`
 --
 ALTER TABLE `abdominais`
-  ADD CONSTRAINT `abdominais_ibfk_1` FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades` (`nome`),
-  ADD CONSTRAINT `abdominais_ibfk_2` FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos` (`nome`),
-  ADD CONSTRAINT `abdominais_ibfk_3` FOREIGN KEY (`nome_exercicio`) REFERENCES `exercicios` (`nome_exercicio`),
-  ADD CONSTRAINT `abdominais_ibfk_4` FOREIGN KEY (`nome_musculo`) REFERENCES `musculo` (`nome_musculo`),
-  ADD CONSTRAINT `abdominais_ibfk_5` FOREIGN KEY (`link_url`) REFERENCES `link` (`link`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `abdominais_ibfk_1` FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades` (`nome`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `abdominais_ibfk_2` FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos` (`nome`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `abdominais_ibfk_3` FOREIGN KEY (`nome_exercicio`) REFERENCES `exercicios` (`nome_exercicio`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `abdominais_ibfk_4` FOREIGN KEY (`nome_musculo`) REFERENCES `musculo` (`nome_musculo`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Limitadores para a tabela `antebraco`
+-- Constraints for table `antebraco`
 --
 ALTER TABLE `antebraco`
-  ADD CONSTRAINT `antebraco_ibfk_1` FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades` (`nome`),
-  ADD CONSTRAINT `antebraco_ibfk_2` FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos` (`nome`),
-  ADD CONSTRAINT `antebraco_ibfk_3` FOREIGN KEY (`nome_exercicio`) REFERENCES `exercicios` (`nome_exercicio`),
-  ADD CONSTRAINT `antebraco_ibfk_4` FOREIGN KEY (`nome_musculo`) REFERENCES `musculo` (`nome_musculo`),
-  ADD CONSTRAINT `antebraco_ibfk_5` FOREIGN KEY (`link_url`) REFERENCES `link` (`link`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `antebraco_ibfk_1` FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades` (`nome`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `antebraco_ibfk_2` FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos` (`nome`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `antebraco_ibfk_3` FOREIGN KEY (`nome_exercicio`) REFERENCES `exercicios` (`nome_exercicio`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `antebraco_ibfk_4` FOREIGN KEY (`nome_musculo`) REFERENCES `musculo` (`nome_musculo`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Limitadores para a tabela `biceps`
+-- Constraints for table `avancado`
+--
+ALTER TABLE `avancado`
+  ADD CONSTRAINT `avancado_ibfk_1` FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades` (`nome`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `avancado_ibfk_2` FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos` (`nome`) ON DELETE CASCADE ON UPDATE CASCADE ,
+  ADD CONSTRAINT `avancado_ibfk_3` FOREIGN KEY (`nome_exercicio`) REFERENCES `exercicios` (`nome_exercicio`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `avancado_ibfk_4` FOREIGN KEY (`nome_musculo`) REFERENCES `musculo` (`nome_musculo`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `barra`
+--
+ALTER TABLE `barra`
+  ADD CONSTRAINT `barra_ibfk_1` FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades` (`nome`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `barra_ibfk_2` FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos` (`nome`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `barra_ibfk_3` FOREIGN KEY (`nome_exercicio`) REFERENCES `exercicios` (`nome_exercicio`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `barra_ibfk_4` FOREIGN KEY (`nome_musculo`) REFERENCES `musculo` (`nome_musculo`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `biceps`
 --
 ALTER TABLE `biceps`
-  ADD CONSTRAINT `biceps_ibfk_1` FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades` (`nome`),
-  ADD CONSTRAINT `biceps_ibfk_2` FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos` (`nome`),
-  ADD CONSTRAINT `biceps_ibfk_3` FOREIGN KEY (`nome_exercicio`) REFERENCES `exercicios` (`nome_exercicio`),
-  ADD CONSTRAINT `biceps_ibfk_4` FOREIGN KEY (`nome_musculo`) REFERENCES `musculo` (`nome_musculo`),
-  ADD CONSTRAINT `biceps_ibfk_5` FOREIGN KEY (`link_url`) REFERENCES `link` (`link`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `biceps_ibfk_1` FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades` (`nome`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `biceps_ibfk_2` FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos` (`nome`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `biceps_ibfk_3` FOREIGN KEY (`nome_exercicio`) REFERENCES `exercicios` (`nome_exercicio`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `biceps_ibfk_4` FOREIGN KEY (`nome_musculo`) REFERENCES `musculo` (`nome_musculo`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Limitadores para a tabela `costas`
+-- Constraints for table `bodyweight`
+--
+ALTER TABLE `bodyweight`
+  ADD CONSTRAINT `bodyweight_ibfk_1` FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades` (`nome`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `bodyweight_ibfk_2` FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos` (`nome`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `bodyweight_ibfk_3` FOREIGN KEY (`nome_exercicio`) REFERENCES `exercicios` (`nome_exercicio`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `bodyweight_ibfk_4` FOREIGN KEY (`nome_musculo`) REFERENCES `musculo` (`nome_musculo`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `cabos`
+--
+ALTER TABLE `cabos`
+  ADD CONSTRAINT `cabos_ibfk_1` FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades` (`nome`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `cabos_ibfk_2` FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos` (`nome`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `cabos_ibfk_3` FOREIGN KEY (`nome_exercicio`) REFERENCES `exercicios` (`nome_exercicio`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `cabos_ibfk_4` FOREIGN KEY (`nome_musculo`) REFERENCES `musculo` (`nome_musculo`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `costas`
 --
 ALTER TABLE `costas`
-  ADD CONSTRAINT `costas_ibfk_1` FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades` (`nome`),
-  ADD CONSTRAINT `costas_ibfk_2` FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos` (`nome`),
-  ADD CONSTRAINT `costas_ibfk_3` FOREIGN KEY (`nome_exercicio`) REFERENCES `exercicios` (`nome_exercicio`),
-  ADD CONSTRAINT `costas_ibfk_4` FOREIGN KEY (`nome_musculo`) REFERENCES `musculo` (`nome_musculo`),
-  ADD CONSTRAINT `costas_ibfk_5` FOREIGN KEY (`link_url`) REFERENCES `link` (`link`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `costas_ibfk_1` FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades` (`nome`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `costas_ibfk_2` FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos` (`nome`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `costas_ibfk_3` FOREIGN KEY (`nome_exercicio`) REFERENCES `exercicios` (`nome_exercicio`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `costas_ibfk_4` FOREIGN KEY (`nome_musculo`) REFERENCES `musculo` (`nome_musculo`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Limitadores para a tabela `exercicios`
+-- Constraints for table `elastico`
+--
+ALTER TABLE `elastico`
+  ADD CONSTRAINT `elastico_ibfk_1` FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades` (`nome`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `elastico_ibfk_2` FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos` (`nome`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `elastico_ibfk_3` FOREIGN KEY (`nome_exercicio`) REFERENCES `exercicios` (`nome_exercicio`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `elastico_ibfk_4` FOREIGN KEY (`nome_musculo`) REFERENCES `musculo` (`nome_musculo`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `exercicios`
 --
 ALTER TABLE `exercicios`
-  ADD CONSTRAINT `exercicios_ibfk_1` FOREIGN KEY (`nome_musculo`) REFERENCES `musculo` (`nome_musculo`),
-  ADD CONSTRAINT `exercicios_ibfk_2` FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades` (`nome`),
-  ADD CONSTRAINT `exercicios_ibfk_3` FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos` (`nome`),
-  ADD CONSTRAINT `exercicios_ibfk_4` FOREIGN KEY (`link_url`) REFERENCES `link` (`link`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `exercicios_ibfk_1` FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos` (`nome`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `exercicios_ibfk_2` FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades` (`nome`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `exercicios_ibfk_3` FOREIGN KEY (`nome_musculo`) REFERENCES `musculo` (`nome_musculo`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Limitadores para a tabela `exercicios_avancado`
---
-ALTER TABLE `exercicios_avancado`
-  ADD CONSTRAINT `exercicios_avancado_ibfk_1` FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades` (`nome`),
-  ADD CONSTRAINT `exercicios_avancado_ibfk_2` FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos` (`nome`),
-  ADD CONSTRAINT `exercicios_avancado_ibfk_3` FOREIGN KEY (`nome_exercicio`) REFERENCES `exercicios` (`nome_exercicio`),
-  ADD CONSTRAINT `exercicios_avancado_ibfk_4` FOREIGN KEY (`nome_musculo`) REFERENCES `musculo` (`nome_musculo`),
-  ADD CONSTRAINT `exercicios_avancado_ibfk_5` FOREIGN KEY (`link_url`) REFERENCES `link` (`link`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Limitadores para a tabela `exercicios_barra`
---
-ALTER TABLE `exercicios_barra`
-  ADD CONSTRAINT `exercicios_barra_ibfk_1` FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades` (`nome`),
-  ADD CONSTRAINT `exercicios_barra_ibfk_2` FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos` (`nome`),
-  ADD CONSTRAINT `exercicios_barra_ibfk_3` FOREIGN KEY (`nome_exercicio`) REFERENCES `exercicios` (`nome_exercicio`),
-  ADD CONSTRAINT `exercicios_barra_ibfk_4` FOREIGN KEY (`nome_musculo`) REFERENCES `musculo` (`nome_musculo`),
-  ADD CONSTRAINT `exercicios_barra_ibfk_5` FOREIGN KEY (`link_url`) REFERENCES `link` (`link`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Limitadores para a tabela `exercicios_bodyweight`
---
-ALTER TABLE `exercicios_bodyweight`
-  ADD CONSTRAINT `exercicios_bodyweight_ibfk_1` FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades` (`nome`),
-  ADD CONSTRAINT `exercicios_bodyweight_ibfk_2` FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos` (`nome`),
-  ADD CONSTRAINT `exercicios_bodyweight_ibfk_3` FOREIGN KEY (`nome_exercicio`) REFERENCES `exercicios` (`nome_exercicio`),
-  ADD CONSTRAINT `exercicios_bodyweight_ibfk_4` FOREIGN KEY (`nome_musculo`) REFERENCES `musculo` (`nome_musculo`),
-  ADD CONSTRAINT `exercicios_bodyweight_ibfk_5` FOREIGN KEY (`link_url`) REFERENCES `link` (`link`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Limitadores para a tabela `exercicios_cabos`
---
-ALTER TABLE `exercicios_cabos`
-  ADD CONSTRAINT `exercicios_cabos_ibfk_1` FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades` (`nome`),
-  ADD CONSTRAINT `exercicios_cabos_ibfk_2` FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos` (`nome`),
-  ADD CONSTRAINT `exercicios_cabos_ibfk_3` FOREIGN KEY (`nome_exercicio`) REFERENCES `exercicios` (`nome_exercicio`),
-  ADD CONSTRAINT `exercicios_cabos_ibfk_4` FOREIGN KEY (`nome_musculo`) REFERENCES `musculo` (`nome_musculo`),
-  ADD CONSTRAINT `exercicios_cabos_ibfk_5` FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades` (`nome`),
-  ADD CONSTRAINT `exercicios_cabos_ibfk_6` FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos` (`nome`),
-  ADD CONSTRAINT `exercicios_cabos_ibfk_7` FOREIGN KEY (`nome_exercicio`) REFERENCES `exercicios` (`nome_exercicio`),
-  ADD CONSTRAINT `exercicios_cabos_ibfk_8` FOREIGN KEY (`nome_musculo`) REFERENCES `musculo` (`nome_musculo`),
-  ADD CONSTRAINT `exercicios_cabos_ibfk_9` FOREIGN KEY (`link_url`) REFERENCES `link` (`link`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Limitadores para a tabela `exercicios_elastico`
---
-ALTER TABLE `exercicios_elastico`
-  ADD CONSTRAINT `exercicios_elastico_ibfk_1` FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades` (`nome`),
-  ADD CONSTRAINT `exercicios_elastico_ibfk_2` FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos` (`nome`),
-  ADD CONSTRAINT `exercicios_elastico_ibfk_3` FOREIGN KEY (`nome_exercicio`) REFERENCES `exercicios` (`nome_exercicio`),
-  ADD CONSTRAINT `exercicios_elastico_ibfk_4` FOREIGN KEY (`nome_musculo`) REFERENCES `musculo` (`nome_musculo`),
-  ADD CONSTRAINT `exercicios_elastico_ibfk_5` FOREIGN KEY (`link_url`) REFERENCES `link` (`link`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Limitadores para a tabela `exercicios_halteres`
---
-ALTER TABLE `exercicios_halteres`
-  ADD CONSTRAINT `exercicios_halteres_ibfk_1` FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades` (`nome`),
-  ADD CONSTRAINT `exercicios_halteres_ibfk_2` FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos` (`nome`),
-  ADD CONSTRAINT `exercicios_halteres_ibfk_3` FOREIGN KEY (`nome_exercicio`) REFERENCES `exercicios` (`nome_exercicio`),
-  ADD CONSTRAINT `exercicios_halteres_ibfk_4` FOREIGN KEY (`nome_musculo`) REFERENCES `musculo` (`nome_musculo`),
-  ADD CONSTRAINT `exercicios_halteres_ibfk_5` FOREIGN KEY (`link_url`) REFERENCES `link` (`link`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Limitadores para a tabela `exercicios_iniciante`
---
-ALTER TABLE `exercicios_iniciante`
-  ADD CONSTRAINT `exercicios_iniciante_ibfk_1` FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades` (`nome`),
-  ADD CONSTRAINT `exercicios_iniciante_ibfk_2` FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos` (`nome`),
-  ADD CONSTRAINT `exercicios_iniciante_ibfk_3` FOREIGN KEY (`nome_exercicio`) REFERENCES `exercicios` (`nome_exercicio`),
-  ADD CONSTRAINT `exercicios_iniciante_ibfk_4` FOREIGN KEY (`nome_musculo`) REFERENCES `musculo` (`nome_musculo`),
-  ADD CONSTRAINT `exercicios_iniciante_ibfk_5` FOREIGN KEY (`link_url`) REFERENCES `link` (`link`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Limitadores para a tabela `exercicios_intermediario`
---
-ALTER TABLE `exercicios_intermediario`
-  ADD CONSTRAINT `exercicios_intermediario_ibfk_1` FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades` (`nome`),
-  ADD CONSTRAINT `exercicios_intermediario_ibfk_2` FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos` (`nome`),
-  ADD CONSTRAINT `exercicios_intermediario_ibfk_3` FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades` (`nome`),
-  ADD CONSTRAINT `exercicios_intermediario_ibfk_4` FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos` (`nome`),
-  ADD CONSTRAINT `exercicios_intermediario_ibfk_5` FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades` (`nome`),
-  ADD CONSTRAINT `exercicios_intermediario_ibfk_6` FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos` (`nome`),
-  ADD CONSTRAINT `exercicios_intermediario_ibfk_7` FOREIGN KEY (`nome_exercicio`) REFERENCES `exercicios` (`nome_exercicio`),
-  ADD CONSTRAINT `exercicios_intermediario_ibfk_8` FOREIGN KEY (`nome_musculo`) REFERENCES `musculo` (`nome_musculo`),
-  ADD CONSTRAINT `exercicios_intermediario_ibfk_9` FOREIGN KEY (`link_url`) REFERENCES `link` (`link`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Limitadores para a tabela `exercicios_maquina`
---
-ALTER TABLE `exercicios_maquina`
-  ADD CONSTRAINT `exercicios_maquina_ibfk_1` FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades` (`nome`),
-  ADD CONSTRAINT `exercicios_maquina_ibfk_2` FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos` (`nome`),
-  ADD CONSTRAINT `exercicios_maquina_ibfk_3` FOREIGN KEY (`nome_exercicio`) REFERENCES `exercicios` (`nome_exercicio`),
-  ADD CONSTRAINT `exercicios_maquina_ibfk_4` FOREIGN KEY (`nome_musculo`) REFERENCES `musculo` (`nome_musculo`),
-  ADD CONSTRAINT `exercicios_maquina_ibfk_5` FOREIGN KEY (`link_url`) REFERENCES `link` (`link`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Limitadores para a tabela `gemeos`
+-- Constraints for table `gemeos`
 --
 ALTER TABLE `gemeos`
-  ADD CONSTRAINT `gemeos_ibfk_1` FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades` (`nome`),
-  ADD CONSTRAINT `gemeos_ibfk_2` FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos` (`nome`),
-  ADD CONSTRAINT `gemeos_ibfk_3` FOREIGN KEY (`nome_exercicio`) REFERENCES `exercicios` (`nome_exercicio`),
-  ADD CONSTRAINT `gemeos_ibfk_4` FOREIGN KEY (`nome_musculo`) REFERENCES `musculo` (`nome_musculo`),
-  ADD CONSTRAINT `gemeos_ibfk_5` FOREIGN KEY (`link_url`) REFERENCES `link` (`link`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `gemeos_ibfk_1` FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades` (`nome`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `gemeos_ibfk_2` FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos` (`nome`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `gemeos_ibfk_3` FOREIGN KEY (`nome_exercicio`) REFERENCES `exercicios` (`nome_exercicio`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `gemeos_ibfk_4` FOREIGN KEY (`nome_musculo`) REFERENCES `musculo` (`nome_musculo`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Limitadores para a tabela `gluteo`
+-- Constraints for table `gluteo`
 --
 ALTER TABLE `gluteo`
-  ADD CONSTRAINT `gluteo_ibfk_1` FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades` (`nome`),
-  ADD CONSTRAINT `gluteo_ibfk_2` FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos` (`nome`),
-  ADD CONSTRAINT `gluteo_ibfk_3` FOREIGN KEY (`nome_exercicio`) REFERENCES `exercicios` (`nome_exercicio`),
-  ADD CONSTRAINT `gluteo_ibfk_4` FOREIGN KEY (`nome_musculo`) REFERENCES `musculo` (`nome_musculo`),
-  ADD CONSTRAINT `gluteo_ibfk_5` FOREIGN KEY (`link_url`) REFERENCES `link` (`link`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `gluteo_ibfk_1` FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades` (`nome`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `gluteo_ibfk_2` FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos` (`nome`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `gluteo_ibfk_3` FOREIGN KEY (`nome_exercicio`) REFERENCES `exercicios` (`nome_exercicio`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `gluteo_ibfk_4` FOREIGN KEY (`nome_musculo`) REFERENCES `musculo` (`nome_musculo`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Limitadores para a tabela `hamstrings`
+-- Constraints for table `halteres`
+--
+ALTER TABLE `halteres`
+  ADD CONSTRAINT `halteres_ibfk_1` FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades` (`nome`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `halteres_ibfk_2` FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos` (`nome`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `halteres_ibfk_3` FOREIGN KEY (`nome_exercicio`) REFERENCES `exercicios` (`nome_exercicio`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `halteres_ibfk_4` FOREIGN KEY (`nome_musculo`) REFERENCES `musculo` (`nome_musculo`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `hamstrings`
 --
 ALTER TABLE `hamstrings`
-  ADD CONSTRAINT `hamstrings_ibfk_1` FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades` (`nome`),
-  ADD CONSTRAINT `hamstrings_ibfk_2` FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos` (`nome`),
-  ADD CONSTRAINT `hamstrings_ibfk_3` FOREIGN KEY (`nome_exercicio`) REFERENCES `exercicios` (`nome_exercicio`),
-  ADD CONSTRAINT `hamstrings_ibfk_4` FOREIGN KEY (`nome_musculo`) REFERENCES `musculo` (`nome_musculo`),
-  ADD CONSTRAINT `hamstrings_ibfk_5` FOREIGN KEY (`link_url`) REFERENCES `link` (`link`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `hamstrings_ibfk_1` FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades` (`nome`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `hamstrings_ibfk_2` FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos` (`nome`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `hamstrings_ibfk_3` FOREIGN KEY (`nome_exercicio`) REFERENCES `exercicios` (`nome_exercicio`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `hamstrings_ibfk_4` FOREIGN KEY (`nome_musculo`) REFERENCES `musculo` (`nome_musculo`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Limitadores para a tabela `lats`
+-- Constraints for table `iniciante`
+--
+ALTER TABLE `iniciante`
+  ADD CONSTRAINT `iniciante_ibfk_1` FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades` (`nome`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `iniciante_ibfk_2` FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos` (`nome`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `iniciante_ibfk_3` FOREIGN KEY (`nome_exercicio`) REFERENCES `exercicios` (`nome_exercicio`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `iniciante_ibfk_4` FOREIGN KEY (`nome_musculo`) REFERENCES `musculo` (`nome_musculo`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `intermediario`
+--
+ALTER TABLE `intermediario`
+  ADD CONSTRAINT `intermediario_ibfk_1` FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades` (`nome`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `intermediario_ibfk_2` FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos` (`nome`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `intermediario_ibfk_7` FOREIGN KEY (`nome_exercicio`) REFERENCES `exercicios` (`nome_exercicio`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `intermediario_ibfk_8` FOREIGN KEY (`nome_musculo`) REFERENCES `musculo` (`nome_musculo`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `lats`
 --
 ALTER TABLE `lats`
-  ADD CONSTRAINT `lats_ibfk_1` FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades` (`nome`),
-  ADD CONSTRAINT `lats_ibfk_2` FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos` (`nome`),
-  ADD CONSTRAINT `lats_ibfk_3` FOREIGN KEY (`nome_exercicio`) REFERENCES `exercicios` (`nome_exercicio`),
-  ADD CONSTRAINT `lats_ibfk_4` FOREIGN KEY (`nome_musculo`) REFERENCES `musculo` (`nome_musculo`),
-  ADD CONSTRAINT `lats_ibfk_5` FOREIGN KEY (`link_url`) REFERENCES `link` (`link`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `lats_ibfk_1` FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades` (`nome`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `lats_ibfk_2` FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos` (`nome`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `lats_ibfk_3` FOREIGN KEY (`nome_exercicio`) REFERENCES `exercicios` (`nome_exercicio`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `lats_ibfk_4` FOREIGN KEY (`nome_musculo`) REFERENCES `musculo` (`nome_musculo`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Limitadores para a tabela `ombros`
+-- Constraints for table `maquina`
+--
+ALTER TABLE `maquina`
+  ADD CONSTRAINT `maquina_ibfk_1` FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades` (`nome`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `maquina_ibfk_2` FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos` (`nome`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `maquina_ibfk_3` FOREIGN KEY (`nome_exercicio`) REFERENCES `exercicios` (`nome_exercicio`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `maquina_ibfk_4` FOREIGN KEY (`nome_musculo`) REFERENCES `musculo` (`nome_musculo`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `ombros`
 --
 ALTER TABLE `ombros`
-  ADD CONSTRAINT `ombros_ibfk_1` FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades` (`nome`),
-  ADD CONSTRAINT `ombros_ibfk_2` FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos` (`nome`),
-  ADD CONSTRAINT `ombros_ibfk_3` FOREIGN KEY (`nome_exercicio`) REFERENCES `exercicios` (`nome_exercicio`),
-  ADD CONSTRAINT `ombros_ibfk_4` FOREIGN KEY (`nome_musculo`) REFERENCES `musculo` (`nome_musculo`),
-  ADD CONSTRAINT `ombros_ibfk_5` FOREIGN KEY (`link_url`) REFERENCES `link` (`link`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `ombros_ibfk_1` FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades` (`nome`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `ombros_ibfk_2` FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos` (`nome`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `ombros_ibfk_3` FOREIGN KEY (`nome_exercicio`) REFERENCES `exercicios` (`nome_exercicio`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `ombros_ibfk_4` FOREIGN KEY (`nome_musculo`) REFERENCES `musculo` (`nome_musculo`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Limitadores para a tabela `peito`
+-- Constraints for table `peito`
 --
 ALTER TABLE `peito`
-  ADD CONSTRAINT `peito_ibfk_1` FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades` (`nome`),
-  ADD CONSTRAINT `peito_ibfk_2` FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos` (`nome`),
-  ADD CONSTRAINT `peito_ibfk_3` FOREIGN KEY (`nome_exercicio`) REFERENCES `exercicios` (`nome_exercicio`),
-  ADD CONSTRAINT `peito_ibfk_4` FOREIGN KEY (`nome_musculo`) REFERENCES `musculo` (`nome_musculo`),
-  ADD CONSTRAINT `peito_ibfk_5` FOREIGN KEY (`link_url`) REFERENCES `link` (`link`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `peito_ibfk_1` FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades` (`nome`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `peito_ibfk_2` FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos` (`nome`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `peito_ibfk_3` FOREIGN KEY (`nome_exercicio`) REFERENCES `exercicios` (`nome_exercicio`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `peito_ibfk_4` FOREIGN KEY (`nome_musculo`) REFERENCES `musculo` (`nome_musculo`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Limitadores para a tabela `quadriceps`
+-- Constraints for table `quadriceps`
 --
 ALTER TABLE `quadriceps`
-  ADD CONSTRAINT `quadriceps_ibfk_1` FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades` (`nome`),
-  ADD CONSTRAINT `quadriceps_ibfk_2` FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos` (`nome`),
-  ADD CONSTRAINT `quadriceps_ibfk_3` FOREIGN KEY (`nome_exercicio`) REFERENCES `exercicios` (`nome_exercicio`),
-  ADD CONSTRAINT `quadriceps_ibfk_4` FOREIGN KEY (`nome_musculo`) REFERENCES `musculo` (`nome_musculo`),
-  ADD CONSTRAINT `quadriceps_ibfk_5` FOREIGN KEY (`link_url`) REFERENCES `link` (`link`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `quadriceps_ibfk_1` FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades` (`nome`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `quadriceps_ibfk_2` FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos` (`nome`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `quadriceps_ibfk_3` FOREIGN KEY (`nome_exercicio`) REFERENCES `exercicios` (`nome_exercicio`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `quadriceps_ibfk_4` FOREIGN KEY (`nome_musculo`) REFERENCES `musculo` (`nome_musculo`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Limitadores para a tabela `traps`
+-- Constraints for table `traps`
 --
 ALTER TABLE `traps`
-  ADD CONSTRAINT `traps_ibfk_1` FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades` (`nome`),
-  ADD CONSTRAINT `traps_ibfk_2` FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos` (`nome`),
-  ADD CONSTRAINT `traps_ibfk_3` FOREIGN KEY (`nome_exercicio`) REFERENCES `exercicios` (`nome_exercicio`),
-  ADD CONSTRAINT `traps_ibfk_4` FOREIGN KEY (`nome_musculo`) REFERENCES `musculo` (`nome_musculo`),
-  ADD CONSTRAINT `traps_ibfk_5` FOREIGN KEY (`link_url`) REFERENCES `link` (`link`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `traps_ibfk_1` FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades` (`nome`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `traps_ibfk_2` FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos` (`nome`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `traps_ibfk_3` FOREIGN KEY (`nome_exercicio`) REFERENCES `exercicios` (`nome_exercicio`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `traps_ibfk_4` FOREIGN KEY (`nome_musculo`) REFERENCES `musculo` (`nome_musculo`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Limitadores para a tabela `triceps`
+-- Constraints for table `triceps`
 --
 ALTER TABLE `triceps`
-  ADD CONSTRAINT `triceps_ibfk_1` FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades` (`nome`),
-  ADD CONSTRAINT `triceps_ibfk_2` FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos` (`nome`),
-  ADD CONSTRAINT `triceps_ibfk_3` FOREIGN KEY (`nome_exercicio`) REFERENCES `exercicios` (`nome_exercicio`),
-  ADD CONSTRAINT `triceps_ibfk_4` FOREIGN KEY (`nome_musculo`) REFERENCES `musculo` (`nome_musculo`),
-  ADD CONSTRAINT `triceps_ibfk_5` FOREIGN KEY (`link_url`) REFERENCES `link` (`link`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-COMMIT;
+  ADD CONSTRAINT `triceps_ibfk_1` FOREIGN KEY (`nome_dificuldade`) REFERENCES `dificuldades` (`nome`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `triceps_ibfk_2` FOREIGN KEY (`nome_equipamento`) REFERENCES `equipamentos` (`nome`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `triceps_ibfk_3` FOREIGN KEY (`nome_exercicio`) REFERENCES `exercicios` (`nome_exercicio`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `triceps_ibfk_4` FOREIGN KEY (`nome_musculo`) REFERENCES `musculo` (`nome_musculo`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
