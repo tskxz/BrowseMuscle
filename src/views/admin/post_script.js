@@ -1,4 +1,4 @@
-fetch('http://localhost:3000//api/exercicio/', {
+fetch('http://localhost:3000/api/exercicio/', {
 	method: 'POST',
 	headers: {
 			'Content-Type': 'application/json'
