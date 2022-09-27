@@ -12,7 +12,24 @@
 
     <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="./assets/css/style.css" rel="stylesheet">
+    <style>
+    div.form
+{
+    display: block;
+    text-align: center;
+}
+form
+{
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
 
+label.form-label {
+    font-size: 22.5px;
+}
+    </style>
   </head>
   <body>
 
@@ -66,13 +83,24 @@
 				<h2>
 				Bem vindo ao BrowseMuscle!
 				</h2>
-				<p>
-					
-
-				</p>
 				<p style="text-align:center">
-
+          <div class="form">
+          <form>
+      					<div class="col-md-20">
+      						<label for="exampleFormControlInput1" class="form-label">Username</label>
+      						<input type="text" class="form-control form-control-lg" id="exampleFormControlInput1" placeholder="Digite o seu username" name="nome_exercicio" required>
+                </div>
+                <div class="col-md-20 ">
+                  <label for="exampleFormControlInput1" class="form-label">Password</label>
+                  <input type="password" class="form-control form-control-lg" id="exampleFormControlInput1" placeholder="Digite a sua palavra passe" name="nome_exercicio" required>
+                </div>
+              </div>
+                </table>
+      					</div>
+          </form>
+        </div>
 				</p>
+
 			</div>
 		</div>
 	</div>
