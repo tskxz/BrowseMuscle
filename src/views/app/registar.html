@@ -12,11 +12,24 @@
 
     <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="./assets/css/style.css" rel="stylesheet">
-<style>
-p {
-    font-size: 20px;
+    <style>
+    div.form
+{
+    display: block;
+    text-align: center;
 }
-</style>
+form
+{
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+label.form-label {
+    font-size: 22.5px;
+}
+    </style>
   </head>
   <body>
 
@@ -70,15 +83,21 @@ p {
 				<h2>
 				Bem vindo ao BrowseMuscle!
 				</h2>
-				<p>
-					Para quem está a começar a ir para o ginásio e não tem muito conhecimento nem experiência sobre treino e é completamente iniciante, este projeto vai ser útil para conhecer vários exercícios e executa-los de forma correta.<br>
-          As pessoas mesmo que conheçam mas têm dificuldades de realizar, este projeto possa ser muito útil para o indivíduo que queira conhecer e aprender.
-
-				</p>
 				<p style="text-align:center">
-					<a class="btn btn-primary btn-large" href="http://localhost:3000/login">Login</a>
-          <a class="btn btn-primary btn-large" href="http://localhost:3000/registar">Registar</a>
+          <div class="form">
+            <form>
+              <div class="row">
+                <div class="col">
+                  <input type="text" class="form-control" placeholder="First name">
+                </div>
+                <div class="col">
+                  <input type="text" class="form-control" placeholder="Last name">
+                </div>
+              </div>
+            </form>
+        </div>
 				</p>
+
 			</div>
 		</div>
 	</div>
