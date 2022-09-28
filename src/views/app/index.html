@@ -5,16 +5,108 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Bootstrap 4, from LayoutIt!</title>
+    <title>BrowseMuscle</title>
 
     <meta name="description" content="Source code generated using layoutit.com">
     <meta name="author" content="LayoutIt!">
 
     <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="./assets/css/style.css" rel="stylesheet">
+<style>
+p {
+    font-size: 20px;
+}
 
+
+</style>
   </head>
   <body>
+
+    <script>
+  		fetch('http://132.145.18.76:3000/api/exercicios/')
+  			.then(res => res.json())
+  			.then(data => {
+  		 			 	const nome_exercicios = data.result
+  		 			 	console.log(nome_exercicios)
+  		 			 	buildTable(nome_exercicios)
+
+  					})
+
+            /* Ter todos os ids
+            fetch('http://132.145.18.76:3000/api/exercicios/')
+            			.then(res => res.json())
+            			.then(data => {
+            		 			 	const nome_exercicios = data.result
+                                    for(var i = 0; i<nome_exercicios.length; i++){
+                                        console.log(nome_exercicios[i].id)
+                                    }
+
+                        })
+            */
+
+  		/*function getFullName(item){
+  			return [item.nome_exercicio,item.nome_equipamento,item.nome_dificuldade,item.nome_musculo].join(" ");
+  		}*/
+
+  		function renderNames(names){
+  			const container = document.getElementById('exercicios');
+  			container.innerHtml = '';
+  				for (const name of names) {
+  				  const p = document.createElement('p');
+  				  const textNode = document.createTextNode(name);
+  				  p.appendChild(textNode);
+  				  container.appendChild(p);
+  				}
+  		}
+
+  		function buildTable(data){
+  			var table = document.getElementById('myTable');
+
+        // Mostrar todos os dados e meter a primeira palavra em maisculo
+        if(data.length > 0){
+          for(var i = 0; i<data.length; i++){
+    				var row = ` <tr>
+    								<td>${data[i].id}</td>
+    								<td>${data[i].nome_exercicio.charAt(0).toUpperCase() + data[i].nome_exercicio.slice(1)}</td>
+    								<td>${data[i].nome_equipamento.charAt(0).toUpperCase() + data[i].nome_equipamento.slice(1)}</td>
+    								<td>${data[i].nome_dificuldade.charAt(0).toUpperCase() + data[i].nome_dificuldade.slice(1)}</td>
+    								<td>${data[i].nome_musculo.charAt(0).toUpperCase() + data[i].nome_musculo.slice(1)}</td>
+    							</tr>`
+    				table.innerHTML += row
+    			}
+        } else {
+          var row = `<tr><td colspan="6" class="text-center">Nenhuma Vaga encontrada</td></tr>`;
+          table.innerHTML += row;
+        }
+
+
+
+  		}
+      function editar(id){
+        url = "http://132.145.18.76:3000/admin/update_exercicios?id=";
+        //console.log(id);
+         window.location = url + id;
+      }
+
+      function apagar(id){
+        url_api = "http://132.145.18.76:3000/api/exercicio/" + id;
+        console.log(url_api);
+        fetch(url_api, {
+          method: 'delete',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+
+        }).then(response => response.json());
+
+        window.location.href="http://132.145.18.76:3000/admin";
+      }
+
+
+
+
+
+      </script>
 
     <div class="container-fluid">
 	<div class="row">
@@ -23,55 +115,54 @@
 
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 					<span class="navbar-toggler-icon"></span>
-				</button> <a class="navbar-brand" href="#">Brand</a>
+				</button> <a class="navbar-brand" href="http://132.145.18.76:3000/">BrowseMuscle</a>
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="navbar-nav">
 						<li class="nav-item active">
-							 <a class="nav-link" href="#">Link <span class="sr-only">(current)</span></a>
+							 <a class="nav-link" href="http://132.145.18.76:3000/">Página Principal <span class="sr-only">(current)</span> </a>
 						</li>
 						<li class="nav-item">
-							 <a class="nav-link" href="#">Link</a>
+							 <a class="nav-link" href="http://132.145.18.76:3000/login">Login</a>
 						</li>
-						<li class="nav-item dropdown">
-							 <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown">Dropdown link</a>
-							<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-								 <a class="dropdown-item" href="#">Action</a> <a class="dropdown-item" href="#">Another action</a> <a class="dropdown-item" href="#">Something else here</a>
-								<div class="dropdown-divider">
-								</div> <a class="dropdown-item" href="#">Separated link</a>
-							</div>
+
+            <li class="nav-item">
+							 <a class="nav-link" href="http://132.145.18.76:3000/registar">Criar conta</a>
 						</li>
+
+
 					</ul>
 					<form class="form-inline">
 						<input class="form-control mr-sm-2" type="text">
 						<button class="btn btn-primary my-2 my-sm-0" type="submit">
-							Search
+							Pesquisar
 						</button>
 					</form>
-					<ul class="navbar-nav ml-md-auto">
-						<li class="nav-item active">
-							 <a class="nav-link" href="#">Link <span class="sr-only">(current)</span></a>
-						</li>
-						<li class="nav-item dropdown">
-							 <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown">Dropdown link</a>
-							<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-								 <a class="dropdown-item" href="#">Action</a> <a class="dropdown-item" href="#">Another action</a> <a class="dropdown-item" href="#">Something else here</a>
-								<div class="dropdown-divider">
-								</div> <a class="dropdown-item" href="#">Separated link</a>
-							</div>
-						</li>
-					</ul>
+
 				</div>
 			</nav>
 			<div class="jumbotron card card-block">
 				<h2>
-					Hello, world!
+				Bem vindo ao BrowseMuscle!
 				</h2>
-				<p>
-					This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.
+				<p style="text-align: center">
+          <table class="table table-striped table-hover">
+      			<tr class="bg-danger">
+              <th>ID</th>
+      				<th>Exercício</th>
+      				<th>Equipamento</th>
+      				<th>Dificuldade</th>
+      				<th>Músculo</th>
+      			</tr>
+            <tbody id="myTable">
+
+        		</tbody>
+        	</table>
+        		<div id="exercicios">
+
+        	</div>
+
 				</p>
-				<p>
-					<a class="btn btn-primary btn-large" href="#">Learn more</a>
-				</p>
+
 			</div>
 		</div>
 	</div>
