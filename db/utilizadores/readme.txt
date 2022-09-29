@@ -12,7 +12,10 @@ Para criar conta utilizador, o utilizador vai preencher os seguintes campos:
 - Email
 - País
 - Cidade
+- Data de Nascimento
+- Sexo
 - Password
 
+Precisamos da data de nascimento para saber a idade e sexo se é masculino ou feminino para calcular as calorias e macros
 
 Ao fazer login, é so necessário o username e password.

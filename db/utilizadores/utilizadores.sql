@@ -3,7 +3,6 @@
 use browsemuscle;
 
 -- Estrutura da tabela utilizador
-Set DateFormat dmy;
 
 CREATE TABLE `utilizadores` (
   `id` int(6) NOT NULL,
@@ -12,5 +11,6 @@ CREATE TABLE `utilizadores` (
   `email` varchar(100) NOT NULL,
   `país` varchar(100) NOT NULL,
   `data_nascimento` date NOT NULL,
+  `sexo` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL
 );
