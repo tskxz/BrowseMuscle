@@ -5,9 +5,9 @@ const path = require('path');
 // Os controladores tratam de toda a lógica por trás da validação de parâmetros de solicitação, consulta e envio de respostas.
 // Os serviços contém as consultas á base de dados e objetos a retornanr ou lançar erros
 
-const ExercicioController = require('./controllers/ExercicioController')
+const ExercicioController = require('./controllers/ExercicioController');
 const MusculoController = require('./controllers/MusculoController');
-
+const UtilizadorController = require('./controllers/UtilizadorController');
 
 router.get('/exercicios', ExercicioController.buscarTodos) 	 // Rota do método GET para visualizar todos os exercícios
 router.get('/exercicio/:id', ExercicioController.buscarUm);	 // Rota do método GET para visualizar apenas um exercício
@@ -16,5 +16,7 @@ router.put('/exercicio/:id', ExercicioController.alterar);	 // Rota do método P
 router.delete('/exercicio/:id', ExercicioController.apagar); // Rota do método DELETE para apagar um exercício
 
 router.get('/musculos', MusculoController.visualizarTodos);	 // Rota do método GET para visualizar todos os músculos
+
+router.get('/utilizadores', UtilizadorController.visualizarTodos) // Rota do método GET para visualizar todos os utilizadores
 
 module.exports = router;
