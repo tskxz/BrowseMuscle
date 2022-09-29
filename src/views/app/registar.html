@@ -12,6 +12,9 @@
 
     <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="./assets/css/style.css" rel="stylesheet">
+
+    
+
     <style>
     div.form
 {
@@ -75,7 +78,7 @@ label.form-label {
           <form>
             <div class="form-group">
                 <label for="formGroupExampleInput">Nome completo</label>
-                <input type="text" class="form-control col-md-10" id="formGroupExampleInput" placeholder="Seu nome">
+                <input type="text" class="form-control col-md-10" id="nome_completo" placeholder="Seu nome">
               </div>
               <div class="form-group">
                 <label for="formGroupExampleInput2">Email</label>
@@ -89,10 +92,22 @@ label.form-label {
                 </div>
                 <input type="text" class="form-control col-md-9" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
             </div>
+<br>
+                <div class="form-group">
+                    <label> Data de Nascimento </label>
+                    <div class="input-group date" id="datepicker">
+
+                        <input type="text" class="form-control col-md-10" value="01/02/2000" placeholder="DD/MM/YY">
+                        <span class="input-group-append">
+                            <span class="input-group-text bg-white">
+                                <i class="fa fa-calendar"></i>
+                            </span>
+                        </span>
+                    </div>
+                </div>
             <div class="form-group ">
-              <br>
               <label for="formGroupExampleInput">País</label>
-              <select name="country" class="form-control col-md-10" id="country">
+              <select name="país" class="form-control col-md-10" id="country">
         <option value="0" label="Select a country ... " selected="selected">Select a country ... </option>
         <optgroup id="country-optgroup-Africa" label="Africa">
             <option value="DZ" label="Algeria">Algeria</option>
@@ -366,7 +381,7 @@ label.form-label {
               <label for="formGroupExampleInput">Confirmar Password</label>
               <input type="password" class="form-control col-md-10" id="formGroupExampleInput" placeholder="Confirme palavra passe">
             </div>
-            <button type="button" class="btn btn-danger btn-sm btn-block col-md-10">Criar conta</button>
+            <button type="submit" class="btn btn-danger btn-sm btn-block col-md-10">Criar conta</button>
 
               </div>
           </form>
@@ -384,6 +399,23 @@ label.form-label {
     <script src="./assets/js/jquery.min.js"></script>
     <script src="./assets/js/bootstrap.min.js"></script>
     <script src="./assets/js/scripts.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css"/>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
+<!-- Script -->
+<script type="text/javascript">
+$(document).ready(function(){
+ $('#datepicker').datepicker({
+
+    format: 'dd/mm/yyyy',
+ }); 
+
+});
+</script>
+
+
 
   </body>
 </html>

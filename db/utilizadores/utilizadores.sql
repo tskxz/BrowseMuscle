@@ -10,6 +10,5 @@ CREATE TABLE `utilizadores` (
   `username` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
   `país` varchar(100) NOT NULL,
-  `cidade` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL
 );
