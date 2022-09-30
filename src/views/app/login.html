@@ -117,17 +117,13 @@ label.form-label {
         console.log("USERNAME INPUT: " + username_INPUT);
         console.log("PASSWORD INPUT: " + password_INPUT);
 
-        console.log(utilizadores.length);
+        //console.log(utilizadores.length);
         for(var i = 0; i<utilizadores.length; i++){
-          console.log(utilizadores[i]);
-          if(utilizadores[i].username == username_INPUT){
-            if(utilizadores[i].password == password_INPUT){
-              console.log('sucesso.');
-            } else {
-              console.log('falha na pass');
-            }
-          } else {
-            console.log('conta nao encontrada');
+          if(utilizadores[i].username != username_INPUT){
+            continue;
+          } else{
+            console.log('conta encontrada.')
+            console.log(utilizadores[i].username)
           }
         }
 
