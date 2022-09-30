@@ -10,7 +10,8 @@ module.exports = {
 		for(let i in utilizador){
 			json.result.push({
 				id: utilizador[i].id,
-				nome_completo: utilizador[i].nome_completo
+				username: utilizador[i].username,
+				password: utilizador[i].password
 			});
 		}
 		res.setHeader('Access-Control-Allow-Origin', '*');

@@ -71,16 +71,16 @@ label.form-label {
 				</h2>
 				<p style="text-align:center">
           <div class="form">
-          <form>
+          <form id="myForm">
       					<div class="col-md-20">
       						<label for="exampleFormControlInput1">Username</label>
-      						<input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Digite o seu username" name="nome_exercicio" required>
+      						<input type="text" class="form-control" id="username" placeholder="Digite o seu username" name="username" required>
                 </div><br>
                 <div class="col-md-20 ">
                   <label for="exampleFormControlInput1">Password</label>
-                  <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="Digite a sua palavra passe" name="nome_exercicio" required>
+                  <input type="password" class="form-control" id="password" placeholder="Digite a sua palavra passe" name="password" required>
                 </div><br>
-                <button type="button" class="btn btn-danger btn-sm btn-block col-md-12">Login</button>
+                <button type="submit" class="btn btn-danger btn-sm btn-block col-md-12">Login</button>
 
                  <a class="nav-link" href="http://localhost:3000/registar">Ainda não possui a sua conta? </a>
               </div>
@@ -94,6 +94,47 @@ label.form-label {
 		</div>
 	</div>
 </div>
+
+<script>
+  const myForm = document.getElementById('myForm');
+
+  myForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const formData = new FormData(this);
+    const formDataObject = Object.fromEntries(formData.entries());
+    const formDataJsonString = JSON.stringify(formDataObject);
+
+    fetch('http://localhost:3000/api/utilizadores/')
+      .then(res => res.json())
+      .then(data => {
+        // Depois de dar submit, recebo os parametros
+
+        const utilizadores = data.result;
+        console.log(utilizadores);
+        var username = document.getElementById('username').value
+        var password = document.getElementById('password').value
+/*
+        var url = new URL(window.location.href)
+        console.log(url);
+        var username = url.searchParams.get("username");
+        var password = url.searchParams.get("password");
+
+        /*
+
+        if(utilizadores > 0){
+          for(var i = 0; utilizadores<utilizadores.length; i++){
+            if(utilizadores[i] == )
+          }
+        }
+/*
+        for(var i = 0; i<data.length; i++){
+          if(data[i].username == )
+        }
+        */
+      })
+  })
+</script>
 
     <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
 
