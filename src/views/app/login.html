@@ -111,27 +111,28 @@ label.form-label {
         // Depois de dar submit, recebo os parametros
 
         const utilizadores = data.result;
-        console.log(utilizadores);
-        var username = document.getElementById('username').value
-        var password = document.getElementById('password').value
-/*
-        var url = new URL(window.location.href)
-        console.log(url);
-        var username = url.searchParams.get("username");
-        var password = url.searchParams.get("password");
+        var username_INPUT = document.getElementById('username').value
+        var password_INPUT = document.getElementById('password').value
 
-        /*
+        console.log("USERNAME INPUT: " + username_INPUT);
+        console.log("PASSWORD INPUT: " + password_INPUT);
 
-        if(utilizadores > 0){
-          for(var i = 0; utilizadores<utilizadores.length; i++){
-            if(utilizadores[i] == )
+        console.log(utilizadores.length);
+        for(var i = 0; i<utilizadores.length; i++){
+          console.log(utilizadores[i]);
+          if(utilizadores[i].username == username_INPUT){
+            if(utilizadores[i].password == password_INPUT){
+              console.log('sucesso.');
+            } else {
+              console.log('falha na pass');
+            }
+          } else {
+            console.log('conta nao encontrada');
           }
         }
-/*
-        for(var i = 0; i<data.length; i++){
-          if(data[i].username == )
-        }
-        */
+
+
+
       })
   })
 </script>
