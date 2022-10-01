@@ -32,22 +32,6 @@ p {
 
   					})
 
-            /* Ter todos os ids
-            fetch('http://localhost:3000/api/alimentos/')
-            			.then(res => res.json())
-            			.then(data => {
-            		 			 	const nome_alimentos = data.result
-                                    for(var i = 0; i<nome_alimentos.length; i++){
-                                        console.log(nome_alimentos[i].id)
-                                    }
-
-                        })
-            */
-
-  		/*function getFullName(item){
-  			return [item.nome,item.proteina,item.carbs,item.gordura].join(" ");
-  		}*/
-
   		function renderNames(names){
   			const container = document.getElementById('alimentos');
   			container.innerHtml = '';
@@ -82,29 +66,6 @@ p {
 
 
   		}
-      function editar(id){
-        url = "http://localhost:3000/admin/update_exercicios?id=";
-        //console.log(id);
-         window.location = url + id;
-      }
-
-      function apagar(id){
-        url_api = "http://localhost:3000/api/alimento/" + id;
-        console.log(url_api);
-        fetch(url_api, {
-          method: 'delete',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-
-        }).then(response => response.json());
-
-        window.location.href="http://localhost:3000/admin";
-      }
-
-
-
-
 
       </script>
 
@@ -162,7 +123,7 @@ p {
         	</table>
         		<div id="alimentos">
 
-        	</div>
+        	    </div>
 
 				</p>
 
@@ -172,20 +133,34 @@ p {
 </div>
 <script>
     const myForm = document.getElementById('myForm');
+
+
     myForm.addEventListener('submit', function(e) {
       e.preventDefault();
+      
+
       var alimento_INPUT = document.getElementById('alimento').value
       console.log("ALIMENTO INPUT: " + alimento_INPUT);
       url = 'http://localhost:3000/api/alimento/' + alimento_INPUT 
-      fetch('http://localhost:3000/api/alimentos/')
+      fetch(url)
         .then(res => res.json())
         .then(data => {
           // Depois de dar submit, recebo os parametros
           const alimentos = data.result;
-          
-          
-        
+          console.log(data.result)
+          const alimentos_form = document.getElementById('myTable').innerHTML;
+          if(alimentos_form.includes("2")){
+            var row = ` 
+    								<td>${alimentos.id}</td>
+    								<td>${alimentos.nome.charAt(0).toUpperCase() + alimentos.nome.slice(1)}</td>
+    								<td>${alimentos.proteina}</td>
+    								<td>${alimentos.carbs}</td>
+    								<td>${alimentos.gordura}</td>
+    							`
+            document.getElementById("myTable").innerHTML = row
+          }
         })
+
     })
   </script>
     <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
