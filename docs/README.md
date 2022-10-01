@@ -111,7 +111,7 @@ npm install
 	```env
 	PORT=3000
 
-	DB_HOST=132.145.18.76
+	DB_HOST=localhost
 	DB_USER=root
 	DB_PASS=
 	DB_PASS_LINUX=root
@@ -181,7 +181,7 @@ npm start
 O resultado ao iniciar o projeto era suposto ser
 ```
 [nodemon] starting `node ./src/server.js`
-Servidor a rodar em: http://132.145.18.76:3000/
+Servidor a rodar em: http://localhost:3000/
 Conectado base de dados: browsemuscle
 ```
 
