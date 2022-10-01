@@ -52,18 +52,19 @@ module.exports = {
 		let proteina = req.body.proteina;
 		let carbs = req.body.carbs;
 		let gordura = req.body.gordura;
-        let calorias = req.body.calorias;
+        let calorias = (proteina * 4) + (carbs * 4) + (gordura * 9);
 
 
 		// Inserir exercício
-		if(proteina && carbs && gordura && calorias){
+		if(proteina && carbs && gordura){
 			let AlimentoId = await AlimentoService.inserir(nome, proteina, carbs, gordura, calorias);
 			json.result = {
 				id: AlimentoId,
 				nome,
 				proteina,
 				carbs,
-				gordura
+				gordura,
+				calorias
 			};
 		} else {
 			json.error = 'Error!';
@@ -82,11 +83,11 @@ module.exports = {
 		let proteina = req.body.proteina;
 		let carbs = req.body.carbs;
 		let gordura = req.body.gordura;
-        let calorias = req.body.calorias;
+		let calorias = (proteina * 4) + (carbs * 4) + (gordura * 9);
 
 
 
-		if(id && proteina && proteina && carbs && gordura && calorias){
+		if(id && proteina && proteina && carbs && gordura){
 			await AlimentoService.alterar(id, nome, proteina, carbs, gordura, calorias);
 			json.result = {
 				id,
