@@ -16,4 +16,7 @@ app.get('/registar', function(req, res){
 	res.sendFile(path.join(__dirname, '/views/app/registar.html'))
 })
 
+app.get('/alimentos', function(req, res){
+	res.sendFile(path.join(__dirname, '/views/app/alimentos.html'))
+})
 module.exports = app;
