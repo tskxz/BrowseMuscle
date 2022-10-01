@@ -25,19 +25,23 @@ module.exports = {
 		res.json(json);
 	},
 
+
 	// Funcao visualizar um exercício
-	buscarUm: async (req, res) => {
+	buscarUmNome: async (req, res) => {
 		let json = {error:'', result:[]};
 
-		let id = req.params.id;
-		let alimento = await AlimentoService.buscarUm(id); // Visualiza o dado com esse ID
+		let nome = req.params.nome;
+		let alimento = await AlimentoService.buscarUmNome(nome); // Visualiza o dado com esse Nome
 
 		if(alimento){
-			json.result = alimento; // Resultado de buscarUm
+			json.result = alimento; // Resultado de buscarUmNome
+		} else {
+			json.error = "falha!";
 		}
 
 		res.json(json);
 	},
+
 
 	// Funcao inserir
 	inserir: async (req, res) => {

@@ -18,7 +18,8 @@ router.delete('/exercicio/:id', ExercicioController.apagar); // Rota do método 
 router.get('/musculos', MusculoController.visualizarTodos);	 // Rota do método GET para visualizar todos os músculos
 
 router.get('/alimentos', AlimentoController.buscarTodos);
-router.get('/alimento/:id', ExercicioController.buscarUm);
+router.get('/alimento/:nome', AlimentoController.buscarUmNome);
+
 router.post('/alimento', AlimentoController.inserir);
 router.put('/alimento/:id', AlimentoController.alterar);
 router.delete('/alimento/:id', AlimentoController.apagar);

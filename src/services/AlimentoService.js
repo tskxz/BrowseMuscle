@@ -12,11 +12,10 @@ module.exports = {
 		});
 	},
 
-
-	// Funcao para visualizar um exercício
-	buscarUm:(id) => {
+    	// Funcao para visualizar um exercício
+	buscarUmNome:(nome) => {
 		return new Promise((aceito, rejeitado) => {
-			db.query('SELECT * FROM alimentos WHERE id = ? ', [id], (error, results) => {
+			db.query('SELECT * FROM alimentos WHERE nome = ? ', [nome], (error, results) => {
 				if(error){rejeitado(error); return;}
 				if(results.length > 0){
 					aceito(results[0]);
