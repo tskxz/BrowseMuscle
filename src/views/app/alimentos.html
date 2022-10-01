@@ -23,7 +23,7 @@ p {
   <body>
 
     <script>
-  		fetch('http://localhost:3000/api/alimentos/')
+  		fetch('http://4acd-132-145-18-76.eu.ngrok.io:3000/api/alimentos/')
   			.then(res => res.json())
   			.then(data => {
   		 			 	const nome_alimentos = data.result
@@ -77,21 +77,21 @@ p {
 
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 					<span class="navbar-toggler-icon"></span>
-				</button> <a class="navbar-brand" href="http://localhost:3000/">BrowseMuscle</a>
+				</button> <a class="navbar-brand" href="http://4acd-132-145-18-76.eu.ngrok.io:3000/">BrowseMuscle</a>
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="navbar-nav">
 						<li class="nav-item">
-							 <a class="nav-link" href="http://localhost:3000/">Página Principal </a>
+							 <a class="nav-link" href="http://4acd-132-145-18-76.eu.ngrok.io:3000/">Página Principal </a>
 						</li>
 						<li class="nav-item active">
-							<a class="nav-link" href="http://localhost:3000/alimentos">Alimentos <span class="sr-only">(current)</span> </a>
+							<a class="nav-link" href="http://4acd-132-145-18-76.eu.ngrok.io:3000/alimentos">Alimentos <span class="sr-only">(current)</span> </a>
 					   </li>
 						<li class="nav-item">
-							 <a class="nav-link" href="http://localhost:3000/login">Login</a>
+							 <a class="nav-link" href="http://4acd-132-145-18-76.eu.ngrok.io:3000/login">Login</a>
 						</li>
 
             <li class="nav-item">
-							 <a class="nav-link" href="http://localhost:3000/registar">Criar conta</a>
+							 <a class="nav-link" href="http://4acd-132-145-18-76.eu.ngrok.io:3000/registar">Criar conta</a>
 						</li>
 
 
@@ -143,7 +143,7 @@ p {
 
       var alimento_INPUT = document.getElementById('alimento').value
       console.log("ALIMENTO INPUT: " + alimento_INPUT);
-      url = 'http://localhost:3000/api/alimento/' + alimento_INPUT 
+      url = 'http://4acd-132-145-18-76.eu.ngrok.io:3000/api/alimento/' + alimento_INPUT 
       fetch(url)
         .then(res => res.json())
         .then(data => {
