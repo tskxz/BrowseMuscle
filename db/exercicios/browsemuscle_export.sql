@@ -2,7 +2,7 @@
 -- version 4.6.6deb5ubuntu0.5
 -- https://www.phpmyadmin.net/
 --
--- Host: 4acd-132-145-18-76.eu.ngrok.io
+-- Host: localhost:3000
 -- Generation Time: Sep 22, 2022 at 01:31 PM
 -- Server version: 5.7.39-0ubuntu0.18.04.2
 -- PHP Version: 7.2.34-28+ubuntu18.04.1+deb.sury.org+1

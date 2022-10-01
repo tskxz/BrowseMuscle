@@ -27,5 +27,5 @@ server.use('/assets', express.static('./src/views/app/assets'));
 
 // Servidor irá ser usado na porta 3000
 server.listen(process.env.PORT, ()=>{
-	console.log(`Servidor a rodar em: http://4acd-132-145-18-76.eu.ngrok.io:${process.env.PORT}`);
+	console.log(`Servidor a rodar em: https://4acd-132-145-18-76.eu.ngrok.io:${process.env.PORT}`);
 })

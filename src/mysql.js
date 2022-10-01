@@ -3,9 +3,9 @@ const mysql = require('mysql');
 // Conectar a base de dados
 
 const connection = mysql.createConnection({
-	host: process.env.DB_HOST,				// 4acd-132-145-18-76.eu.ngrok.io
+	host: process.env.DB_HOST,				// localhost:3000
 	user: process.env.DB_USER,				// root
-	password: process.env.DB_PASS,			// root ou palavra passe vazia
+	password: process.env.DB_PASS_LINUX,			// root ou palavra passe vazia
 	database: process.env.DB_NAME,			// BrowseMuscle
 	multipleStatements: true 				// Permitir mais de que uma query
 });
