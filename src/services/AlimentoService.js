@@ -44,7 +44,7 @@ module.exports = {
 
 
 	// Funcao para alterar um exercício
-	alterar: (id, nome, proteina, carbs, gordura)=> {
+	alterar: (id, nome, proteina, carbs, gordura, calorias)=> {
 		return new Promise( (aceito, rejeitado) => {
 			db.query('UPDATE alimentos SET nome = ?, proteina = ?, carbs = ?, gordura = ?, calorias= ? WHERE id = ?',
 				[nome, proteina, carbs, gordura, calorias, id],
