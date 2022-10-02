@@ -7,7 +7,8 @@ const connection = mysql.createConnection({
 	user: process.env.DB_USER,				// root
 	password: process.env.DB_PASS_LINUX,			// root ou palavra passe vazia
 	database: process.env.DB_NAME,			// BrowseMuscle
-	multipleStatements: true 				// Permitir mais de que uma query
+	multipleStatements: true,				// Permitir mais de que uma query
+	connectTimeout: 3000000
 });
 
 connection.connect((error) =>{
