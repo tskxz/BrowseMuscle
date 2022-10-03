@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 fetch('http://4acd-132-145-18-76.eu.ngrok.io/api/exercicio/', {
+=======
+fetch('https://4acd-132-145-18-76.eu.ngrok.io/api/exercicio/', {
+>>>>>>> 8f1bb38653ec36287bf534dcd586a56b5cf4d0c3
 	method: 'POST',
 	headers: {
 			'Content-Type': 'application/json'
