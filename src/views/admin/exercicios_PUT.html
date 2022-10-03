@@ -41,8 +41,8 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<div class="topnav">
 		<a href="https://4acd-132-145-18-76.eu.ngrok.io:3000/">Página Principal</a>
-		<a href="http://4acd-132-145-18-76.eu.ngrok.io:3000/admin">Visualizar Exercícios</a>
-		<a class="active" href="http://4acd-132-145-18-76.eu.ngrok.io:3000/admin/post_exercicios">Inserir Exercícios</a>
+		<a href="http://4acd-132-145-18-76.eu.ngrok.io/admin">Visualizar Exercícios</a>
+		<a class="active" href="http://4acd-132-145-18-76.eu.ngrok.io/admin/post_exercicios">Inserir Exercícios</a>
 	</div>
 
 <form class="form" id="myForm">
@@ -148,7 +148,7 @@
 </script>
 <script>
 	function myFunction(){
-		window.location.href="http://4acd-132-145-18-76.eu.ngrok.io:3000/admin";
+		window.location.href="http://4acd-132-145-18-76.eu.ngrok.io/admin";
 	}
 </script>
 
@@ -157,7 +157,7 @@
 var url = new URL(window.location.href);
 var id = url.searchParams.get("id");
 
-url = "http://4acd-132-145-18-76.eu.ngrok.io:3000/api/exercicio/" + id;
+url = "http://4acd-132-145-18-76.eu.ngrok.io/api/exercicio/" + id;
 console.log(url);
 </script>
 
@@ -175,7 +175,7 @@ console.log(url);
 
 
 		console.log(formDataJsonString);
-		url = "http://4acd-132-145-18-76.eu.ngrok.io:3000/api/exercicio/" + id;
+		url = "http://4acd-132-145-18-76.eu.ngrok.io/api/exercicio/" + id;
 		fetch(url, {
 			method: 'PUT',
 			headers: {
