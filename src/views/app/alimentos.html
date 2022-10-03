@@ -83,9 +83,12 @@ p {
 						<li class="nav-item">
 							 <a class="nav-link" href="http://localhost:3000/">Página Principal </a>
 						</li>
-						<li class="nav-item active">
+						<li class="nav-item font-weight-bold">
 							<a class="nav-link" href="http://localhost:3000/alimentos">Alimentos <span class="sr-only">(current)</span> </a>
 					   </li>
+ 					   <li class="nav-item">
+ 						<a class="nav-link" href="http://localhost:3000/musculos">Músculo</a>
+ 				   </li>
 						<li class="nav-item">
 							 <a class="nav-link" href="http://localhost:3000/login">Login</a>
 						</li>
@@ -139,11 +142,11 @@ p {
 
     myForm.addEventListener('submit', function(e) {
       e.preventDefault();
-      
+
 
       var alimento_INPUT = document.getElementById('alimento').value
       console.log("ALIMENTO INPUT: " + alimento_INPUT);
-      url = 'http://localhost:3000/api/alimento/' + alimento_INPUT 
+      url = 'http://localhost:3000/api/alimento/' + alimento_INPUT
       fetch(url)
         .then(res => res.json())
         .then(data => {
@@ -152,7 +155,7 @@ p {
           console.log(data.result)
           const alimentos_form = document.getElementById('myTable').innerHTML;
           if(alimentos_form.includes("2")){
-            var row = ` 
+            var row = `
     								<td>${alimentos.id}</td>
     								<td>${alimentos.nome.charAt(0).toUpperCase() + alimentos.nome.slice(1)}</td>
     								<td>${alimentos.proteina}</td>
