@@ -23,4 +23,8 @@ app.get('/alimentos', function(req, res){
 app.get('/musculos', function(req, res){
 	res.sendFile(path.join(__dirname, '/views/app/musculos.html'))
 })
+
+app.get('/peito_exercicios', function(req, res){
+	res.sendFile(path.join(__dirname, '/views/app/peito.html'))
+})
 module.exports = app;
