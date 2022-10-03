@@ -32,4 +32,8 @@ app.get('/ombros_exercicios', function(req, res){
 	res.sendFile(path.join(__dirname, '/views/app/ombros.html'))
 })
 
+app.get('/triceps_exercicios', function(req, res){
+	res.sendFile(path.join(__dirname, '/views/app/triceps.html'))
+})
+
 module.exports = app;
