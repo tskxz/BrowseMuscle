@@ -23,11 +23,7 @@ p {
   <body>
 
     <script>
-<<<<<<< HEAD
   		fetch('http://4acd-132-145-18-76.eu.ngrok.io/api/exercicios/')
-=======
-  		fetch('https://4acd-132-145-18-76.eu.ngrok.io/api/exercicios/')
->>>>>>> 8f1bb38653ec36287bf534dcd586a56b5cf4d0c3
   			.then(res => res.json())
   			.then(data => {
   		 			 	const nome_exercicios = data.result
@@ -71,21 +67,13 @@ p {
 
   		}
       function editar(id){
-<<<<<<< HEAD
         url = "http://4acd-132-145-18-76.eu.ngrok.io/admin/update_exercicios?id=";
-=======
-        url = "https://4acd-132-145-18-76.eu.ngrok.io/admin/update_exercicios?id=";
->>>>>>> 8f1bb38653ec36287bf534dcd586a56b5cf4d0c3
         //console.log(id);
          window.location = url + id;
       }
 
       function apagar(id){
-<<<<<<< HEAD
         url_api = "http://4acd-132-145-18-76.eu.ngrok.io/api/exercicio/" + id;
-=======
-        url_api = "https://4acd-132-145-18-76.eu.ngrok.io/api/exercicio/" + id;
->>>>>>> 8f1bb38653ec36287bf534dcd586a56b5cf4d0c3
         console.log(url_api);
         fetch(url_api, {
           method: 'delete',
@@ -95,11 +83,7 @@ p {
 
         }).then(response => response.json());
 
-<<<<<<< HEAD
         window.location.href="http://4acd-132-145-18-76.eu.ngrok.io/admin";
-=======
-        window.location.href="https://4acd-132-145-18-76.eu.ngrok.io/admin";
->>>>>>> 8f1bb38653ec36287bf534dcd586a56b5cf4d0c3
       }
 
 
@@ -115,7 +99,6 @@ p {
 
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 					<span class="navbar-toggler-icon"></span>
-<<<<<<< HEAD
 				</button> <a class="navbar-brand" href="http://4acd-132-145-18-76.eu.ngrok.io/">BrowseMuscle</a>
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="navbar-nav">
@@ -124,34 +107,16 @@ p {
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="http://4acd-132-145-18-76.eu.ngrok.io/alimentos">Alimentos</a>
-=======
-				</button> <a class="navbar-brand" href="https://4acd-132-145-18-76.eu.ngrok.io/">BrowseMuscle</a>
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<ul class="navbar-nav">
-						<li class="nav-item active">
-							 <a class="nav-link" href="https://4acd-132-145-18-76.eu.ngrok.io/">Página Principal <span class="sr-only">(current)</span> </a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="https://4acd-132-145-18-76.eu.ngrok.io/alimentos">Alimentos</a>
->>>>>>> 8f1bb38653ec36287bf534dcd586a56b5cf4d0c3
 					   </li>
 					   <li class="nav-item">
 						<a class="nav-link" href="http://4acd-132-145-18-76.eu.ngrok.io/musculos">Músculo</a>
 				   </li>
 						<li class="nav-item">
-<<<<<<< HEAD
 							 <a class="nav-link" href="http://4acd-132-145-18-76.eu.ngrok.io/login">Login</a>
 						</li>
 
             <li class="nav-item">
 							 <a class="nav-link" href="http://4acd-132-145-18-76.eu.ngrok.io/registar">Criar conta</a>
-=======
-							 <a class="nav-link" href="https://4acd-132-145-18-76.eu.ngrok.io/login">Login</a>
-						</li>
-
-            <li class="nav-item">
-							 <a class="nav-link" href="https://4acd-132-145-18-76.eu.ngrok.io/registar">Criar conta</a>
->>>>>>> 8f1bb38653ec36287bf534dcd586a56b5cf4d0c3
 						</li>
 
 

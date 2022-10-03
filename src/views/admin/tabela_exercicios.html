@@ -41,11 +41,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script>
-<<<<<<< HEAD
 		fetch('http://4acd-132-145-18-76.eu.ngrok.io/api/exercicios/')
-=======
-		fetch('https://4acd-132-145-18-76.eu.ngrok.io/api/exercicios/')
->>>>>>> 8f1bb38653ec36287bf534dcd586a56b5cf4d0c3
 			.then(res => res.json())
 			.then(data => {
 		 			 	const nome_exercicios = data.result
@@ -55,11 +51,7 @@
 					})
 
           /* Ter todos os ids
-<<<<<<< HEAD
           fetch('http://4acd-132-145-18-76.eu.ngrok.io/api/exercicios/')
-=======
-          fetch('https://4acd-132-145-18-76.eu.ngrok.io/api/exercicios/')
->>>>>>> 8f1bb38653ec36287bf534dcd586a56b5cf4d0c3
           			.then(res => res.json())
           			.then(data => {
           		 			 	const nome_exercicios = data.result
@@ -113,21 +105,13 @@
 
 		}
     function editar(id){
-<<<<<<< HEAD
       url = "http://4acd-132-145-18-76.eu.ngrok.io/admin/update_exercicios?id=";
-=======
-      url = "https://4acd-132-145-18-76.eu.ngrok.io/admin/update_exercicios?id=";
->>>>>>> 8f1bb38653ec36287bf534dcd586a56b5cf4d0c3
       //console.log(id);
        window.location = url + id;
     }
 
     function apagar(id){
-<<<<<<< HEAD
       url_api = "http://4acd-132-145-18-76.eu.ngrok.io/api/exercicio/" + id;
-=======
-      url_api = "https://4acd-132-145-18-76.eu.ngrok.io/api/exercicio/" + id;
->>>>>>> 8f1bb38653ec36287bf534dcd586a56b5cf4d0c3
       console.log(url_api);
       fetch(url_api, {
         method: 'delete',
@@ -137,11 +121,7 @@
 
       }).then(response => response.json());
 
-<<<<<<< HEAD
       window.location.href="http://4acd-132-145-18-76.eu.ngrok.io/admin";
-=======
-      window.location.href="https://4acd-132-145-18-76.eu.ngrok.io/admin";
->>>>>>> 8f1bb38653ec36287bf534dcd586a56b5cf4d0c3
     }
 
 
@@ -156,14 +136,9 @@
 
 
 	<div class="topnav">
-<<<<<<< HEAD
     <a href="http://4acd-132-145-18-76.eu.ngrok.io/">Página Principal</a>
 		<a class="active" href="http://4acd-132-145-18-76.eu.ngrok.io/admin">Visualizar Exercícios</a>
 		<a href="http://4acd-132-145-18-76.eu.ngrok.io/admin/post_exercicios">Inserir Exercícios</a>
-=======
-		<a class="active" href="https://4acd-132-145-18-76.eu.ngrok.io/admin">Visualizar Exercícios</a>
-		<a href="https://4acd-132-145-18-76.eu.ngrok.io/admin/post_exercicios">Inserir Exercícios</a>
->>>>>>> 8f1bb38653ec36287bf534dcd586a56b5cf4d0c3
 	</div>
 
 
