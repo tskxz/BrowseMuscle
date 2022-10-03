@@ -111,7 +111,11 @@ npm install
 	```env
 	PORT=3000
 
+<<<<<<< HEAD
 	DB_HOST=localhost:3000
+=======
+	DB_HOST=4acd-132-145-18-76.eu.ngrok.io
+>>>>>>> 783de42149e59fe402143ce35c307e4389cbc54d
 	DB_USER=root
 	DB_PASS=
 	DB_PASS_LINUX=root
@@ -181,7 +185,11 @@ npm start
 O resultado ao iniciar o projeto era suposto ser
 ```
 [nodemon] starting `node ./src/server.js`
+<<<<<<< HEAD
 Servidor a rodar em: https://4acd-132-145-18-76.eu.ngrok.io/
+=======
+Servidor a rodar em: http://4acd-132-145-18-76.eu.ngrok.io/
+>>>>>>> 783de42149e59fe402143ce35c307e4389cbc54d
 Conectado base de dados: browsemuscle
 ```
 

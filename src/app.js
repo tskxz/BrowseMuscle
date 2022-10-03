@@ -19,4 +19,17 @@ app.get('/registar', function(req, res){
 app.get('/alimentos', function(req, res){
 	res.sendFile(path.join(__dirname, '/views/app/alimentos.html'))
 })
+
+app.get('/musculos', function(req, res){
+	res.sendFile(path.join(__dirname, '/views/app/musculos.html'))
+})
+
+app.get('/peito_exercicios', function(req, res){
+	res.sendFile(path.join(__dirname, '/views/app/peito.html'))
+})
+
+app.get('/ombros_exercicios', function(req, res){
+	res.sendFile(path.join(__dirname, '/views/app/ombros.html'))
+})
+
 module.exports = app;
