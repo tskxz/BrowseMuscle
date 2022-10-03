@@ -27,4 +27,9 @@ app.get('/musculos', function(req, res){
 app.get('/peito_exercicios', function(req, res){
 	res.sendFile(path.join(__dirname, '/views/app/peito.html'))
 })
+
+app.get('/ombros_exercicios', function(req, res){
+	res.sendFile(path.join(__dirname, '/views/app/ombros.html'))
+})
+
 module.exports = app;

@@ -9,7 +9,7 @@ const ExercicioController = require('./controllers/ExercicioController')
 const MusculoController = require('./controllers/MusculoController');
 const AlimentoController = require('./controllers/AlimentoController');
 const PeitoController = require('./controllers/PeitoController');
-const OmbrosControllre = require('./controllers/OmbrosController');
+const OmbrosController = require('./controllers/OmbrosController');
 
 router.get('/exercicios', ExercicioController.buscarTodos) 	 // Rota do método GET para visualizar todos os exercícios
 router.get('/exercicio/:id', ExercicioController.buscarUm);	 // Rota do método GET para visualizar apenas um exercício
@@ -27,5 +27,6 @@ router.put('/alimento/:id', AlimentoController.alterar);
 router.delete('/alimento/:id', AlimentoController.apagar);
 
 router.get('/peito', PeitoController.visualizarTodos);
+router.get('/ombros', OmbrosController.visualizarTodos);
 
 module.exports = router;
