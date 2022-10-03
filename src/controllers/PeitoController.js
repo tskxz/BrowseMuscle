@@ -10,7 +10,10 @@ module.exports = {
 		for(let i in peito){
 			json.result.push({
 				id: peito[i].id,
-				nome_exercicio: peito[i].nome_exercicio
+				nome_exercicio: peito[i].nome_exercicio,
+                nome_equipamento: peito[i].nome_equipamento,
+                nome_dificuldade: peito[i].nome_dificuldade,
+                nome_musculo: peito[i].nome_musculo
 			});
 		}
 		res.setHeader('Access-Control-Allow-Origin', '*');
