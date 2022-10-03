@@ -1,4 +1,4 @@
-fetch('http://4acd-132-145-18-76.eu.ngrok.io/api/exercicio/', {
+fetch('https://4acd-132-145-18-76.eu.ngrok.io/api/exercicio/', {
 	method: 'POST',
 	headers: {
 			'Content-Type': 'application/json'

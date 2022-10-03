@@ -188,7 +188,7 @@ O resultado ao iniciar o projeto era suposto ser
 <<<<<<< HEAD
 Servidor a rodar em: https://4acd-132-145-18-76.eu.ngrok.io/
 =======
-Servidor a rodar em: http://4acd-132-145-18-76.eu.ngrok.io/
+Servidor a rodar em: https://4acd-132-145-18-76.eu.ngrok.io/
 >>>>>>> 783de42149e59fe402143ce35c307e4389cbc54d
 Conectado base de dados: browsemuscle
 ```
