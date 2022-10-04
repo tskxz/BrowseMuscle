@@ -36,4 +36,8 @@ app.get('/triceps_exercicios', function(req, res){
 	res.sendFile(path.join(__dirname, '/views/app/triceps.html'))
 })
 
+app.get('/biceps_exercicios', function(req, res){
+	res.sendFile(path.join(__dirname, '/views/app/biceps.html'))
+})
+
 module.exports = app;
