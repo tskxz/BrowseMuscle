@@ -72,7 +72,7 @@ app.get('/hamstrings_exercicios', function(req, res){
 	res.sendFile(path.join(__dirname, '/views/app/hamstrings.html'))
 })
 
-app.get('/gluteoy_exercicios', function(req, res){
+app.get('/gluteo_exercicios', function(req, res){
 	res.sendFile(path.join(__dirname, '/views/app/gluteos.html'))
 })
 
