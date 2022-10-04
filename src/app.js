@@ -52,4 +52,8 @@ app.get('/antebraco_exercicios', function(req, res){
 	res.sendFile(path.join(__dirname, '/views/app/antebraco.html'))
 })
 
+app.get('/dorsais_exercicios', function(req, res){
+	res.sendFile(path.join(__dirname, '/views/app/dorsais.html'))
+})
+
 module.exports = app;
