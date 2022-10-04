@@ -44,4 +44,8 @@ app.get('/biceps_exercicios', function(req, res){
 	res.sendFile(path.join(__dirname, '/views/app/costas.html'))
 })
 
+app.get('/abdominais_exercicios', function(req, res){
+	res.sendFile(path.join(__dirname, '/views/app/abdominais.html'))
+})
+
 module.exports = app;
