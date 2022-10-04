@@ -20,6 +20,7 @@ const GemeosController = require('./controllers/GemeosController');
 const QuadricepsController = require('./controllers/QuadricepsController');
 const TrapsController = require('./controllers/TrapsController');
 const HamstringsController = require('./controllers/HamstringsController');
+const GluteoController = require('./controllers/GluteoController');
 
 router.get('/exercicios', ExercicioController.buscarTodos) 	 // Rota do método GET para visualizar todos os exercícios
 router.get('/exercicio/:id', ExercicioController.buscarUm);	 // Rota do método GET para visualizar apenas um exercício
@@ -48,5 +49,6 @@ router.get('/gemeos', GemeosController.visualizarTodos);
 router.get('/quadriceps', QuadricepsController.visualizarTodos);
 router.get('/traps', TrapsController.visualizarTodos);
 router.get('/hamstrings', HamstringsController.visualizarTodos);
+router.get('/gluteos', GluteoController.visualizarTodos);
 
 module.exports = router;
