@@ -64,4 +64,11 @@ app.get('/quadriceps_exercicios', function(req, res){
 	res.sendFile(path.join(__dirname, '/views/app/quadriceps.html'))
 })
 
+app.get('/traps_exercicios', function(req, res){
+	res.sendFile(path.join(__dirname, '/views/app/traps.html'))
+})
+app.get('/hamstrings_exercicios', function(req, res){
+	res.sendFile(path.join(__dirname, '/views/app/hamstrings.html'))
+})
+
 module.exports = app;

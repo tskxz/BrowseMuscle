@@ -5,7 +5,7 @@ const mysql = require('mysql');
 const connection = mysql.createConnection({
 	host: process.env.DB_HOST,				// localhost:3000
 	user: process.env.DB_USER,				// root
-	password: process.env.DB_PASS_LINUX,			// root ou palavra passe vazia
+	password: process.env.DB_PASS,			// root ou palavra passe vazia
 	database: process.env.DB_NAME,			// BrowseMuscle
 	multipleStatements: true,				// Permitir mais de que uma query
 	connectTimeout: 3000000
