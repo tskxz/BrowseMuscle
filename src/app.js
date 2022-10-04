@@ -48,4 +48,8 @@ app.get('/abdominais_exercicios', function(req, res){
 	res.sendFile(path.join(__dirname, '/views/app/abdominais.html'))
 })
 
+app.get('/antebraco_exercicios', function(req, res){
+	res.sendFile(path.join(__dirname, '/views/app/antebraco.html'))
+})
+
 module.exports = app;
