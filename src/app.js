@@ -56,4 +56,8 @@ app.get('/dorsais_exercicios', function(req, res){
 	res.sendFile(path.join(__dirname, '/views/app/dorsais.html'))
 })
 
+app.get('/gemeos_exercicios', function(req, res){
+	res.sendFile(path.join(__dirname, '/views/app/gemeos.html'))
+})
+
 module.exports = app;
