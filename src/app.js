@@ -60,4 +60,8 @@ app.get('/gemeos_exercicios', function(req, res){
 	res.sendFile(path.join(__dirname, '/views/app/gemeos.html'))
 })
 
+app.get('/quadriceps_exercicios', function(req, res){
+	res.sendFile(path.join(__dirname, '/views/app/quadriceps.html'))
+})
+
 module.exports = app;
