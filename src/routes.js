@@ -6,21 +6,23 @@ const path = require('path');
 // Os serviços contém as consultas á base de dados e objetos a retornanr ou lançar erros
 
 const ExercicioController = require('./controllers/ExercicioController')
-const MusculoController = require('./controllers/MusculoController');
+
 const AlimentoController = require('./controllers/AlimentoController');
-const PeitoController = require('./controllers/PeitoController');
-const OmbrosController = require('./controllers/OmbrosController');
-const TricepsController = require('./controllers/TricepsController');
-const BicepsController = require('./controllers/BicepsController');
-const CostasController = require('./controllers/CostasController');
-const AbdominaisController = require('./controllers/AbdominaisController');
-const AntebracoController = require('./controllers/AntebracoController');
-const DorsaisController = require('./controllers/DorsaisController');
-const GemeosController = require('./controllers/GemeosController');
-const QuadricepsController = require('./controllers/QuadricepsController');
-const TrapsController = require('./controllers/TrapsController');
-const HamstringsController = require('./controllers/HamstringsController');
-const GluteoController = require('./controllers/GluteoController');
+
+const MusculoController = require('./controllers/Musculos/MusculoController');
+const PeitoController = require('./controllers/Musculos/PeitoController');
+const OmbrosController = require('./controllers/Musculos/OmbrosController');
+const TricepsController = require('./controllers/Musculos/TricepsController');
+const BicepsController = require('./controllers/Musculos/BicepsController');
+const CostasController = require('./controllers/Musculos/CostasController');
+const AbdominaisController = require('./controllers/Musculos/AbdominaisController');
+const AntebracoController = require('./controllers/Musculos/AntebracoController');
+const DorsaisController = require('./controllers/Musculos/DorsaisController');
+const GemeosController = require('./controllers/Musculos/GemeosController');
+const QuadricepsController = require('./controllers/Musculos/QuadricepsController');
+const TrapsController = require('./controllers/Musculos/TrapsController');
+const HamstringsController = require('./controllers/Musculos/HamstringsController');
+const GluteoController = require('./controllers/Musculos/GluteoController');
 
 router.get('/exercicios', ExercicioController.buscarTodos) 	 // Rota do método GET para visualizar todos os exercícios
 router.get('/exercicio/:id', ExercicioController.buscarUm);	 // Rota do método GET para visualizar apenas um exercício

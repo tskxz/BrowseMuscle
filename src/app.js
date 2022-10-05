@@ -9,15 +9,15 @@ app.get('/', function(req, res) {
 })
 
 app.get('/login', function(req, res){
-	res.sendFile(path.join(__dirname, '/views/app/login.html'))
+	res.sendFile(path.join(__dirname, '/views/app/login_registar/login.html'))
 })
 
 app.get('/registar', function(req, res){
-	res.sendFile(path.join(__dirname, '/views/app/registar.html'))
+	res.sendFile(path.join(__dirname, '/views/app/login_registar/registar.html'))
 })
 
 app.get('/alimentos', function(req, res){
-	res.sendFile(path.join(__dirname, '/views/app/alimentos.html'))
+	res.sendFile(path.join(__dirname, '/views/app/alimentos/alimentos.html'))
 })
 
 app.get('/musculos', function(req, res){
@@ -25,55 +25,55 @@ app.get('/musculos', function(req, res){
 })
 
 app.get('/peito_exercicios', function(req, res){
-	res.sendFile(path.join(__dirname, '/views/app/peito.html'))
+	res.sendFile(path.join(__dirname, '/views/app/musculos/peito.html'))
 })
 
 app.get('/ombros_exercicios', function(req, res){
-	res.sendFile(path.join(__dirname, '/views/app/ombros.html'))
+	res.sendFile(path.join(__dirname, '/views/app/musculos/ombros.html'))
 })
 
 app.get('/triceps_exercicios', function(req, res){
-	res.sendFile(path.join(__dirname, '/views/app/triceps.html'))
+	res.sendFile(path.join(__dirname, '/views/app/musculos/triceps.html'))
 })
 
 app.get('/biceps_exercicios', function(req, res){
-	res.sendFile(path.join(__dirname, '/views/app/biceps.html'))
+	res.sendFile(path.join(__dirname, '/views/app/musculos/biceps.html'))
 })
 
 app.get('/costas_exercicios', function(req, res){
-	res.sendFile(path.join(__dirname, '/views/app/costas.html'))
+	res.sendFile(path.join(__dirname, '/views/app/musculos/costas.html'))
 })
 
 app.get('/abdominais_exercicios', function(req, res){
-	res.sendFile(path.join(__dirname, '/views/app/abdominais.html'))
+	res.sendFile(path.join(__dirname, '/views/app/musculos/abdominais.html'))
 })
 
 app.get('/antebraco_exercicios', function(req, res){
-	res.sendFile(path.join(__dirname, '/views/app/antebraco.html'))
+	res.sendFile(path.join(__dirname, '/views/app/musculos/antebraco.html'))
 })
 
 app.get('/dorsais_exercicios', function(req, res){
-	res.sendFile(path.join(__dirname, '/views/app/dorsais.html'))
+	res.sendFile(path.join(__dirname, '/views/app/musculos/dorsais.html'))
 })
 
 app.get('/gemeos_exercicios', function(req, res){
-	res.sendFile(path.join(__dirname, '/views/app/gemeos.html'))
+	res.sendFile(path.join(__dirname, '/views/app/musculos/gemeos.html'))
 })
 
 app.get('/quadriceps_exercicios', function(req, res){
-	res.sendFile(path.join(__dirname, '/views/app/quadriceps.html'))
+	res.sendFile(path.join(__dirname, '/views/app/musculos/quadriceps.html'))
 })
 
 app.get('/traps_exercicios', function(req, res){
-	res.sendFile(path.join(__dirname, '/views/app/traps.html'))
+	res.sendFile(path.join(__dirname, '/views/app/musculos/traps.html'))
 })
 
 app.get('/hamstrings_exercicios', function(req, res){
-	res.sendFile(path.join(__dirname, '/views/app/hamstrings.html'))
+	res.sendFile(path.join(__dirname, '/views/app/musculos/hamstrings.html'))
 })
 
 app.get('/gluteo_exercicios', function(req, res){
-	res.sendFile(path.join(__dirname, '/views/app/gluteos.html'))
+	res.sendFile(path.join(__dirname, '/views/app/musculos/gluteos.html'))
 })
 
 module.exports = app;
