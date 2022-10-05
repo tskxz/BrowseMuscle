@@ -100,7 +100,6 @@ Os alimentos têm os seguintes campos
 1G de carbs equivale a 4 calorias
 1G de gordura equivale a 9 calorias
 
-
 ## 🚧 - Updates
 
 
