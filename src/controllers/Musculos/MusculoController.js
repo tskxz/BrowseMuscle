@@ -1,19 +1,16 @@
-const GemeosService = require('../services/GemeosService');
+const MusculoService = require('../../services/Musculos/MusculoService');
 
 module.exports = {
 
 	visualizarTodos: async(req, res) => {
 		let json = {error: '', result:[]};
 
-		let gemeos = await GemeosService.visualizarTodos();
+		let musculo = await MusculoService.visualizarTodos();
 
-		for(let i in gemeos){
+		for(let i in musculo){
 			json.result.push({
-				id: gemeos[i].id,
-				nome_exercicio: gemeos[i].nome_exercicio,
-                nome_equipamento: gemeos[i].nome_equipamento,
-                nome_dificuldade: gemeos[i].nome_dificuldade,
-                nome_musculo: gemeos[i].nome_musculo
+				id: musculo[i].id,
+				nome_musculo: musculo[i].nome_musculo
 			});
 		}
 		res.setHeader('Access-Control-Allow-Origin', '*');

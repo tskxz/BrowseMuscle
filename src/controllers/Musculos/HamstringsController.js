@@ -1,19 +1,19 @@
-const AntebracoService = require('../services/AntebracoService');
+const HamstringsService = require('../../services/Musculos/HamstringsService');
 
 module.exports = {
 
 	visualizarTodos: async(req, res) => {
 		let json = {error: '', result:[]};
 
-		let antebraco = await AntebracoService.visualizarTodos();
+		let hamstrings = await HamstringsService.visualizarTodos();
 
-		for(let i in antebraco){
+		for(let i in hamstrings){
 			json.result.push({
-				id: antebraco[i].id,
-				nome_exercicio: antebraco[i].nome_exercicio,
-                nome_equipamento: antebraco[i].nome_equipamento,
-                nome_dificuldade: antebraco[i].nome_dificuldade,
-                nome_musculo: antebraco[i].nome_musculo
+				id: hamstrings[i].id,
+				nome_exercicio: hamstrings[i].nome_exercicio,
+                nome_equipamento: hamstrings[i].nome_equipamento,
+                nome_dificuldade: hamstrings[i].nome_dificuldade,
+                nome_musculo: hamstrings[i].nome_musculo
 			});
 		}
 		res.setHeader('Access-Control-Allow-Origin', '*');

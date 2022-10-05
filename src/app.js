@@ -9,15 +9,15 @@ app.get('/', function(req, res) {
 })
 
 app.get('/login', function(req, res){
-	res.sendFile(path.join(__dirname, '/views/app/login.html'))
+	res.sendFile(path.join(__dirname, '/views/app/login_registar/login.html'))
 })
 
 app.get('/registar', function(req, res){
-	res.sendFile(path.join(__dirname, '/views/aps/registar.html'))
+	res.sendFile(path.join(__dirname, '/views/app/login_registar/registar.html'))
 })
 
 app.get('/alimentos', function(req, res){
-	res.sendFile(path.join(__dirname, '/views/app/alimentos.html'))
+	res.sendFile(path.join(__dirname, '/views/app/alimentos/alimentos.html'))
 })
 
 app.get('/musculos', function(req, res){

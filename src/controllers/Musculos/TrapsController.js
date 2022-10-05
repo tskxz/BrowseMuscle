@@ -1,19 +1,19 @@
-const TricepsService = require('../services/TricepsService');
+const TrapsService = require('../../services/Musculos/TrapsService');
 
 module.exports = {
 
 	visualizarTodos: async(req, res) => {
 		let json = {error: '', result:[]};
 
-		let triceps = await TricepsService.visualizarTodos();
+		let traps = await TrapsService.visualizarTodos();
 
-		for(let i in triceps){
+		for(let i in traps){
 			json.result.push({
-				id: triceps[i].id,
-				nome_exercicio: triceps[i].nome_exercicio,
-                nome_equipamento: triceps[i].nome_equipamento,
-                nome_dificuldade: triceps[i].nome_dificuldade,
-                nome_musculo: triceps[i].nome_musculo
+				id: traps[i].id,
+				nome_exercicio: traps[i].nome_exercicio,
+                nome_equipamento: traps[i].nome_equipamento,
+                nome_dificuldade: traps[i].nome_dificuldade,
+                nome_musculo: traps[i].nome_musculo
 			});
 		}
 		res.setHeader('Access-Control-Allow-Origin', '*');
