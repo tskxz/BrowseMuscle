@@ -1,19 +1,19 @@
-const QuadricepsService = require('../services/QuadricepsService');
+const PeitoService = require('../../services/Musculos/PeitoService');
 
 module.exports = {
 
 	visualizarTodos: async(req, res) => {
 		let json = {error: '', result:[]};
 
-		let quadriceps = await QuadricepsService.visualizarTodos();
+		let peito = await PeitoService.visualizarTodos();
 
-		for(let i in quadriceps){
+		for(let i in peito){
 			json.result.push({
-				id: quadriceps[i].id,
-				nome_exercicio: quadriceps[i].nome_exercicio,
-                nome_equipamento: quadriceps[i].nome_equipamento,
-                nome_dificuldade: quadriceps[i].nome_dificuldade,
-                nome_musculo: quadriceps[i].nome_musculo
+				id: peito[i].id,
+				nome_exercicio: peito[i].nome_exercicio,
+                nome_equipamento: peito[i].nome_equipamento,
+                nome_dificuldade: peito[i].nome_dificuldade,
+                nome_musculo: peito[i].nome_musculo
 			});
 		}
 		res.setHeader('Access-Control-Allow-Origin', '*');

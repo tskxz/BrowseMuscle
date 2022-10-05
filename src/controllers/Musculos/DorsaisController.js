@@ -1,19 +1,19 @@
-const BicepsService = require('../services/BicepsService');
+const DorsaisService = require('../../services/Musculos/DorsaisService');
 
 module.exports = {
 
 	visualizarTodos: async(req, res) => {
 		let json = {error: '', result:[]};
 
-		let bicep = await BicepsService.visualizarTodos();
+		let dorsal = await DorsaisService.visualizarTodos();
 
-		for(let i in bicep){
+		for(let i in dorsal){
 			json.result.push({
-				id: bicep[i].id,
-				nome_exercicio: bicep[i].nome_exercicio,
-                nome_equipamento: bicep[i].nome_equipamento,
-                nome_dificuldade: bicep[i].nome_dificuldade,
-                nome_musculo: bicep[i].nome_musculo
+				id: dorsal[i].id,
+				nome_exercicio: dorsal[i].nome_exercicio,
+                nome_equipamento: dorsal[i].nome_equipamento,
+                nome_dificuldade: dorsal[i].nome_dificuldade,
+                nome_musculo: dorsal[i].nome_musculo
 			});
 		}
 		res.setHeader('Access-Control-Allow-Origin', '*');

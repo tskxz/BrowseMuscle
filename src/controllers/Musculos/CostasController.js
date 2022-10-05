@@ -1,4 +1,4 @@
-const CostasService = require('../services/CostasService');
+const CostasService = require('../../services/Musculos/CostasService');
 
 module.exports = {
 

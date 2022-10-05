@@ -1,4 +1,4 @@
-const OmbroService = require('../services/OmbrosService');
+const OmbroService = require('../../services/Musculos/OmbrosService');
 
 module.exports = {
 

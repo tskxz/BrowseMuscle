@@ -1,19 +1,19 @@
-const DorsaisService = require('../services/DorsaisService');
+const GluteoService = require('../../services/Musculos/GluteoService');
 
 module.exports = {
 
 	visualizarTodos: async(req, res) => {
 		let json = {error: '', result:[]};
 
-		let dorsal = await DorsaisService.visualizarTodos();
+		let gluteo = await GluteoService.visualizarTodos();
 
-		for(let i in dorsal){
+		for(let i in gluteo){
 			json.result.push({
-				id: dorsal[i].id,
-				nome_exercicio: dorsal[i].nome_exercicio,
-                nome_equipamento: dorsal[i].nome_equipamento,
-                nome_dificuldade: dorsal[i].nome_dificuldade,
-                nome_musculo: dorsal[i].nome_musculo
+				id: gluteo[i].id,
+				nome_exercicio: gluteo[i].nome_exercicio,
+                nome_equipamento: gluteo[i].nome_equipamento,
+                nome_dificuldade: gluteo[i].nome_dificuldade,
+                nome_musculo: gluteo[i].nome_musculo
 			});
 		}
 		res.setHeader('Access-Control-Allow-Origin', '*');
