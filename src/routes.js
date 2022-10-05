@@ -24,6 +24,10 @@ const TrapsController = require('./controllers/Musculos/TrapsController');
 const HamstringsController = require('./controllers/Musculos/HamstringsController');
 const GluteoController = require('./controllers/Musculos/GluteoController');
 
+const InicianteController = require('./controllers/Dificuldades/InicianteController');
+const IntermedarioController = require('./controllers/Dificuldades/IntermediarioController');
+const AvancadoController = require('./controllers/Dificuldades/AvancadoController');
+
 router.get('/exercicios', ExercicioController.buscarTodos) 	 // Rota do método GET para visualizar todos os exercícios
 router.get('/exercicio/:id', ExercicioController.buscarUm);	 // Rota do método GET para visualizar apenas um exercício
 router.post('/exercicio', ExercicioController.inserir);		 // Rota do método POST para inserir exercício
@@ -52,5 +56,9 @@ router.get('/quadriceps', QuadricepsController.visualizarTodos);
 router.get('/traps', TrapsController.visualizarTodos);
 router.get('/hamstrings', HamstringsController.visualizarTodos);
 router.get('/gluteos', GluteoController.visualizarTodos);
+
+router.get('/iniciante', InicianteController.visualizarTodos);
+router.get('/intermediario', IntermedarioController.visualizarTodos);
+router.get('/avancado', AvancadoController.visualizarTodos);
 
 module.exports = router;
