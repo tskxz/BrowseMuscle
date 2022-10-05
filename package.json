@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+http://github.com/8fn/BrowseMuscle.git"
+    "url": "git+https://github.com/8fn/BrowseMuscle.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "http://github.com/8fn/BrowseMuscle/issues"
+    "url": "https://github.com/8fn/BrowseMuscle/issues"
   },
-  "homepage": "http://github.com/8fn/BrowseMuscle#readme",
+  "homepage": "https://github.com/8fn/BrowseMuscle#readme",
   "dependencies": {
     "body-parser": "^1.20.0",
     "bootstrap": "^5.2.1",

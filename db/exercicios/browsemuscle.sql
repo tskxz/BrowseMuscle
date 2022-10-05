@@ -1,6 +1,6 @@
 -- phpMyAdmin SQL Dump
 -- version 4.6.6deb5ubuntu0.5
--- http://www.phpmyadmin.net/
+-- https://www.phpmyadmin.net/
 --
 -- Host: 4acd-132-145-18-76.eu.ngrok.io
 -- Generation Time: Sep 22, 2022 at 01:31 PM

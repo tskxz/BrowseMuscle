@@ -1,6 +1,6 @@
 -- phpMyAdmin SQL Dump
 -- version 5.2.0
--- http://www.phpmyadmin.net/
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
 -- Tempo de geração: 01-Out-2022 às 09:53
