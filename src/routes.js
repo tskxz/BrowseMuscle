@@ -10,6 +10,17 @@ const MusculoController = require('./controllers/MusculoController');
 const AlimentoController = require('./controllers/AlimentoController');
 const PeitoController = require('./controllers/PeitoController');
 const OmbrosController = require('./controllers/OmbrosController');
+const TricepsController = require('./controllers/TricepsController');
+const BicepsController = require('./controllers/BicepsController');
+const CostasController = require('./controllers/CostasController');
+const AbdominaisController = require('./controllers/AbdominaisController');
+const AntebracoController = require('./controllers/AntebracoController');
+const DorsaisController = require('./controllers/DorsaisController');
+const GemeosController = require('./controllers/GemeosController');
+const QuadricepsController = require('./controllers/QuadricepsController');
+const TrapsController = require('./controllers/TrapsController');
+const HamstringsController = require('./controllers/HamstringsController');
+const GluteoController = require('./controllers/GluteoController');
 
 router.get('/exercicios', ExercicioController.buscarTodos) 	 // Rota do método GET para visualizar todos os exercícios
 router.get('/exercicio/:id', ExercicioController.buscarUm);	 // Rota do método GET para visualizar apenas um exercício
@@ -28,5 +39,16 @@ router.delete('/alimento/:id', AlimentoController.apagar);
 
 router.get('/peito', PeitoController.visualizarTodos);
 router.get('/ombros', OmbrosController.visualizarTodos);
+router.get('/triceps', TricepsController.visualizarTodos);
+router.get('/biceps', BicepsController.visualizarTodos);
+router.get('/costas', CostasController.visualizarTodos);
+router.get('/abdominais', AbdominaisController.visualizarTodos);
+router.get('/antebraco', AntebracoController.visualizarTodos);
+router.get('/dorsais', DorsaisController.visualizarTodos);
+router.get('/gemeos', GemeosController.visualizarTodos);
+router.get('/quadriceps', QuadricepsController.visualizarTodos);
+router.get('/traps', TrapsController.visualizarTodos);
+router.get('/hamstrings', HamstringsController.visualizarTodos);
+router.get('/gluteos', GluteoController.visualizarTodos);
 
 module.exports = router;
