@@ -100,6 +100,8 @@ Os alimentos têm os seguintes campos
 1G de carbs equivale a 4 calorias
 1G de gordura equivale a 9 calorias
 
+[![](https://raw.githubusercontent.com/8fn/BrowseMuscle/master/docs/alimento.png)](https://raw.githubusercontent.com/8fn/BrowseMuscle/master/docs/alimento.png)
+
 ## 🚧 - Updates
 
 
