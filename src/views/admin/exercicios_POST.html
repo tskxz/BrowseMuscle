@@ -38,9 +38,9 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<div class="topnav">
-		<a href="https://4acd-132-145-18-76.eu.ngrok.io/">Página Principal</a>
-		<a href="https://4acd-132-145-18-76.eu.ngrok.io/admin">Visualizar Exercícios</a>
-		<a class="active" href="https://4acd-132-145-18-76.eu.ngrok.io/admin/post_exercicios">Inserir Exercícios</a>
+		<a href="http://localhost:3000/">Página Principal</a>
+		<a href="http://localhost:3000/admin">Visualizar Exercícios</a>
+		<a class="active" href="http://localhost:3000/admin/post_exercicios">Inserir Exercícios</a>
 	</div>
 
 	<form class="form was-validated" id="myForm">
@@ -166,7 +166,7 @@
 	<script>
 
 		function myFunction(){
-			//window.location.href="https://4acd-132-145-18-76.eu.ngrok.io/admin";
+			//window.location.href="http://localhost:3000/admin";
 		}
 	</script>
 
@@ -182,7 +182,7 @@
 			const formDataJsonString = JSON.stringify(formDataObject);
 			// value.topics = formData.getAll("topics");
 			console.log(formDataJsonString);
-			fetch('https://4acd-132-145-18-76.eu.ngrok.io/api/exercicio/', {
+			fetch('http://localhost:3000/api/exercicio/', {
 				method: 'POST',
 				headers: {
 						'Content-Type': 'application/json'
@@ -196,7 +196,7 @@
 			}).catch(function(error){
 				console.log(error);
 			})
-		window.location.href="https://4acd-132-145-18-76.eu.ngrok.io/admin";
+		window.location.href="http://localhost:3000/admin";
 		})
 	</script>
 
