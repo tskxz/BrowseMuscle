@@ -28,6 +28,8 @@ const InicianteController = require('./controllers/Dificuldades/InicianteControl
 const IntermedarioController = require('./controllers/Dificuldades/IntermediarioController');
 const AvancadoController = require('./controllers/Dificuldades/AvancadoController');
 
+const BarraController = require('./controllers/Equipamentos/BarraController');
+
 router.get('/exercicios', ExercicioController.buscarTodos) 	 // Rota do método GET para visualizar todos os exercícios
 router.get('/exercicio/:id', ExercicioController.buscarUm);	 // Rota do método GET para visualizar apenas um exercício
 router.post('/exercicio', ExercicioController.inserir);		 // Rota do método POST para inserir exercício
@@ -60,5 +62,7 @@ router.get('/gluteos', GluteoController.visualizarTodos);
 router.get('/iniciante', InicianteController.visualizarTodos);
 router.get('/intermediario', IntermedarioController.visualizarTodos);
 router.get('/avancado', AvancadoController.visualizarTodos);
+
+router.get('/barra', BarraController.visualizarTodos);
 
 module.exports = router;

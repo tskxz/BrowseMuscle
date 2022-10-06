@@ -1,4 +1,4 @@
-const BarraService = require('../../services/Musculos/BarraService');
+const BarraService = require('../../services/Equipamentos/BarraService');
 
 module.exports = {
 
