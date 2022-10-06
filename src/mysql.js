@@ -5,7 +5,7 @@ var osValue = process.platform;
 
 if(osValue== 'linux') {
 	console.log('Sistema Operativo: ' + osValue);
-    DB_PASS = root
+    DB_PASS = "root"
 } else {
 	console.log('Sistema Operativo: ' + osValue);
 	DB_PASS = "";
