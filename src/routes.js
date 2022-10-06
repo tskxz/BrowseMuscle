@@ -33,6 +33,7 @@ const BodyweightController = require('./controllers/Equipamentos/BodyweightContr
 const CabosController = require('./controllers/Equipamentos/CabosController');
 const MaquinaController = require('./controllers/Equipamentos/MaquinaController');
 const HalteresController = require('./controllers/Equipamentos/HalteresController');
+const ElasticoController = require('./controllers/Equipamentos/ElasticoController');
 
 router.get('/exercicios', ExercicioController.buscarTodos) 	 // Rota do método GET para visualizar todos os exercícios
 router.get('/exercicio/:id', ExercicioController.buscarUm);	 // Rota do método GET para visualizar apenas um exercício
@@ -72,5 +73,6 @@ router.get('/bodyweight', BodyweightController.visualizarTodos);
 router.get('/cabos', CabosController.visualizarTodos);
 router.get('/maquina', MaquinaController.visualizarTodos);
 router.get('/halteres', HalteresController.visualizarTodos);
+router.get('/elastico', ElasticoController.visualizarTodos);
 
 module.exports = router;
