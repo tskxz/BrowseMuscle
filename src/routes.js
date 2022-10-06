@@ -29,6 +29,7 @@ const IntermedarioController = require('./controllers/Dificuldades/Intermediario
 const AvancadoController = require('./controllers/Dificuldades/AvancadoController');
 
 const BarraController = require('./controllers/Equipamentos/BarraController');
+const BodyweightController = require('./controllers/Equipamentos/BodyweightController')
 
 router.get('/exercicios', ExercicioController.buscarTodos) 	 // Rota do método GET para visualizar todos os exercícios
 router.get('/exercicio/:id', ExercicioController.buscarUm);	 // Rota do método GET para visualizar apenas um exercício
@@ -64,5 +65,6 @@ router.get('/intermediario', IntermedarioController.visualizarTodos);
 router.get('/avancado', AvancadoController.visualizarTodos);
 
 router.get('/barra', BarraController.visualizarTodos);
+router.get('/bodyweight', BodyweightController.visualizarTodos);
 
 module.exports = router;
