@@ -24,4 +24,7 @@ admin.get('/', function(req, res){
 	res.sendFile(path.join(__dirname, '/views/admin/exercicios/tabela_exercicios.html')) // Visualizar os exercícios através da tabela em HTML
 })
 
+admin.get('/alimentos', function(req, res){
+	res.sendFile(path.join(__dirname, '/views/admin/alimentos/tabela_alimentos.html'))
+})
 module.exports = admin;
