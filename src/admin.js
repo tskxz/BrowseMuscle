@@ -32,4 +32,8 @@ admin.get('/post_alimentos', function(req, res){
 	res.sendFile(path.join(__dirname, '/views/admin/alimentos/alimentos_POST.html'))
 })
 
+admin.get('/update_alimentos', function(req, res){
+	res.sendFile(path.join(__dirname, '/views/admin/alimentos/alimentos_PUT.html'))
+})
+
 module.exports = admin;
