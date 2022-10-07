@@ -40,9 +40,9 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<div class="topnav">
-		<a href="https://4acd-132-145-18-76.eu.ngrok.io/">Página Principal</a>
-		<a href="https://4acd-132-145-18-76.eu.ngrok.io/admin">Visualizar Exercícios</a>
-		<a class="active" href="https://4acd-132-145-18-76.eu.ngrok.io/admin/post_exercicios">Inserir Exercícios</a>
+		<a href="https://ec53-132-145-18-76.eu.ngrok.io/">Página Principal</a>
+		<a href="https://ec53-132-145-18-76.eu.ngrok.io/admin">Visualizar Alimentos</a>
+		<a class="active" href="https://ec53-132-145-18-76.eu.ngrok.io/admin/post_alimentos">Inserir Alimentos</a>
 	</div>
 
 <form class="form" id="myForm">
@@ -57,16 +57,16 @@
     console.log(url)
     var id = url.searchParams.get("id");
 
-    var nome_exercicio = url.searchParams.get("nome_exercicio");
-    var nome_equipamento = url.searchParams.get("nome_equipamento");
-    var nome_dificuldade = url.searchParams.get("nome_dificuldade");
-		var nome_musculo = url.searchParams.get("nome_musculo");
+    var alimento = url.searchParams.get("nome");
+    var proteina = url.searchParams.get("proteina");
+    var carbs = url.searchParams.get("carbs");
+	var gordura = url.searchParams.get("gordura");
 
     var value = `
 		<table class="table table-striped table-hover">
 			<tr class="bg-danger">
 				<th>ID</th>
-				<th>Exercício</th>
+				<th>Alimento</th>
 				<th>Equipamento</th>
 				<th>Dificuldade</th>
 				<th>Músculo</th>
@@ -75,58 +75,26 @@
 				<td>${id}</td>
 				<td>
 					<div class="form-group ">
-						<label for="exampleFormControlInput1">Nome do Exercício</label>
-						<input type="text" class="form-control form-control-sm" id="exampleFormControlInput1" placeholder="nome do exercício" name="nome_exercicio" value="${nome_exercicio}">
+						<label for="exampleFormControlInput1">Nome do Alimento</label>
+						<input type="text" class="form-control form-control-sm" id="exampleFormControlInput1" placeholder="nome do exercício" name="nome" value="${alimento}">
 					</div>
 				</td>
 				<td>
 				<div class="form-group">
-					<label for="exampleFormControlSelect1">Nome do equipamento</label>
-					<select class="form-control form-control-sm" id="exampleFormControlSelect1" name="nome_equipamento">
-						<option>${nome_equipamento}</option>
-						<option>bodyweight</option>
-						<option>halteres</option>
-						<option>barra</option>
-						<option>cabos</option>
-						<option>maquina</option>
-						<option>elastico</option>
-					</select>
+					<label for="exampleFormControlInput1">Nome do Alimento</label>
+						<input type="text" class="form-control form-control-sm" id="exampleFormControlInput1" placeholder="nome do exercício" name="proteina" value="${proteina}">
 				</div>
 				</td>
 				<td>
 					<div class="form-group">
-					 <label for="exampleFormControlSelect2">Nome da dificuldade</label>
-					 <select class="form-control form-control-sm" id="exampleFormControlSelect2" name="nome_dificuldade">
-						<option>${nome_dificuldade}</option>
-						 <option>iniciante</option>
-						 <option>intermediario</option>
-						 <option>avancado</option>
-					 </select>
+                        <label for="exampleFormControlInput1">Nome do Alimento</label>
+						<input type="text" class="form-control form-control-sm" id="exampleFormControlInput1" placeholder="nome do exercício" name="carbs" value="${carbs}">
 				 </div>
 				</td>
 				<td>
 					<div class="form-group">
-		        <label for="exampleFormControlSelect2">Nome do músculo</label>
-		        <select class="form-control form-control-sm" id="exampleFormControlSelect2" name="nome_musculo">
-
-							<option>${nome_musculo}</option>
-		          <option>abdominais</option>
-		          <option>antebraco</option>
-		          <option>biceps</option>
-		          <option>costas</option>
-		          <option>gemeos</option>
-		          <option>biceps</option>
-		          <option>costas</option>
-		          <option>gemeos</option>
-		          <option>gluteo</option>
-		          <option>hamstrings</option>
-		          <option>lats</option>
-		          <option>ombros</option>
-		          <option>peito</option>
-		          <option>quadriceps</option>
-		          <option>traps</option>
-		          <option>triceps</option>
-		        </select>
+                        <label for="exampleFormControlInput1">Nome do Alimento</label>
+						<input type="text" class="form-control form-control-sm" id="exampleFormControlInput1" placeholder="nome do exercício" name="gordura" value="${gordura}">
 		      </div>
 				</td>
 			</tbody>
@@ -148,7 +116,7 @@
 </script>
 <script>
 	function myFunction(){
-		window.location.href="https://4acd-132-145-18-76.eu.ngrok.io/admin";
+		window.location.href="https://ec53-132-145-18-76.eu.ngrok.io/admin";
 	}
 </script>
 
@@ -157,7 +125,7 @@
 var url = new URL(window.location.href);
 var id = url.searchParams.get("id");
 
-url = "https://4acd-132-145-18-76.eu.ngrok.io/api/exercicio/" + id;
+url = "https://ec53-132-145-18-76.eu.ngrok.io/api/alimento/" + id;
 console.log(url);
 </script>
 
@@ -175,7 +143,7 @@ console.log(url);
 
 
 		console.log(formDataJsonString);
-		url = "https://4acd-132-145-18-76.eu.ngrok.io/api/exercicio/" + id;
+		url = "https://ec53-132-145-18-76.eu.ngrok.io/api/alimento/" + id;
 		fetch(url, {
 			method: 'PUT',
 			headers: {
