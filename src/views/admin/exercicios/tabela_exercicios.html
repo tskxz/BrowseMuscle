@@ -105,7 +105,7 @@
 
 		}
     function editar(id){
-      url = "http://localhost:3000/admin/update_exercicios?id=";
+      url = "http://localhost:3000/admin/exercicios/update_exercicios?id=";
       //console.log(id);
        window.location = url + id;
     }
@@ -121,7 +121,7 @@
 
       }).then(response => response.json());
 
-      window.location.href="http://localhost:3000/admin";
+      window.location.href="http://localhost:3000/admin/exercicios";
     }
 
 
@@ -137,8 +137,8 @@
 
 	<div class="topnav">
     <a href="http://localhost:3000/">Página Principal</a>
-		<a class="active" href="http://localhost:3000/admin">Visualizar Exercícios</a>
-		<a href="http://localhost:3000/admin/post_exercicios">Inserir Exercícios</a>
+		<a class="active" href="http://localhost:3000/admin/exercicios">Visualizar Exercícios</a>
+		<a href="http://localhost:3000/admin/exercicios/post_exercicios">Inserir Exercícios</a>
 	</div>
 
 

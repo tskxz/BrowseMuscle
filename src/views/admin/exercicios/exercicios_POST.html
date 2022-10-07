@@ -39,8 +39,8 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<div class="topnav">
 		<a href="http://localhost:3000/">Página Principal</a>
-		<a href="http://localhost:3000/admin">Visualizar Exercícios</a>
-		<a class="active" href="http://localhost:3000/admin/post_exercicios">Inserir Exercícios</a>
+		<a href="http://localhost:3000/admin/exercicios">Visualizar Exercícios</a>
+		<a class="active" href="http://localhost:3000/admin/exercicios/post_exercicios">Inserir Exercícios</a>
 	</div>
 
 	<form class="form was-validated" id="myForm">
@@ -196,7 +196,7 @@
 			}).catch(function(error){
 				console.log(error);
 			})
-		window.location.href="http://localhost:3000/admin";
+		window.location.href="http://localhost:3000/admin/exercicios";
 		})
 	</script>
 

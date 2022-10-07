@@ -11,16 +11,16 @@ admin/
 */
 
 // Inserir exercícios
-admin.get('/post_exercicios', function(req, res) {
+admin.get('/exercicios/post_exercicios', function(req, res) {
 	res.sendFile(path.join(__dirname, '/views/admin/exercicios/exercicios_POST.html')) // Inserir exercícios através do form HTML
 })
 
-admin.get('/update_exercicios', function(req, res) {
+admin.get('/exercicios/update_exercicios', function(req, res) {
 	res.sendFile(path.join(__dirname, '/views/admin/exercicios/exercicios_PUT.html')) // Atualizar exercícios através do form HTML
 })
 
 // Tabela de todos os exercícios
-admin.get('/', function(req, res){
+admin.get('/exercicios', function(req, res){
 	res.sendFile(path.join(__dirname, '/views/admin/exercicios/tabela_exercicios.html')) // Visualizar os exercícios através da tabela em HTML
 })
 
@@ -28,11 +28,11 @@ admin.get('/alimentos', function(req, res){
 	res.sendFile(path.join(__dirname, '/views/admin/alimentos/tabela_alimentos.html'))
 })
 
-admin.get('/post_alimentos', function(req, res){
+admin.get('/alimentos/post_alimentos', function(req, res){
 	res.sendFile(path.join(__dirname, '/views/admin/alimentos/alimentos_POST.html'))
 })
 
-admin.get('/update_alimentos', function(req, res){
+admin.get('/alimentos/update_alimentos', function(req, res){
 	res.sendFile(path.join(__dirname, '/views/admin/alimentos/alimentos_PUT.html'))
 })
 

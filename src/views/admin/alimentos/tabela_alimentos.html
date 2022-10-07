@@ -106,7 +106,7 @@
 
 		}
     function editar(id){
-      url = "http://localhost:3000/admin/update_alimentos?id=";
+      url = "http://localhost:3000/admin/alimentos/update_alimentos?id=";
       //console.log(id);
        window.location = url + id;
     }
@@ -122,7 +122,7 @@
 
       }).then(response => response.json());
 
-      window.location.href="http://localhost:3000/admin";
+      window.location.href="http://localhost:3000/admin/alimentos";
     }
 
 
@@ -139,7 +139,7 @@
 	<div class="topnav">
     <a href="http://localhost:3000/">Página Principal</a>
 		<a class="active" href="http://localhost:3000/admin/alimentos">Visualizar Alimentos</a>
-		<a href="http://localhost:3000/admin/post_alimentos">Inserir Alimentos</a>
+		<a href="http://localhost:3000/admin/alimentos/post_alimentos">Inserir Alimentos</a>
 	</div>
 
 
