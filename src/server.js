@@ -31,7 +31,7 @@ var phpExpress = require('php-express')({
   });
 
   // set view engine to php-express
-server.set('views', path.join(__dirname, '/views/app'));
+server.set('views', path.join(__dirname, 'views'));
 server.engine('php', phpExpress.engine);
 server.set('view engine', 'php');
 

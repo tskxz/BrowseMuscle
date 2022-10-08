@@ -22,53 +22,7 @@ p {
   </head>
   <body>
 
-    <script>
-  		fetch('http://localhost:3000/api/alimentos/')
-  			.then(res => res.json())
-  			.then(data => {
-  		 			 	const nome_alimentos = data.result
-  		 			 	console.log(nome_alimentos)
-  		 			 	buildTable(nome_alimentos)
-
-  					})
-
-  		function renderNames(names){
-  			const container = document.getElementById('alimentos');
-  			container.innerHtml = '';
-  				for (const name of names) {
-  				  const p = document.createElement('p');
-  				  const textNode = document.createTextNode(name);
-  				  p.appendChild(textNode);
-  				  container.appendChild(p);
-  				}
-  		}
-
-  		function buildTable(data){
-  			var table = document.getElementById('myTable');
-
-        // Mostrar todos os dados e meter a primeira palavra em maisculo
-        if(data.length > 0){
-          for(var i = 0; i<data.length; i++){
-    				var row = ` <tr>
-    								<td>${data[i].id}</td>
-    								<td>${data[i].nome.charAt(0).toUpperCase() + data[i].nome.slice(1)}</td>
-    								<td>${data[i].proteina}</td>
-    								<td>${data[i].carbs}</td>
-    								<td>${data[i].gordura}</td>
-                                    <td>${data[i].calorias}</td>
-    							</tr>`
-    				table.innerHTML += row
-    			}
-        } else {
-          var row = `<tr><td colspan="6" class="text-center">Nenhum alimento encontrado</td></tr>`;
-          table.innerHTML += row;
-        }
-
-
-
-  		}
-
-      </script>
+    
 
     <div class="container-fluid">
 	<div class="row">
@@ -136,6 +90,54 @@ p {
 		</div>
 	</div>
 </div>
+<script>
+	fetch('http://localhost:3000/api/alimentos/')
+		.then(res => res.json())
+		.then(data => {
+					  const nome_alimentos = data.result
+					  console.log(nome_alimentos)
+					  buildTable(nome_alimentos)
+
+				})
+
+	function renderNames(names){
+		const container = document.getElementById('alimentos');
+		container.innerHtml = '';
+			for (const name of names) {
+			  const p = document.createElement('p');
+			  const textNode = document.createTextNode(name);
+			  p.appendChild(textNode);
+			  container.appendChild(p);
+			}
+	}
+
+	function buildTable(data){
+		var table = document.getElementById('myTable');
+
+  // Mostrar todos os dados e meter a primeira palavra em maisculo
+  if(data.length > 0){
+	for(var i = 0; i<data.length; i++){
+			  var row = ` <tr>
+							  <td>${data[i].id}</td>
+							  <td>${data[i].nome.charAt(0).toUpperCase() + data[i].nome.slice(1)}</td>
+							  <td>${data[i].proteina}</td>
+							  <td>${data[i].carbs}</td>
+							  <td>${data[i].gordura}</td>
+							  <td>${data[i].calorias}</td>
+						  </tr>`
+			  table.innerHTML += row
+		  }
+  } else {
+	var row = `<tr><td colspan="6" class="text-center">Nenhum alimento encontrado</td></tr>`;
+	table.innerHTML += row;
+  }
+
+
+
+	}
+
+</script>
+
 <script>
     const myForm = document.getElementById('myForm');
 

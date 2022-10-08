@@ -5,7 +5,8 @@ const path = require('path');
 
 // Rota da APP da página principal
 app.get('/', function(req, res) {
-	res.sendFile(path.join(__dirname, '/views/app/index.html'))
+	// res.sendFile(path.join(__dirname, '/views/app/index.html'))
+	res.render('app/index')
 })
 /*
 app.get('/login', function(req, res){
@@ -16,6 +17,10 @@ app.get('/registar', function(req, res){
 	res.sendFile(path.join(__dirname, '/views/app/login_registar/registar.html'))
 })
 */
+
+app.get('/teste', function(req, res){
+    res.render('app/teste');
+})
 
 
 app.get('/alimentos', function(req, res){
