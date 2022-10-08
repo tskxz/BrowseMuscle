@@ -15,6 +15,7 @@ const admin = require('./admin');	// Paginas para CRUD
 const app = require('./app');		// Aplicacao Principal
 
 const server = express();
+const hbs = require('express-handlebars');
 
 // O servidor vai extrair informacao do API do tipo JSON
 server.use(cors());
@@ -26,16 +27,14 @@ server.use('/', app);
 
 server.use('/assets', express.static('./src/views/app/assets'));
 
-var phpExpress = require('php-express')({
-	binPath: 'php'
-  });
-
-  // set view engine to php-express
 server.set('views', path.join(__dirname, 'views'));
-server.engine('php', phpExpress.engine);
-server.set('view engine', 'php');
+server.set( 'view engine', 'hbs' );
+server.engine( 'hbs', hbs.engine( { 
+	extname: 'hbs', 
+	partialsDir: __dirname + '/views/app/includes/'
+  } ) );
+  
 
-server.all(/.+\.php$/, phpExpress.router);
 
 // routing all .php file to php-express
 

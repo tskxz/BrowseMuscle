@@ -4,9 +4,9 @@ const path = require('path');
 
 
 // Rota da APP da página principal
-app.get('/', function(req, res) {
+app.get('/exercicios', function(req, res) {
 	// res.sendFile(path.join(__dirname, '/views/app/index.html'))
-	res.render('app/index')
+	res.render('app/index', {layout: false})
 })
 /*
 app.get('/login', function(req, res){
@@ -19,7 +19,7 @@ app.get('/registar', function(req, res){
 */
 
 app.get('/alimentos', function(req, res){
-	res.sendFile(path.join(__dirname, '/views/app/alimentos/alimentos.html'))
+	res.render('app/alimentos/alimentos', {layout: false})
 })
 
 app.get('/musculos', function(req, res){
