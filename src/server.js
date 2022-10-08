@@ -7,6 +7,7 @@ require('dotenv').config({path:'var.env'})
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const path = require('path');
 
 
 const routes = require('./routes'); // API CRUD
@@ -24,6 +25,19 @@ server.use('/admin', admin);
 server.use('/', app);
 
 server.use('/assets', express.static('./src/views/app/assets'));
+
+var phpExpress = require('php-express')({
+	binPath: 'php'
+  });
+
+  // set view engine to php-express
+server.set('views', path.join(__dirname, '/views/app'));
+server.engine('php', phpExpress.engine);
+server.set('view engine', 'php');
+
+server.all(/.+\.php$/, phpExpress.router);
+
+// routing all .php file to php-express
 
 // Servidor irá ser usado na porta 3000
 server.listen(process.env.PORT, ()=>{
