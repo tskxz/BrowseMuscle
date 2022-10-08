@@ -18,11 +18,6 @@ app.get('/registar', function(req, res){
 })
 */
 
-app.get('/teste', function(req, res){
-    res.render('app/teste');
-})
-
-
 app.get('/alimentos', function(req, res){
 	res.sendFile(path.join(__dirname, '/views/app/alimentos/alimentos.html'))
 })

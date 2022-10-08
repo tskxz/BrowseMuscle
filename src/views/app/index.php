@@ -22,20 +22,7 @@ include __DIR__.'/includes/header.php';
         	</div>
 
 				</p>
-
-			</div>
-		</div>
-	</div>
-</div>
-
-    <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
-
-
-    <script src="./assets/js/jquery.min.js"></script>
-    <script src="./assets/js/bootstrap.min.js"></script>
-    <script src="./assets/js/scripts.js"></script>
-
-	<script>
+				<script>
 		fetch('http://localhost:3000/api/exercicios/')
 			.then(res => res.json())
 			.then(data => {
@@ -105,5 +92,6 @@ include __DIR__.'/includes/header.php';
 
 	</script>
 
-  </body>
-</html>
+<?php
+include __DIR__.'/includes/footer.php';
+?>

@@ -47,7 +47,7 @@ p {
 						<a class="nav-link" href="http://localhost:3000/equipamentos">Equipamentos</a>
 				   </li>
 
-	   <li class="nav-item">
+	                <li class="nav-item">
 						<a class="nav-link" href="http://localhost:3000/dificuldades">Dificuldades</a>
 				   </li>
 
