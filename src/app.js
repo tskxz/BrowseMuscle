@@ -23,6 +23,10 @@ app.get('/', function(req, res){
 	res.render('app/homepage')
 })
 
+app.get('/sobre_nos', function(req, res){
+	res.render('app/sobre_nos')
+})
+
 app.get('/alimentos', function(req, res){
 	res.render('app/alimentos/alimentos', {layout: false})
 })
