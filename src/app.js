@@ -7,7 +7,7 @@ const path = require('path');
 app.get('/', function(req, res) {
 	res.sendFile(path.join(__dirname, '/views/app/index.html'))
 })
-
+/*
 app.get('/login', function(req, res){
 	res.sendFile(path.join(__dirname, '/views/app/login_registar/login.html'))
 })
@@ -15,6 +15,8 @@ app.get('/login', function(req, res){
 app.get('/registar', function(req, res){
 	res.sendFile(path.join(__dirname, '/views/app/login_registar/registar.html'))
 })
+*/
+
 
 app.get('/alimentos', function(req, res){
 	res.sendFile(path.join(__dirname, '/views/app/alimentos/alimentos.html'))
@@ -74,6 +76,14 @@ app.get('/hamstrings_exercicios', function(req, res){
 
 app.get('/gluteo_exercicios', function(req, res){
 	res.sendFile(path.join(__dirname, '/views/app/musculos/gluteos.html'))
+})
+
+app.get('/equipamentos', function(req, res){
+	res.sendFile(path.join(__dirname, '/views/app/equipamentos.html'))
+})
+
+app.get('/dificuldades', function(req, res){
+	res.sendFile(path.join(__dirname, '/views/app/dificuldades.html'))
 })
 
 module.exports = app;
