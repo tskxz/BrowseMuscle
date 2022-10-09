@@ -95,6 +95,9 @@ app.get('/barra_exercicios', function(req, res){
 	res.render('app/equipamentos/barra', {layout: false})
 })
 
+app.get('/maquina_exercicios', function(req, res){
+	res.render('app/equipamentos/maquina', {layout: false})
+})
 
 app.get('/dificuldades', function(req, res){
 	res.render('app/dificuldades', {layout: false})
