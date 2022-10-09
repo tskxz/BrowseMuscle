@@ -91,8 +91,44 @@ app.get('/equipamentos', function(req, res){
 	res.render('app/equipamentos', {layout: false})
 })
 
+app.get('/barra_exercicios', function(req, res){
+	res.render('app/equipamentos/barra', {layout: false})
+})
+
+app.get('/maquina_exercicios', function(req, res){
+	res.render('app/equipamentos/maquina', {layout: false})
+})
+
+app.get('/cabos_exercicios', function(req, res){
+	res.render('app/equipamentos/cabos', {layout: false})
+})
+
+app.get('/halteres_exercicios', function(req, res){
+	res.render('app/equipamentos/halteres', {layout: false})
+})
+
+app.get('/peso_corporal_exercicios', function(req, res){
+	res.render('app/equipamentos/peso_corporal', {layout: false})
+})
+
+app.get('/elastico_exercicios', function(req, res){
+	res.render('app/equipamentos/elastico', {layout: false})
+})
+
 app.get('/dificuldades', function(req, res){
 	res.render('app/dificuldades', {layout: false})
+})
+
+app.get('/iniciante_exercicios', function(req, res){
+	res.render('app/dificuldades/iniciante', {layout: false})
+})
+
+app.get('/intermediario_exercicios', function(req, res){
+	res.render('app/dificuldades/intermediario', {layout: false})
+})
+
+app.get('/avancado_exercicios', function(req, res){
+	res.render('app/dificuldades/avancado', {layout: false})
 })
 
 module.exports = app;
