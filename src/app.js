@@ -103,6 +103,10 @@ app.get('/cabos_exercicios', function(req, res){
 	res.render('app/equipamentos/cabos', {layout: false})
 })
 
+app.get('/halteres_exercicios', function(req, res){
+	res.render('app/equipamentos/halteres', {layout: false})
+})
+
 app.get('/dificuldades', function(req, res){
 	res.render('app/dificuldades', {layout: false})
 })
