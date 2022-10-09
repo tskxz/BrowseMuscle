@@ -119,5 +119,16 @@ app.get('/dificuldades', function(req, res){
 	res.render('app/dificuldades', {layout: false})
 })
 
+app.get('/iniciante_exercicios', function(req, res){
+	res.render('app/dificuldades/iniciante', {layout: false})
+})
+
+app.get('/intermediario_exercicios', function(req, res){
+	res.render('app/dificuldades/intermediario', {layout: false})
+})
+
+app.get('/avancado_exercicios', function(req, res){
+	res.render('app/dificuldades/avancado', {layout: false})
+})
 
 module.exports = app;
