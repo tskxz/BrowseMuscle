@@ -91,8 +91,14 @@ app.get('/equipamentos', function(req, res){
 	res.render('app/equipamentos', {layout: false})
 })
 
+app.get('/barra_exercicios', function(req, res){
+	res.render('app/equipamentos/barra', {layout: false})
+})
+
+
 app.get('/dificuldades', function(req, res){
 	res.render('app/dificuldades', {layout: false})
 })
+
 
 module.exports = app;
