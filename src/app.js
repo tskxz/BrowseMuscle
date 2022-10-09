@@ -107,6 +107,10 @@ app.get('/halteres_exercicios', function(req, res){
 	res.render('app/equipamentos/halteres', {layout: false})
 })
 
+app.get('/peso_corporal_exercicios', function(req, res){
+	res.render('app/equipamentos/peso_corporal', {layout: false})
+})
+
 app.get('/dificuldades', function(req, res){
 	res.render('app/dificuldades', {layout: false})
 })
