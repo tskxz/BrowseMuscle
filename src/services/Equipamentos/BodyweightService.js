@@ -2,7 +2,7 @@ const db = require('../../mysql');
 
 module.exports = {
 
-	// Funcao para visualizar os musculos
+	// Funcao para visualizar a tabela exercícios bodyweight
 	visualizarTodos: () => {
 		return new Promise( (aceito, rejeitado) =>{
 			db.query('SELECT * FROM bodyweight', (error, results) => {

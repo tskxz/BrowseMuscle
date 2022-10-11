@@ -28,6 +28,8 @@ module.exports = {
 	},
 
 	// Funcao para inserir exercício
+	
+	// Insere o dado nas várias tabela -> exercício, músculo, equipamento e dificuldade 
 	inserir: (nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo)=> {
 		return new Promise( (aceito, rejeitado) => {
 			db.query('INSERT INTO exercicios (nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo) VALUES(?,?,?,?); INSERT INTO ?? (nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo) VALUES (?,?,?,?); INSERT INTO ?? (nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo) VALUES (?,?,?,?); INSERT INTO ?? (nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo) VALUES (?,?,?,?);',

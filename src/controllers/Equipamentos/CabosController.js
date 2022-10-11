@@ -7,6 +7,8 @@ module.exports = {
 
 		let cabos = await CabosService.visualizarTodos();
 
+		// Visualizar todos os exercícios com cabos
+
 		for(let i in cabos){
 			json.result.push({
 				id: cabos[i].id,

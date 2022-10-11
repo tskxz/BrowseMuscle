@@ -5,6 +5,9 @@ module.exports = {
 	visualizarTodos: async(req, res) => {
 		let json = {error: '', result:[]};
 
+
+		// Visualizar todos os exercícios com halteres
+
 		let halteres = await HalteresService.visualizarTodos();
 
 		for(let i in halteres){

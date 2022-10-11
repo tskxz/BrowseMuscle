@@ -5,6 +5,9 @@ module.exports = {
 	visualizarTodos: async(req, res) => {
 		let json = {error: '', result:[]};
 
+
+		// Visualizar todos os exercícios intermediario
+
 		let intermediario = await IntermediarioService.visualizarTodos();
 
 		for(let i in intermediario){
