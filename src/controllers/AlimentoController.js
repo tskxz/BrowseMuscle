@@ -6,9 +6,9 @@ module.exports = {
 	buscarTodos: async (req, res) => {
 		let json = {error: '', result:[]};
 
-		let alimentos = await AlimentoService.buscarTodos(); // Visualizar todos os exercícios
+		let alimentos = await AlimentoService.buscarTodos(); // Visualizar todos os alimentos
 
-		// Para cada exercício, vai extrair informacao de cada campo
+		// Para cada alimento, vai extrair informacao de cada campo
 		for(let i in alimentos){
 			json.result.push({
 				id: alimentos[i].id,
@@ -26,7 +26,7 @@ module.exports = {
 	},
 
 
-	// Funcao visualizar um exercício
+	// Funcao visualizar um alimento
 	buscarUmNome: async (req, res) => {
 		let json = {error:'', result:[]};
 
@@ -55,7 +55,7 @@ module.exports = {
         let calorias = (proteina * 4) + (carbs * 4) + (gordura * 9);
 
 
-		// Inserir exercício
+		// Inserir alimento
 		if(proteina && carbs && gordura){
 			let AlimentoId = await AlimentoService.inserir(nome, proteina, carbs, gordura, calorias);
 			json.result = {

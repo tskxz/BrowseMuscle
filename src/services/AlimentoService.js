@@ -2,7 +2,7 @@ const db = require('../mysql'); // Conexao a base de dados
 
 module.exports = {
 
-	// Funcao para visualizar todos os exercícios
+	// Funcao para visualizar todos os alimentos
 	buscarTodos: () => {
 		return new Promise((aceito, rejeitado)=>{
 			db.query('SELECT * FROM alimentos', (error, results)=>{
@@ -12,7 +12,7 @@ module.exports = {
 		});
 	},
 
-    	// Funcao para visualizar um exercício
+    	// Funcao para visualizar um alimento
 	buscarUmNome:(nome) => {
 		return new Promise((aceito, rejeitado) => {
 			db.query('SELECT * FROM alimentos WHERE nome = ? ', [nome], (error, results) => {
@@ -26,7 +26,7 @@ module.exports = {
 		});
 	},
 
-	// Funcao para inserir exercício
+	// Funcao para inserir alimento
 	inserir: (nome, proteina, carbs, gordura, calorias)=> {
 		return new Promise( (aceito, rejeitado) => {
 			db.query('INSERT INTO alimentos (nome, proteina, carbs, gordura, calorias) VALUES(?,?,?,?,?)',
@@ -42,7 +42,7 @@ module.exports = {
 	},
 
 
-	// Funcao para alterar um exercício
+	// Funcao para alterar um alimento
 	alterar: (id, nome, proteina, carbs, gordura, calorias)=> {
 		return new Promise( (aceito, rejeitado) => {
 			db.query('UPDATE alimentos SET nome = ?, proteina = ?, carbs = ?, gordura = ?, calorias= ? WHERE id = ?',
@@ -55,7 +55,7 @@ module.exports = {
 		})
 	},
 
-	// Funcao para apagar um exercício
+	// Funcao para apagar um alimento
 	apagar:(id) => {
 		return new Promise( (aceito, rejeitado) => {
 			db.query('DELETE FROM alimentos WHERE id = ?', [id], (error, results) => {

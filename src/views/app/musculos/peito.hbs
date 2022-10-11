@@ -21,11 +21,16 @@
 
 				</p>
 				<script>
+
+		// Buscar a informação através do fetch para API peito 
   		fetch('https://ec53-132-145-18-76.eu.ngrok.io/api/peito/')
   			.then(res => res.json())
   			.then(data => {
+						// Array dos exercícios para data.result
   		 			 	const nome_exercicios = data.result
   		 			 	console.log(nome_exercicios)
+						
+						// Função para construir a tabela
   		 			 	buildTable(nome_exercicios)
 
   					})
@@ -44,7 +49,7 @@
   		function buildTable(data){
   			var table = document.getElementById('myTable');
 
-        // Mostrar todos os dados e meter a primeira palavra em maisculo
+        // Mostrar cada linha, o exercício
         if(data.length > 0){
           for(var i = 0; i<data.length; i++){
     				var row = ` <tr>
@@ -55,7 +60,8 @@
                                     <td>${data[i].nome_musculo.charAt(0).toUpperCase() + data[i].nome_musculo.slice(1)}</td>
     								
     							</tr>`
-    				table.innerHTML += row
+
+    				table.innerHTML += row // Juntar as linhas para a tabela com id myTable
     			}
         } else {
           var row = `<tr><td colspan="6" class="text-center">Nenhuma Dado encontrada</td></tr>`;
