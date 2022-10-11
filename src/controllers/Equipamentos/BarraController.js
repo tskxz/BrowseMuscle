@@ -5,6 +5,8 @@ module.exports = {
 	visualizarTodos: async(req, res) => {
 		let json = {error: '', result:[]};
 
+		// Visualizar todos os exercícios com barra
+
 		let barra = await BarraService.visualizarTodos();
 
 		for(let i in barra){

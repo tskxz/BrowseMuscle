@@ -7,6 +7,8 @@ module.exports = {
 
 		let bodyweight = await BodyweightService.visualizarTodos();
 
+		// Visualizar todos os exercícios com peso corporal
+
 		for(let i in bodyweight){
 			json.result.push({
 				id: bodyweight[i].id,

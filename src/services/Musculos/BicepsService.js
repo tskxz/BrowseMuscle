@@ -2,7 +2,7 @@ const db = require('../../mysql');
 
 module.exports = {
 
-	// Funcao para visualizar os musculos
+	// Funcao para visualizar os exercícios para biceps
 	visualizarTodos: () => {
 		return new Promise( (aceito, rejeitado) =>{
 			db.query('SELECT * FROM biceps', (error, results) => {

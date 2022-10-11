@@ -7,6 +7,8 @@ module.exports = {
 
 		let elastico = await ElasticoService.visualizarTodos();
 
+		// Visualizar todos os exercícios com elastico
+
 		for(let i in elastico){
 			json.result.push({
 				id: elastico[i].id,
