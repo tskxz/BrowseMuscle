@@ -1109,5 +1109,3 @@ COMMIT;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 
 
-/* Converter para FULLTEXT  para ter possibilidade de ter mesmo nome de exercício mas equipamentos ou dificuldades ou musculos diferentes */
-ALTER TABLE `browsemuscle`.`quadriceps` DROP INDEX `nome_exercicio`, ADD FULLTEXT `nome_exercicio` (`nome_exercicio`);
