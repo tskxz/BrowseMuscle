@@ -1,4 +1,4 @@
-fetch('https://ec53-132-145-18-76.eu.ngrok.io/api/exercicio/', {
+fetch('http://localhost:3000/api/exercicio/', {
 	method: 'POST',
 	headers: {
 			'Content-Type': 'application/json'
