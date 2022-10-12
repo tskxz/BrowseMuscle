@@ -14,6 +14,7 @@ ALTER TABLE `browsemuscle`.`biceps` DROP INDEX `nome_exercicio`, ADD FULLTEXT `n
 ALTER TABLE `browsemuscle`.`hamstrings` DROP INDEX `nome_exercicio`, ADD FULLTEXT `nome_exercicio` (`nome_exercicio`);
 ALTER TABLE `browsemuscle`.`gemeos` DROP INDEX `nome_exercicio`, ADD FULLTEXT `nome_exercicio` (`nome_exercicio`);
 ALTER TABLE `browsemuscle`.`antebraco` DROP INDEX `nome_exercicio`, ADD FULLTEXT `nome_exercicio` (`nome_exercicio`);
+ALTER TABLE `browsemuscle`.`gluteo` DROP INDEX `nome_exercicio`, ADD FULLTEXT `nome_exercicio` (`nome_exercicio`);
 
 /* Equipamentos */
 ALTER TABLE `browsemuscle`.`barra` DROP INDEX `nome_exercicio`, ADD FULLTEXT `nome_exercicio` (`nome_exercicio`);
