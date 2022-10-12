@@ -28,3 +28,14 @@ ALTER TABLE `browsemuscle`.`bodyweight` DROP INDEX `nome_exercicio`, ADD FULLTEX
 ALTER TABLE `browsemuscle`.`iniciante` DROP INDEX `nome_exercicio`, ADD FULLTEXT `nome_exercicio` (`nome_exercicio`);
 ALTER TABLE `browsemuscle`.`intermediario` DROP INDEX `nome_exercicio`, ADD FULLTEXT `nome_exercicio` (`nome_exercicio`);
 ALTER TABLE `browsemuscle`.`avancado` DROP INDEX `nome_exercicio`, ADD FULLTEXT `nome_exercicio` (`nome_exercicio`);
+
+
+
+
+/* Adicionar index */
+ALTER TABLE `browsemuscle`.`gluteo` ADD INDEX `exercicio` (`nome_exercicio`);
+ALTER TABLE `browsemuscle`.`halteres` ADD INDEX `exercicio` (`nome_exercicio`);
+ALTER TABLE `browsemuscle`.`intermediario` ADD INDEX `exercicio` (`nome_exercicio`);
+ALTER TABLE `browsemuscle`.`quadriceps` ADD INDEX `exercicio` (`nome_exercicio`);
+ALTER TABLE `browsemuscle`.`barra` ADD INDEX `exercicio` (`nome_exercicio`);
+ALTER TABLE `browsemuscle`.`avancado` ADD INDEX `exercicio` (`nome_exercicio`);
