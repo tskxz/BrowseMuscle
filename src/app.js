@@ -12,7 +12,9 @@ app.get('/exercicios', function(req, res) {
 
 // Página principal
 app.get('/', function(req, res){
-	res.render('app/homepage')
+	res.render('app/homepage', {
+		title: "Bem vindo ao BrowseMuscle! 🌎"
+	});
 })
 
 // Visualização da tabela alimentos
