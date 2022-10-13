@@ -21,7 +21,7 @@
 
 				</p>
 <script>
-  		fetch('http://localhost:3000/api/gluteos/')
+  		fetch('https://ec53-132-145-18-76.eu.ngrok.io/api/gluteos/')
   			.then(res => res.json())
   			.then(data => {
   		 			 	const nome_exercicios = data.result
@@ -66,13 +66,13 @@
 
   		}
       function editar(id){
-        url = "http://localhost:3000/admin/update_exercicios?id=";
+        url = "https://ec53-132-145-18-76.eu.ngrok.io/admin/update_exercicios?id=";
         //console.log(id);
          window.location = url + id;
       }
 
       function apagar(id){
-        url_api = "http://localhost:3000/api/exercicio/" + id;
+        url_api = "https://ec53-132-145-18-76.eu.ngrok.io/api/exercicio/" + id;
         console.log(url_api);
         fetch(url_api, {
           method: 'delete',
@@ -82,7 +82,7 @@
 
         }).then(response => response.json());
 
-        window.location.href="http://localhost:3000/admin";
+        window.location.href="https://ec53-132-145-18-76.eu.ngrok.io/admin";
       }
 
 
