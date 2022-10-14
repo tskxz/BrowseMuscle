@@ -10,7 +10,7 @@ module.exports = {
 		for(let i in musculo){
 			json.result.push({
 				id: musculo[i].id,
-				nome_musculo: musculo[i].nome_musculo
+				nome: musculo[i].nome
 			});
 		}
 		res.setHeader('Access-Control-Allow-Origin', '*');
