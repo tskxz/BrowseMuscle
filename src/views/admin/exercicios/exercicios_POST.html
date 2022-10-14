@@ -86,11 +86,11 @@
 					<label for="exampleFormControlSelect1">Equipamento</label>
 					<select class="form-control form-control-sm" id="exampleFormControlSelect1" name="equipamento_id" required>
 					 <option selected disabled value="">Escolhe uma opção do menu</option>
-						<option value="5">bodyweight</option>
-						<option value="2">halteres</option>
-						<option value="1">barra</Formoption>
-						<option value="4">cabos</option>
-						<option value="3">maquina</option>
+						<option type="number" value=5>bodyweight</option>
+						<option type="number" value=2>halteres</option>
+						<option type="number" value=1>barra</Formoption>
+						<option type="number" value=4>cabos</option>
+						<option type="number" value=3>maquina</option>
 					</select>
 					<div class="valid-feedback">Valido!</div>
 					<div class="invalid-feedback">
@@ -104,9 +104,9 @@
 					 <label for="exampleFormControlSelect2">Dificuldade</label>
 					 <select class="form-control form-control-sm" id="exampleFormControlSelect2" name="dificuldade_id" required>
 					  <option selected disable value="">Escolhe uma opção do menu</option>
-						 <option value="1">iniciante</option>
-						 <option value="2">intermediario</option>
-						 <option value="3">avancado</option>
+						 <option type="number" value=1>iniciante</option>
+						 <option type="number" value=2>intermediario</option>
+						 <option type="number" value=3>avancado</option>
 					 </select>
 					 <div class="valid-feedback">Valido!</div>
 					 <div class="invalid-feedback">
@@ -120,19 +120,19 @@
 						<label for="exampleFormControlSelect2">Músculo</label>
 						<select class="form-control form-control-sm" id="exampleFormControlSelect2" name="musculo_id" required>
 						 <option selected disabled value="">Escolhe uma opção do menu</option>
-							<option value="13">abdominais</option>
-							<option value="11">antebraco</option>
-							<option value="4">costas</option>
-							<option value="10">gemeos</option>
-							<option values="7">biceps</option>
-							<option value="12">gluteo</option>
-							<option value="9">hamstrings</option>
-							<option value="5">dorsal</option>
-							<option value="2">ombros</option>
-							<option value="1">peito</option>
-							<option value="8">quadriceps</option>
-							<option value="6">traps</option>
-							<option value="3">triceps</option>
+							<option type="number" value=13>abdominais</option>
+							<option type="number" value=11>antebraco</option>
+							<option type="number" value=4>costas</option>
+							<option type="number" value=10>gemeos</option>
+							<option type="number" value=7>biceps</option>
+							<option type="number" value=12>gluteo</option>
+							<option type="number" value=9>hamstrings</option>
+							<option type="number" value=5>dorsal</option>
+							<option type="number" value=2>ombros</option>
+							<option type="number" value=1>peito</option>
+							<option type="number" value=8>quadriceps</option>
+							<option type="number" value=6>traps</option>
+							<option type="number" value=3>triceps</option>
 						</select>
 						<div class="valid-feedback">Valido!</div>
 						<div class="invalid-feedback">
@@ -192,7 +192,7 @@
 			}).catch(function(error){
 				console.log(error);
 			})
-		//window.location.href="http://localhost:3000/admin/exercicios";
+		window.location.href="http://localhost:3000/admin/exercicios";
 		})
 	</script>
 
