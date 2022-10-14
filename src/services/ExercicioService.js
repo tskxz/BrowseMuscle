@@ -33,7 +33,7 @@ module.exports = {
 		return new Promise( (aceito, rejeitado) => {
 			db.query('INSERT INTO exercicios (nome, equipamento_id, dificuldade_id, musculo_id) VALUES(?,?,?,?);',
 				[
-					nome_exercicio, equipamento_id, dificuldade_id, musculo_id,
+					nome, equipamento_id, dificuldade_id, musculo_id,
 				],
 				(error, results)=>{
 					if(error){ rejeitado(error); return; }
