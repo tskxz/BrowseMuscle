@@ -26,7 +26,17 @@
 			.then(data => {
 						  const nome_exercicios = data.result
 						  console.log(nome_exercicios)
-						  buildTable(nome_exercicios)
+						  //buildTable(nome_exercicios)
+						  fetch('http://localhost:3000/api/equipamentos/')
+							.then(res => res.json())
+							.then(data => {
+								const nome_equipamentos = data.result
+								console.log(nome_equipamentos)
+								console.log(nome_equipamentos)
+								
+								buildTable(nome_exercicios, nome_equipamentos)
+					
+				})
 
 					})
 
@@ -41,7 +51,7 @@
 				}
 		}
 
-		function buildTable(data){
+		function buildTable(data, data_equipamento){
 			var table = document.getElementById('myTable');
 
 	  // Mostrar todos os dados e meter a primeira palavra em maisculo
@@ -50,9 +60,10 @@
 				  var row = ` <tr>
 								  <td>${data[i].id}</td>
 								  <td>${data[i].nome}</td>
-								  <td>${data[i].equipamento_id}</td>
+								  <td>${data_equipamento[data[i].equipamento_id-1].nome}</td>
 								  <td>${data[i].dificuldade_id}</td>
 								  <td>${data[i].musculo_id}</td>
+								
 							  </tr>`
 				  table.innerHTML += row
 			  }
