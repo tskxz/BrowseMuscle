@@ -1,19 +1,18 @@
-const OmbroService = require('../../services/Musculos/OmbrosService');
+const EquipamentosService = require('../../services/Equipamentos/EquipamentosService');
 
 module.exports = {
 
 	visualizarTodos: async(req, res) => {
 		let json = {error: '', result:[]};
 
-		let ombro = await OmbroService.visualizarTodos();
+		let equipamento = await EquipamentosService.visualizarTodos();
 
-		for(let i in ombro){
+		// Visualizar todos os exercícios com equipamento
+
+		for(let i in equipamento){
 			json.result.push({
-				id: ombro[i].id,
-				nome_exercicio: ombro[i].nome_exercicio,
-                nome_equipamento: ombro[i].nome_equipamento,
-                nome_dificuldade: ombro[i].nome_dificuldade,
-                nome_musculo: ombro[i].nome_musculo
+				id: equipamento[i].id,
+				nome: equipamento[i].nome,
 			});
 		}
 		res.setHeader('Access-Control-Allow-Origin', '*');

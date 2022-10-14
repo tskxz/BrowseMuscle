@@ -3,28 +3,96 @@
 				Bem vindo ao BrowseMuscle!
 				</h2>
 				<p style="text-align: center">
-                    <div class="list-group">
-                        <a href="#" class="list-group-item list-group-item-action active">
-                          Equipamentos
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action">Máquina</a>
-                        <a href="#" class="list-group-item list-group-item-action">Cabos</a>
-                        <a href="#" class="list-group-item list-group-item-action">Barra</a>
-                        <a href="#" class="list-group-item list-group-item-action">Halteres</a>
-                        <a href="#" class="list-group-item list-group-item-action">Peso Corporal</a>
-                        <a href="#" class="list-group-item list-group-item-action">Elástico</a>
-                      </div>
+          <table class="table table-striped table-hover">
+      			<tr class="bg-danger">
+              <th>ID</th>
+              <th>Equipamento Nome</th>
+      			</tr>
+            <tbody id="myTable">
+
+        		</tbody>
+        	</table>
+        		<div id="exercicios">
+
         	</div>
 
 				</p>
-<style>
-p {
-    font-size: 20px;
-}
+				<script>
+		fetch('http://localhost:3000/api/exercicios/')
+			.then(res => res.json())
+			.then(data => {
+						  const nome_exercicios = data.result
+						 // console.log(nome_exercicios)
+						  //  buildTable(nome_exercicios)
+						  fetch('http://localhost:3000/api/equipamentos/')
+							.then(res => res.json())
+							.then(data_equipamento => {
+								const nome_equipamentos = data_equipamento.result
+								//console.log(nome_equipamentos)
+								//console.log(nome_equipamentos)
+								
+								buildTable(nome_exercicios, nome_equipamentos)
+					
+				})
 
-.active {
-background-color: rgb(201, 14, 14) !important;
-}
+					})
 
-</style>
-		{{> footer }}
+		function renderNames(names){
+			const container = document.getElementById('exercicios');
+			container.innerHtml = '';
+				for (const name of names) {
+				  const p = document.createElement('p');
+				  const textNode = document.createTextNode(name);
+				  p.appendChild(textNode);
+				  container.appendChild(p);
+				}
+		}
+
+		function buildTable(data, data_equipamento){
+			var table = document.getElementById('myTable');
+
+	  // Mostrar todos os dados e meter a primeira palavra em maisculo
+	  if(data.length > 0){
+		for(var i = 0; i<data_equipamento.length; i++){
+				  var row = ` <tr>
+								  <td>${data_equipamento[i].id}</td>
+								  <td>${data_equipamento[i].nome}</td>
+								
+							  </tr>`
+				  table.innerHTML += row
+			  }
+	  } else {
+		var row = `<tr><td colspan="6" class="text-center">Nenhuma Dado encontrada</td></tr>`;
+		table.innerHTML += row;
+	  }
+
+
+
+		}
+	function editar(id){
+	  url = "http://localhost:3000/admin/update_exercicios?id=";
+	  //console.log(id);
+	   window.location = url + id;
+	}
+
+	function apagar(id){
+	  url_api = "http://localhost:3000/api/exercicio/" + id;
+	  console.log(url_api);
+	  fetch(url_api, {
+		method: 'delete',
+		headers: {
+		  'Content-Type': 'application/json'
+		},
+
+	  }).then(response => response.json());
+
+	  window.location.href="http://localhost:3000/admin";
+	}
+
+
+
+
+
+	</script>
+
+{{> footer }}

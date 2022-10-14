@@ -1,19 +1,17 @@
-const CostasService = require('../../services/Musculos/CostasService');
+const DificuldadesService = require('../../services/Dificuldades/DificuldadesService');
 
 module.exports = {
 
 	visualizarTodos: async(req, res) => {
 		let json = {error: '', result:[]};
 
-		let costa = await CostasService.visualizarTodos();
+		// Visualizar todos os exercícios dificuldade
+		let dificuldade = await DificuldadesService.visualizarTodos();
 
-		for(let i in costa){
+		for(let i in dificuldade){
 			json.result.push({
-				id: costa[i].id,
-				nome_exercicio: costa[i].nome_exercicio,
-                nome_equipamento: costa[i].nome_equipamento,
-                nome_dificuldade: costa[i].nome_dificuldade,
-                nome_musculo: costa[i].nome_musculo
+				id: dificuldade[i].id,
+				nome: dificuldade[i].nome
 			});
 		}
 		res.setHeader('Access-Control-Allow-Origin', '*');
