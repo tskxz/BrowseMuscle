@@ -7,6 +7,7 @@ const path = require('path');
 
 // Controlador de Dificuldades
 const DificuldadeController = require('./controllers/Dificuldades/DificuldadesController');
+const EquipamentosController = require('./controllers/Equipamentos/EquipamentosController');
 
 // Buscar os controladores - Exercícios
 
@@ -92,6 +93,7 @@ router.get('/maquina', MaquinaController.visualizarTodos);                      
 router.get('/halteres', HalteresController.visualizarTodos);                                        // Rota do método GET para visualizar todos exercícios de dificuldade halteres
 router.get('/elastico', ElasticoController.visualizarTodos);                                        // Rota do método GET para visualizar todos exercícios de dificuldade elastico
 
-
+// Dificuldades, Equipamentos e Musculos
 router.get('/dificuldades', DificuldadeController.visualizarTodos);
+router.get('/equipamentos', EquipamentosController.visualizarTodos);
 module.exports = router;
