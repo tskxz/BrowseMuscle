@@ -7,9 +7,9 @@
       			<tr class="bg-danger">
               <th>ID</th>
       				<th>Exercício</th>
-      				<th>Equipamento</th>
-      				<th>Dificuldade</th>
-      				<th>Músculo</th>
+      				<th>Equipamento ID</th>
+      				<th>Dificuldade ID</th>
+      				<th>Músculo ID</th>
       			</tr>
             <tbody id="myTable">
 
@@ -49,10 +49,10 @@
 		for(var i = 0; i<data.length; i++){
 				  var row = ` <tr>
 								  <td>${data[i].id}</td>
-								  <td>${data[i].nome_exercicio.charAt(0).toUpperCase() + data[i].nome_exercicio.slice(1)}</td>
-								  <td>${data[i].nome_equipamento.charAt(0).toUpperCase() + data[i].nome_equipamento.slice(1)}</td>
-								  <td>${data[i].nome_dificuldade.charAt(0).toUpperCase() + data[i].nome_dificuldade.slice(1)}</td>
-								  <td>${data[i].nome_musculo.charAt(0).toUpperCase() + data[i].nome_musculo.slice(1)}</td>
+								  <td>${data[i].nome}</td>
+								  <td>${data[i].equipamento_id}</td>
+								  <td>${data[i].dificuldade_id}</td>
+								  <td>${data[i].musculo_id}</td>
 							  </tr>`
 				  table.innerHTML += row
 			  }
