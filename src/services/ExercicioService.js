@@ -29,15 +29,11 @@ module.exports = {
 
 	// Funcao para inserir exercício
 	
-	// Insere o dado nas várias tabela -> exercício, músculo, equipamento e dificuldade 
-	inserir: (nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo)=> {
+	inserir: (nome, equipamento_id, dificuldade_id, musculo_id)=> {
 		return new Promise( (aceito, rejeitado) => {
-			db.query('INSERT INTO exercicios (nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo) VALUES(?,?,?,?); INSERT INTO ?? (nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo) VALUES (?,?,?,?); INSERT INTO ?? (nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo) VALUES (?,?,?,?); INSERT INTO ?? (nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo) VALUES (?,?,?,?);',
+			db.query('INSERT INTO exercicios (nome, equipamento_id, dificuldade_id, musculo_id) VALUES(?,?,?,?);',
 				[
-					nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo,
-					nome_musculo, nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo,
-					nome_equipamento, nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo,
-					nome_dificuldade, nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo
+					nome_exercicio, equipamento_id, dificuldade_id, musculo_id,
 				],
 				(error, results)=>{
 					if(error){ rejeitado(error); return; }
@@ -49,10 +45,10 @@ module.exports = {
 
 
 	// Funcao para alterar um exercício
-	alterar: (id, nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo)=> {
+	alterar: (id, nome, equipamento_id, dificuldade_id, musculo_id)=> {
 		return new Promise( (aceito, rejeitado) => {
-			db.query('UPDATE exercicios SET nome_exercicio = ?, nome_equipamento = ?, nome_dificuldade = ?, nome_musculo = ? WHERE id = ?',
-				[nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo, id],
+			db.query('UPDATE exercicios SET nome = ?, equipamento_id = ?, dificuldade_id = ?, musculo_id = ? WHERE id = ?',
+				[nome, equipamento_id, dificuldade_id, musculo_id, id],
 				(error, results)=>{
 					if(error){ rejeitado(error); return; }
 					aceito(results);
