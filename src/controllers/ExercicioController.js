@@ -63,6 +63,20 @@ module.exports = {
 
 		res.json(json);
 	},
+
+	buscarMusculo: async (req, res) => {
+		let json = {error:'', result:[]};
+
+		let musculo_id = req.params.musculo_id;
+		let exercicio = await ExercicioService.buscarMusculo(musculo_id); // Visualiza o dado com esse ID
+
+		if(exercicio){
+			json.result = exercicio; // Resultado de buscarUm
+		}
+
+		res.json(json);
+	},
+
 	// Funcao inserir
 	inserir: async (req, res) => {
 		let json = {error:'', result:[]};

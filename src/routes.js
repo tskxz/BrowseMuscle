@@ -53,6 +53,7 @@ router.get('/exercicios', ExercicioController.buscarTodos) 	                    
 router.get('/exercicio/:id', ExercicioController.buscarUm);	                                        // Rota do método GET para visualizar apenas um exercício~
 router.get('/exercicios_equipamento/:equipamento_id', ExercicioController.buscarEquipamento);
 router.get('/exercicios_dificuldade/:dificuldade_id', ExercicioController.buscarDificuldade);
+router.get('/exercicios_musculo/:musculo_id', ExercicioController.buscarMusculo);
 router.post('/exercicio', ExercicioController.inserir);		                                        // Rota do método POST para inserir exercício
 router.put('/exercicio/:id', ExercicioController.alterar);	                                        // Rota do método PUT para alterar exercício
 router.delete('/exercicio/:id', ExercicioController.apagar);                                        // Rota do método DELETE para apagar um exercício
