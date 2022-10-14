@@ -12,10 +12,10 @@ module.exports = {
 		for(let i in exercicios){
 			json.result.push({
 				id: exercicios[i].id,
-				nome_exercicio: exercicios[i].nome_exercicio,
-				nome_equipamento: exercicios[i].nome_equipamento,
-				nome_dificuldade: exercicios[i].nome_dificuldade,
-				nome_musculo: exercicios[i].nome_musculo
+				nome: exercicios[i].nome,
+				equipamento_id: exercicios[i].equipamento_id,
+				dificuldade_id: exercicios[i].dificuldade_id,
+				musculo_id: exercicios[i].musculo_id
 			});
 		}
 		res.setHeader('Access-Control-Allow-Origin', '*');
@@ -43,21 +43,21 @@ module.exports = {
 		let json = {error:'', result:[]};
 
 		// No método POST que vai ser o inserir, vai ter o request de cada esses campos
-		let nome_exercicio = req.body.nome_exercicio;
-		let nome_equipamento = req.body.nome_equipamento;
-		let nome_dificuldade = req.body.nome_dificuldade;
-		let nome_musculo = req.body.nome_musculo;
+		let nome = req.body.nome;
+		let equipamento_id = req.body.equipamento_id;
+		let dificuldade_id = req.body.dificuldade_id;
+		let musculo_id = req.body.musculo_id;
 
 
 		// Inserir exercício
-		if(nome_equipamento && nome_equipamento && nome_dificuldade && nome_musculo){
-			let ExercicioId = await ExercicioService.inserir(nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo);
+		if(nome && equipamento_id && dificuldade_id && musculo_id){
+			let ExercicioId = await ExercicioService.inserir(nome, equipamento_id, dificuldade_id, musculo_id);
 			json.result = {
 				id: ExercicioId,
-				nome_exercicio,
-				nome_equipamento,
-				nome_dificuldade,
-				nome_musculo
+				nome,
+				equipamento_id,
+				dificuldade_id,
+				musculo_id
 			};
 		} else {
 			json.error = 'Error!';
@@ -72,21 +72,21 @@ module.exports = {
 
 		// Método PUT, igualmente ao método POST, vai ter o request de cada esses campos só que a unica diferenca é que em vez de insert, vai ser update no SQL
 		let id = req.params.id;
-		let nome_exercicio = req.body.nome_exercicio;
-		let nome_equipamento = req.body.nome_equipamento;
-		let nome_dificuldade = req.body.nome_dificuldade;
-		let nome_musculo = req.body.nome_musculo;
+		let nome = req.body.nome;
+		let equipamento_id = req.body.equipamento_id;
+		let dificuldade_id = req.body.dificuldade_id;
+		let musculo_id = req.body.musculo_id;
 
 
 
-		if(id && nome_equipamento && nome_equipamento && nome_dificuldade && nome_musculo){
-			await ExercicioService.alterar(id, nome_exercicio, nome_equipamento, nome_dificuldade, nome_musculo);
+		if(id && nome && equipamento_id && dificuldade_id && musculo_id){
+			await ExercicioService.alterar(id, nome, equipamento_id, dificuldade_id, musculo_id);
 			json.result = {
 				id,
-				nome_exercicio,
-				nome_equipamento,
-				nome_dificuldade,
-				nome_musculo
+				nome,
+				equipamento_id,
+				dificuldade_id,
+				musculo_id
 			};
 		} else {
 			json.error = 'Error!';
