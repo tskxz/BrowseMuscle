@@ -50,6 +50,19 @@ module.exports = {
 
 		res.json(json);
 	},
+
+	buscarDificuldade: async (req, res) => {
+		let json = {error:'', result:[]};
+
+		let dificuldade_id = req.params.dificuldade_id;
+		let exercicio = await ExercicioService.buscarDificuldade(dificuldade_id); // Visualiza o dado com esse ID
+
+		if(exercicio){
+			json.result = exercicio; // Resultado de buscarUm
+		}
+
+		res.json(json);
+	},
 	// Funcao inserir
 	inserir: async (req, res) => {
 		let json = {error:'', result:[]};
