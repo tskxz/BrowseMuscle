@@ -5,6 +5,9 @@ const path = require('path');
 // Os controladores tratam de toda a lógica por trás da validação de parâmetros de solicitação, consulta e envio de respostas.
 // Os serviços contém as consultas á base de dados e objetos a retornanr ou lançar erros
 
+// Controlador de Dificuldades
+const DificuldadeController = require('./controllers/Dificuldades/DificuldadesController');
+
 // Buscar os controladores - Exercícios
 
 const ExercicioController = require('./controllers/ExercicioController')                            // Exercicio
@@ -89,4 +92,6 @@ router.get('/maquina', MaquinaController.visualizarTodos);                      
 router.get('/halteres', HalteresController.visualizarTodos);                                        // Rota do método GET para visualizar todos exercícios de dificuldade halteres
 router.get('/elastico', ElasticoController.visualizarTodos);                                        // Rota do método GET para visualizar todos exercícios de dificuldade elastico
 
+
+router.get('/dificuldades', DificuldadeController.visualizarTodos);
 module.exports = router;
