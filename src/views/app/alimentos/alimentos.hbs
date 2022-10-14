@@ -22,7 +22,7 @@
 
 				</p>
 				<script>
-	fetch('https://ec53-132-145-18-76.eu.ngrok.io/api/alimentos/')
+	fetch('http://localhost:3000/api/alimentos/')
 		.then(res => res.json())
 		.then(data => {
 					  const nome_alimentos = data.result
@@ -79,7 +79,7 @@
 
       var alimento_INPUT = document.getElementById('alimento').value
       console.log("ALIMENTO INPUT: " + alimento_INPUT);
-      url = 'https://ec53-132-145-18-76.eu.ngrok.io/api/alimento/' + alimento_INPUT
+      url = 'http://localhost:3000/api/alimento/' + alimento_INPUT
       fetch(url)
         .then(res => res.json())
         .then(data => {

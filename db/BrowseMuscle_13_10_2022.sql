@@ -21,7 +21,8 @@ SET time_zone = "+00:00";
 --
 
 -- --------------------------------------------------------
-
+create database BrowseMuscle;
+use BrowseMuscle;
 --
 -- Table structure for table `abdominais`
 --
