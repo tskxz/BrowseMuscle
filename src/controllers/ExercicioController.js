@@ -38,6 +38,18 @@ module.exports = {
 		res.json(json);
 	},
 
+	buscarEquipamento: async (req, res) => {
+		let json = {error:'', result:[]};
+
+		let equipamento_id = req.params.equipamento_id;
+		let exercicio = await ExercicioService.buscarEquipamento(equipamento_id); // Visualiza o dado com esse ID
+
+		if(exercicio){
+			json.result = exercicio; // Resultado de buscarUm
+		}
+
+		res.json(json);
+	},
 	// Funcao inserir
 	inserir: async (req, res) => {
 		let json = {error:'', result:[]};

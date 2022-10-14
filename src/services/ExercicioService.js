@@ -27,6 +27,19 @@ module.exports = {
 		});
 	},
 
+	buscarEquipamento:(equipamento_id) => {
+		return new Promise((aceito, rejeitado) => {
+			db.query('SELECT * FROM exercicios WHERE equipamento_id = ? ', [equipamento_id], (error, results) => {
+				if(error){rejeitado(error); return;}
+				if(results.length > 0){
+					aceito(results);
+				} else {
+					aceito(false);
+				}
+			});
+		});
+	},
+
 	// Funcao para inserir exercício
 	
 	inserir: (nome, equipamento_id, dificuldade_id, musculo_id)=> {
