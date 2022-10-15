@@ -85,7 +85,7 @@
 				<td>
 				<div class="form-group">
 					<label for="exampleFormControlSelect1">Equipamento</label>
-					<select class="form-control form-control-sm" id="exampleFormControlSelect1" name="equipamento_id" required>
+					<select class="form-control form-control-sm" id="selectionEquipamento" name="equipamento_id" required>
 					 <option selected disabled value="">Escolhe uma opção do menu</option>
 						<option type="number" value=5>bodyweight</option>
 						<option type="number" value=2>halteres</option>
@@ -103,11 +103,9 @@
 				<td>
 					<div class="form-group">
 					 <label for="exampleFormControlSelect2">Dificuldade</label>
-					 <select class="form-control form-control-sm" id="exampleFormControlSelect2" name="dificuldade_id" required>
-					  <option selected disable value="">Escolhe uma opção do menu</option>
-						 <option type="number" value=1>iniciante</option>
-						 <option type="number" value=2>intermediario</option>
-						 <option type="number" value=3>avancado</option>
+					 <select class="form-control form-control-sm" id="selectionDificuldade" name="dificuldade_id" required>
+					  <option selected disabled value="">Escolhe uma opção do menu</option>
+
 					 </select>
 					 <div class="valid-feedback">Valido!</div>
 					 <div class="invalid-feedback">
@@ -189,6 +187,30 @@
 	
   }
 	</script>
+
+<script>
+	fetch('http://localhost:3000/api/dificuldades/')
+				.then(res => res.json())
+				.then(data => {
+				  const nome_dificuldades = data.result
+					 console.log(nome_dificuldades)
+				  buildTable_dificuldade(nome_dificuldades)
+				})
+function buildTable_dificuldade(data_dificuldades){
+var dropdown_div = document.getElementById('selectionDificuldade');
+console.log(dropdown_div);
+data_dificuldades.forEach(dificuldade => {
+	
+	var dropdown = `
+	<option type="number" value=${dificuldade.id}>${dificuldade.nome}</option>
+  `
+  dropdown_div.innerHTML += dropdown
+  })
+
+
+
+}
+</script>
 
 	<script>
 		const myForm = document.getElementById('myForm');
