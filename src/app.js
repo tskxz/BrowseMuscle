@@ -28,67 +28,67 @@ app.get('/musculos', function(req, res){
 })
 
 // Visualização da tabela exercícios para peito
-app.get('/peito_exercicios', function(req, res){
+app.get('/peito', function(req, res){
 	res.render('app/musculos/peito', {layout: false})
 })
 
 // Visualização da tabela exercícios para ombros
-app.get('/ombros_exercicios', function(req, res){
+app.get('/ombro', function(req, res){
 	res.render('app/musculos/ombros', {layout: false})
 })
 
 // Visualização da tabela exercícios para triceps
-app.get('/triceps_exercicios', function(req, res){
+app.get('/tricep', function(req, res){
 	res.render('app/musculos/triceps', {layout: false})
 })
 
 // Visualização da tabela exercícios para biceps
-app.get('/biceps_exercicios', function(req, res){
+app.get('/bicep', function(req, res){
 	res.render('app/musculos/biceps', {layout: false})
 })
 
 // Visualização da tabela exercícios para costas
-app.get('/costas_exercicios', function(req, res){
+app.get('/costa', function(req, res){
 	res.render('app/musculos/costas', {layout: false})
 })
 
 // Visualização da tabela exercícios para abdominais
-app.get('/abdominais_exercicios', function(req, res){
+app.get('/abdominais', function(req, res){
 	res.render('app/musculos/abdominais', {layout: false})
 })
 
 // Visualização da tabela exercícios para antebraco
-app.get('/antebraco_exercicios', function(req, res){
+app.get('/antebraco', function(req, res){
 	res.render('app/musculos/antebraco', {layout: false})
 })
 
 // Visualização da tabela exercícios para dorsais
-app.get('/dorsais_exercicios', function(req, res){
+app.get('/dorsal', function(req, res){
 	res.render('app/musculos/dorsais', {layout: false})
 })
 
 // Visualização da tabela exercícios para gémeos
-app.get('/gemeos_exercicios', function(req, res){
+app.get('/gemeo', function(req, res){
 	res.render('app/musculos/gemeos', {layout: false})
 })
 
 // Visualização da tabela exercícios para quadriceps
-app.get('/quadriceps_exercicios', function(req, res){
+app.get('/quadricep', function(req, res){
 	res.render('app/musculos/quadriceps', {layout: false})
 })
 
 // Visualização da tabela exercícios para traps
-app.get('/traps_exercicios', function(req, res){
+app.get('/trapezio', function(req, res){
 	res.render('app/musculos/traps', {layout: false})
 })
 
 // Visualização da tabela exercícios para hamstrings
-app.get('/hamstrings_exercicios', function(req, res){
+app.get('/hamstring', function(req, res){
 	res.render('app/musculos/hamstrings', {layout: false})
 })
 
 // Visualização da tabela exercícios para gluteo
-app.get('/gluteo_exercicios', function(req, res){
+app.get('/gluteo', function(req, res){
 	res.render('app/musculos/gluteos', {layout: false})
 })
 
@@ -98,33 +98,28 @@ app.get('/equipamentos', function(req, res){
 })
 
 // Visualização da tabela exercícios com barra
-app.get('/barra_exercicios', function(req, res){
+app.get('/barra', function(req, res){
 	res.render('app/equipamentos/barra', {layout: false})
 })
 
 // Visualização da tabela exercícios com maquina
-app.get('/maquina_exercicios', function(req, res){
+app.get('/maquina', function(req, res){
 	res.render('app/equipamentos/maquina', {layout: false})
 })
 
 // Visualização da tabela exercícios com cabos
-app.get('/cabos_exercicios', function(req, res){
+app.get('/cabos', function(req, res){
 	res.render('app/equipamentos/cabos', {layout: false})
 })
 
 // Visualização da tabela exercícios com halteres
-app.get('/halteres_exercicios', function(req, res){
+app.get('/halteres', function(req, res){
 	res.render('app/equipamentos/halteres', {layout: false})
 })
 
 // Visualização da tabela exercícios com peso corporal
-app.get('/peso_corporal_exercicios', function(req, res){
+app.get('/peso%20corporal', function(req, res){
 	res.render('app/equipamentos/peso_corporal', {layout: false})
-})
-
-// Visualização da tabela exercícios com elastico
-app.get('/elastico_exercicios', function(req, res){
-	res.render('app/equipamentos/elastico', {layout: false})
 })
 
 // Tabela dificuldades para selecionar
@@ -133,17 +128,17 @@ app.get('/dificuldades', function(req, res){
 })
 
 // Visualização da tabela exercícios iniciante
-app.get('/iniciante_exercicios', function(req, res){
+app.get('/iniciante', function(req, res){
 	res.render('app/dificuldades/iniciante', {layout: false})
 })
 
 // Visualização da tabela exercícios intermediario
-app.get('/intermediario_exercicios', function(req, res){
+app.get('/intermediario', function(req, res){
 	res.render('app/dificuldades/intermediario', {layout: false})
 })
 
 // Visualização da tabela exercícios avancado
-app.get('/avancado_exercicios', function(req, res){
+app.get('/avancado', function(req, res){
 	res.render('app/dificuldades/avancado', {layout: false})
 })
 

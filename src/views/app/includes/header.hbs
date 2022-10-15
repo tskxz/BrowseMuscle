@@ -55,7 +55,7 @@ p {
       data_musculos.forEach(musculo => {
         
         var dropdown = `
-            <li><a class="dropdown-item" href="http://localhost:3000/">${musculo.nome}</a></li>
+            <li><a class="dropdown-item" href="http://localhost:3000/${musculo.nome}">${musculo.nome}</a></li>
       `
       dropdown_div.innerHTML += dropdown
       })
@@ -78,7 +78,7 @@ p {
       data_equipamentos.forEach(equipamento => {
         
         var dropdown_equipamentos = `
-            <li><a class="dropdown-item" href="http://localhost:3000/">${equipamento.nome}</a></li>
+            <li><a class="dropdown-item" href="http://localhost:3000/${equipamento.nome}">${equipamento.nome}</a></li>
       `
       dropdown_div_equipamentos.innerHTML += dropdown_equipamentos
       })
@@ -101,7 +101,7 @@ p {
       data_dificuldades.forEach(dificuldade => {
         
         var dropdown_dificuldades = `
-            <li><a class="dropdown-item" href="http://localhost:3000/">${dificuldade.nome}</a></li>
+            <li><a class="dropdown-item" href="http://localhost:3000/${dificuldade.nome}">${dificuldade.nome}</a></li>
       `
       dropdown_div_dificuldades.innerHTML += dropdown_dificuldades
       })
