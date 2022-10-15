@@ -79,10 +79,47 @@
 								.then(data => {
 									const nome_musculos = data.result
 									buildTable(nome_exercicios, nome_equipamentos, nome_dificuldades, nome_musculos)
+									var dropdown_div = document.getElementById('selectionMusculo');
+									console.log(dropdown_div);
+									nome_musculos.forEach(musculo => {
+        
+									var dropdown = `
+										
+										<option type="number" value=${musculo.id}>${musculo.nome}</option>
+										`
+									dropdown_div.innerHTML += dropdown
+									})
+
+									var dropdown_div_equipamento = document.getElementById('selectionEquipamento');
+									console.log(dropdown_div_equipamento);
+									nome_equipamentos.forEach(equipamento => {
+        
+									var dropdown_equipamento = `
+										<option type="number" value=${equipamento.id}>${equipamento.nome}</option>
+										`
+									dropdown_div_equipamento.innerHTML += dropdown_equipamento
+									})
+
+
+									var dropdown_div_dificuldade = document.getElementById('selectionDificuldade');
+									console.log(dropdown_div_dificuldade);
+									nome_dificuldades.forEach(dificuldade => {
+        
+									var dropdown_dificuldade = `
+										<option type="number" value=${dificuldade.id}>${dificuldade.nome}</option>
+										`
+									dropdown_div_dificuldade.innerHTML += dropdown_dificuldade
+									})
+
+
+
+
+
 								})
 						})
 					})
 			})
+
 
       
   }
@@ -109,45 +146,27 @@
 				<td>
 				<div class="form-group">
 					<label for="exampleFormControlSelect1">Nome do equipamento</label>
-					<select class="form-control form-control-sm" id="exampleFormControlSelect1" name="equipamento_id">
+					<select class="form-control form-control-sm" id="selectionEquipamento" name="equipamento_id">
 						<option type="number" value=${data_equipamento[data.equipamento_id-1].id}>${data_equipamento[data.equipamento_id-1].nome}</option>
-						<option type="number" value=5>bodyweight</option>
-						<option type="number" value=2>halteres</option>
-						<option type="number" value=1>barra</Formoption>
-						<option type="number" value=4>cabos</option>
-						<option type="number" value=3>maquina</option>
+
 					</select>
 				</div>
 				</td>
 				<td>
 					<div class="form-group">
 					 <label for="exampleFormControlSelect2">Nome da dificuldade</label>
-					 <select class="form-control form-control-sm" id="exampleFormControlSelect2" name="dificuldade_id">
+					 <select class="form-control form-control-sm" id="selectionDificuldade" name="dificuldade_id">
 						<option type="number" value=${data_dificuldade[data.dificuldade_id-1].id}>${data_dificuldade[data.dificuldade_id-1].nome}</option>
-						<option type="number" value=1>iniciante</option>
-						 <option type="number" value=2>intermediario</option>
-						 <option type="number" value=3>avancado</option>
+
 					 </select>
 				 </div>
 				</td>
 				<td>
 					<div class="form-group">
 		        <label for="exampleFormControlSelect2">Nome do músculo</label>
-		        <select class="form-control form-control-sm" id="exampleFormControlSelect2" name="musculo_id">
+		        <select class="form-control form-control-sm" id="selectionMusculo" name="musculo_id">
 							<option value=${data_musculo[data.musculo_id-1].id}>${data_musculo[data.musculo_id-1].nome}</option>
-							<option type="number" value=13>abdominais</option>
-							<option type="number" value=11>antebraco</option>
-							<option type="number" value=4>costas</option>
-							<option type="number" value=10>gemeos</option>
-							<option type="number" value=7>biceps</option>
-							<option type="number" value=12>gluteo</option>
-							<option type="number" value=9>hamstrings</option>
-							<option type="number" value=5>dorsal</option>
-							<option type="number" value=2>ombros</option>
-							<option type="number" value=1>peito</option>
-							<option type="number" value=8>quadriceps</option>
-							<option type="number" value=6>traps</option>
-							<option type="number" value=3>triceps</option>
+
 		        </select>
 		      </div>
 				</td>
@@ -159,12 +178,16 @@
 				  form.innerHTML += row
   }
 
+ 
+
 </script>
+
 <script>
 	function myFunction(){
 		window.location.href="http://localhost:3000/admin/exercicios";
 	}
 </script>
+
 
 
 <script>
