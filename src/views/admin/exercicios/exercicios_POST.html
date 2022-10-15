@@ -59,6 +59,7 @@
 		var equipamento_id = url.searchParams.get("equipamento_id");
 		var dificuldade_id = url.searchParams.get("dificuldade_id");
 		var musculo_id = url.searchParams.get("musculo_id");
+		
 
 		var value = `
 		<table class="table table-striped table-hover">
@@ -118,24 +119,14 @@
 				<td>
 					<div class="form-group">
 						<label for="exampleFormControlSelect2">Músculo</label>
-						<select class="form-control form-control-sm" id="exampleFormControlSelect2" name="musculo_id" required>
+						<select class="form-control form-control-sm" id="selectionMusculo" name="musculo_id" required>
 						 <option selected disabled value="">Escolhe uma opção do menu</option>
-							<option type="number" value=13>abdominais</option>
-							<option type="number" value=11>antebraco</option>
-							<option type="number" value=4>costas</option>
-							<option type="number" value=10>gemeos</option>
-							<option type="number" value=7>biceps</option>
-							<option type="number" value=12>gluteo</option>
-							<option type="number" value=9>hamstrings</option>
-							<option type="number" value=5>dorsal</option>
-							<option type="number" value=2>ombros</option>
-							<option type="number" value=1>peito</option>
-							<option type="number" value=8>quadriceps</option>
-							<option type="number" value=6>traps</option>
-							<option type="number" value=3>triceps</option>
+						 
+
+						
 						</select>
 						<div class="valid-feedback">Valido!</div>
-						<div class="invalid-feedback">
+						<div class="invalid-feedback"
 							* Campo obrigatorio!
 						</div>
 					</div>
@@ -154,16 +145,49 @@
 		`
 			form.innerHTML += value
 	}
+
+	
+	
+
+
+
+
 	buildPut();
 
+	
+  
+</SCRIPT>
 
-	</script>
 
 	<script>
 
 		function myFunction(){
 			//window.location.href="http://localhost:3000/admin";
 		}
+	</script>
+
+	<script>
+		fetch('http://localhost:3000/api/musculos/')
+					.then(res => res.json())
+					.then(data => {
+					  const nome_musculos = data.result
+					 	console.log(nome_musculos)
+					  buildTable_musculo(nome_musculos)
+					})
+  function buildTable_musculo(data_musculos){
+	var dropdown_div = document.getElementById('selectionMusculo');
+	console.log(dropdown_div);
+	data_musculos.forEach(musculo => {
+        
+        var dropdown = `
+		<option type="number" value=${musculo.id}>${musculo.nome}</option>
+      `
+      dropdown_div.innerHTML += dropdown
+      })
+
+	
+	
+  }
 	</script>
 
 	<script>
