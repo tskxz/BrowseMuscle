@@ -42,24 +42,34 @@ p {
             Exercícios
           </a>
 
-		
+		<script>
+      fetch('http://localhost:3000/api/musculos/')
+                      .then(res => res.json())
+                      .then(data => {
+                        const nome_musculos = data.result
+                        console.log(nome_musculos)
+                        buildTable(nome_musculos)
+                      })
+    function buildTable(data_musculos){
+      var dropdown_div = document.getElementById('dropdown');
+      data_musculos.forEach(musculo => {
+        
+        var dropdown = `
+            <li><a class="dropdown-item" href="http://localhost:3000/">${musculo.nome}</a></li>
+      `
+      dropdown_div.innerHTML += dropdown
+      })
+      
+      
+    }
+
+    </script>
 
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="http://localhost:3000/exercicios">Exercícios</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="http://localhost:3000/peito_exercicios">Peito</a></li>
-			<li><a class="dropdown-item" href="http://localhost:3000/biceps_exercicios">Biceps</a></li>
-			<li><a class="dropdown-item" href="http://localhost:3000/costas_exercicios">Costas</a></li>
-			<li><a class="dropdown-item" href="http://localhost:3000/abdominais_exercicios">Abdominais</a></li>
-			<li><a class="dropdown-item" href="http://localhost:3000/dorsais_exercicios">Dorsais</a></li>
-			<li><a class="dropdown-item" href="http://localhost:3000/gemeos_exercicios">Gémeos</a></li>
-			<li><a class="dropdown-item" href="http://localhost:3000/gluteo_exercicios">Glúteos</a></li>
-			<li><a class="dropdown-item" href="http://localhost:3000/hamstrings_exercicios">Hamstrings</a></li>
-			<li><a class="dropdown-item" href="http://localhost:3000/ombros_exercicios">Ombros</a></li>
-			<li><a class="dropdown-item" href="http://localhost:3000/quadriceps_exercicios">Quadriceps</a></li>
-			<li><a class="dropdown-item" href="http://localhost:3000/traps_exercicios">Traps</a></li>
-			<li><a class="dropdown-item" href="http://localhost:3000/triceps_exercicios">Triceps</a></li>
-			<li><a class="dropdown-item" href="http://localhost:3000/antebraco_exercicios">Antebraco</a></li>
+            <div id="dropdown">
+          </div>
           </ul>
         </li>
 		
