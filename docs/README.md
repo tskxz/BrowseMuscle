@@ -5,6 +5,9 @@
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/8fn/browsemuscle)
 ![GitHub last commit](https://img.shields.io/github/last-commit/8fn/browsemuscle)
+![GitHub nodejs](https://img.shields.io/badge/-node.js-yellow)
+![GitHub mysql](https://img.shields.io/badge/-mysql-yellow)
+
 
 ## 📝 - Sobre o projeto  
 
