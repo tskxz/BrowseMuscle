@@ -4000,7 +4000,7 @@ textarea.form-control-lg {
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
   color: #fff;
-  background-color: #ffc800;
+  background-color: #791cc0;
 }
 
 .nav-fill > .nav-link,
@@ -11302,6 +11302,7 @@ p {
 
 .page-section {
   padding: 6rem 0;
+  background-color:#222;
 }
 .page-section h2.section-heading, .page-section .section-heading.h2 {
   font-size: 2.5rem;
@@ -11367,7 +11368,7 @@ p {
   letter-spacing: 0.0625em;
 }
 #mainNav .navbar-nav .nav-item .nav-link.active, #mainNav .navbar-nav .nav-item .nav-link:hover {
-  color: #ffc800;
+  color: #A600FF;
 }
 
 @media (min-width: 992px) {
