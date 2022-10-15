@@ -1,11 +1,8 @@
 
 <h1 align="center">BrowseMuscle</h1>
-
-![GitHub repo size](https://img.shields.io/github/repo-size/8fn/browsemuscle)
-![GitHub last commit](https://img.shields.io/github/last-commit/8fn/browsemuscle)
-![GitHub nodejs](https://img.shields.io/badge/-node.js-yellow)
-![GitHub mysql](https://img.shields.io/badge/-mysql-yellow)
-
+<div align="center">
+ <img src="https://img.shields.io/github/repo-size/8fn/browsemuscle"> <img src="https://img.shields.io/github/last-commit/8fn/browsemuscle"> <img src="https://img.shields.io/badge/-node.js-yellow"> <img src="https://img.shields.io/badge/-mysql-yellow">
+</div>
 
 ## 📝 - Sobre o projeto  
 
