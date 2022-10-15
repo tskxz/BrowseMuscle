@@ -142,4 +142,8 @@ app.get('/avancado', function(req, res){
 	res.render('app/dificuldades/avancado', {layout: false})
 })
 
+app.get('/pagina_principal', function(req, res){
+	res.render('app/index', {layout: false})
+})
+
 module.exports = app;
