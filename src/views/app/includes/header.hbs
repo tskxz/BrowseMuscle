@@ -47,7 +47,7 @@ p {
                       .then(res => res.json())
                       .then(data => {
                         const nome_musculos = data.result
-                        console.log(nome_musculos)
+                       
                         buildTable_musculo(nome_musculos)
                       })
     function buildTable_musculo(data_musculos){
@@ -70,7 +70,7 @@ p {
                       .then(res => res.json())
                       .then(data => {
                         const nome_equipamentos = data.result
-                        console.log(nome_equipamentos)
+                        
                         buildTable_equipamento(nome_equipamentos)
                       })
     function buildTable_equipamento(data_equipamentos){
@@ -87,6 +87,32 @@ p {
     }
 
     </script>
+
+    		<script>
+      fetch('http://localhost:3000/api/dificuldades/')
+                      .then(res => res.json())
+                      .then(data => {
+                        const nome_dificuldades = data.result
+                       // console.log(nome_dificuldades)
+                        buildTable_dificuldades(nome_dificuldades)
+                      })
+    function buildTable_dificuldades(data_dificuldades){
+      var dropdown_div_dificuldades = document.getElementById('dropdown_dificuldades');
+      data_dificuldades.forEach(dificuldade => {
+        
+        var dropdown_dificuldades = `
+            <li><a class="dropdown-item" href="http://localhost:3000/">${dificuldade.nome}</a></li>
+      `
+      dropdown_div_dificuldades.innerHTML += dropdown_dificuldades
+      })
+      
+      
+    }
+
+    </script>
+
+
+
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="http://localhost:3000/exercicios">Exercícios</a></li>
             <li><hr class="dropdown-divider"></li>
@@ -115,9 +141,10 @@ p {
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item disabled" href="#">Dificuldades</a></li>
             <li><hr class="dropdown-divider"></li>
-			<li><a class="dropdown-item" href="http://localhost:3000/iniciante_exercicios">Iniciante</a></li>
-			<li><a class="dropdown-item" href="http://localhost:3000/intermediario_exercicios">Intermediário</a></li>
-            <li><a class="dropdown-item" href="http://localhost:3000/avancado_exercicios">Avancado</a></li>
+		<div id="dropdown_dificuldades">
+
+
+    </div>
           </ul>
         </li>
 
