@@ -48,9 +48,9 @@ p {
                       .then(data => {
                         const nome_musculos = data.result
                         console.log(nome_musculos)
-                        buildTable(nome_musculos)
+                        buildTable_musculo(nome_musculos)
                       })
-    function buildTable(data_musculos){
+    function buildTable_musculo(data_musculos){
       var dropdown_div = document.getElementById('dropdown');
       data_musculos.forEach(musculo => {
         
@@ -65,6 +65,28 @@ p {
 
     </script>
 
+		<script>
+      fetch('http://localhost:3000/api/equipamentos/')
+                      .then(res => res.json())
+                      .then(data => {
+                        const nome_equipamentos = data.result
+                        console.log(nome_equipamentos)
+                        buildTable_equipamento(nome_equipamentos)
+                      })
+    function buildTable_equipamento(data_equipamentos){
+      var dropdown_div_equipamentos = document.getElementById('dropdown_equipamentos');
+      data_equipamentos.forEach(equipamento => {
+        
+        var dropdown_equipamentos = `
+            <li><a class="dropdown-item" href="http://localhost:3000/">${equipamento.nome}</a></li>
+      `
+      dropdown_div_equipamentos.innerHTML += dropdown_equipamentos
+      })
+      
+      
+    }
+
+    </script>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="http://localhost:3000/exercicios">Exercícios</a></li>
             <li><hr class="dropdown-divider"></li>
@@ -81,12 +103,9 @@ p {
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item disabled" href="#">Equipamentos</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="http://localhost:3000/barra_exercicios">Barra</a></li>
-			      <li><a href="http://localhost:3000/maquina_exercicios" class="dropdown-item">Máquina</a></li>
-            <li><a href="http://localhost:3000/cabos_exercicios" class="dropdown-item">Cabos</a></li>
-            <li><a href="http://localhost:3000/halteres_exercicios" class="dropdown-item">Halteres</a></li>
-            <li><a href="http://localhost:3000/peso_corporal_exercicios" class="dropdown-item">Peso Corporal</a></li>
-            <li><a href="http://localhost:3000/elastico_exercicios" class="dropdown-item">Elástico</a></li>
+            <div id="dropdown_equipamentos">
+
+            </div>
           </ul>
         </li>
 		<li class="nav-item dropdown">
