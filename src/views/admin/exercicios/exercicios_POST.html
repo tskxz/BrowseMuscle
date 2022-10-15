@@ -87,11 +87,7 @@
 					<label for="exampleFormControlSelect1">Equipamento</label>
 					<select class="form-control form-control-sm" id="selectionEquipamento" name="equipamento_id" required>
 					 <option selected disabled value="">Escolhe uma opção do menu</option>
-						<option type="number" value=5>bodyweight</option>
-						<option type="number" value=2>halteres</option>
-						<option type="number" value=1>barra</Formoption>
-						<option type="number" value=4>cabos</option>
-						<option type="number" value=3>maquina</option>
+						
 					</select>
 					<div class="valid-feedback">Valido!</div>
 					<div class="invalid-feedback">
@@ -203,6 +199,30 @@ data_dificuldades.forEach(dificuldade => {
 	
 	var dropdown = `
 	<option type="number" value=${dificuldade.id}>${dificuldade.nome}</option>
+  `
+  dropdown_div.innerHTML += dropdown
+  })
+
+
+
+}
+</script>
+
+<script>
+	fetch('http://localhost:3000/api/equipamentos/')
+				.then(res => res.json())
+				.then(data => {
+				  const nome_equipamentos = data.result
+					 console.log(nome_equipamentos)
+				  buildTable_equipamento(nome_equipamentos)
+				})
+function buildTable_equipamento(data_equipamentos){
+var dropdown_div = document.getElementById('selectionEquipamento');
+console.log(dropdown_div);
+data_equipamentos.forEach(equipamento => {
+	
+	var dropdown = `
+	<option type="number" value=${equipamento.id}>${equipamento.nome}</option>
   `
   dropdown_div.innerHTML += dropdown
   })
