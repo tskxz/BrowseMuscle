@@ -7,7 +7,11 @@ const path = require('path');
 
 // Visualização da tabela exercícios
 app.get('/exercicios', function(req, res) {
-	res.render('app/exercicios', {layout: false})
+	res.render('app/exercicios', {layout: 'tabelas'})
+})
+
+app.get('/tabelas', function(req, res) {
+	res.render('app/tabelas')
 })
 
 // Página principal
@@ -29,7 +33,7 @@ app.get('/musculos', function(req, res){
 
 // Visualização da tabela exercícios para peito
 app.get('/peito', function(req, res){
-	res.render('app/musculos/peito', {layout: false})
+	res.render('app/musculos/peito', {layout: 'tabelas'})
 })
 
 // Visualização da tabela exercícios para ombros
