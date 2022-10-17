@@ -15,34 +15,89 @@
 p {
     font-size: 20px;
 }
-
+body{
+    margin: 0;
+    padding: 0;
+    background: url(../assets/img/fundo.jpg)  no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    
+    
+  }
 
 </style>
   </head>
   <body>
 
-    
-
-    
-	<div class="row">
-		<div class="col-md-12">
-			<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">BrowseMuscle</a>
+    <a class="navbar-brand" href="/">BrowseMuscle</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="http://localhost:3000/">Página Principal</a>
+          <a class="nav-link active" aria-current="page" href="http://localhost:3000/pagina_principal">Home</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="http://localhost:3000/exercicios" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Exercícios
           </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="http://localhost:3000/exercicios">Exercícios</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <div id="dropdown"></div>
+          </ul>
+        </li>
 
-		<script>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Equipamentos
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item disabled">Equipamentos</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <div id="dropdown_equipamentos"></div>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dificuldades
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item">Dificuldades</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <div id="dropdown_dificuldades"></div>
+          </ul>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    
+    <ul class="navbar-nav dropstart">
+	  <li class="nav-item dropdown ">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <img src="../assets/img/hammer.png"/>
+        </a>
+          <ul class="dropdown-menu dropleft" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Administrador</a></li>
+            <li><hr class="dropdown-divider"></li>
+			      <li><a class="dropdown-item" href="http://localhost:3000/admin/exercicios">CRUD Exercícios</a></li>
+			      <li><a class="dropdown-item" href="http://localhost:3000/admin/alimentos">CRUD Alimentos</a></li>
+          </ul>
+    </li>
+    </ul>
+
+    </div>
+  </div>
+</nav>
+      <script>
       fetch('http://localhost:3000/api/musculos/')
                       .then(res => res.json())
                       .then(data => {
@@ -110,70 +165,3 @@ p {
     }
 
     </script>
-
-
-
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="http://localhost:3000/exercicios">Exercícios</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <div id="dropdown">
-          </div>
-          </ul>
-        </li>
-		
-     
-		<li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Equipamentos
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item disabled" href="#">Equipamentos</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <div id="dropdown_equipamentos">
-
-            </div>
-          </ul>
-        </li>
-		<li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dificuldades
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item disabled" href="#">Dificuldades</a></li>
-            <li><hr class="dropdown-divider"></li>
-		<div id="dropdown_dificuldades">
-
-
-    </div>
-          </ul>
-        </li>
-
-      </ul>
-		
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-	 	 <ul class="navbar-nav dropstart">
-	 <li class="nav-item dropdown ">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="../assets/img/hammer.png"/>
-          </a>
-          <ul class="dropdown-menu dropleft" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Administrador</a></li>
-            <li><hr class="dropdown-divider"></li>
-			<li><a class="dropdown-item" href="http://localhost:3000/admin/exercicios">CRUD Exercícios</a></li>
-			<li><a class="dropdown-item" href="http://localhost:3000/admin/alimentos">CRUD Alimentos</a></li>
-          </ul>
-        </li>
-        </ul>
-    </ul>
-    </div>
-
-	
-
-
-
-  </div>
-</nav>
-			
