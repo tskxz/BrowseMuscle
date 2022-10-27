@@ -40,5 +40,5 @@ server.engine( 'hbs', hbs.engine( {
 
 // Servidor irá ser usado na porta 3000
 server.listen(process.env.PORT, ()=>{
-	console.log(`Servidor a rodar em: http://localhost:${process.env.PORT}`);
+	console.log(`Servidor a rodar em: http://http://13.41.64.83/:${process.env.PORT}`);
 })
