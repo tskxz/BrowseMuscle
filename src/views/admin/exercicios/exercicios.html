@@ -8,20 +8,20 @@
   </head>
 <body>
 	<script>
-		fetch('http://localhost:3000/api/exercicios/')
+
+		fetch('/api/exercicios/')
 			.then(res => res.json())
 			.then(data => {
-		 			 	//const nome_exercicios = data.result.map((item) => item.nome_exercicio);
-		 			 	// const nome_musculos = data.result.map((item) => item.nome_musculo);
-		 			 	const nome_exercicios = data.result.map(getFullName);
-		 			 	renderNames(nome_exercicios);
-		 			 	// renderNames(nome_musculos);
+		 			const nome_exercicios = data.result.map(getFullName);
+					console.log(data.result)
+					// console.log(nome_exercicios);
+		 			renderNames(nome_exercicios);
 		  				
 					})
 			
 			
 		function getFullName(item){
-			return [item.nome_exercicio,item.nome_equipamento,item.nome_dificuldade,item.nome_musculo].join(" ");
+			return [item.nome,item.equipamento_id,item.dificuldade_id,item.musculo_id].join(" ");
 		}
 		function renderNames(names){
 			const container = document.getElementById('exercicios');

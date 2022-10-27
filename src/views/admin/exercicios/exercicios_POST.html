@@ -38,9 +38,9 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<div class="topnav">
-		<a href="http://localhost:3000/">Página Principal</a>
-		<a href="http://localhost:3000/admin/exercicios">Visualizar Exercícios</a>
-		<a class="active" href="http://localhost:3000/admin/exercicios/post_exercicios">Inserir Exercícios</a>
+		<a href="/">Página Principal</a>
+		<a href="/admin/exercicios">Visualizar Exercícios</a>
+		<a class="active" href="/admin/exercicios/post_exercicios">Inserir Exercícios</a>
 	</div>
 
 	<form class="form was-validated" id="myForm">
@@ -156,12 +156,12 @@
 	<script>
 
 		function myFunction(){
-			//window.location.href="http://localhost:3000/admin";
+			//window.location.href="/admin";
 		}
 	</script>
 
 	<script>
-		fetch('http://localhost:3000/api/musculos/')
+		fetch('/api/musculos/')
 					.then(res => res.json())
 					.then(data => {
 					  const nome_musculos = data.result
@@ -185,7 +185,7 @@
 	</script>
 
 <script>
-	fetch('http://localhost:3000/api/dificuldades/')
+	fetch('/api/dificuldades/')
 				.then(res => res.json())
 				.then(data => {
 				  const nome_dificuldades = data.result
@@ -209,7 +209,7 @@ data_dificuldades.forEach(dificuldade => {
 </script>
 
 <script>
-	fetch('http://localhost:3000/api/equipamentos/')
+	fetch('/api/equipamentos/')
 				.then(res => res.json())
 				.then(data => {
 				  const nome_equipamentos = data.result
@@ -244,7 +244,7 @@ data_equipamentos.forEach(equipamento => {
 			const formDataJsonString = JSON.stringify(formDataObject);
 			// value.topics = formData.getAll("topics");
 			console.log(formDataJsonString);
-			fetch('http://localhost:3000/api/exercicio/', {
+			fetch('/api/exercicio/', {
 				method: 'POST',
 				headers: {
 						'Content-Type': 'application/json'
@@ -258,7 +258,7 @@ data_equipamentos.forEach(equipamento => {
 			}).catch(function(error){
 				console.log(error);
 			})
-		window.location.href="http://localhost:3000/admin/exercicios";
+		window.location.href="/admin/exercicios";
 		})
 	</script>
 

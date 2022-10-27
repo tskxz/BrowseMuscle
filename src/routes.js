@@ -40,7 +40,9 @@ router.get('/alimento/:nome', AlimentoController.buscarUmNome);                 
 router.post('/alimento', AlimentoController.inserir);                                               // Rota do método POST para inserir alimento
 router.put('/alimento/:id', AlimentoController.alterar);                                            // Rota do método PUT para alterar alimento
 router.delete('/alimento/:id', AlimentoController.apagar);                                          // Rota do método delete para apagar um alimento
-
+router.get('/', function(req, res) {
+	res.sendFile(path.join(__dirname, '/views/admin/exercicios/exercicios.html'))
+})
 
 // Dificuldades, Equipamentos e Musculos
 router.get('/dificuldades', DificuldadeController.visualizarTodos);
