@@ -1,12 +1,11 @@
-
 <form class="form was-validated" id="myForm">
 
-	</form>
-	<script>
+</form>
+<script>
 
-	function buildPost(){
+	function buildPost() {
 		var form = document.getElementById('myForm');
-		
+
 
 		var value = `
 		<table class="table table-striped table-hover table-dark">
@@ -84,123 +83,123 @@
 		</form>
 
 		`
-			form.innerHTML += value
+		form.innerHTML += value
 	}
 
-	
-	
+
+
 
 
 
 
 	buildPost();
 
-	
-  
+
+
 </SCRIPT>
 
 
-	<script>
+<script>
 
-	</script>
+</script>
 
-	<script>
-		fetch('/api/musculos/')
-					.then(res => res.json())
-					.then(data => {
-					  const nome_musculos = data.result
-					 	console.log(nome_musculos)
-					  buildTable_musculo(nome_musculos)
-					})
-  function buildTable_musculo(data_musculos){
-	var dropdown_div = document.getElementById('selectionMusculo');
-	console.log(dropdown_div);
-	data_musculos.forEach(musculo => {
-        
-        var dropdown = `
+<script>
+	fetch('/api/musculos/')
+		.then(res => res.json())
+		.then(data => {
+			const nome_musculos = data.result
+			console.log(nome_musculos)
+			buildTable_musculo(nome_musculos)
+		})
+	function buildTable_musculo(data_musculos) {
+		var dropdown_div = document.getElementById('selectionMusculo');
+		console.log(dropdown_div);
+		data_musculos.forEach(musculo => {
+
+			var dropdown = `
 		<option type="number" value=${musculo.id}>${musculo.nome}</option>
       `
-      dropdown_div.innerHTML += dropdown
-      })
+			dropdown_div.innerHTML += dropdown
+		})
 
-	
-	
-  }
-	</script>
+
+
+	}
+</script>
 
 <script>
 	fetch('/api/dificuldades/')
-				.then(res => res.json())
-				.then(data => {
-				  const nome_dificuldades = data.result
-					 console.log(nome_dificuldades)
-				  buildTable_dificuldade(nome_dificuldades)
-				})
-function buildTable_dificuldade(data_dificuldades){
-var dropdown_div = document.getElementById('selectionDificuldade');
-console.log(dropdown_div);
-data_dificuldades.forEach(dificuldade => {
-	
-	var dropdown = `
+		.then(res => res.json())
+		.then(data => {
+			const nome_dificuldades = data.result
+			console.log(nome_dificuldades)
+			buildTable_dificuldade(nome_dificuldades)
+		})
+	function buildTable_dificuldade(data_dificuldades) {
+		var dropdown_div = document.getElementById('selectionDificuldade');
+		console.log(dropdown_div);
+		data_dificuldades.forEach(dificuldade => {
+
+			var dropdown = `
 	<option type="number" value=${dificuldade.id}>${dificuldade.nome}</option>
   `
-  dropdown_div.innerHTML += dropdown
-  })
+			dropdown_div.innerHTML += dropdown
+		})
 
 
 
-}
+	}
 </script>
 
 <script>
 	fetch('/api/equipamentos/')
-				.then(res => res.json())
-				.then(data => {
-				  const nome_equipamentos = data.result
-					 console.log(nome_equipamentos)
-				  buildTable_equipamento(nome_equipamentos)
-				})
-function buildTable_equipamento(data_equipamentos){
-var dropdown_div = document.getElementById('selectionEquipamento');
-console.log(dropdown_div);
-data_equipamentos.forEach(equipamento => {
-	
-	var dropdown = `
+		.then(res => res.json())
+		.then(data => {
+			const nome_equipamentos = data.result
+			console.log(nome_equipamentos)
+			buildTable_equipamento(nome_equipamentos)
+		})
+	function buildTable_equipamento(data_equipamentos) {
+		var dropdown_div = document.getElementById('selectionEquipamento');
+		console.log(dropdown_div);
+		data_equipamentos.forEach(equipamento => {
+
+			var dropdown = `
 	<option type="number" value=${equipamento.id}>${equipamento.nome}</option>
   `
-  dropdown_div.innerHTML += dropdown
-  })
+			dropdown_div.innerHTML += dropdown
+		})
 
 
 
-}
+	}
 </script>
 
-	<script>
-		const myForm = document.getElementById('myForm');
+<script>
+	const myForm = document.getElementById('myForm');
 
-		myForm.addEventListener('submit', function(e) {
-			e.preventDefault();
+	myForm.addEventListener('submit', function (e) {
+		e.preventDefault();
 
-			const formData = new FormData(this);
+		const formData = new FormData(this);
 
-			const formDataObject = Object.fromEntries(formData.entries());
-			const formDataJsonString = JSON.stringify(formDataObject);
-			console.log(formDataJsonString);
-			fetch('/api/exercicio/', {
-				method: 'POST',
-				headers: {
-						'Content-Type': 'application/json'
-				},
+		const formDataObject = Object.fromEntries(formData.entries());
+		const formDataJsonString = JSON.stringify(formDataObject);
+		console.log(formDataJsonString);
+		fetch('/api/exercicio/', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
 
-				body: formDataJsonString
-			}).then(function (response) {
-				return response.text();
-			}).then(function (text) {
-				console.log(text);
-			}).catch(function(error){
-				console.log(error);
-			})
-		window.location.href="/admin/exercicios";
+			body: formDataJsonString
+		}).then(function (response) {
+			return response.text();
+		}).then(function (text) {
+			console.log(text);
+		}).catch(function (error) {
+			console.log(error);
 		})
-	</script>
+		window.location.href = "/admin/exercicios";
+	})
+</script>
