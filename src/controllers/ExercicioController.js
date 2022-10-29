@@ -13,9 +13,9 @@ module.exports = {
 			json.result.push({
 				id: exercicios[i].id,
 				nome: exercicios[i].nome,
-				equipamento_id: exercicios[i].equipamento_id,
-				dificuldade_id: exercicios[i].dificuldade_id,
-				musculo_id: exercicios[i].musculo_id
+				equipamento: exercicios[i].equipamento,
+				dificuldade: exercicios[i].dificuldade,
+				musculo: exercicios[i].musculo
 			});
 		}
 		res.setHeader('Access-Control-Allow-Origin', '*');
