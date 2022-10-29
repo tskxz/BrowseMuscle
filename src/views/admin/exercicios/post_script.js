@@ -1,14 +1,14 @@
-fetch('http://localhost:3000/api/exercicio/', {
+fetch('/api/exercicio/', {
 	method: 'POST',
 	headers: {
 			'Content-Type': 'application/json'
 	},
 
 	body: JSON.stringify({
-		nome_exercicio: 'Supino',
-		nome_equipamento: 'barra',
-		nome_dificuldade: 'avancado',
-		nome_musculo: 'peito'
+		nome: 'Supino',
+		equipamento_id: 1,	// Barra
+		dificuldade_id: 3, 	// Avançado
+		musculo_id: 1 		// Peito
 	})
 })
 	.then(res => {
@@ -16,3 +16,4 @@ fetch('http://localhost:3000/api/exercicio/', {
 	})
 	.then(data => console.log(data))
 	.catch(error => console.log('Error.'))
+	

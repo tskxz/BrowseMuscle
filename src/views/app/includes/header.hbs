@@ -40,14 +40,14 @@ body{
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="http://localhost:3000/pagina_principal">Home</a>
+          <a class="nav-link active" aria-current="page" href="/pagina_principal">Home</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Exercícios
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="http://localhost:3000/exercicios">Exercícios</a></li>
+            <li><a class="dropdown-item" href="/exercicios">Exercícios</a></li>
             <li><hr class="dropdown-divider"></li>
             <div id="dropdown"></div>
           </ul>
@@ -88,8 +88,8 @@ body{
           <ul class="dropdown-menu dropleft" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="#">Administrador</a></li>
             <li><hr class="dropdown-divider"></li>
-			      <li><a class="dropdown-item" href="http://localhost:3000/admin/exercicios">CRUD Exercícios</a></li>
-			      <li><a class="dropdown-item" href="http://localhost:3000/admin/alimentos">CRUD Alimentos</a></li>
+			      <li><a class="dropdown-item" href="/admin/exercicios">CRUD Exercícios</a></li>
+			      <li><a class="dropdown-item" href="/admin/alimentos">CRUD Alimentos</a></li>
           </ul>
     </li>
     </ul>
@@ -98,7 +98,7 @@ body{
   </div>
 </nav>
       <script>
-      fetch('http://localhost:3000/api/musculos/')
+      fetch('/api/musculos/')
                       .then(res => res.json())
                       .then(data => {
                         const nome_musculos = data.result
@@ -110,7 +110,7 @@ body{
       data_musculos.forEach(musculo => {
         
         var dropdown = `
-            <li><a class="dropdown-item" href="http://localhost:3000/${musculo.nome}">${musculo.nome}</a></li>
+            <li><a class="dropdown-item" href="/${musculo.nome}">${musculo.nome}</a></li>
       `
       dropdown_div.innerHTML += dropdown
       })
@@ -121,7 +121,7 @@ body{
     </script>
 
 		<script>
-      fetch('http://localhost:3000/api/equipamentos/')
+      fetch('/api/equipamentos/')
                       .then(res => res.json())
                       .then(data => {
                         const nome_equipamentos = data.result
@@ -133,7 +133,7 @@ body{
       data_equipamentos.forEach(equipamento => {
         
         var dropdown_equipamentos = `
-            <li><a class="dropdown-item" href="http://localhost:3000/${equipamento.nome}">${equipamento.nome}</a></li>
+            <li><a class="dropdown-item" href="/${equipamento.nome}">${equipamento.nome}</a></li>
       `
       dropdown_div_equipamentos.innerHTML += dropdown_equipamentos
       })
@@ -144,7 +144,7 @@ body{
     </script>
 
     		<script>
-      fetch('http://localhost:3000/api/dificuldades/')
+      fetch('/api/dificuldades/')
                       .then(res => res.json())
                       .then(data => {
                         const nome_dificuldades = data.result
@@ -156,7 +156,7 @@ body{
       data_dificuldades.forEach(dificuldade => {
         
         var dropdown_dificuldades = `
-            <li><a class="dropdown-item" href="http://localhost:3000/${dificuldade.nome}">${dificuldade.nome}</a></li>
+            <li><a class="dropdown-item" href="/${dificuldade.nome}">${dificuldade.nome}</a></li>
       `
       dropdown_div_dificuldades.innerHTML += dropdown_dificuldades
       })

@@ -41,20 +41,21 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script>
-		fetch('http://localhost:3000/api/exercicios/')
+		fetch('/api/exercicios/')
 			.then(res => res.json())
 			.then(data => {
 				const nome_exercicios = data.result
-				fetch('http://localhost:3000/api/equipamentos/')
+				console.log(nome_exercicios)
+				fetch('/api/equipamentos/')
 					.then(res => res.json())
 					.then(data => {
 						const nome_equipamentos = data.result
-						fetch('http://localhost:3000/api/dificuldades/')
+						fetch('/api/dificuldades/')
 						.then(res => res.json())
 						.then(data => {
 							const nome_dificuldades = data.result
 							
-							fetch('http://localhost:3000/api/musculos/')
+							fetch('/api/musculos/')
 								.then(res => res.json())
 								.then(data => {
 									const nome_musculos = data.result
@@ -64,16 +65,7 @@
 					})
 			})
 
-		function renderNames(names){
-			const container = document.getElementById('exercicios');
-			container.innerHtml = '';
-				for (const name of names) {
-				  const p = document.createElement('p');
-				  const textNode = document.createTextNode(name);
-				  p.appendChild(textNode);
-				  container.appendChild(p);
-				}
-		}
+
 
 		function buildTable(data, data_equipamento, data_dificuldade, data_musculo){
 			var table = document.getElementById('myTable');
@@ -104,13 +96,12 @@
 
 		}
     function editar(id){
-      url = "http://localhost:3000/admin/exercicios/update_exercicios?id=";
-      //console.log(id);
+      url = "/admin/exercicios/update_exercicios?id=";
        window.location = url + id;
     }
 
     function apagar(id){
-      url_api = "http://localhost:3000/api/exercicio/" + id;
+      url_api = "/api/exercicio/" + id;
       console.log(url_api);
       fetch(url_api, {
         method: 'delete',
@@ -120,7 +111,7 @@
 
       }).then(response => response.json());
 
-      window.location.href="http://localhost:3000/admin/exercicios";
+      window.location.href="/admin/exercicios";
     }
 
 
@@ -135,9 +126,9 @@
 
 
 	<div class="topnav">
-    <a href="http://localhost:3000/">Página Principal</a>
-		<a class="active" href="http://localhost:3000/admin/exercicios">Visualizar Exercícios</a>
-		<a href="http://localhost:3000/admin/exercicios/post_exercicios">Inserir Exercícios</a>
+    <a href="/">Página Principal</a>
+		<a class="active" href="/admin/exercicios">Visualizar Exercícios</a>
+		<a href="/admin/exercicios/post_exercicios">Inserir Exercícios</a>
 	</div>
 
 
@@ -154,8 +145,5 @@
 
 		</tbody>
 	</table>
-		<div id="exercicios">
-
-	</div>
 </body>
 </html>
