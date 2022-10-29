@@ -1,0 +1,23 @@
+<p style="text-align: center">
+<table class="table table-striped table-hover table-dark">
+	<tr class="bg-danger">
+		<th>ID</th>
+		<th>Exercício</th>
+		<th>Equipamento </th>
+		<th>Dificuldade</th>
+		<th>Músculo</th>
+	</tr>
+	<tbody id="myTable">
+        {{#each rows}}
+		 <tr> 
+			<td>{{this.id}}</td>
+			<td>{{this.exercicio}}</td>
+			<td>{{this.equipamento}}</td>
+            <td>{{this.dificuldade}}</td>
+            <td>{{this.musculo}}</td>
+		</tr>
+        {{/each}}
+	</tbody>
+</table>
+
+</p>

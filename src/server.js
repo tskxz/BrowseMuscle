@@ -13,6 +13,7 @@ const path = require('path');
 const api = require('./routes/api'); // API CRUD
 const admin = require('./routes/admin');	// Paginas para CRUD
 const app = require('./routes/app');		// Aplicacao Principal
+const test = require('./routes/test')
 
 const server = express();
 const hbs = require('express-handlebars');
@@ -24,6 +25,7 @@ server.use(bodyParser.json())
 server.use('/api', api);
 server.use('/admin', admin);
 server.use('/', app);
+server.use('/test', test)
 
 server.use('/assets', express.static('./src/views/assets'));
 
