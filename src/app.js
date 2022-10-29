@@ -21,10 +21,6 @@ app.get('/', function(req, res){
 	});
 })
 
-// Visualização da tabela alimentos
-app.get('/alimentos', function(req, res){
-	res.render('app/alimentos/alimentos', {layout: 'tabelas'})
-})
 
 // Tabela músculos para selecionar
 app.get('/musculos', function(req, res){
@@ -96,7 +92,7 @@ app.get('/gluteo', function(req, res){
 	res.render('app/musculos/gluteos', {layout: 'tabelas'})
 })
 
-// Tabela alimentos para selecionar
+// Tabela equipamentos para selecionar
 app.get('/equipamentos', function(req, res){
 	res.render('app/equipamentos', {layout: 'tabelas'})
 })

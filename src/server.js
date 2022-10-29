@@ -10,7 +10,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 
 
-const routes = require('./routes'); // API CRUD
+const api = require('./routes/api'); // API CRUD
 const admin = require('./admin');	// Paginas para CRUD
 const app = require('./app');		// Aplicacao Principal
 
@@ -21,7 +21,7 @@ const hbs = require('express-handlebars');
 server.use(cors());
 server.use(bodyParser.json())
 
-server.use('/api', routes);
+server.use('/api', api);
 server.use('/admin', admin);
 server.use('/', app);
 
@@ -35,8 +35,6 @@ server.engine( 'hbs', hbs.engine( {
   } ) );
   
 
-
-// routing all .php file to php-express
 
 // Servidor irá ser usado na porta 3000
 server.listen(process.env.PORT, ()=>{

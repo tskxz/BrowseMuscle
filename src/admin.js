@@ -7,7 +7,6 @@ const path = require('path');
 /*
 
 admin/exercicios [CRUD]
-admin/alimentos	 [CRUD]
 
 */
 
@@ -28,21 +27,6 @@ admin.get('/exercicios/update_exercicios', function(req, res) {
 // Tabela de todos os exercícios
 admin.get('/exercicios', function(req, res){
 	res.sendFile(path.join(__dirname, '/views/admin/exercicios/tabela_exercicios.html')) // Visualizar os exercícios através da tabela em HTML
-})
-
-// Tabela de todos os alimentos
-admin.get('/alimentos', function(req, res){
-	res.sendFile(path.join(__dirname, '/views/admin/alimentos/tabela_alimentos.html'))
-})
-
-// Inserir Alimentos
-admin.get('/alimentos/post_alimentos', function(req, res){
-	res.sendFile(path.join(__dirname, '/views/admin/alimentos/alimentos_POST.html'))
-})
-
-// Atualizar Alimentos
-admin.get('/alimentos/update_alimentos', function(req, res){
-	res.sendFile(path.join(__dirname, '/views/admin/alimentos/alimentos_PUT.html'))
 })
 
 module.exports = admin;
