@@ -11,8 +11,8 @@ const path = require('path');
 
 
 const api = require('./routes/api'); // API CRUD
-const admin = require('./admin');	// Paginas para CRUD
-const app = require('./app');		// Aplicacao Principal
+const admin = require('./routes/admin');	// Paginas para CRUD
+const app = require('./routes/app');		// Aplicacao Principal
 
 const server = express();
 const hbs = require('express-handlebars');
