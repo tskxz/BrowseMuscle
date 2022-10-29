@@ -58,9 +58,9 @@
     var id = url.searchParams.get("id");
 
 	var nome = url.searchParams.get("nome");
-		var equipamento_id = url.searchParams.get("equipamento_id");
-		var dificuldade_id = url.searchParams.get("dificuldade_id");
-		var musculo_id = url.searchParams.get("musculo_id");
+	var equipamento_id = url.searchParams.get("equipamento_id");
+	var dificuldade_id = url.searchParams.get("dificuldade_id");
+	var musculo_id = url.searchParams.get("musculo_id");
 		fetch('/api/exercicio/'+id)
 			.then(res => res.json())
 			.then(data => {

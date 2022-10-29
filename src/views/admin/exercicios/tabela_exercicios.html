@@ -45,6 +45,7 @@
 			.then(res => res.json())
 			.then(data => {
 				const nome_exercicios = data.result
+				console.log(nome_exercicios)
 				fetch('/api/equipamentos/')
 					.then(res => res.json())
 					.then(data => {
@@ -64,16 +65,7 @@
 					})
 			})
 
-		function renderNames(names){
-			const container = document.getElementById('exercicios');
-			container.innerHtml = '';
-				for (const name of names) {
-				  const p = document.createElement('p');
-				  const textNode = document.createTextNode(name);
-				  p.appendChild(textNode);
-				  container.appendChild(p);
-				}
-		}
+
 
 		function buildTable(data, data_equipamento, data_dificuldade, data_musculo){
 			var table = document.getElementById('myTable');
@@ -105,7 +97,6 @@
 		}
     function editar(id){
       url = "/admin/exercicios/update_exercicios?id=";
-      //console.log(id);
        window.location = url + id;
     }
 
@@ -154,8 +145,5 @@
 
 		</tbody>
 	</table>
-		<div id="exercicios">
-
-	</div>
 </body>
 </html>

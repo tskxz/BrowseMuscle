@@ -48,17 +48,8 @@
 	</form>
 	<script>
 
-	function buildPut(){
+	function buildPost(){
 		var form = document.getElementById('myForm');
-
-		var url = new URL(window.location.href);
-		console.log(url)
-		var id = url.searchParams.get("id");
-
-		var nome = url.searchParams.get("nome");
-		var equipamento_id = url.searchParams.get("equipamento_id");
-		var dificuldade_id = url.searchParams.get("dificuldade_id");
-		var musculo_id = url.searchParams.get("musculo_id");
 		
 
 		var value = `
@@ -146,7 +137,7 @@
 
 
 
-	buildPut();
+	buildPost();
 
 	
   
@@ -155,9 +146,6 @@
 
 	<script>
 
-		function myFunction(){
-			//window.location.href="/admin";
-		}
 	</script>
 
 	<script>
@@ -242,7 +230,6 @@ data_equipamentos.forEach(equipamento => {
 
 			const formDataObject = Object.fromEntries(formData.entries());
 			const formDataJsonString = JSON.stringify(formDataObject);
-			// value.topics = formData.getAll("topics");
 			console.log(formDataJsonString);
 			fetch('/api/exercicio/', {
 				method: 'POST',
