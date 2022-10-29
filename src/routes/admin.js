@@ -4,25 +4,19 @@ const path = require('path');
 
 // Rotas para o admin
 
-/*
-
-admin/exercicios [CRUD]
-
-*/
-
 // Inserir exercícios
 admin.get('/exercicios/post_exercicios', function(req, res) {
-	res.sendFile(path.join(__dirname, '../views/admin/exercicios/exercicios_POST.html')) // Inserir exercícios através do form HTML
+	res.render('admin/exercicios/exercicios_POST', {layout: false}) // Inserir exercícios através do form HTML
 })
 
 // Atualizar exercícios
 admin.get('/exercicios/update_exercicios', function(req, res) {
-	res.sendFile(path.join(__dirname, '../views/admin/exercicios/exercicios_PUT.html')) // Atualizar exercícios através do form HTML
+	res.render('admin/exercicios/exercicios_PUT', {layout: false}) // Atualizar exercícios através do form HTML
 })
 
 // Tabela de todos os exercícios
 admin.get('/exercicios', function(req, res){
-	res.sendFile(path.join(__dirname, '../views/admin/exercicios/tabela_exercicios.html')) // Visualizar os exercícios através da tabela em HTML
+	res.render('admin/exercicios/tabela_exercicios', {layout: false}) // Visualizar os exercícios através da tabela em HTML
 })
 
 module.exports = admin;
