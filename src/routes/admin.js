@@ -15,10 +15,6 @@ admin.get('/exercicios/post_exercicios', function(req, res) {
 	res.sendFile(path.join(__dirname, '../views/admin/exercicios/exercicios_POST.html')) // Inserir exercícios através do form HTML
 })
 
-admin.get('/exercicios/post_script_exercicio', function(req, res) {
-	res.sendFile(path.join(__dirname, '../views/admin/exercicios/post_script_exercicios.html'))
-})
-
 // Atualizar exercícios
 admin.get('/exercicios/update_exercicios', function(req, res) {
 	res.sendFile(path.join(__dirname, '../views/admin/exercicios/exercicios_PUT.html')) // Atualizar exercícios através do form HTML
