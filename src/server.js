@@ -34,8 +34,8 @@ server.set( 'view engine', 'hbs' );
 server.engine( 'hbs', hbs.engine( { 
 	extname: 'hbs', 
 	partialsDir: __dirname + '/views/includes/'
-  } ) );
-  
+} ) );
+
 
 
 // Servidor irá ser usado na porta 3000

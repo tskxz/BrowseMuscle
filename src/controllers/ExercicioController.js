@@ -12,7 +12,7 @@ module.exports = {
 		for(let i in exercicios){
 			json.result.push({
 				id: exercicios[i].id,
-				nome: exercicios[i].nome,
+				exercicio: exercicios[i].exercicio,
 				equipamento: exercicios[i].equipamento,
 				dificuldade: exercicios[i].dificuldade,
 				musculo: exercicios[i].musculo

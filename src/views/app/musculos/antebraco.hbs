@@ -3,25 +3,10 @@
 		fetch('/api/exercicios_musculo/11')
 			.then(res => res.json())
 			.then(data => {
-				const nome_exercicios = data.result
-				fetch('/api/equipamentos/')
-					.then(res => res.json())
-					.then(data => {
-						const nome_equipamentos = data.result
-						fetch('/api/dificuldades/')
-						.then(res => res.json())
-						.then(data => {
-							const nome_dificuldades = data.result
-							
-							fetch('/api/musculos/')
-								.then(res => res.json())
-								.then(data => {
-									const nome_musculos = data.result
-									buildTable(nome_exercicios, nome_equipamentos, nome_dificuldades, nome_musculos)
+									const nome_exercicios = data.result
+									buildTable(nome_exercicios)
 								})
-						})
-					})
-			})
+
 
 		function renderNames(names){
 			const container = document.getElementById('exercicios');
@@ -34,18 +19,18 @@
 				}
 		}
 
-		function buildTable(data, data_equipamento, data_dificuldade, data_musculo){
+		function buildTable(data){
 			var table = document.getElementById('myTable');
 
 	  // Mostrar todos os dados e meter a primeira palavra em maisculo
 	  if(data.length > 0){
 		for(var i = 0; i<data.length; i++){
 				  var row = ` <tr>
-								  <td>${data[i].id}</td>
-								  <td>${data[i].nome}</td>
-								  <td>${data_equipamento[data[i].equipamento_id-1].nome}</td>
-								  <td>${data_dificuldade[data[i].dificuldade_id-1].nome}</td>
-								  <td>${data_musculo[data[i].musculo_id-1].nome}</td>
+	  		<td>${data[i].id}</td>
+	  		<td>${data[i].exercicio}</td>
+	  		<td>${data[i].equipamento}</td>
+	  		<td>${data[i].dificuldade}</td>
+	  		<td>${data[i].musculo}</td>
 								
 							  </tr>`
 				  table.innerHTML += row
