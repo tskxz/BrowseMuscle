@@ -14,11 +14,8 @@ module.exports = {
 				id: exercicios[i].id,
 				exercicio: exercicios[i].exercicio,
 				equipamento: exercicios[i].equipamento,
-				equipamento_id: exercicios[i].equipamento_id,
 				dificuldade: exercicios[i].dificuldade,
-				dificuldade_id: exercicios[i].dificuldade_id,
-				musculo: exercicios[i].musculo,
-				musculo_id: exercicios[i].musculo_id
+				musculo: exercicios[i].musculo
 			});
 		}
 		res.setHeader('Access-Control-Allow-Origin', '*');
