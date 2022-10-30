@@ -7,10 +7,10 @@ const data = {
 		label: 'Dataset 1',
 		data: [12, 29, 12], // Proteina: 12 | Hidratos de carbono: 29 | Gordura: 12
 		backgroundColor: [
-            'rgba(255, 99, 132)',
-            'rgba(54, 162, 235)',
-            'rgba(255, 206, 86)',
-        ],
+		'rgba(255, 99, 132)',
+		'rgba(54, 162, 235)',
+		'rgba(255, 206, 86)',
+		],
 	}]
 }
 

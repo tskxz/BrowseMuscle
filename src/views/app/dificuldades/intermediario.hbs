@@ -5,9 +5,9 @@
 	.then(data => {
 		const nome_exercicios = data.result
 
-					buildTable(nome_exercicios)
-				})
-			
+		buildTable(nome_exercicios)
+	})
+	
 	function renderNames(names){
 		const container = document.getElementById('exercicios');
 		container.innerHtml = '';
@@ -47,24 +47,24 @@
 		url = "/admin/update_exercicios?id=";
         //console.log(id);
         window.location = url + id;
-      }
+    }
 
-      function apagar(id){
-      	url_api = "/api/exercicio/" + id;
-      	console.log(url_api);
-      	fetch(url_api, {
-      		method: 'delete',
-      		headers: {
-      			'Content-Type': 'application/json'
-      		},
+    function apagar(id){
+    	url_api = "/api/exercicio/" + id;
+    	console.log(url_api);
+    	fetch(url_api, {
+    		method: 'delete',
+    		headers: {
+    			'Content-Type': 'application/json'
+    		},
 
-      	}).then(response => response.json());
+    	}).then(response => response.json());
 
-      	window.location.href="/admin";
-      }
-
-
+    	window.location.href="/admin";
+    }
 
 
 
-    </script>
+
+
+</script>

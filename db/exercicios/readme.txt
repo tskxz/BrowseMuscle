@@ -48,26 +48,26 @@ Cada equipamento tem vários exercícios.
 Cada grupo muscular tem vários equipamentos
 
 Vai ter as seguintes tabelas de grupo muscular:
-	- Quadriceps
-	- Hamstrings
-	- Costas
-	- Lats
-	- Ombros
-	- Peito
-	- Gémeos
-	- Antebraço
-	- Biceps
-	- Triceps
-	- Abdominais
-	- Traps
+- Quadriceps
+- Hamstrings
+- Costas
+- Lats
+- Ombros
+- Peito
+- Gémeos
+- Antebraço
+- Biceps
+- Triceps
+- Abdominais
+- Traps
 
 
 Vai haver tabelas de equipamentos com os seguintes campos:
-	- Maquina
-	- Bodyweight
-	- Cabos
-	- Halteres
-	- Elástico
+- Maquina
+- Bodyweight
+- Cabos
+- Halteres
+- Elástico
 
 Um utilizador pode visualizar e ver os exercícios de cada dificuldade.
 Por exemplo se o utilizador só quiser exercícios de dificuldade avançada, vai clicar na tabela avançada que irá mostrar apenas exercícios com dificuldade avançada.
@@ -118,25 +118,25 @@ Uma tabela chamada 'exercícios'
 Essa tabela vai ter os seguintes campos:
 
 exercícios (
-	nome_exercicio,
-	nome_equipamento,
-	nome_dificuldade,
-	nome_musculo
+nome_exercicio,
+nome_equipamento,
+nome_dificuldade,
+nome_musculo
 )
 
 Já que tenho as tabelas de cada musculo, cada tabela muscular deve obter também um campo músculo
 
 Igualmente como:
 
-	- exercicios_iniciante
-	- exercicios_intermediario
-	- exercicios_avancado
-	- exercicios_bodyweight
-	- exercicios_cabos
-	- exercicios_elastico
-	- exercicios_halteres
-	- exercicios_maquina
-	- exercicios_barra
+- exercicios_iniciante
+- exercicios_intermediario
+- exercicios_avancado
+- exercicios_bodyweight
+- exercicios_cabos
+- exercicios_elastico
+- exercicios_halteres
+- exercicios_maquina
+- exercicios_barra
 
 E também devia existir uma tabela musculos
 

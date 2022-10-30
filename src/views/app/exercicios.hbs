@@ -1,12 +1,12 @@
 
 <script>
 	fetch('/api/exercicios/')
-		.then(res => res.json())
-		.then(data => {
-			const nome_exercicios = data.result
-			
-									buildTable(nome_exercicios)
-								})
+	.then(res => res.json())
+	.then(data => {
+		const nome_exercicios = data.result
+		
+		buildTable(nome_exercicios)
+	})
 
 
 	function renderNames(names) {
@@ -27,13 +27,13 @@
 		if (data.length > 0) {
 			for (var i = 0; i < data.length; i++) {
 				var row = ` <tr>
-								  <td>${data[i].id}</td>
-								  <td>${data[i].exercicio}</td>
-								  <td>${data[i].equipamento}</td>
-								  <td>${data[i].dificuldade}</td>
-								  <td>${data[i].musculo}</td>
-								
-							  </tr>`
+				<td>${data[i].id}</td>
+				<td>${data[i].exercicio}</td>
+				<td>${data[i].equipamento}</td>
+				<td>${data[i].dificuldade}</td>
+				<td>${data[i].musculo}</td>
+				
+				</tr>`
 				table.innerHTML += row
 			}
 		} else {

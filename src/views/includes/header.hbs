@@ -12,7 +12,7 @@
   <meta name="author" content="LayoutIt!">
   <link rel="shortcut icon" href="../assets/img/favicon.ico">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
   <style>
     p {
       font-size: 20px;
@@ -64,145 +64,145 @@
     <div class="container-fluid">
       <a class="navbar-brand" href="/">BrowseMuscle</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/pagina_principal">Home</a>
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/pagina_principal">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          Exercícios
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <li><a class="dropdown-item" href="/exercicios">Exercícios</a></li>
+          <li>
+            <hr class="dropdown-divider">
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              Exercícios
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="/exercicios">Exercícios</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <div id="dropdown-musculos"></div>
-            </ul>
-          </li>
-
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              Equipamentos
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item disabled">Equipamentos</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <div id="dropdown_equipamentos_navegacao"></div>
-            </ul>
-          </li>
-
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              Dificuldades
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item">Dificuldades</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <div id="dropdown_dificuldades_navegacao"></div>
-            </ul>
-          </li>
+          <div id="dropdown-musculos"></div>
         </ul>
-        <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
+      </li>
 
-        <ul class="navbar-nav dropstart">
-          <li class="nav-item dropdown ">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              <img src="../assets/img/hammer.png" />
-            </a>
-            <ul class="dropdown-menu dropleft" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Administrador</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="/admin/exercicios">CRUD Exercícios</a></li>
-            </ul>
-          </li>
-        </ul>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+        aria-expanded="false">
+        Equipamentos
+      </a>
+      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <li><a class="dropdown-item disabled">Equipamentos</a></li>
+        <li>
+          <hr class="dropdown-divider">
+        </li>
+        <div id="dropdown_equipamentos_navegacao"></div>
+      </ul>
+    </li>
 
-      </div>
-    </div>
-  </nav>
-  <script>
-    fetch('/api/musculos/')
-      .then(res => res.json())
-      .then(data => {
-        const nome_musculos = data.result
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+      aria-expanded="false">
+      Dificuldades
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+      <li><a class="dropdown-item">Dificuldades</a></li>
+      <li>
+        <hr class="dropdown-divider">
+      </li>
+      <div id="dropdown_dificuldades_navegacao"></div>
+    </ul>
+  </li>
+</ul>
+<form class="d-flex">
+  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+  <button class="btn btn-outline-success" type="submit">Search</button>
+</form>
 
-        buildTable_musculo(nome_musculos)
-      })
-    function buildTable_musculo(data_musculos) {
-      var dropdown_div = document.getElementById('dropdown-musculos');
+<ul class="navbar-nav dropstart">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+    aria-expanded="false">
+    <img src="../assets/img/hammer.png" />
+  </a>
+  <ul class="dropdown-menu dropleft" aria-labelledby="navbarDropdown">
+    <li><a class="dropdown-item" href="#">Administrador</a></li>
+    <li>
+      <hr class="dropdown-divider">
+    </li>
+    <li><a class="dropdown-item" href="/admin/exercicios">CRUD Exercícios</a></li>
+  </ul>
+</li>
+</ul>
 
-      data_musculos.forEach(musculo => {
+</div>
+</div>
+</nav>
+<script>
+  fetch('/api/musculos/')
+  .then(res => res.json())
+  .then(data => {
+    const nome_musculos = data.result
 
-        var dropdown = `
-            <li><a class="dropdown-item" href="/${musculo.nome}">${musculo.nome}</a></li>
+    buildTable_musculo(nome_musculos)
+  })
+  function buildTable_musculo(data_musculos) {
+    var dropdown_div = document.getElementById('dropdown-musculos');
+
+    data_musculos.forEach(musculo => {
+
+      var dropdown = `
+      <li><a class="dropdown-item" href="/${musculo.nome}">${musculo.nome}</a></li>
       `
-        dropdown_div.innerHTML += dropdown
-      })
+      dropdown_div.innerHTML += dropdown
+    })
 
 
-    }
+  }
 
-  </script>
+</script>
 
-  <script>
-    fetch('/api/equipamentos/')
-      .then(res => res.json())
-      .then(data => {
-        const nome_equipamentos = data.result
+<script>
+  fetch('/api/equipamentos/')
+  .then(res => res.json())
+  .then(data => {
+    const nome_equipamentos = data.result
 
-        buildTable_equipamento(nome_equipamentos)
-      })
-    function buildTable_equipamento(data_equipamentos) {
-      var dropdown_div_equipamentos = document.getElementById('dropdown_equipamentos_navegacao');
-      data_equipamentos.forEach(equipamento => {
+    buildTable_equipamento(nome_equipamentos)
+  })
+  function buildTable_equipamento(data_equipamentos) {
+    var dropdown_div_equipamentos = document.getElementById('dropdown_equipamentos_navegacao');
+    data_equipamentos.forEach(equipamento => {
 
-        var dropdown_equipamentos_navegacao = `
-            <li><a class="dropdown-item" href="/${equipamento.nome}">${equipamento.nome}</a></li>
+      var dropdown_equipamentos_navegacao = `
+      <li><a class="dropdown-item" href="/${equipamento.nome}">${equipamento.nome}</a></li>
       `
-        dropdown_div_equipamentos.innerHTML += dropdown_equipamentos_navegacao
-      })
+      dropdown_div_equipamentos.innerHTML += dropdown_equipamentos_navegacao
+    })
 
 
-    }
+  }
 
-  </script>
+</script>
 
-  <script>
-    fetch('/api/dificuldades/')
-      .then(res => res.json())
-      .then(data => {
-        const nome_dificuldades = data.result
-        buildTable_dificuldades(nome_dificuldades)
-      })
-    function buildTable_dificuldades(data_dificuldades) {
-      var dropdown_div_dificuldades = document.getElementById('dropdown_dificuldades_navegacao');
-      data_dificuldades.forEach(dificuldade => {
+<script>
+  fetch('/api/dificuldades/')
+  .then(res => res.json())
+  .then(data => {
+    const nome_dificuldades = data.result
+    buildTable_dificuldades(nome_dificuldades)
+  })
+  function buildTable_dificuldades(data_dificuldades) {
+    var dropdown_div_dificuldades = document.getElementById('dropdown_dificuldades_navegacao');
+    data_dificuldades.forEach(dificuldade => {
 
-        var dropdown_dificuldades_navegacao = `
-            <li><a class="dropdown-item" href="/${dificuldade.nome}">${dificuldade.nome}</a></li>
+      var dropdown_dificuldades_navegacao = `
+      <li><a class="dropdown-item" href="/${dificuldade.nome}">${dificuldade.nome}</a></li>
       `
-        dropdown_div_dificuldades.innerHTML += dropdown_dificuldades_navegacao
-      })
+      dropdown_div_dificuldades.innerHTML += dropdown_dificuldades_navegacao
+    })
 
 
-    }
+  }
 
-  </script>
+</script>
