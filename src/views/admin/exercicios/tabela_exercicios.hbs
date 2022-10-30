@@ -1,12 +1,12 @@
 <script>
 	fetch('/api/exercicios/')
-		.then(res => res.json())
-		.then(data => {
-			const nome_exercicios = data.result
-			
-									buildTable(nome_exercicios)
-								})
-					
+	.then(res => res.json())
+	.then(data => {
+		const nome_exercicios = data.result
+		
+		buildTable(nome_exercicios)
+	})
+	
 
 
 	function buildTable(data) {
@@ -16,17 +16,17 @@
 		if (data.length > 0) {
 			for (var i = 0; i < data.length; i++) {
 				var row = ` <tr>
-								 	  		<td>${data[i].id}</td>
-	  		<td>${data[i].exercicio}</td>
-	  		<td>${data[i].equipamento}</td>
-	  		<td>${data[i].dificuldade}</td>
-	  		<td>${data[i].musculo}</td>
-								  <td>
-                    <button value="${data[i].id}&nome=${data[i].nome}&equipamento_id=${data[i].equipamento_id}&dificuldade_id=${data[i].dificuldade_id}&musculo_id=${data[i].musculo_id}" onclick="editar(this.value)" type="button" class="btn btn-success">Editar</button>
-                    <button value="${data[i].id}" onclick="apagar(this.value)" type="button" class="btn btn-danger">Apagar</button>
-                  </td>
-								
-							  </tr>`
+				<td>${data[i].id}</td>
+				<td>${data[i].exercicio}</td>
+				<td>${data[i].equipamento}</td>
+				<td>${data[i].dificuldade}</td>
+				<td>${data[i].musculo}</td>
+				<td>
+				<button value="${data[i].id}&nome=${data[i].nome}&equipamento_id=${data[i].equipamento_id}&dificuldade_id=${data[i].dificuldade_id}&musculo_id=${data[i].musculo_id}" onclick="editar(this.value)" type="button" class="btn btn-success">Editar</button>
+				<button value="${data[i].id}" onclick="apagar(this.value)" type="button" class="btn btn-danger">Apagar</button>
+				</td>
+				
+				</tr>`
 				table.innerHTML += row
 			}
 		} else {
