@@ -4,6 +4,7 @@
 	.then(res => res.json())
 	.then(data => {
 		const nome_exercicios = data.result
+		buildTable(nome_exercicios)
 
 	})
 
@@ -19,7 +20,7 @@
 		}
 	}
 
-	function buildTable(data, data_equipamento, data_dificuldade, data_musculo){
+	function buildTable(data){
 		var table = document.getElementById('myTable');
 
 	  // Mostrar todos os dados e meter a primeira palavra em maisculo
@@ -29,6 +30,7 @@
 	  		<td>${data[i].id}</td>
 	  		<td>${data[i].exercicio}</td>
 	  		<td>${data[i].equipamento}</td>
+	  		<td>${data[i].dificuldade}</td>
 	  		<td>${data[i].musculo}</td>
 
 	  		</tr>`
@@ -46,24 +48,24 @@
 		url = "/admin/update_exercicios?id=";
         //console.log(id);
         window.location = url + id;
-      }
+    }
 
-      function apagar(id){
-      	url_api = "/api/exercicio/" + id;
-      	console.log(url_api);
-      	fetch(url_api, {
-      		method: 'delete',
-      		headers: {
-      			'Content-Type': 'application/json'
-      		},
+    function apagar(id){
+    	url_api = "/api/exercicio/" + id;
+    	console.log(url_api);
+    	fetch(url_api, {
+    		method: 'delete',
+    		headers: {
+    			'Content-Type': 'application/json'
+    		},
 
-      	}).then(response => response.json());
+    	}).then(response => response.json());
 
-      	window.location.href="/admin";
-      }
-
-
+    	window.location.href="/admin";
+    }
 
 
 
-    </script>
+
+
+</script>
