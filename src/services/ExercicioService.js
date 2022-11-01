@@ -30,8 +30,8 @@ module.exports = {
 	// Funcao pesquisar
 	pesquisarExercicio:(pesquisa) => {
 		return new Promise((aceito, rejeitado) => {
-			db.query('SELECT * from exercicios WHERE nome LIKE ? ', ['%' + pesquisa + '%'], (error, results) => {
-				if(error){console.log(error); return;}
+			db.query('SELECT * from exercicios WHERE nome = ? ', [pesquisa], (error, results) => {
+				if(error){rejeitado(error); return;}
 				if(results.length > 0){
 					aceito(results[0]);
 				} else {

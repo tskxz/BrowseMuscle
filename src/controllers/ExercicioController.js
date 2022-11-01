@@ -36,7 +36,6 @@ module.exports = {
 			json.result = exercicio; // Resultado de buscarUm
 		}
 
-		res.json(json);
 	},
 
 	// Pesquisar através da barra de pesquisa da navegação
@@ -48,6 +47,8 @@ module.exports = {
 
 		if(exercicio){
 			json.result = exercicio;
+		} else {
+			json.error = "err"
 		}
 
 		res.json(json);
