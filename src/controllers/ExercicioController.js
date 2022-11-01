@@ -39,6 +39,20 @@ module.exports = {
 		res.json(json);
 	},
 
+	// Pesquisar através da barra de pesquisa da navegação
+	pesquisarExercicio: async(req, res) => {
+		let json = {error: '', result:[]};
+
+		let pesquisa = req.body.pesquisa;
+		let exercicio = await ExercicioService.pesquisarExercicio(pesquisa);
+
+		if(exercicio){
+			json.result = exercicio;
+		}
+
+		res.json(json);
+	},
+
 	buscarEquipamento: async (req, res) => {
 		let json = {error:'', result:[]};
 
@@ -141,5 +155,7 @@ module.exports = {
 		await ExercicioService.apagar(req.params.id);
 		res.json(json);
 	}
+
+
 
 }
