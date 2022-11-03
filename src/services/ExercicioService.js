@@ -34,6 +34,7 @@ module.exports = {
 				if(error){rejeitado(error); return;}
 				if(results.length > 0){
 					aceito(results);
+					// res.render('app/pesquisa', {layout: 'tabelas'})
 				} else {
 					aceito(false);
 				}

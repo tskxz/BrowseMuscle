@@ -50,8 +50,11 @@ module.exports = {
 		} else {
 			json.error = "err"
 		}
+		rows = json.result;
+		console.log(rows);
+		res.render('app/pesquisa', {layout: 'tabela_exercicios', rows},)
 
-		res.json(json);
+
 	},
 
 	buscarEquipamento: async (req, res) => {
