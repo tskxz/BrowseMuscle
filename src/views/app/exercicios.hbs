@@ -4,7 +4,7 @@
 	.then(res => res.json())
 	.then(data => {
 		const nome_exercicios = data.result
-		
+		console.log(nome_exercicios)
 		buildTable(nome_exercicios)
 	})
 

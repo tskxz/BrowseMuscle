@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express.Router();
 const path = require('path');
-
+const ExercicioController = require('../controllers/ExercicioController')   
 
 // Rotas das páginas principais - BrowseMuscle
 
@@ -13,6 +13,8 @@ app.get('/exercicios', function(req, res) {
 app.get('/tabelas', function(req, res) {
 	res.render('app/tabelas')
 })
+
+app.post('/', ExercicioController.pesquisarExercicio);
 
 // Página principal
 app.get('/', function(req, res){

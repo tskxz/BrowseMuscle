@@ -20,7 +20,12 @@ const hbs = require('express-handlebars');
 
 // O servidor vai extrair informacao do API do tipo JSON
 server.use(cors());
-server.use(bodyParser.json())
+
+// Parse Middleware
+server.use(express.urlencoded({extended: true})); 
+
+// Parse Application/JSON
+server.use(express.json())
 
 server.use('/api', api);
 server.use('/admin', admin);
