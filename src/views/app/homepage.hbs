@@ -1,6 +1,6 @@
 <h1 class="text-light">Pesquisa os exercícios por grupo muscular</h1>
 <p class="text-light">Escolhe um músculo que queres treinar. Filtra e vẽ os melhores exercícios para o equipamento que tens, experiência e objetivos.</p>
-
+    
 
 <div x-data="{open:false}">
     <div class="d-grid gap-2 col-6 mx-auto">
@@ -14,6 +14,8 @@
     </div>
 
 </div>
+
+
 
 <script type="text/javascript">
     fetch('/api/musculos/')
@@ -29,7 +31,7 @@
         if (data.length > 0) {
             for (var i = 0; i < data.length; i++) {
                 var row = `
-                <li class="list-group-item"><a class="link-danger" style="text-decoration: none;" href="/${data[i].nome}">${data[i].nome}</a></li>`
+                <li class="list-group-item"><a class="link-danger" style="text-decoration: none;" href="/${data[i].nome}">${data[i].nome.charAt(0).toUpperCase() + data[i].nome.slice(1)}</a></li>`
                 table.innerHTML += row
             }
         }
