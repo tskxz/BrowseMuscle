@@ -6,49 +6,34 @@
     <div class="d-grid gap-2 col-6 mx-auto">
         <button class="btn btn-dark" @click="open = ! open">Escolhe o músculo</button>
     </div>
-    <div x-show="open" class="gap-2 col-6 mx-auto" @click.outside="open = false">
-        <ul class="list-group">
-          <li class="list-group-item">Peito</li>
-          <li class="list-group-item">Ombro</li>
-          <li class="list-group-item">Tricep</li>
-          <li class="list-group-item">Costas</li>
-          <li class="list-group-item">Dorsal</li>
-          <li class="list-group-item">Bicep</li>
-          <li class="list-group-item">Quadricep</li>
-          <li class="list-group-item">Hamstrings</li>
-          <li class="list-group-item">Gémeos</li>
-          <li class="list-group-item">Abdominais</li>
-          <li class="list-group-item">Antebraço</li>
-      </ul>
+    <div x-show="open" class="gap-2 col-2 mx-auto" @click.outside="open = false">
+        <br>
+        <ul class="list-group" id="myTable">
+
+        </ul>
     </div>
 
 </div>
 
-<div x-data="{open:false}">
-    <div class="d-grid gap-2 col-6 mx-auto">
-        <button class="btn btn-dark" @click="open = ! open">Escolhe o equipamento</button>
-    </div>
-    <div x-show="open" class="gap-2 col-6 mx-auto" @click.outside="open = false">
-        <ul class="list-group">
-          <li class="list-group-item">Barra</li>
-          <li class="list-group-item">Máquina</li>
-          <li class="list-group-item">Cabos</li>
-          <li class="list-group-item">Halteres</li>
-          <li class="list-group-item">Peso Corporal</li>
-      </ul>
-  </div>
+<script type="text/javascript">
+    fetch('/api/musculos/')
+    .then(res => res.json())
+    .then(data => {
+        const nome_exercicios = data.result
+        console.log(nome_exercicios)
+        buildTable(nome_exercicios)
+    })
 
-</div>
-<div x-data="{open:false}">
-    <div class="d-grid gap-2 col-6 mx-auto">
-        <button class="btn btn-dark" @click="open = ! open">Escolhe a dificuldade</button>
-    </div>
-    <div x-show="open" class="gap-2 col-6 mx-auto" @click.outside="open = false">
-        <ul class="list-group">
-          <li class="list-group-item">Iniciante</li>
-          <li class="list-group-item">Intermediário</li>
-          <li class="list-group-item">Avançado</li>
-      </ul>
-  </div>
+    function buildTable(data) {
+        var table = document.getElementById('myTable');
+        if (data.length > 0) {
+            for (var i = 0; i < data.length; i++) {
+                var row = `
+                <li class="list-group-item"><a class="link-danger" style="text-decoration: none;" href="/${data[i].nome}">${data[i].nome}</a></li>`
+                table.innerHTML += row
+            }
+        }
+    }
+    </script>
 
 </div>
