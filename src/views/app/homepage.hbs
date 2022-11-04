@@ -2,7 +2,37 @@
 <p class="text-light">Escolhe um músculo que queres treinar. Filtra e vẽ os melhores exercícios para o equipamento que tens, experiência e objetivos.</p>
 
 
+<div x-data="{open:false}">
+    <div class="d-grid gap-2 col-6 mx-auto">
+        <button class="btn btn-dark" @click="open = ! open">Escolhe o músculo</button>
+    </div>
+    <div x-show="open" @click.outside="open = false">
+        <div class="center">
+            <a href="/exercicios"><img src="../assets/img/human.png"></a>
+        </div>
+    </div>
 
-<div class="center">
-    <a href="/exercicios"><img src="../assets/img/human.png"></a>
+</div>
+
+<div x-data="{open:false}">
+    <div class="d-grid gap-2 col-6 mx-auto">
+        <button class="btn btn-dark" @click="open = ! open">Escolhe o equipamento</button>
+    </div>
+    <div x-show="open" @click.outside="open = false">
+        <div class="center">
+            <a href="/exercicios"><img src="../assets/img/human.png"></a>
+        </div>
+    </div>
+
+</div>
+<div x-data="{open:false}">
+    <div class="d-grid gap-2 col-6 mx-auto">
+        <button class="btn btn-dark" @click="open = ! open">Escolhe a dificuldade</button>
+    </div>
+    <div x-show="open" @click.outside="open = false">
+        <div class="center">
+            <a href="/exercicios"><img src="../assets/img/human.png"></a>
+        </div>
+    </div>
+
 </div>
