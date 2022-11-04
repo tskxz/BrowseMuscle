@@ -6,10 +6,20 @@
     <div class="d-grid gap-2 col-6 mx-auto">
         <button class="btn btn-dark" @click="open = ! open">Escolhe o músculo</button>
     </div>
-    <div x-show="open" @click.outside="open = false">
-        <div class="center">
-            <a href="/exercicios"><img src="../assets/img/human.png"></a>
-        </div>
+    <div x-show="open" class="gap-2 col-6 mx-auto" @click.outside="open = false">
+        <ul class="list-group">
+          <li class="list-group-item">Peito</li>
+          <li class="list-group-item">Ombro</li>
+          <li class="list-group-item">Tricep</li>
+          <li class="list-group-item">Costas</li>
+          <li class="list-group-item">Dorsal</li>
+          <li class="list-group-item">Bicep</li>
+          <li class="list-group-item">Quadricep</li>
+          <li class="list-group-item">Hamstrings</li>
+          <li class="list-group-item">Gémeos</li>
+          <li class="list-group-item">Abdominais</li>
+          <li class="list-group-item">Antebraço</li>
+      </ul>
     </div>
 
 </div>
@@ -18,21 +28,27 @@
     <div class="d-grid gap-2 col-6 mx-auto">
         <button class="btn btn-dark" @click="open = ! open">Escolhe o equipamento</button>
     </div>
-    <div x-show="open" @click.outside="open = false">
-        <div class="center">
-            <a href="/exercicios"><img src="../assets/img/human.png"></a>
-        </div>
-    </div>
+    <div x-show="open" class="gap-2 col-6 mx-auto" @click.outside="open = false">
+        <ul class="list-group">
+          <li class="list-group-item">Barra</li>
+          <li class="list-group-item">Máquina</li>
+          <li class="list-group-item">Cabos</li>
+          <li class="list-group-item">Halteres</li>
+          <li class="list-group-item">Peso Corporal</li>
+      </ul>
+  </div>
 
 </div>
 <div x-data="{open:false}">
     <div class="d-grid gap-2 col-6 mx-auto">
         <button class="btn btn-dark" @click="open = ! open">Escolhe a dificuldade</button>
     </div>
-    <div x-show="open" @click.outside="open = false">
-        <div class="center">
-            <a href="/exercicios"><img src="../assets/img/human.png"></a>
-        </div>
-    </div>
+    <div x-show="open" class="gap-2 col-6 mx-auto" @click.outside="open = false">
+        <ul class="list-group">
+          <li class="list-group-item">Iniciante</li>
+          <li class="list-group-item">Intermediário</li>
+          <li class="list-group-item">Avançado</li>
+      </ul>
+  </div>
 
 </div>
