@@ -14,7 +14,7 @@ app.get('/tabelas', function(req, res) {
 	res.render('app/tabelas')
 })
 
-app.post('/', ExercicioController.pesquisarExercicio);
+app.post('/exercicios/pesquisa', ExercicioController.pesquisarExercicio);
 
 // Página principal
 app.get('/', function(req, res){

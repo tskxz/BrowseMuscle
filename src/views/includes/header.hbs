@@ -8,7 +8,7 @@
 
   <title>BrowseMuscle</title>
 
-  <meta name="description" content="Source code generated using layoutit.com">
+  <meta name="description" content="BrowseMuscle💪 | Visualiza e conhece vários exercícios!">
   <meta name="author" content="LayoutIt!">
   <link rel="shortcut icon" href="../assets/img/favicon.ico">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -88,7 +88,12 @@
           <li>
             <hr class="dropdown-divider">
           </li>
-          <div id="dropdown-musculos"></div>
+          <form class="d-flex" method="POST" action="/exercicios">
+            <div id="dropdown-musculos">
+              
+            </div>
+          </form>
+          
         </ul>
       </li>
 
@@ -120,7 +125,7 @@
     </ul>
   </li>
 </ul>
-<form class="d-flex" method="POST" action="/" novalidate>
+<form class="d-flex" method="POST" action="/exercicios/pesquisa">
   <input class="form-control me-2" type="text" placeholder="Pesquisar" name="pesquisa" aria-label="Search">
   <button class="btn btn-outline-light" type="submit">Pesquisar</button>
 </form>
@@ -160,6 +165,7 @@
     data_musculos.forEach(musculo => {
 
       var dropdown = `
+      
       <li><a class="dropdown-item" href="/${musculo.nome}">${musculo.nome}</a></li>
       `
       dropdown_div.innerHTML += dropdown
