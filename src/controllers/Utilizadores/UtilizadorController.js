@@ -34,7 +34,39 @@ module.exports = {
 		if(utilizador){
 			json.result = utilizador; // Resultado de buscarUm
 		}
+        res.json(json)
 
+	},
+
+    criar: async (req, res) => {
+		let json = {error:'', result:[]};
+
+		// No método POST que vai ser o inserir, vai ter o request de cada esses campos
+		let username = req.body.username;
+		let primeiro_nome = req.body.primeiro_nome;
+		let ultimo_nome = req.body.ultimo_nome;
+		let email = req.body.email;
+        let num_telemovel = req.body.num_telemovel;
+        let password = req.body.password;
+
+
+		// Inserir exercício
+		if(username && primeiro_nome && ultimo_nome && email && num_telemovel && password){
+			let UtilizadorId = await UtilizadorService.criar(username, primeiro_nome, ultimo_nome, email, num_telemovel, password);
+			json.result = {
+				id: UtilizadorId,
+				username,
+				primeiro_nome,
+				ultimo_nome,
+				email,
+                num_telemovel,
+                password
+			};
+		} else {
+			json.error = 'Error!';
+		}
+
+		res.json(json);
 	},
 
 }

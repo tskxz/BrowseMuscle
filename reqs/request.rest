@@ -1,1 +1,16 @@
-GET http://localhost:3000/api/utilizadores
+GET http://localhost:3000/api/utilizador/2
+
+###
+
+POST http://localhost:3000/api/utilizadores
+
+Content-Type: application/json
+{
+    "username": "portuga",
+    "primeiro_nome": "alex",
+    "ultimo_nome": "fransisco",
+    "email": "alexfr@gmail.com",
+    "num_telemovel": "+4594832890",
+    "password": "passwordalex000"
+}
+

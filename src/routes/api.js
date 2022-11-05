@@ -38,5 +38,7 @@ api.get('/dificuldades', DificuldadeController.visualizarTodos);
 api.get('/equipamentos', EquipamentosController.visualizarTodos);
 
 api.get('/utilizadores', UtilizadoresController.buscarTodos);
+api.get('/utilizador/:id', UtilizadoresController.buscarUm);
+api.post('/utilizadores', UtilizadoresController.criar)
 
 module.exports = api;

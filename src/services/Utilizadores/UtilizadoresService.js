@@ -27,4 +27,18 @@ module.exports = {
 		});
 	},
 
+    criar: (username, primeiro_nome, ultimo_nome, email, num_telemovel, password)=> {
+		return new Promise( (aceito, rejeitado) => {
+			db.query('INSERT INTO utilizadores (username, primeiro_nome, ultimo_nome, email, num_telemovel, password) VALUES(?,?,?,?,?,?);',
+				[
+				username, primeiro_nome, ultimo_nome, email, num_telemovel, password
+				],
+				(error, results)=>{
+					if(error){ rejeitado(error); return; }
+					aceito(results.insertId);
+				}
+				);
+		})
+	},
+
 }
