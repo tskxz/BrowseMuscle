@@ -1,4 +1,4 @@
-GET http://localhost:3000/api/utilizador/2
+GET http://localhost:3000/api/utilizadores
 
 ###
 
@@ -6,11 +6,11 @@ POST http://localhost:3000/api/utilizadores
 
 Content-Type: application/json
 {
-    "username": "portuga",
-    "primeiro_nome": "alex",
-    "ultimo_nome": "fransisco",
-    "email": "alexfr@gmail.com",
-    "num_telemovel": "+4594832890",
-    "password": "passwordalex000"
+    "username": "rodri",
+    "primeiro_nome": "Rodrigo",
+    "ultimo_nome": "Oliveira",
+    "email": "rodri009@gmail.com",
+    "num_telemovel": "+9929378",
+    "password": "sourodrigo"
 }
 

@@ -1,4 +1,5 @@
 const db = require('../../mysql'); // Conexao a base de dados
+const bcrypt = require('bcrypt')
 
 module.exports = {
 
@@ -29,6 +30,8 @@ module.exports = {
 
     criar: (username, primeiro_nome, ultimo_nome, email, num_telemovel, password)=> {
 		return new Promise( (aceito, rejeitado) => {
+			
+
 			db.query('INSERT INTO utilizadores (username, primeiro_nome, ultimo_nome, email, num_telemovel, password) VALUES(?,?,?,?,?,?);',
 				[
 				username, primeiro_nome, ultimo_nome, email, num_telemovel, password

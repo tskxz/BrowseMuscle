@@ -1,4 +1,5 @@
 const UtilizadorService = require('../../services/Utilizadores/UtilizadoresService'); // Usa o serviço para dar a resposta ao controlador
+const bcrypt = require('bcrypt')
 
 module.exports = {
 
@@ -49,10 +50,18 @@ module.exports = {
         let num_telemovel = req.body.num_telemovel;
         let password = req.body.password;
 
+        
 
 		// Inserir exercício
 		if(username && primeiro_nome && ultimo_nome && email && num_telemovel && password){
-			let UtilizadorId = await UtilizadorService.criar(username, primeiro_nome, ultimo_nome, email, num_telemovel, password);
+            const salt = await bcrypt.genSalt();
+            const hashedPassword = await bcrypt.hash(password, salt);
+
+            console.log(salt);
+            console.log(hashedPassword);
+			let UtilizadorId = await UtilizadorService.criar(username, primeiro_nome, ultimo_nome, email, num_telemovel, hashedPassword);
+            
+            
 			json.result = {
 				id: UtilizadorId,
 				username,
