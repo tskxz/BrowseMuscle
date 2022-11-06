@@ -89,6 +89,10 @@ module.exports = {
 		res.render('admin/exercicios/exercicios', {layout: 'tabela_exercicios_crud', rows})
 	},
 
+	editar: async(req, res) => {
+		res.render('admin/exercicios/editar_exercicios')
+	},
+
 	// Pesquisar através da barra de pesquisa da navegação
 	pesquisarExercicio: async(req, res) => {
 		let json = {error: '', result:[]};
