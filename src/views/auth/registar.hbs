@@ -1,17 +1,17 @@
 <div class=" h-100 d-flex justify-content-center align-items-center">
     
-<form>
+<form method="post" action="/auth/registar">
     <img src="../assets/img/browsemuscle_dark.png" width="500px" height="100px">
     <br>
     <br>
     <div class="row">
   <div class="col">
     <label for="exampleInputEmail1" class="form-label">Primeiro Nome</label>
-    <input type="text" class="form-control" placeholder="First name" aria-label="First name">
+    <input type="text" name="primeiro_nome" class="form-control" placeholder="First name" aria-label="First name">
   </div>
   <div class="col">
     <label for="exampleInputEmail1" class="form-label">Ultimo Nome</label>
-    <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
+    <input type="text" name="ultimo_nome" class="form-control" placeholder="Last name" aria-label="Last name">
   </div>
   
 </div>
@@ -23,11 +23,11 @@
   </div>
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
   </div>
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Número de telemovel (Opcional)</label>
-    <input type="text" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <input type="text" name="num_telemovel" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
     
   </div>
   <div class="mb-3">

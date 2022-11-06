@@ -6,6 +6,8 @@ auth.get('/login', function(req, res) {
 	res.render('auth/login', {layout: 'auth'})
 })
 
+auth.post('/registar', UtilizadorController.criar)
+
 auth.get('/registar', function(req, res) {
 	res.render('auth/registar', {layout: 'auth'})
 })
