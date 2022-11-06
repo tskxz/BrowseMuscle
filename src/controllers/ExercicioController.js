@@ -64,6 +64,31 @@ module.exports = {
 		res.render('tabelas/exercicios', {layout: 'tabela_exercicios', rows})
 	},
 
+	main: async (req,res) => {
+		let json = {error: '', result:[]};
+
+		let exercicios = await ExercicioService.buscarTodos(); // Visualizar todos os exercícios
+
+		// Para cada exercício, vai extrair informacao de cada campo
+		for(let i in exercicios){
+			json.result.push({
+				id: exercicios[i].id,
+				exercicio: exercicios[i].exercicio,
+				equipamento: exercicios[i].equipamento,
+				equipamento_id: exercicios[i].equipamento_id,
+				dificuldade: exercicios[i].dificuldade,
+				dificuldade_id: exercicios[i].dificuldade_id,
+				musculo: exercicios[i].musculo,
+				musculo_id: exercicios[i].musculo_id
+			});
+		}
+
+		rows = json.result;
+		console.log(rows);
+
+		res.render('admin/exercicios/exercicios', {layout: 'tabela_exercicios', rows})
+	},
+
 	// Pesquisar através da barra de pesquisa da navegação
 	pesquisarExercicio: async(req, res) => {
 		let json = {error: '', result:[]};

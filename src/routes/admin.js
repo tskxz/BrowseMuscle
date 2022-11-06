@@ -21,6 +21,6 @@ admin.get('/exercicios', function(req, res){
 	res.render('admin/exercicios/tabela_exercicios', {layout: 'main_admin'}) // Visualizar os exercícios através da tabela em HTML
 })
 
-admin.get('/tabela_exercicios', ExercicioController.view)
+admin.get('/main_exercicios', ExercicioController.main)
 
 module.exports = admin;

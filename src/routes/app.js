@@ -6,9 +6,7 @@ const ExercicioController = require('../controllers/ExercicioController')
 // Rotas das páginas principais - BrowseMuscle
 
 // Visualização da tabela exercícios
-app.get('/exercicios', function(req, res) {
-	res.render('app/exercicios', {layout: 'tabelas'})
-})
+app.get('/exercicios', ExercicioController.view)
 
 app.get('/tabelas', function(req, res) {
 	res.render('app/tabelas')
