@@ -2,6 +2,8 @@ const express = require('express');
 const admin = express.Router();
 const path = require('path');
 
+const ExercicioController = require('../controllers/ExercicioController')
+
 // Rotas para o admin
 
 // Inserir exercícios
@@ -18,5 +20,7 @@ admin.get('/update_exercicios', function(req, res) {
 admin.get('/exercicios', function(req, res){
 	res.render('admin/exercicios/tabela_exercicios', {layout: 'main_admin'}) // Visualizar os exercícios através da tabela em HTML
 })
+
+admin.get('/tabela_exercicios', ExercicioController.view)
 
 module.exports = admin;
