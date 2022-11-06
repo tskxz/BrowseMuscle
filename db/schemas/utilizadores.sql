@@ -1,0 +1,1 @@
+CREATE TABLE `browsemuscle`.`utilizadores` (`id` INT NOT NULL AUTO_INCREMENT , `username` VARCHAR(25) NOT NULL , `primeiro_nome` VARCHAR(25) NOT NULL , `ultimo_nome` VARCHAR(25) NOT NULL , `email` VARCHAR(25) NOT NULL , `num_telemovel` VARCHAR(25) NOT NULL , `password` VARCHAR(100) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;

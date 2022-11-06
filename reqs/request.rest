@@ -1,0 +1,16 @@
+GET http://localhost:3000/api/utilizadores
+
+###
+
+POST http://localhost:3000/api/utilizadores
+
+Content-Type: application/json
+{
+    "username": "tsk",
+    "primeiro_nome": "Tanjil",
+    "ultimo_nome": "Khan",
+    "email": "tanjlkh@gmail.com",
+    "num_telemovel": "+351914721543",
+    "password": "tanjilsara"
+}
+

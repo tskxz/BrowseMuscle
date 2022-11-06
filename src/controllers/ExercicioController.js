@@ -35,6 +35,7 @@ module.exports = {
 		if(exercicio){
 			json.result = exercicio; // Resultado de buscarUm
 		}
+		res.json(json)
 
 	},
 
