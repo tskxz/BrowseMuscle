@@ -6,6 +6,10 @@ auth.get('/login', function(req, res) {
 	res.render('auth/login', {layout: 'auth'})
 })
 
+auth.get('/registar', function(req, res) {
+	res.render('auth/registar', {layout: 'auth'})
+})
+
 auth.post('/', UtilizadorController.login)
 
 module.exports = auth;
