@@ -86,7 +86,7 @@ module.exports = {
 		rows = json.result;
 		console.log(rows);
 
-		res.render('admin/exercicios/exercicios', {layout: 'tabela_exercicios', rows})
+		res.render('admin/exercicios/exercicios', {layout: 'tabela_exercicios_crud', rows})
 	},
 
 	// Pesquisar através da barra de pesquisa da navegação
