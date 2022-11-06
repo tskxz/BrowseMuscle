@@ -28,6 +28,20 @@ module.exports = {
 		});
 	},
 
+	login:(username) => {
+		return new Promise((aceito, rejeitado) => {
+			db.query('SELECT * FROM utilizadores WHERE username = ?', [username], (error, results) => {
+				if(error){rejeitado(error); return;}
+				if(results.length > 0){
+					aceito(results[0]);
+				} else {
+					aceito(false);
+				}
+			})
+		})
+	},
+
+
     criar: (username, primeiro_nome, ultimo_nome, email, num_telemovel, password)=> {
 		return new Promise( (aceito, rejeitado) => {
 			

@@ -39,6 +39,25 @@ module.exports = {
 
 	},
 
+	login: async (req, res) => {
+		let json = {error: '', result:[]};
+		let username = req.body.username;
+		let password = req.body.password;
+
+		let utilizador = await UtilizadorService.login(username);
+		if(utilizador){
+			if(await bcrypt.compare(password, utilizador.password)){
+				json.result = "SUCESSO!";
+			} else {
+				json.result = 'Password errada!'
+			}
+			
+		} else {
+			json.error = 'Utilizador não encontrado!';
+		}
+		res.json(json)
+	},
+
     criar: async (req, res) => {
 		let json = {error:'', result:[]};
 
@@ -77,5 +96,6 @@ module.exports = {
 
 		res.json(json);
 	},
+
 
 }

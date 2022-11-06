@@ -40,5 +40,6 @@ api.get('/equipamentos', EquipamentosController.visualizarTodos);
 api.get('/utilizadores', UtilizadoresController.buscarTodos);
 api.get('/utilizador/:id', UtilizadoresController.buscarUm);
 api.post('/utilizadores', UtilizadoresController.criar)
+api.post('/utilizador/login', UtilizadoresController.login)
 
 module.exports = api;
