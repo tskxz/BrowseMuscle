@@ -181,6 +181,40 @@ module.exports = {
 		res.json(json);
 	},
 
+	adicionar: async (req, res) => {
+		let json = {error: '', result:[]};
+
+		let nome = req.body.nome;
+		let equipamento_id = req.body.equipamento_id;
+		let dificuldade_id = req.body.dificuldade_id;
+		let musculo_id = req.body.musculo_id;
+
+		let equipamentos = await EquipamentosService.visualizarTodos();
+		let dificuldades = await DificuldadeService.visualizarTodos();
+		let musculos = await MusculoService.visualizarTodos();
+		
+		rows_eq = equipamentos
+		rows_df = dificuldades
+		rows_musculos = musculos;
+
+		if(nome && equipamento_id && dificuldade_id && musculo_id){
+			let ExercicioId = await ExercicioService.inserir(nome, equipamento_id, dificuldade_id, musculo_id);
+			json.result = {
+				id: ExercicioId,
+				nome,
+				equipamento_id,
+				dificuldade_id,
+				musculo_id
+			};
+			res.render('admin/exercicios/adicionar_exercicios', {rows_eq, rows_df, rows_musculos, alert: `${nome} Adicionado com sucesso`});
+
+		} else {
+			json.error = 'Error!';
+		}
+
+		res.render('admin/exercicios/adicionar_exercicios', {rows_eq, rows_df, rows_musculos});
+	},
+
 	// Funcao alterar
 	alterar: async (req, res) => {
 		let json = {error:'', result:[]};

@@ -24,5 +24,6 @@ admin.get('/exercicios', function(req, res){
 admin.get('/main_exercicios', ExercicioController.main)
 admin.get('/editar_exercicio/:id', ExercicioController.editar)
 admin.post('/editar_exercicio/:id', ExercicioController.atualizar)
-
+admin.get('/adicionar_exercicio', ExercicioController.adicionar)
+admin.post('/adicionar_exercicio', ExercicioController.adicionar)
 module.exports = admin;

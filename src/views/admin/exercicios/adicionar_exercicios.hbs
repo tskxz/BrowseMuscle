@@ -1,0 +1,42 @@
+<div class="container bg-dark">
+        {{#if alert}}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{alert}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {{/if}}
+    <form method="POST" action="/admin/adicionar_exercicio">
+        <div class="row g-3">
+            <div class="col">
+                <input type="text" class="form-control" placeholder="Exercicio"
+                    name="nome" aria-label="Exercicio">
+            </div>
+            <div class="col">
+                <select class="form-select" name="equipamento_id" aria-label="Default select example">
+                    {{#each rows_eq}}
+                    <option value="{{this.id}}">{{this.nome}}</option>
+                    {{/each}}
+                </select>
+
+            </div>
+            <div class="col">
+                <select class="form-select" name="dificuldade_id" aria-label="Default select example">
+                    {{#each rows_df}}
+                    <option value="{{this.id}}">{{this.nome}}</option>
+                    {{/each}}
+                </select>
+            </div>
+            <div class="col">
+                <select class="form-select" name="musculo_id" aria-label="Default select example">
+                    {{#each rows_musculos}}
+                    <option value="{{this.id}}">{{this.nome}}</option>
+                    {{/each}}
+                </select>
+            </div>
+        </div>
+        <br>
+        <div class="d-grid gap-2">
+            <button class="btn btn-dark" type="submit">Adicionar</button>
+        </div>
+    </form>
+</div>
