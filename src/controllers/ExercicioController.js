@@ -89,9 +89,7 @@ module.exports = {
 		res.render('admin/exercicios/exercicios', {layout: 'tabela_exercicios_crud', rows})
 	},
 
-	editar: async(req, res) => {
-		res.render('admin/exercicios/editar_exercicios')
-	},
+
 
 	// Pesquisar através da barra de pesquisa da navegação
 	pesquisarExercicio: async(req, res) => {
@@ -206,6 +204,23 @@ module.exports = {
 		}
 
 		res.json(json);
+	},
+
+	editar: async(req, res) => {
+		let json = {error: '', result:[]};
+		let id = req.params.id;
+		let nome = req.body.nome;
+		let equipamento_id = req.body.equipamento_id;
+		let dificuldade_id = req.body.dificuldade_id;
+		let musculo_id = req.body.musculo_id;
+
+		let exercicio = await ExercicioService.editar(id);
+		if(exercicio){
+			json.result = exercicio;
+		}
+		rows = json.result;
+		console.log(rows);
+		res.render('admin/exercicios/editar_exercicios', {layout: 'tabela_exercicios', rows})
 	},
 
 	// Funcao apagar
