@@ -209,14 +209,14 @@ module.exports = {
 	editar: async(req, res) => {
 		let json = {error: '', result:[]};
 		let id = req.params.id;
-		let nome = req.body.nome;
-		let equipamento_id = req.body.equipamento_id;
-		let dificuldade_id = req.body.dificuldade_id;
-		let musculo_id = req.body.musculo_id;
+		let exercicio = req.body.exercicio;
+		let equipamento = req.body.equipamento;
+		let dificuldade = req.body.dificuldade;
+		let musculo = req.body.musculo;
 
-		let exercicio = await ExercicioService.editar(id);
-		if(exercicio){
-			json.result = exercicio;
+		let exercicio_id = await ExercicioService.editar(id);
+		if(exercicio_id){
+			json.result = exercicio_id;
 		}
 		rows = json.result;
 		console.log(rows);
