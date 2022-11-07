@@ -16,12 +16,20 @@
 
         </div>
         <div class="col">
-            <input type="text" value="{{this.dificuldade}}" class="form-control" name="dificuldade"
-                placeholder="Dificuldade" aria-label="Dificuldade">
+            <select class="form-select" aria-label="Default select example">
+                <option value="{{this.dificuldade_id}}" selected>{{this.dificuldade}}</option>
+                {{#each ../rows_df}}
+                    <option value="{{this.id}}">{{this.nome}}</option>
+                {{/each}}
+            </select>
         </div>
         <div class="col">
-            <input type="text" value="{{this.musculo}}" class="form-control" name="musculo" placeholder="Musculo"
-                aria-label="Musculo">
+           <select class="form-select" aria-label="Default select example">
+                <option value="{{this.musculo_id}}" selected>{{this.musculo}}</option>
+                {{#each ../rows_musculos}}
+                    <option value="{{this.id}}">{{this.nome}}</option>
+                {{/each}}
+            </select>
         </div>
     </div>
     <br>

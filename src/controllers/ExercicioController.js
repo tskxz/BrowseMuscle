@@ -221,8 +221,12 @@ module.exports = {
 		let exercicio_id = await ExercicioService.editar(id);
 		if(exercicio_id){
 			let equipamentos = await EquipamentosService.visualizarTodos();
+			let dificuldades = await DificuldadeService.visualizarTodos();
+			let musculos = await MusculoService.visualizarTodos();
 			
 			rows_eq = equipamentos
+			rows_df = dificuldades
+			rows_musculos = musculos;
 			json.result = exercicio_id;
 			
 		}
@@ -231,7 +235,7 @@ module.exports = {
 		console.log(rows_eq)
 
 
-		res.render('admin/exercicios/editar_exercicios', {rows, rows_eq})
+		res.render('admin/exercicios/editar_exercicios', {rows, rows_eq, rows_df, rows_musculos})
 	},
 
 	// Funcao apagar
