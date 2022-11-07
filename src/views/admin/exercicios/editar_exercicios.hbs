@@ -1,6 +1,6 @@
 <div class="container bg-dark">
     {{#each rows}}
-    
+
     <div class="row g-3">
         <div class="col">
             <input type="text" value="{{this.exercicio}}" class="form-control" placeholder="Exercicio" name="exercicio"
@@ -10,7 +10,7 @@
             <select class="form-select" aria-label="Default select example">
                 <option value="{{this.equipamento_id}}" selected>{{this.equipamento}}</option>
                 {{#each ../rows_eq}}
-                    <option value="{{this.id}}">{{this.nome}}</option>
+                <option value="{{this.id}}">{{this.nome}}</option>
                 {{/each}}
             </select>
 
@@ -19,19 +19,22 @@
             <select class="form-select" aria-label="Default select example">
                 <option value="{{this.dificuldade_id}}" selected>{{this.dificuldade}}</option>
                 {{#each ../rows_df}}
-                    <option value="{{this.id}}">{{this.nome}}</option>
+                <option value="{{this.id}}">{{this.nome}}</option>
                 {{/each}}
             </select>
         </div>
         <div class="col">
-           <select class="form-select" aria-label="Default select example">
+            <select class="form-select" aria-label="Default select example">
                 <option value="{{this.musculo_id}}" selected>{{this.musculo}}</option>
                 {{#each ../rows_musculos}}
-                    <option value="{{this.id}}">{{this.nome}}</option>
+                <option value="{{this.id}}">{{this.nome}}</option>
                 {{/each}}
             </select>
         </div>
     </div>
     <br>
     {{/each}}
+    <div class="d-grid gap-2">
+        <button class="btn btn-dark" type="button">Atualizar</button>
+    </div>
 </div>
