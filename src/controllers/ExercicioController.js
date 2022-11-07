@@ -264,7 +264,7 @@ module.exports = {
 		}
 		console.log(json)
 
-		res.render('admin/exercicios/editar_exercicios', {rows, rows_eq, rows_df, rows_musculos, alert: `${exercicio} com id ${id} alterado com sucesso`})
+		res.render('admin/exercicios/editar_exercicios', {rows, rows_eq, rows_df, rows_musculos, alert: `${nome} com id ${id} alterado com sucesso`})
 
 	},
 
