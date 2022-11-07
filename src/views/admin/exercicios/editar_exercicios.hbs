@@ -1,9 +1,29 @@
-{{#each rows}}
-<tr>
-    <td>{{this.id}}</td>
-    <td>{{this.exercicio}}</td>
-    <td>{{this.equipamento}}</td>
-    <td>{{this.dificuldade}}</td>
-    <td>{{this.musculo}}</td>
-</tr>
-{{/each}}
+<div class="container bg-dark">
+    {{#each rows}}
+    
+    <div class="row g-3">
+        <div class="col">
+            <input type="text" value="{{this.exercicio}}" class="form-control" placeholder="Exercicio" name="exercicio"
+                aria-label="Exercicio">
+        </div>
+        <div class="col">
+            <select class="form-select" aria-label="Default select example">
+                <option value="{{this.equipamento_id}}" selected>{{this.equipamento}}</option>
+                {{#each ../rows_eq}}
+                    <option value="{{this.id}}">{{this.nome}}</option>
+                {{/each}}
+            </select>
+
+        </div>
+        <div class="col">
+            <input type="text" value="{{this.dificuldade}}" class="form-control" name="dificuldade"
+                placeholder="Dificuldade" aria-label="Dificuldade">
+        </div>
+        <div class="col">
+            <input type="text" value="{{this.musculo}}" class="form-control" name="musculo" placeholder="Musculo"
+                aria-label="Musculo">
+        </div>
+    </div>
+    <br>
+    {{/each}}
+</div>

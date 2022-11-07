@@ -1,4 +1,8 @@
 const ExercicioService = require('../services/ExercicioService'); // Usa o serviço para dar a resposta ao controlador
+const MusculoService = require('../services/Musculos/MusculoService');
+const DificuldadeService = require('../services/Dificuldades/DificuldadesService');
+const equipamentoService = require('../services/Equipamentos/EquipamentosService');
+const EquipamentosService = require('../services/Equipamentos/EquipamentosService');
 
 module.exports = {
 
@@ -84,7 +88,7 @@ module.exports = {
 		}
 
 		rows = json.result;
-		console.log(rows);
+		// console.log(rows);
 
 		res.render('admin/exercicios/exercicios', {layout: 'tabela_exercicios_crud', rows})
 	},
@@ -216,11 +220,18 @@ module.exports = {
 
 		let exercicio_id = await ExercicioService.editar(id);
 		if(exercicio_id){
+			let equipamentos = await EquipamentosService.visualizarTodos();
+			
+			rows_eq = equipamentos
 			json.result = exercicio_id;
+			
 		}
+
 		rows = json.result;
-		console.log(rows);
-		res.render('admin/exercicios/editar_exercicios', {layout: 'tabela_exercicios', rows})
+		console.log(rows_eq)
+
+
+		res.render('admin/exercicios/editar_exercicios', {rows, rows_eq})
 	},
 
 	// Funcao apagar
