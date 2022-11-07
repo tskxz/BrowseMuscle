@@ -232,10 +232,40 @@ module.exports = {
 		}
 
 		rows = json.result;
-		console.log(rows_eq)
+		
 
 
 		res.render('admin/exercicios/editar_exercicios', {rows, rows_eq, rows_df, rows_musculos})
+	},
+
+	atualizar: async(req,res) => {
+		let json = {error: '', result:[]};
+		let id = req.params.id;
+		let exercicio = req.body.exercicio;
+		let nome = req.body.nome;
+		let equipamento_id = req.body.equipamento_id;
+		let dificuldade_id = req.body.dificuldade_id;
+		let musculo_id = req.body.musculo_id;
+		let equipamento = req.body.equipamento;
+		let dificuldade = req.body.dificuldade;
+		let musculo = req.body.musculo;		
+
+		if(id && nome && equipamento_id && dificuldade_id && musculo_id){
+			await ExercicioService.alterar(id, nome, equipamento_id, dificuldade_id, musculo_id);
+			json.result = {
+				id,
+				nome,
+				equipamento_id,
+				dificuldade_id,
+				musculo_id
+			};
+		} else {
+			json.error = 'Error!';
+		}
+		console.log(json)
+
+		res.render('admin/exercicios/editar_exercicios', {rows, rows_eq, rows_df, rows_musculos, alert: `${exercicio} com id ${id} alterado com sucesso`})
+
 	},
 
 	// Funcao apagar
