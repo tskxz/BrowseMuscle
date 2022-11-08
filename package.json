@@ -8,6 +8,7 @@
   },
   "scripts": {
     "start": "nodemon ./src/server.js",
+    "tailwind:css": "postcss src/views/assets/css/tailwind.css -o src/views/assets/css/styles.css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
