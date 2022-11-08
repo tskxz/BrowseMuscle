@@ -31,7 +31,7 @@
         if (data.length > 0) {
             for (var i = 0; i < data.length; i++) {
                 var row = `
-                <li class="list-group-item"><a class="link-danger" style="text-decoration: none;" href="/${data[i].nome}">${data[i].nome.charAt(0).toUpperCase() + data[i].nome.slice(1)}</a></li>`
+                <li class="list-group-item"><a class="text-dark" style="text-decoration: none;" href="/${data[i].nome}">${data[i].nome.charAt(0).toUpperCase() + data[i].nome.slice(1)}</a></li>`
                 table.innerHTML += row
             }
         }
