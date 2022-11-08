@@ -1,0 +1,31 @@
+{{> header }}
+
+
+<div class="container pt-5 pb-5">
+	<h2  class="text-light">
+		Bem vindo ao BrowseMuscle!
+	</h2>
+	<div class="col-12 d-flex justify-content-end">
+    <a href="/admin/adicionar_exercicio" type="button" class="btn btn-dark align-self-center">+ adicionar exercício</a>
+  </div>
+	
+	<p style="text-align: center">
+		<table class="table table-hover table-dark">
+			<tr class="bg-danger">
+				<th>ID</th>
+				<th>Exercício</th>
+				<th>Equipamento</th>
+				<th>Dificuldade</th>
+				<th>Músculo</th>
+				<th>Ações</th>
+			</tr>
+			<tbody id="myTable">
+				{{{body}}}
+			</tbody>
+		</table>
+
+	</p>
+	
+</div>
+{{> footer }}
+

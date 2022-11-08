@@ -41,6 +41,19 @@ module.exports = {
 		})
 	},
 
+	editar:(id) => {
+		return new Promise((aceito ,rejeitado) => {
+			db.query('SELECT exercicios.id, exercicios.nome AS exercicio, equipamentos.nome as equipamento, dificuldades.nome as dificuldade, musculos.nome as musculo, exercicios.equipamento_id, exercicios.dificuldade_id, exercicios.musculo_id FROM exercicios JOIN equipamentos ON exercicios.equipamento_id = equipamentos.id JOIN dificuldades ON exercicios.dificuldade_id = dificuldades.id JOIN musculos ON exercicios.musculo_id = musculos.id WHERE exercicios.id = ?', [id], (error, results) => {
+				if(error){rejeitado(error); return;}
+				if(results.length > 0){
+					aceito(results);
+				} else {
+					aceito(false);
+				}
+			})
+		})
+	},
+
 	buscarEquipamento:(equipamento_id) => {
 		return new Promise((aceito, rejeitado) => {
 			db.query('SELECT exercicios.id, exercicios.nome AS exercicio, equipamentos.nome as equipamento, dificuldades.nome as dificuldade, musculos.nome as musculo, exercicios.equipamento_id, exercicios.dificuldade_id, exercicios.musculo_id FROM exercicios JOIN equipamentos ON exercicios.equipamento_id = equipamentos.id JOIN dificuldades ON exercicios.dificuldade_id = dificuldades.id JOIN musculos ON exercicios.musculo_id = musculos.id WHERE exercicios.equipamento_id=?', [equipamento_id], (error, results) => {

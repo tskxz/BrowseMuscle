@@ -1,4 +1,8 @@
 const ExercicioService = require('../services/ExercicioService'); // Usa o serviço para dar a resposta ao controlador
+const MusculoService = require('../services/Musculos/MusculoService');
+const DificuldadeService = require('../services/Dificuldades/DificuldadesService');
+const equipamentoService = require('../services/Equipamentos/EquipamentosService');
+const EquipamentosService = require('../services/Equipamentos/EquipamentosService');
 
 module.exports = {
 
@@ -38,6 +42,58 @@ module.exports = {
 		res.json(json)
 
 	},
+
+	view: async (req,res) => {
+		let json = {error: '', result:[]};
+
+		let exercicios = await ExercicioService.buscarTodos(); // Visualizar todos os exercícios
+
+		// Para cada exercício, vai extrair informacao de cada campo
+		for(let i in exercicios){
+			json.result.push({
+				id: exercicios[i].id,
+				exercicio: exercicios[i].exercicio,
+				equipamento: exercicios[i].equipamento,
+				equipamento_id: exercicios[i].equipamento_id,
+				dificuldade: exercicios[i].dificuldade,
+				dificuldade_id: exercicios[i].dificuldade_id,
+				musculo: exercicios[i].musculo,
+				musculo_id: exercicios[i].musculo_id
+			});
+		}
+
+		rows = json.result;
+		console.log(rows);
+
+		res.render('tabelas/exercicios', {layout: 'tabela_exercicios', rows})
+	},
+
+	main: async (req,res) => {
+		let json = {error: '', result:[]};
+
+		let exercicios = await ExercicioService.buscarTodos(); // Visualizar todos os exercícios
+
+		// Para cada exercício, vai extrair informacao de cada campo
+		for(let i in exercicios){
+			json.result.push({
+				id: exercicios[i].id,
+				exercicio: exercicios[i].exercicio,
+				equipamento: exercicios[i].equipamento,
+				equipamento_id: exercicios[i].equipamento_id,
+				dificuldade: exercicios[i].dificuldade,
+				dificuldade_id: exercicios[i].dificuldade_id,
+				musculo: exercicios[i].musculo,
+				musculo_id: exercicios[i].musculo_id
+			});
+		}
+
+		rows = json.result;
+		console.log(rows);
+
+		res.render('admin/exercicios/exercicios', {layout: 'tabela_exercicios_crud', rows})
+	},
+
+
 
 	// Pesquisar através da barra de pesquisa da navegação
 	pesquisarExercicio: async(req, res) => {
@@ -125,6 +181,40 @@ module.exports = {
 		res.json(json);
 	},
 
+	adicionar: async (req, res) => {
+		let json = {error: '', result:[]};
+
+		let nome = req.body.nome;
+		let equipamento_id = req.body.equipamento_id;
+		let dificuldade_id = req.body.dificuldade_id;
+		let musculo_id = req.body.musculo_id;
+
+		let equipamentos = await EquipamentosService.visualizarTodos();
+		let dificuldades = await DificuldadeService.visualizarTodos();
+		let musculos = await MusculoService.visualizarTodos();
+		
+		rows_eq = equipamentos
+		rows_df = dificuldades
+		rows_musculos = musculos;
+
+		if(nome && equipamento_id && dificuldade_id && musculo_id){
+			let ExercicioId = await ExercicioService.inserir(nome, equipamento_id, dificuldade_id, musculo_id);
+			json.result = {
+				id: ExercicioId,
+				nome,
+				equipamento_id,
+				dificuldade_id,
+				musculo_id
+			};
+			res.render('admin/exercicios/adicionar_exercicios', {rows_eq, rows_df, rows_musculos, alert: `${nome} Adicionado com sucesso`});
+
+		} else {
+			json.error = 'Error!';
+		}
+
+		res.render('admin/exercicios/adicionar_exercicios', {rows_eq, rows_df, rows_musculos});
+	},
+
 	// Funcao alterar
 	alterar: async (req, res) => {
 		let json = {error:'', result:[]};
@@ -152,6 +242,64 @@ module.exports = {
 		}
 
 		res.json(json);
+	},
+
+	editar: async(req, res) => {
+		let json = {error: '', result:[]};
+		let id = req.params.id;
+		let exercicio = req.body.exercicio;
+		let equipamento = req.body.equipamento;
+		let dificuldade = req.body.dificuldade;
+		let musculo = req.body.musculo;
+
+		let exercicio_id = await ExercicioService.editar(id);
+		if(exercicio_id){
+			let equipamentos = await EquipamentosService.visualizarTodos();
+			let dificuldades = await DificuldadeService.visualizarTodos();
+			let musculos = await MusculoService.visualizarTodos();
+			
+			rows_eq = equipamentos
+			rows_df = dificuldades
+			rows_musculos = musculos;
+			json.result = exercicio_id;
+			
+		}
+
+		rows = json.result;
+		
+
+
+		res.render('admin/exercicios/editar_exercicios', {rows, rows_eq, rows_df, rows_musculos})
+	},
+
+	atualizar: async(req,res) => {
+		let json = {error: '', result:[]};
+		let id = req.params.id;
+		let exercicio = req.body.exercicio;
+		let nome = req.body.nome;
+		let equipamento_id = req.body.equipamento_id;
+		let dificuldade_id = req.body.dificuldade_id;
+		let musculo_id = req.body.musculo_id;
+		let equipamento = req.body.equipamento;
+		let dificuldade = req.body.dificuldade;
+		let musculo = req.body.musculo;		
+
+		if(id && nome && equipamento_id && dificuldade_id && musculo_id){
+			await ExercicioService.alterar(id, nome, equipamento_id, dificuldade_id, musculo_id);
+			json.result = {
+				id,
+				nome,
+				equipamento_id,
+				dificuldade_id,
+				musculo_id
+			};
+		} else {
+			json.error = 'Error!';
+		}
+		console.log(json)
+
+		res.render('admin/exercicios/editar_exercicios', {rows, rows_eq, rows_df, rows_musculos, alert: `${nome} com id ${id} alterado com sucesso`})
+
 	},
 
 	// Funcao apagar

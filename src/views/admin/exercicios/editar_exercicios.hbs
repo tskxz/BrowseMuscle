@@ -1,0 +1,47 @@
+<div class="container bg-dark">
+    {{#if alert}}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{alert}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {{/if}}
+    {{#each rows}}
+    <form method="POST" action="/admin/editar_exercicio/{{this.id}}">
+        <div class="row g-3">
+            <div class="col">
+                <input type="text" value="{{this.exercicio}}" class="form-control" placeholder="Exercicio"
+                    name="nome" aria-label="Exercicio">
+            </div>
+            <div class="col">
+                <select class="form-select" name="equipamento_id" aria-label="Default select example">
+                    <option value="{{this.equipamento_id}}" selected>{{this.equipamento}}</option>
+                    {{#each ../rows_eq}}
+                    <option value="{{this.id}}">{{this.nome}}</option>
+                    {{/each}}
+                </select>
+
+            </div>
+            <div class="col">
+                <select class="form-select" name="dificuldade_id" aria-label="Default select example">
+                    <option value="{{this.dificuldade_id}}" selected>{{this.dificuldade}}</option>
+                    {{#each ../rows_df}}
+                    <option value="{{this.id}}">{{this.nome}}</option>
+                    {{/each}}
+                </select>
+            </div>
+            <div class="col">
+                <select class="form-select" name="musculo_id" aria-label="Default select example">
+                    <option value="{{this.musculo_id}}" selected>{{this.musculo}}</option>
+                    {{#each ../rows_musculos}}
+                    <option value="{{this.id}}">{{this.nome}}</option>
+                    {{/each}}
+                </select>
+            </div>
+        </div>
+        <br>
+        {{/each}}
+        <div class="d-grid gap-2">
+            <button class="btn btn-dark" type="submit">Atualizar</button>
+        </div>
+    </form>
+</div>
