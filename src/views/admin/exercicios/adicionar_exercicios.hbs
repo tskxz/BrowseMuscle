@@ -1,5 +1,5 @@
 <div class="container bg-dark">
-        {{#if alert}}
+    {{#if alert}}
     <div class="alert alert-success alert-dismissible fade show" role="alert">
         {{alert}}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -8,8 +8,7 @@
     <form method="POST" action="/admin/adicionar_exercicio">
         <div class="row g-3">
             <div class="col">
-                <input type="text" class="form-control" placeholder="Exercicio"
-                    name="nome" aria-label="Exercicio">
+                <input type="text" class="form-control" placeholder="Exercicio" name="nome" aria-label="Exercicio">
             </div>
             <div class="col">
                 <select class="form-select" name="equipamento_id" aria-label="Default select example">
