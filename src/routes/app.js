@@ -21,7 +21,9 @@ app.get('/', function(req, res){
 	});
 })
 
-
+app.get('/tailwind_teste', function(req,res){
+	res.render('app/tailwind_teste', {layout: false})
+})
 // Visualização da tabela exercícios para peito
 app.get('/peito', function(req, res){
 	res.render('app/musculos/peito', {layout: 'tabelas'})
