@@ -26,4 +26,5 @@ admin.get('/editar_exercicio/:id', ExercicioController.editar)
 admin.post('/editar_exercicio/:id', ExercicioController.atualizar)
 admin.get('/adicionar_exercicio', ExercicioController.adicionar)
 admin.post('/adicionar_exercicio', ExercicioController.adicionar)
+admin.get('/apagar_exercicio/:id', ExercicioController.eliminar)
 module.exports = admin;

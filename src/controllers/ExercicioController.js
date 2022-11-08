@@ -1,7 +1,6 @@
 const ExercicioService = require('../services/ExercicioService'); // Usa o serviço para dar a resposta ao controlador
 const MusculoService = require('../services/Musculos/MusculoService');
 const DificuldadeService = require('../services/Dificuldades/DificuldadesService');
-const equipamentoService = require('../services/Equipamentos/EquipamentosService');
 const EquipamentosService = require('../services/Equipamentos/EquipamentosService');
 
 module.exports = {
@@ -88,7 +87,7 @@ module.exports = {
 		}
 
 		rows = json.result;
-		console.log(rows);
+		// console.log(rows);
 
 		res.render('admin/exercicios/exercicios', {layout: 'tabela_exercicios_crud', rows})
 	},
@@ -196,7 +195,9 @@ module.exports = {
 		rows_eq = equipamentos
 		rows_df = dificuldades
 		rows_musculos = musculos;
-
+		console.log(rows_eq);
+		console.log(rows_df);
+		console.log(rows_musculos)
 		if(nome && equipamento_id && dificuldade_id && musculo_id){
 			let ExercicioId = await ExercicioService.inserir(nome, equipamento_id, dificuldade_id, musculo_id);
 			json.result = {
@@ -206,6 +207,7 @@ module.exports = {
 				dificuldade_id,
 				musculo_id
 			};
+			
 			res.render('admin/exercicios/adicionar_exercicios', {rows_eq, rows_df, rows_musculos, alert: `${nome} Adicionado com sucesso`});
 
 		} else {
@@ -300,6 +302,15 @@ module.exports = {
 
 		res.render('admin/exercicios/editar_exercicios', {rows, rows_eq, rows_df, rows_musculos, alert: `${nome} com id ${id} alterado com sucesso`})
 
+	},
+
+	eliminar: async(req, res) => {
+		let json = {error: '', result:[]};
+		exercicio = await ExercicioService.apagar(req.params.id);
+		console.log(exercicio);
+		if(exercicio){
+			res.redirect('/admin/exercicios/')
+		}
 	},
 
 	// Funcao apagar
