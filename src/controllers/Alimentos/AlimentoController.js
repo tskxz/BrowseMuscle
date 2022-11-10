@@ -15,5 +15,18 @@ module.exports = {
             })
         }
         res.json(json);
+    },
+
+    buscarUm: async(req, res) => {
+        let json = {error: '', result:[]};
+
+        let id = req.params.id;
+        let alimento = await Alimento.buscarUm(id);
+
+        if(alimento){
+            json.result = alimento;
+        }
+        res.json(json);
     }
+
 }
