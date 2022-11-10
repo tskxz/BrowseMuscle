@@ -27,6 +27,29 @@ module.exports = {
             json.result = alimento;
         }
         res.json(json);
+    },
+
+    inserir: async(req, res) => {
+        let json = {error: '', result:[]};
+
+        let nome = req.body.nome;
+        let proteina = req.body.proteina;
+        let carbs = req.body.carbs;
+        let gordura = req.body.gordura;
+
+        if(nome && proteina && carbs && gordura){
+            let AlimentoId = await AlimentoService.inserir(nome, proteina, carbs, gordura);
+            json.result = {
+                id: AlimentoId,
+                nome,
+                proteina,
+                carbs,
+                gordura
+            }
+        } else {
+            json.error = 'Error!';
+        }
+        res.json(json);
     }
 
 }
