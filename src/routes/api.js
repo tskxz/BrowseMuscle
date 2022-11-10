@@ -15,6 +15,7 @@ const ExercicioController = require('../controllers/ExercicioController')       
 const MusculoController = require('../controllers/Musculos/MusculoController');                      // Músculo
 const UtilizadoresController = require('../controllers/Utilizadores/UtilizadorController');
 
+const AlimentoController = require('../controllers/Alimentos/AlimentoController');
 
 
 // Rotas para operações CRUD
@@ -42,4 +43,9 @@ api.get('/utilizador/:id', UtilizadoresController.buscarUm);
 api.post('/utilizadores', UtilizadoresController.criar)
 api.post('/utilizador/login', UtilizadoresController.login)
 
+api.get('/alimentos', AlimentoController.visualizarTodos);
+api.get('/alimento/:id', AlimentoController.buscarUm);
+api.post('/alimento/', AlimentoController.inserir);
+api.put('/alimento/:id', AlimentoController.alterar);
+api.delete('/alimento/:id', AlimentoController.apagar);
 module.exports = api;

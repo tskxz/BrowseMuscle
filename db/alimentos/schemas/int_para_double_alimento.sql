@@ -1,0 +1,1 @@
+ALTER TABLE `alimentos` CHANGE `proteina` `proteina` DOUBLE NOT NULL;
