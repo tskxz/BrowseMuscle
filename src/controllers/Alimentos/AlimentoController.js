@@ -21,7 +21,7 @@ module.exports = {
         let json = {error: '', result:[]};
 
         let id = req.params.id;
-        let alimento = await Alimento.buscarUm(id);
+        let alimento = await AlimentoService.buscarUm(id);
 
         if(alimento){
             json.result = alimento;
