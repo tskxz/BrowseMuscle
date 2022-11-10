@@ -36,5 +36,14 @@ module.exports = {
 				aceito(results.insertId)
 			})
 		})
+	},
+
+	alterar: (id, nome, proteina, carbs, gordura) => {
+		return new Promise( (aceito, rejeitado) => {
+			db.query('UPDATE alimentos SET nome = ?, proteina = ?, carbs = ?, gordura = ? WHERE id = ?', [nome, proteina, carbs, gordura, IDBFactory], (error, results) => {
+				if(error){rejeitado(error); return;}
+				aceito(results);
+			})
+		})
 	}
 }
