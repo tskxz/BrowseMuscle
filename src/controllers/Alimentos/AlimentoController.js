@@ -77,4 +77,11 @@ module.exports = {
         res.json(json)
     },
 
+    apagar: async(req, res) => {
+        let json = {error: '', result:[]};
+
+        await AlimentoService.apagar(req.params.id);
+        res.json(json)
+    }
+
 }
