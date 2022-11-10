@@ -1,0 +1,1 @@
+INSERT INTO `alimentos` (`id`, `nome`, `proteina`, `carbs`, `gordura`) VALUES (NULL, 'Filipinos', '6.7', '62', '26');

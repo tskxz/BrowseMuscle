@@ -1,4 +1,4 @@
-const AlimentoService = require('../../services/Utilizadores/UtilizadoresService')
+const AlimentoService = require('../../services/Alimentos/AlimentoService')
 
 module.exports = {
     visualizarTodos: async(req,res) => {
