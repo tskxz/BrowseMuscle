@@ -45,5 +45,6 @@ api.post('/utilizador/login', UtilizadoresController.login)
 
 api.get('/alimentos', AlimentoController.visualizarTodos);
 api.get('/alimento/:id', AlimentoController.buscarUm);
+api.post('/alimento/', AlimentoController.inserir);
 
 module.exports = api;
