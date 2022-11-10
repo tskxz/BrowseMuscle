@@ -19,5 +19,22 @@ module.exports = {
 				aceito(results)
 			})
 		})
+	},
+
+	inserir: (nome, proteina, carbs, gordura) => {
+		return new Promise((aceito, rejeitado) => {
+			db.query('INSERT INTO alimentos (nome, proteina, carbs, gordura) VALUES (?,?,?,?);', [
+				nome,
+				proteina,
+				carbs,
+				gordura,
+			], (error, results) => {
+				if(error){
+					rejeitado(error);
+					return;
+				}
+				aceito(results.insertId)
+			})
+		})
 	}
 }
