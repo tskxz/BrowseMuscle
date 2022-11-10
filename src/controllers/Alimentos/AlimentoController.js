@@ -50,6 +50,31 @@ module.exports = {
             json.error = 'Error!';
         }
         res.json(json);
-    }
+    },
+
+    alterar: async(req, res) => {
+        let json = {error: '', result:[]};
+
+        let id = req.params.id;
+        let nome = req.body.nome;
+        let proteina = req.body.proteina;
+        let carbs = req.body.carbs;
+        let gordura = req.body.gordura;
+
+        if(id && nome && proteina && carbs && gordura){
+            await AlimentoService.alterar(id, nome, proteina, carbs, gordura)
+            json.result = {
+                id,
+                nome,
+                proteina,
+                carbs,
+                gordura
+            }
+        } else {
+            json.error = 'Error!';
+        }
+
+        res.json(json)
+    },
 
 }
