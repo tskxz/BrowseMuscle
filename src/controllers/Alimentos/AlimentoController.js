@@ -11,7 +11,8 @@ module.exports = {
                 nome: alimento[i].nome,
                 proteina: alimento[i].proteina,
                 carbs: alimento[i].carbs,
-                gordura: alimento[i].gordura
+                gordura: alimento[i].gordura,
+                calorias: alimento[i].calorias
             })
         }
         res.json(json);
@@ -36,15 +37,17 @@ module.exports = {
         let proteina = req.body.proteina;
         let carbs = req.body.carbs;
         let gordura = req.body.gordura;
+        let calorias = req.body.calorias;
 
         if(nome && proteina && carbs && gordura){
-            let AlimentoId = await AlimentoService.inserir(nome, proteina, carbs, gordura);
+            let AlimentoId = await AlimentoService.inserir(nome, proteina, carbs, gordura, calorias);
             json.result = {
                 id: AlimentoId,
                 nome,
                 proteina,
                 carbs,
-                gordura
+                gordura,
+                calorias
             }
         } else {
             json.error = 'Error!';
@@ -60,15 +63,17 @@ module.exports = {
         let proteina = req.body.proteina;
         let carbs = req.body.carbs;
         let gordura = req.body.gordura;
+        let calorias = req.body.calorias;
 
         if(id && nome && proteina && carbs && gordura){
-            await AlimentoService.alterar(id, nome, proteina, carbs, gordura)
+            await AlimentoService.alterar(id, nome, proteina, carbs, gordura, calorias)
             json.result = {
                 id,
                 nome,
                 proteina,
                 carbs,
-                gordura
+                gordura,
+                calorias
             }
         } else {
             json.error = 'Error!';

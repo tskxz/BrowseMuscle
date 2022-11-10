@@ -21,13 +21,14 @@ module.exports = {
 		})
 	},
 
-	inserir: (nome, proteina, carbs, gordura) => {
+	inserir: (nome, proteina, carbs, gordura, calorias) => {
 		return new Promise((aceito, rejeitado) => {
-			db.query('INSERT INTO alimentos (nome, proteina, carbs, gordura) VALUES (?,?,?,?);', [
+			db.query('INSERT INTO alimentos (nome, proteina, carbs, gordura, calorias) VALUES (?,?,?,?,?);', [
 				nome,
 				proteina,
 				carbs,
 				gordura,
+				calorias
 			], (error, results) => {
 				if(error){
 					rejeitado(error);
@@ -38,9 +39,9 @@ module.exports = {
 		})
 	},
 
-	alterar: (id, nome, proteina, carbs, gordura) => {
+	alterar: (id, nome, proteina, carbs, gordura, calorias) => {
 		return new Promise( (aceito, rejeitado) => {
-			db.query('UPDATE alimentos SET nome = ?, proteina = ?, carbs = ?, gordura = ? WHERE id = ?', [nome, proteina, carbs, gordura, id], (error, results) => {
+			db.query('UPDATE alimentos SET nome = ?, proteina = ?, carbs = ?, gordura = ? WHERE id = ?', [nome, proteina, carbs, gordura, calorias, id], (error, results) => {
 				if(error){rejeitado(error); return;}
 				aceito(results);
 			})
