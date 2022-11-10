@@ -45,6 +45,15 @@ module.exports = {
 				aceito(results);
 			})
 		})
+	},
+
+	apagar:(id) => {
+		return new Promise( (aceito, rejeitado) => {
+			db.query('DELETE FROM alimentos WHERE id = ?', [id], (error, results) => {
+				if(error){rejeitado(error); return;}
+				aceito(results);
+			})
+		})
 	}
 
 }
