@@ -41,7 +41,7 @@ module.exports = {
 
 	alterar: (id, nome, proteina, carbs, gordura, calorias) => {
 		return new Promise( (aceito, rejeitado) => {
-			db.query('UPDATE alimentos SET nome = ?, proteina = ?, carbs = ?, gordura = ? WHERE id = ?', [nome, proteina, carbs, gordura, calorias, id], (error, results) => {
+			db.query('UPDATE alimentos SET nome = ?, proteina = ?, carbs = ?, gordura = ?, calorias=? WHERE id = ?', [nome, proteina, carbs, gordura, calorias, id], (error, results) => {
 				if(error){rejeitado(error); return;}
 				aceito(results);
 			})
