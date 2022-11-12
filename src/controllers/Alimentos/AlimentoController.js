@@ -129,6 +129,36 @@ module.exports = {
         rows = json.result;
         console.log(rows);
         res.render('admin/alimentos/tabela_alimentos', {layout:'tabela_alimentos_crud', rows})
-    }
+    },
+
+	adicionar: async (req, res) => {
+		let json = {error: '', result:[]};
+
+		let nome = req.body.nome;
+		let proteina = req.body.proteina;
+		let carbs = req.body.carbs;
+		let gordura = req.body.gordura;
+        let calorias = req.body.calorias;
+		
+		if(nome && proteina && carbs && gordura && calorias){
+			let AlimentoId = await AlimentoService.inserir(nome, proteina, carbs, gordura, calorias);
+			json.result = {
+				id: AlimentoId,
+				nome,
+				proteina,
+				carbs,
+				gordura,
+                calorias
+			};
+			
+			res.render('admin/alimentos/adicionar_alimentos', { alert: `${nome} Adicionado com sucesso`});
+
+		} else {
+			json.error = 'Error!';
+		}
+
+		res.render('admin/alimentos/adicionar_alimentos');
+	},
+
 
 }

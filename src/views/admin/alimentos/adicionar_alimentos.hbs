@@ -1,0 +1,32 @@
+<div class="container bg-dark">
+    {{#if alert}}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{alert}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {{/if}}
+    <form method="POST" action="/admin/adicionar_alimento">
+        <div class="row g-3">
+            <div class="col">
+                <input type="text" class="form-control" placeholder="Alimento" name="nome" aria-label="Alimento">
+            </div>
+             <div class="col">
+                <input type="number" step="any" class="form-control" placeholder="Proteina" name="proteina" aria-label="Proteina">
+            </div>
+            <div class="col">
+                <input type="number" step="any" class="form-control" placeholder="Carbs" name="carbs" aria-label="Carbs">
+            </div>
+            <div class="col">
+                <input type="number" step="any" class="form-control" placeholder="Gordura" name="gordura" aria-label="Gordura">
+            </div>
+            <div class="col">
+                <input type="number" step="any" class="form-control" placeholder="Calorias" name="calorias" aria-label="Calorias">
+            </div>
+
+        </div>
+        <br>
+        <div class="d-grid gap-2">
+            <button class="btn btn-dark" type="submit">Adicionar</button>
+        </div>
+    </form>
+</div>
