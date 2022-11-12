@@ -108,6 +108,27 @@ module.exports = {
         rows = json.result;
         console.log(rows);
         res.render('app/alimentos/tabela_alimentos', {layout:'tabela_alimentos', rows})
+    },
+
+    main: async(req, res)=>{
+        let json = {error: '', result: []};
+
+        let alimentos = await AlimentoService.visualizarTodos();
+
+        for(let i in alimentos){
+            json.result.push({
+                id: alimentos[i].id,
+                nome: alimentos[i].nome,
+                proteina: alimentos[i].proteina,
+                carbs: alimentos[i].carbs,
+                gordura: alimentos[i].gordura,
+                calorias: alimentos[i].calorias
+            })
+        }
+
+        rows = json.result;
+        console.log(rows);
+        res.render('admin/alimentos/tabela_alimentos', {layout:'tabela_alimentos_crud', rows})
     }
 
 }
