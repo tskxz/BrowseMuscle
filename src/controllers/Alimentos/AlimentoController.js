@@ -14,6 +14,7 @@ module.exports = {
                 gordura: alimento[i].gordura,
                 calorias: alimento[i].calorias
             })
+            console.log(json)
         }
         res.json(json);
     },
