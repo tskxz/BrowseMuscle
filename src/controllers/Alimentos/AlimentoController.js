@@ -160,5 +160,14 @@ module.exports = {
 		res.render('admin/alimentos/adicionar_alimentos');
 	},
 
+    eliminar: async(req, res) => {
+		let json = {error: '', result:[]};
+		exercicio = await AlimentoService.apagar(req.params.id);
+		console.log(exercicio);
+		if(exercicio){
+			res.redirect('/admin/main_alimentos/')
+		}
+	}
+
 
 }

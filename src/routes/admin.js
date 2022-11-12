@@ -32,4 +32,5 @@ admin.get('/apagar_exercicio/:id', ExercicioController.eliminar)
 admin.get('/main_alimentos', AlimentoController.main)
 admin.get('/adicionar_alimento', AlimentoController.adicionar)
 admin.post('/adicionar_alimento', AlimentoController.adicionar)
+admin.get('/apagar_alimento/:id', AlimentoController.eliminar)
 module.exports = admin;
