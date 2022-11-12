@@ -167,7 +167,39 @@ module.exports = {
 		if(exercicio){
 			res.redirect('/admin/main_alimentos/')
 		}
-	}
+	},
+    atualizar: async(req,res) => {
+		let json = {error: '', result:[]};
+		let id = req.params.id;
+		let nome = req.body.nome;	
+		let proteina = req.body.proteina;
+		let carbs = req.body.carbs;
+		let gordura = req.body.gordura;
+        let calorias = req.body.calorias;		
+
+		if(id && nome && proteina && carbs && gordura, calorias){
+			await AlimentoService.alterar(id, nome, proteina, carbs, gordura, calorias);
+			json.result = {
+				id,
+				nome,
+				proteina,
+				carbs,
+				gordura,
+                calorias
+			};
+            res.render('admin/alimentos/editar_alimento', {row, alert: `${nome} com id ${id} alterado com sucesso`})
+            
+            
+		} else {
+			json.error = 'Error!';
+		}
+		console.log(json)
+        row = await AlimentoService.buscarUm(id);
+        console.log(row)
+        res.render('admin/alimentos/editar_alimento', {row})
+		// res.render('admin/alimentos/editar_alimento', {row, alert: `${nome} com id ${id} alterado com sucesso`})
+
+	},
 
 
 }

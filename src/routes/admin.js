@@ -33,4 +33,6 @@ admin.get('/main_alimentos', AlimentoController.main)
 admin.get('/adicionar_alimento', AlimentoController.adicionar)
 admin.post('/adicionar_alimento', AlimentoController.adicionar)
 admin.get('/apagar_alimento/:id', AlimentoController.eliminar)
+admin.get('/editar_alimento/:id', AlimentoController.atualizar)
+admin.post('/editar_alimento/:id', AlimentoController.atualizar)
 module.exports = admin;
