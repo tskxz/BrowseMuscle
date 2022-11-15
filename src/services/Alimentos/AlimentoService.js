@@ -2,7 +2,7 @@ const db = require('../../mysql');
 
 module.exports = {
 
-	// Funcao para visualizar a tabela de exercícios avancado
+	// Serviço para visualizar todos os alimentos existentes dentro da tabela
 	visualizarTodos: () => {
 		return new Promise( (aceito, rejeitado) =>{
 			db.query('SELECT * FROM alimentos', (error, results) => {
@@ -12,6 +12,7 @@ module.exports = {
 		})
 	},
 
+	// Serviço para visualizar um alimento através do ID
 	buscarUm: (id) => {
 		return new Promise((aceito, rejeitado) => {
 			db.query('SELECT * FROM alimentos WHERE id = ?', [id], (error, results) => {
@@ -21,6 +22,7 @@ module.exports = {
 		})
 	},
 
+	// Serviço para inserir alimento através dos valores
 	inserir: (nome, proteina, carbs, gordura, calorias) => {
 		return new Promise((aceito, rejeitado) => {
 			db.query('INSERT INTO alimentos (nome, proteina, carbs, gordura, calorias) VALUES (?,?,?,?,?);', [
@@ -39,6 +41,7 @@ module.exports = {
 		})
 	},
 
+	// Serviço para alterar os valores de um alimento através do parametro ID
 	alterar: (id, nome, proteina, carbs, gordura, calorias) => {
 		return new Promise( (aceito, rejeitado) => {
 			db.query('UPDATE alimentos SET nome = ?, proteina = ?, carbs = ?, gordura = ?, calorias=? WHERE id = ?', [nome, proteina, carbs, gordura, calorias, id], (error, results) => {
@@ -48,6 +51,7 @@ module.exports = {
 		})
 	},
 
+	// Serviço apagar alimento através do ID
 	apagar:(id) => {
 		return new Promise( (aceito, rejeitado) => {
 			db.query('DELETE FROM alimentos WHERE id = ?', [id], (error, results) => {

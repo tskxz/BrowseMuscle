@@ -3,13 +3,11 @@ const bcrypt = require('bcrypt')
 
 module.exports = {
 
-	// Funcao visualizar todos os exerecícios
 	buscarTodos: async (req, res) => {
 		let json = {error: '', result:[]};
 
-		let utilizadores = await UtilizadorService.buscarTodos(); // Visualizar todos os exercícios
+		let utilizadores = await UtilizadorService.buscarTodos();
 
-		// Para cada exercício, vai extrair informacao de cada campo
 		for(let i in utilizadores){
 			json.result.push({
 				id: utilizadores[i].id,
