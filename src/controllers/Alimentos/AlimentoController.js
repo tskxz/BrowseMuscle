@@ -163,9 +163,9 @@ module.exports = {
 
     eliminar: async(req, res) => {
 		let json = {error: '', result:[]};
-		exercicio = await AlimentoService.apagar(req.params.id);
-		console.log(exercicio);
-		if(exercicio){
+		alimento = await AlimentoService.apagar(req.params.id);
+		console.log(alimento);
+		if(alimento){
 			res.redirect('/admin/main_alimentos/')
 		}
 	},
@@ -198,7 +198,6 @@ module.exports = {
         row = await AlimentoService.buscarUm(id);
         console.log(row)
         res.render('admin/alimentos/editar_alimento', {row})
-		// res.render('admin/alimentos/editar_alimento', {row, alert: `${nome} com id ${id} alterado com sucesso`})
 
 	},
 
