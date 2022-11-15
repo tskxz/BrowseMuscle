@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/8fn/BrowseMuscle/master/src/views/assets/img/browsemuscle_light.png" width="250" height="250">
+  <img src="https://raw.githubusercontent.com/8fn/BrowseMuscle/master/src/views/assets/img/browsemuscle_light.png" width="250px" height="50px">
 </p>
 <div align="center">
  <img src="https://img.shields.io/github/repo-size/8fn/browsemuscle"> <img src="https://img.shields.io/github/last-commit/8fn/browsemuscle"> <img src="https://img.shields.io/badge/-node.js-yellow"> <img src="https://img.shields.io/badge/-mysql-yellow">
