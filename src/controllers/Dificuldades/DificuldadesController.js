@@ -2,21 +2,22 @@ const DificuldadesService = require('../../services/Dificuldades/DificuldadesSer
 
 module.exports = {
 
+	// Visualizar todos os dados existentes da tabela dificuldades
 	visualizarTodos: async(req, res) => {
 		let json = {error: '', result:[]};
 
-		// Visualizar todos os exercícios dificuldade
+		// Chamar o serviçe visualizar todos
 		let dificuldade = await DificuldadesService.visualizarTodos();
 
+		// Percorre por cada dado e insere para o json
 		for(let i in dificuldade){
 			json.result.push({
 				id: dificuldade[i].id,
 				nome: dificuldade[i].nome
 			});
 		}
-		res.setHeader('Access-Control-Allow-Origin', '*');
-		res.setHeader('Access-Control-Allow-Headers', 'Origin, Accept, Accept-  Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, X-Response-Time, X-PINGOTHER, X-CSRF-Token,Authorization');
-		res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+
+		// Resposta do servidor json
 		res.json(json);
 	}
 }

@@ -2,9 +2,11 @@ const MusculoService = require('../../services/Musculos/MusculoService');
 
 module.exports = {
 
+	// Visualizar todos os dados dentro da tabela músculos
 	visualizarTodos: async(req, res) => {
 		let json = {error: '', result:[]};
 
+		// Chama o serviço para mostrar todos os dados da tabela músculos
 		let musculo = await MusculoService.visualizarTodos();
 
 		for(let i in musculo){
@@ -13,9 +15,8 @@ module.exports = {
 				nome: musculo[i].nome
 			});
 		}
-		res.setHeader('Access-Control-Allow-Origin', '*');
-		res.setHeader('Access-Control-Allow-Headers', 'Origin, Accept, Accept-  Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, X-Response-Time, X-PINGOTHER, X-CSRF-Token,Authorization');
-		res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+
+		// Manda a resposta do servidor para json
 		res.json(json);
 	}
 }

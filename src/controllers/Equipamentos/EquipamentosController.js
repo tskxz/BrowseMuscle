@@ -2,12 +2,12 @@ const EquipamentosService = require('../../services/Equipamentos/EquipamentosSer
 
 module.exports = {
 
+	// Função visualizar todos os dados dentro da tabela equipamentos
 	visualizarTodos: async(req, res) => {
 		let json = {error: '', result:[]};
 
+		// Chama o serviçe visualizar todos
 		let equipamento = await EquipamentosService.visualizarTodos();
-
-		// Visualizar todos os exercícios com equipamento
 
 		for(let i in equipamento){
 			json.result.push({
@@ -15,9 +15,8 @@ module.exports = {
 				nome: equipamento[i].nome,
 			});
 		}
-		res.setHeader('Access-Control-Allow-Origin', '*');
-		res.setHeader('Access-Control-Allow-Headers', 'Origin, Accept, Accept-  Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, X-Response-Time, X-PINGOTHER, X-CSRF-Token,Authorization');
-		res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+
+		// Manda a resposta do servidor json
 		res.json(json);
 	}
 }
