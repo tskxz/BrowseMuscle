@@ -367,7 +367,7 @@ module.exports = {
 
 		if(exercicio){
 			// Se for apagado, vai redirecionar para a página da tabela
-			res.redirect('/admin/exercicios/')
+			res.redirect('/admin/main_exercicios/')
 		}
 	},
 
