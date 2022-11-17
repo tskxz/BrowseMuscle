@@ -1,33 +1,29 @@
+// Rotas para as páginas
+
 const express = require('express');
 const app = express.Router();
 const path = require('path');
+
+// Controllers
 const ExercicioController = require('../controllers/ExercicioController')
 const AlimentoController = require('../controllers/Alimentos/AlimentoController')
 
-// Rotas das páginas principais - BrowseMuscle
 
-// Visualização da tabela exercícios
+// Rota para visualizar exercícios
 app.get('/exercicios', ExercicioController.view)
-
-app.get('/tabelas', function(req, res) {
-	res.render('app/tabelas')
-})
-
 app.post('/exercicios/pesquisa', ExercicioController.pesquisarExercicio);
 
+// Rota para visualizar alimentos
 app.get('/alimentos', AlimentoController.view);
 
 
-// Página principal
+// Rota para página principal
 app.get('/', function(req, res){
 	res.render('app/homepage', {
 		title: "Bem vindo ao BrowseMuscle! 🌎"
 	});
 })
 
-app.get('/tailwind_teste', function(req,res){
-	res.render('app/tailwind_teste', {layout: false})
-})
 // Visualização da tabela exercícios para peito
 app.get('/peito', function(req, res){
 	res.render('app/musculos/peito', {layout: 'tabelas'})
@@ -138,6 +134,8 @@ app.get('/avancado', function(req, res){
 	res.render('app/dificuldades/avancado', {layout: 'tabelas'})
 })
 
+
+// Rota para a página principal
 app.get('/pagina_principal', function(req, res){
 	res.render('app/index', {layout: false})
 })
