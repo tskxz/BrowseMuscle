@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt')
 
 module.exports = {
 
-	// Funcao para visualizar todos os exercícios
+	// Serviço para visualizar todos os utilizadores existentes
 	buscarTodos: () => {
 		return new Promise((aceito, rejeitado)=>{
 			db.query('SELECT * FROM utilizadores', (error, results)=>{
@@ -14,7 +14,7 @@ module.exports = {
 	},
 
 
-	// Funcao para visualizar um exercício
+	// Serviço para visualizar somente um utilizador através do ID
 	buscarUm:(id) => {
 		return new Promise((aceito, rejeitado) => {
 			db.query('SELECT * FROM utilizadores WHERE id = ? ', [id], (error, results) => {
@@ -28,6 +28,7 @@ module.exports = {
 		});
 	},
 
+	// Serviço para buscar as informações através do username
 	login:(username) => {
 		return new Promise((aceito, rejeitado) => {
 			db.query('SELECT * FROM utilizadores WHERE username = ?', [username], (error, results) => {
@@ -41,11 +42,9 @@ module.exports = {
 		})
 	},
 
-
+	// Serviço para inserir e criar o utilizador
     criar: (username, primeiro_nome, ultimo_nome, email, num_telemovel, password)=> {
 		return new Promise( (aceito, rejeitado) => {
-			
-
 			db.query('INSERT INTO utilizadores (username, primeiro_nome, ultimo_nome, email, num_telemovel, password) VALUES(?,?,?,?,?,?);',
 				[
 				username, primeiro_nome, ultimo_nome, email, num_telemovel, password

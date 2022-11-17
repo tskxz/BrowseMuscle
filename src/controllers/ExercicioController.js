@@ -300,8 +300,9 @@ module.exports = {
 		let dificuldade = req.body.dificuldade;
 		let musculo = req.body.musculo;
 
-		// Chama o serviço do ExercicioService editar, que serve para pegar os valores do exercício através do ID
-		let exercicio_id = await ExercicioService.editar(id);
+		// Chama o serviço do ExercicioService buscarUm, que serve para pegar os valores do exercício através do ID
+		let exercicio_id = await ExercicioService.buscarUm(id);
+		
 		if(exercicio_id){
 			// Chama os serviços para visualizar equipamentos, dificuldades e músculo para fazer dropdown do select option
 			let equipamentos = await EquipamentosService.visualizarTodos();
@@ -319,6 +320,7 @@ module.exports = {
 
 		// Armazena o resultado do serviço de editar exercício
 		rows = json.result;
+		console.log(rows)
 		
 
 		// Mandar para a página os resultados dos serviços para estar pré-definido nos inputs

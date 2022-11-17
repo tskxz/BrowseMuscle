@@ -2,7 +2,7 @@ const db = require('../../mysql');
 
 module.exports = {
 
-	// Funcao para visualizar a tabela de exercícios avancado
+	// Serviço para visualizar todas as dificuldades
 	visualizarTodos: () => {
 		return new Promise( (aceito, rejeitado) =>{
 			db.query('SELECT * FROM dificuldades', (error, results) => {

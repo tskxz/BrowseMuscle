@@ -2,7 +2,7 @@ const db = require('../../mysql');
 
 module.exports = {
 
-	// Funcao para visualizar tabela exercícios elástico
+	// Serviço para visualizar todos os equipamentos
 	visualizarTodos: () => {
 		return new Promise( (aceito, rejeitado) =>{
 			db.query('SELECT * FROM equipamentos', (error, results) => {
