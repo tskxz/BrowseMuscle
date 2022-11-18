@@ -1,13 +1,13 @@
+// Conexão com a base de dados
+
 const mysql = require('mysql');
 
-// Conectar a base de dados
-
 const connection = mysql.createPool({
-	host: process.env.DB_HOST,				// 4acd-132-145-18-76.eu.ngrok.io
-	user: process.env.DB_USER,				// root
-	password: process.env.DB_PASS,						// root ou palavra passe vazia
-	database: process.env.DB_NAME,			// BrowseMuscle
-	multipleStatements: true,				// Permitir mais de que uma query
+	host: process.env.DB_HOST,				
+	user: process.env.DB_USER,				
+	password: process.env.DB_PASS,						
+	database: process.env.DB_NAME,
+	multipleStatements: true,			
 	connectTimeout: 3000000
 });
 
