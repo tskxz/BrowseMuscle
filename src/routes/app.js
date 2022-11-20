@@ -16,6 +16,9 @@ app.post('/exercicios/pesquisa', ExercicioController.pesquisarExercicio);
 // Rota para visualizar alimentos
 app.get('/alimentos', AlimentoController.view);
 
+app.get('/meu_perfil', function(req, res) {
+	res.render('app/utilizador/perfil.hbs')
+})
 
 // Rota para página principal
 app.get('/', function(req, res){
