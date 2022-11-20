@@ -33,6 +33,16 @@ server.use(express.urlencoded({extended: true}));
 // Parse Application/JSON
 server.use(express.json())
 
+server.use(flash());
+server.use(session({
+	secret: process.env.SESSION_SECRET,
+	resave: false,
+	saveUninitialized: false
+}))
+
+server.use(passport.initialize());
+server.use(passport.session());
+
 server.use('/api', api);
 server.use('/admin', admin);
 server.use('/', app);
