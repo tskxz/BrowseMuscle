@@ -112,6 +112,7 @@ module.exports = {
                 num_telemovel,
                 password
 			};
+			res.redirect('/auth/login')
 		} else {
 			json.error = 'Error!';
 		}
