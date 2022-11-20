@@ -24,6 +24,10 @@ app.get('/', function(req, res){
 	});
 })
 
+app.get('/musculos', function(req, res){
+	res.render('app/musculos')
+})
+
 // Visualização da tabela exercícios para peito
 app.get('/peito', function(req, res){
 	res.render('app/musculos/peito', {layout: 'tabelas'})
