@@ -112,13 +112,10 @@ module.exports = {
                 num_telemovel,
                 password
 			};
-			res.redirect('/auth/login')
+			res.redirect('/auth/login');
 		} else {
-			json.error = 'Error!';
+			res.redirect('/auth/register')
 		}
-
-		// Manda a resposta do servidor em JSON
-		res.json(json);
 	},
 
 
