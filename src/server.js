@@ -8,6 +8,7 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const path = require('path');
+const logger = require('morgan');
 
 
 const api = require('./routes/api'); // API CRUD
@@ -17,6 +18,8 @@ const auth = require('./routes/auth');
 
 const server = express();
 const hbs = require('express-handlebars');
+
+server.use(logger('dev'));
 
 // O servidor vai extrair informacao do API do tipo JSON
 server.use(cors());
