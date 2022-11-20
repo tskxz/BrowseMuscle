@@ -9,6 +9,9 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const path = require('path');
 const logger = require('morgan');
+const passport = require('passport');
+const flash = require('express-flash');
+const session = require('express-session');
 
 
 const api = require('./routes/api'); // API CRUD
