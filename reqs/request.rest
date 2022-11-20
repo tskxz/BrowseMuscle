@@ -1,4 +1,4 @@
-GET http://localhost:3000/api/utilizadores
+GET http://localhost:3000/api//utilizador/tsk
 
 ###
 

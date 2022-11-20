@@ -28,6 +28,33 @@ module.exports = {
 		});
 	},
 
+	// Serviço para buscar somente um utilizador através do username
+	buscarUsername:(username) => {
+		return new Promise((aceito, rejeitado) => {
+			db.query('SELECT * FROM utilizadores WHERE username = ?', [username], (error, results) => {
+				if(error){rejeitado(error); return;}
+				if(results.length > 0){
+					aceito(results[0]);
+				} else {
+					aceito(false);
+				}
+			})
+		})
+	},
+
+	buscarEmail:(email) => {
+		return new Promise((aceito, rejeitado) => {
+			db.query('SELECT * FROM utilizadores WHERE email = ?', [email], (error, results) => {
+				if(error){rejeitado(error); return;}
+				if(results.length > 0){
+					aceito(results[0]);
+				} else {
+					aceito(false);
+				}
+			})
+		})
+	},
+
 	// Serviço para buscar as informações através do username
 	login:(username) => {
 		return new Promise((aceito, rejeitado) => {

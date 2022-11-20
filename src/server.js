@@ -13,7 +13,6 @@ const passport = require('passport');
 const flash = require('express-flash');
 const session = require('express-session');
 
-
 const api = require('./routes/api'); // API CRUD
 const admin = require('./routes/admin');	// Paginas para CRUD
 const app = require('./routes/app');		// Aplicacao Principal
@@ -21,6 +20,7 @@ const auth = require('./routes/auth');
 
 const server = express();
 const hbs = require('express-handlebars');
+
 
 server.use(logger('dev'));
 

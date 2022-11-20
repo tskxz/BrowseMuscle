@@ -13,8 +13,6 @@ const MusculoController = require('../controllers/Musculos/MusculoController');
 const UtilizadoresController = require('../controllers/Utilizadores/UtilizadorController');
 const AlimentoController = require('../controllers/Alimentos/AlimentoController');
 
-
-
 api.get('/exercicios', ExercicioController.buscarTodos) 	                                        // Rota do método GET para visualizar todos os exercícios
 api.get('/exercicio/:id', ExercicioController.buscarUm);	                                        // Rota do método GET para visualizar apenas um exercício~
 api.get('/exercicios_equipamento/:equipamento_id', ExercicioController.buscarEquipamento);          // Rota do método GET para visualizar todos os exercícios de um determinado equipamento
@@ -33,6 +31,8 @@ api.get('/utilizadores', UtilizadoresController.buscarTodos);                   
 api.get('/utilizador/:id', UtilizadoresController.buscarUm);                                        // Rota do método GET para visualizar somente um utilizador através do ID
 api.post('/utilizadores', UtilizadoresController.criar)                                             // Rota do método POST para criar um novo utilizador
 api.post('/utilizador/login', UtilizadoresController.login)                                         // Rota do método POST para validar a conta
+api.get('/utilizador_username/:username', UtilizadoresController.buscarUsername);
+api.get('/utilizador_email/:email', UtilizadoresController.buscarEmail);
 
 api.get('/alimentos', AlimentoController.visualizarTodos);                                          // Rota do método GET para visualizar todos os alimentos
 api.get('/alimento/:id', AlimentoController.buscarUm);                                              // Rota do método GET para visualizar somente um alimento
