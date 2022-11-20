@@ -26,7 +26,12 @@ app.post('/exercicios/pesquisa', ExercicioController.pesquisarExercicio);
 app.get('/alimentos', AlimentoController.view);
 
 app.get('/meu_perfil', checkAuthenticated, function(req, res) {
-	res.render('app/utilizador/perfil.hbs', { username: req.user.username })
+	res.render('app/utilizador/perfil.hbs', { 
+		username: req.user.username,
+		primeiro_nome: req.user.primeiro_nome,
+		ultimo_nome: req.user.ultimo_nome,
+		email: req.user.email
+	})
 })
 
 function checkAuthenticated(req, res, next){

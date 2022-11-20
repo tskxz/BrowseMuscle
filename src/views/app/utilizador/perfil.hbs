@@ -1,1 +1,65 @@
-<h1 class="text-light">Username - {{username}}</h1>
+<style>
+    .center {
+        text-align: center;
+    }
+</style>
+
+
+<div class="container text-center">
+
+    <div class="card">
+        <div class="card-header">
+            <ul class="nav nav-pills card-header-pills">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Active</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled">Disabled</a>
+                </li>
+            </ul>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Olá {{primeiro_nome}}!</h5>
+            <p class="card-text"> Aqui estão as informações da tua conta</p>
+
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <h1>@{{username}}</h1><br>
+                        <img src="/assets/img/default-img-perfil.png" width="100px" height="100px">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">informações</h5>
+                            <hr>
+                            <div class="row">
+                                <div class="column">
+                                    <p class="card-text">
+                                        Primeiro nome: <small class="text-muted">{{primeiro_nome}}</small>
+                                    </p>
+                                </div>
+                                <div class="column">
+                                    <p class="card-text">
+                                        Ultimo nome: <small class="text-muted">{{ultimo_nome}}</small>
+                                    </p>
+                                </div>
+                                <div class="column">
+                                    <p class="card-text">
+                                        Username: <small class="text-muted">{{username}}</small>
+                                    </p>
+                                </div>
+                                <div class="column">
+                                    <p class="card-text">
+                                        Email: <small class="text-muted">{{email}}</small>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
