@@ -46,6 +46,33 @@ module.exports = {
 
 	},
 
+	// Função para buscar um utilizador através do username
+	buscarUsername: async(req, res) => {
+		let json = {error: '', result:[]};
+
+		let username = req.params.username;
+		let utilizador = await UtilizadorService.buscarUsername(username);
+
+		if(utilizador){
+			json.result = utilizador;
+		}
+
+		res.json(json)
+	},
+
+	// Função para buscar utilizador através do email
+	buscarEmail: async(req, res) => {
+		let json = {error: '', result:[]};
+		let email = req.params.email;
+		let utilizador = await UtilizadorService.buscarEmail(email);
+		if(utilizador){
+			json.result=utilizador
+		} else {
+			json.error = 'error'
+		}
+		res.json(json);
+	},
+
 	// Função para validar o username e a password
 	login: async (req, res) => {
 		let json = {error: '', result:[]};

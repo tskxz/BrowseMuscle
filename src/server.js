@@ -9,7 +9,9 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const path = require('path');
 const logger = require('morgan');
-
+const passport = require('passport');
+const flash = require('express-flash');
+const session = require('express-session');
 
 const api = require('./routes/api'); // API CRUD
 const admin = require('./routes/admin');	// Paginas para CRUD
@@ -18,6 +20,7 @@ const auth = require('./routes/auth');
 
 const server = express();
 const hbs = require('express-handlebars');
+
 
 server.use(logger('dev'));
 
@@ -29,6 +32,16 @@ server.use(express.urlencoded({extended: true}));
 
 // Parse Application/JSON
 server.use(express.json())
+
+server.use(flash());
+server.use(session({
+	secret: process.env.SESSION_SECRET,
+	resave: false,
+	saveUninitialized: false
+}))
+
+server.use(passport.initialize());
+server.use(passport.session());
 
 server.use('/api', api);
 server.use('/admin', admin);

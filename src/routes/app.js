@@ -3,11 +3,20 @@
 const express = require('express');
 const app = express.Router();
 const path = require('path');
+const passport = require('passport');
 
 // Controllers
 const ExercicioController = require('../controllers/ExercicioController')
 const AlimentoController = require('../controllers/Alimentos/AlimentoController')
 
+const initializePassport = require('../passport-config');
+const UtilizadoresService = require('../services/Utilizadores/UtilizadoresService');
+
+initializePassport(
+	passport,
+	async username => await UtilizadoresService.buscarUsername(username),
+	async id => await UtilizadoresService.buscarUm(id)
+)
 
 // Rota para visualizar exercícios
 app.get('/exercicios', ExercicioController.view)
@@ -16,6 +25,24 @@ app.post('/exercicios/pesquisa', ExercicioController.pesquisarExercicio);
 // Rota para visualizar alimentos
 app.get('/alimentos', AlimentoController.view);
 
+app.get('/meu_perfil', checkAuthenticated, function(req, res) {
+	res.render('app/utilizador/perfil.hbs', { username: req.user.username })
+})
+
+function checkAuthenticated(req, res, next){
+    if(req.isAuthenticated()){
+        return next()
+    }
+
+    res.redirect('/auth/login')
+}
+
+function checkNotAuthenticated(req, res, next){
+    if(req.isAuthenticated()){
+        return res.redirect('/meu_perfil');
+    }
+    next();
+}
 
 // Rota para página principal
 app.get('/', function(req, res){
