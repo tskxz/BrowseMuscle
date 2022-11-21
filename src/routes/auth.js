@@ -10,7 +10,7 @@ const UtilizadorController = require('../controllers/Utilizadores/UtilizadorCont
 
 // Rota para a página login
 auth.get('/login', checkNotAuthenticated, function(req, res) {
-	res.render('auth/login', {layout: 'auth'})
+	res.render('auth/login', {layout: 'auth', error: req.flash("error")})
 })
 
 // Rota do método post login

@@ -4,7 +4,9 @@
     <img src="../assets/img/browsemuscle_dark.png" width="500px" height="100px">
     <br>
     <br>
-    
+    {{#if error}}
+    {{error}}
+    {{/if}}
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Username</label>
     <input type="text" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
