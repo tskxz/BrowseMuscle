@@ -132,7 +132,7 @@ module.exports = {
         rows = json.result;
 
         // Mostra os alimentos ao passar o valor rows
-        res.render('app/alimentos/tabela_alimentos', {layout:'tabela_alimentos', rows})
+        res.render('app/alimentos/tabela_alimentos', {layout:'tabela_alimentos', rows, user: req.user,})
     },
 
     // Página - Visualização dos alimentos para uma tabela na página de administração alimentos para fazer operações
@@ -156,7 +156,7 @@ module.exports = {
         console.log(rows);
 
         // Layout diferente para acrescentar a coluna editar e apagar
-        res.render('admin/alimentos/tabela_alimentos', {layout:'tabela_alimentos_crud', rows})
+        res.render('admin/alimentos/tabela_alimentos', {layout:'tabela_alimentos_crud', rows, user: req.user})
     },
 
     // Página - Adicionar alimento
@@ -183,14 +183,14 @@ module.exports = {
 			};
 			
             // Após ser inserido, mostra o alert
-			res.render('admin/alimentos/adicionar_alimentos', { alert: `${nome} Adicionado com sucesso`});
+			res.render('admin/alimentos/adicionar_alimentos', { alert: `${nome} Adicionado com sucesso`, user: req.user,});
 
 		} else {
 			json.error = 'Error!';
 		}
 
         // Mostra a página para preencher os dados e inserir alimento
-		res.render('admin/alimentos/adicionar_alimentos');
+		res.render('admin/alimentos/adicionar_alimentos', {user: req.user,});
 	},
 
     // Página - Eliminar um alimento
@@ -230,7 +230,7 @@ module.exports = {
                 calorias
 			};
             // Mostra o alert após alterar um valor do alimento
-            res.render('admin/alimentos/editar_alimento', {row, alert: `${nome} com id ${id} alterado com sucesso`})
+            res.render('admin/alimentos/editar_alimento', {row, alert: `${nome} com id ${id} alterado com sucesso`, user: req.user,})
             
             
 		} else {
@@ -241,7 +241,7 @@ module.exports = {
         row = await AlimentoService.buscarUm(id);
 
         // Com as informações do alimento, mostra por pré-definido os valores dentro dos inputs para alterar algo
-        res.render('admin/alimentos/editar_alimento', {row})
+        res.render('admin/alimentos/editar_alimento', {row, user: req.user,})
 
 	},
 

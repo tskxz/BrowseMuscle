@@ -73,7 +73,7 @@ module.exports = {
 		rows = json.result;
 
 		// Enviar rows e mostrar os exercícios dentro da tabela
-		res.render('tabelas/exercicios', {layout: 'tabela_exercicios', rows})
+		res.render('tabelas/exercicios', {layout: 'tabela_exercicios', rows, user: req.user,})
 	},
 
 	// Página - Função para mostrar todos os exercícios
@@ -99,7 +99,7 @@ module.exports = {
 		rows = json.result;
 
 		// Enviar rows e mostrar os exercícios dentro da tabela porém num layout diferente para Admin que vai ser acrescentado novas colunas (editar e apagar)
-		res.render('admin/exercicios/exercicios', {layout: 'tabela_exercicios_crud', rows})
+		res.render('admin/exercicios/exercicios', {layout: 'tabela_exercicios_crud', rows,  user: req.user})
 	},
 
 
@@ -124,7 +124,7 @@ module.exports = {
 		rows = json.result;
 
 		// Mostra o resultado
-		res.render('app/pesquisa', {layout: 'tabela_exercicios', rows},)
+		res.render('app/pesquisa', {layout: 'tabela_exercicios', rows, user: req.user})
 
 
 	},
@@ -248,14 +248,14 @@ module.exports = {
 			};
 			
 			// Mostrar os resultados dos serviços de visualizar equipamentos, dificuldades e músculos para fazer dropdown da seleção options e mandar um alert após ser inserido um exercício
-			res.render('admin/exercicios/adicionar_exercicios', {rows_eq, rows_df, rows_musculos, alert: `${nome} Adicionado com sucesso`});
+			res.render('admin/exercicios/adicionar_exercicios', {rows_eq, rows_df, rows_musculos, user: req.user, alert: `${nome} Adicionado com sucesso`});
 
 		} else {
 			json.error = 'Error!';
 		}
 		
 		// Mostrar os equipamentos, dificuldades e músculos para fazer select
-		res.render('admin/exercicios/adicionar_exercicios', {rows_eq, rows_df, rows_musculos});
+		res.render('admin/exercicios/adicionar_exercicios', {rows_eq, rows_df, rows_musculos, user: req.user});
 	},
 
 	// Função para alterar um exercício
@@ -324,7 +324,7 @@ module.exports = {
 		
 
 		// Mandar para a página os resultados dos serviços para estar pré-definido nos inputs
-		res.render('admin/exercicios/editar_exercicios', {rows, rows_eq, rows_df, rows_musculos})
+		res.render('admin/exercicios/editar_exercicios', {rows, rows_eq, rows_df, rows_musculos, user: req.user})
 	},
 
 	// Página - Função para atualizar os dados
@@ -357,7 +357,7 @@ module.exports = {
 		}
 
 		// Após atualizar, mostra o alert a dizer que foi alterado com sucesso
-		res.render('admin/exercicios/editar_exercicios', {rows, rows_eq, rows_df, rows_musculos, alert: `${nome} com id ${id} alterado com sucesso`})
+		res.render('admin/exercicios/editar_exercicios', {rows, rows_eq, rows_df, rows_musculos, user: req.user, alert: `${nome} com id ${id} alterado com sucesso`})
 
 	},
 
