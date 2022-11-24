@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg fixed-top navbar navbar-dark bg-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="/"><img src="/assets/img/browsemuscle_light.png" width="250px" height="50px"></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/"><img src="/assets/img/browsemuscle_light.png" width="250px" height="50px"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -12,94 +12,97 @@
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-          aria-expanded="false">
-          Exercícios
-        </a>
-        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <li><a class="dropdown-item" href="/exercicios">Exercícios</a></li>
-          <li>
-            <hr class="dropdown-divider">
-          </li>
-          
+            aria-expanded="false">
+            Exercícios
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/exercicios">Exercícios</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
             <div id="dropdown-musculos">
-              
+
             </div>
 
-          
-        </ul>
-      </li>
 
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-        aria-expanded="false">
-        Equipamentos
-      </a>
-      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <li><a class="dropdown-item disabled">Equipamentos</a></li>
-        <li>
-          <hr class="dropdown-divider">
+          </ul>
         </li>
-        <div id="dropdown_equipamentos_navegacao"></div>
-      </ul>
-    </li>
 
-    <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-      aria-expanded="false">
-      Dificuldades
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-      <li><a class="dropdown-item">Dificuldades</a></li>
-      <li>
-        <hr class="dropdown-divider">
-      </li> 
-      <div id="dropdown_dificuldades_navegacao"></div>
-    </ul>
-    <li class="nav-item">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Equipamentos
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item disabled">Equipamentos</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <div id="dropdown_equipamentos_navegacao"></div>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Dificuldades
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item">Dificuldades</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <div id="dropdown_dificuldades_navegacao"></div>
+          </ul>
+        <li class="nav-item">
           <a class="nav-link" aria-current="page" href="/alimentos">Alimentos</a>
         </li>
-  </li>
-</ul>
-<form class="d-flex" method="POST" action="/exercicios/pesquisa">
-  <input class="form-control me-2" type="text" placeholder="Pesquisar" name="pesquisa" aria-label="Search">
-  <button class="btn btn-outline-light" type="submit">Pesquisar</button>
-</form>
+        </li>
+      </ul>
+      <form class="d-flex" method="POST" action="/exercicios/pesquisa">
+        <input class="form-control me-2" type="text" placeholder="Pesquisar" name="pesquisa" aria-label="Search">
+        <button class="btn btn-outline-light" type="submit">Pesquisar</button>
+      </form>
 
-<ul class="navbar-nav dropstart">
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-    aria-expanded="false">
-    <img src="/assets/img/hammer.png" />
-  </a>
-  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-    <li><a class="dropdown-item" href="#">Administrador</a></li>
-    <li>
-      <hr class="dropdown-divider">
-    </li>
-    <li><a class="dropdown-item" href="/admin/main_exercicios">CRUD Exercícios</a></li>
-    <li><a class="dropdown-item" href="/admin/main_alimentos">CRUD Alimentos</a></li>
-  </ul>
+      <ul class="navbar-nav dropstart">
+        <li class="nav-item dropdown ">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <img src="/assets/img/hammer.png" />
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Administrador</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="/admin/main_exercicios">CRUD Exercícios</a></li>
+            <li><a class="dropdown-item" href="/admin/main_alimentos">CRUD Alimentos</a></li>
+          </ul>
 
-</li>
-</ul>
+        </li>
+      </ul>
 
-<ul class="navbar-nav dropstart">
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-    aria-expanded="false">
-    <img src="/assets/img/user_light.png" width="26px" height="26px" />
-  </a>
-  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-    <li><a class="dropdown-item" href="/meu_perfil">Utilizador</a></li>
-    <li>
-      <hr class="dropdown-divider">
-    </li>
-    <li><a class="dropdown-item" href="/auth/login">{{username}}</a></li>
-  </ul>
-  
-</li>
-</ul>
+      <ul class="navbar-nav dropstart">
+        <li class="nav-item dropdown ">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <img src="/assets/img/user_light.png" width="26px" height="26px" />
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-</div>
-</div>
+            {{#unless username}}
+            <li><a class="dropdown-item" href="/auth/login">Login</a></li>
+            {{/unless}}
+
+            {{#if username}}
+            <li><a class="dropdown-item" href="/meu_perfil">{{username}}</a></li>
+            {{/if}}
+          </ul>
+
+        </li>
+      </ul>
+
+    </div>
+  </div>
 </nav>
