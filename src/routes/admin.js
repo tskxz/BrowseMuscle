@@ -12,7 +12,7 @@ const ExercicioController = require('../controllers/ExercicioController')
 admin.get('/main_exercicios', ExercicioController.main) 			// Visualizar tabela exercícios
 admin.get('/editar_exercicio/:id', ExercicioController.editar)		// Página para editar exercício
 admin.post('/editar_exercicio/:id', ExercicioController.atualizar)	// Atualizar o exercício
-admin.get('/adicionar_exercicio', ExercicioController.adicionar)	// Página para adicionar exercício
+admin.get('/adicionar_exercicio', ExercicioController.adicionar_form)	// Página para adicionar exercício
 admin.post('/adicionar_exercicio', ExercicioController.adicionar)	// Adicionar exercício
 admin.get('/apagar_exercicio/:id', ExercicioController.eliminar)	// Apagar exercício
 

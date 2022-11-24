@@ -214,6 +214,32 @@ module.exports = {
 		res.json(json);
 	},
 
+	adicionar_form: async (req, res) => {
+		let json = {error: '', result:[]};
+
+		// Obter os valores através do body
+		let nome = req.body.nome;
+		let equipamento_id = req.body.equipamento_id;
+		let dificuldade_id = req.body.dificuldade_id;
+		let musculo_id = req.body.musculo_id;
+
+
+		// Chama os serviços para visualizar os equipamentos, dificuldades e musculos
+		let equipamentos = await EquipamentosService.visualizarTodos();
+		let dificuldades = await DificuldadeService.visualizarTodos();
+		let musculos = await MusculoService.visualizarTodos();
+		
+		// Armazena os resultados dos serviços
+		rows_eq = equipamentos
+		rows_df = dificuldades
+		rows_musculos = musculos;
+		
+		// Se os valores foi nos enviado através do body
+		
+		// Mostrar os equipamentos, dificuldades e músculos para fazer select
+		res.render('admin/exercicios/adicionar_exercicios', {rows_eq, rows_df, rows_musculos, user: req.user});
+	},
+
 	// Página - Função para adicionar um exercício
 	adicionar: async (req, res) => {
 		let json = {error: '', result:[]};
@@ -253,9 +279,6 @@ module.exports = {
 		} else {
 			json.error = 'Error!';
 		}
-		
-		// Mostrar os equipamentos, dificuldades e músculos para fazer select
-		res.render('admin/exercicios/adicionar_exercicios', {rows_eq, rows_df, rows_musculos, user: req.user});
 	},
 
 	// Função para alterar um exercício
