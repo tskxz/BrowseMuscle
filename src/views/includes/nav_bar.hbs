@@ -97,6 +97,10 @@
 
             {{#if username}}
             <li><a class="dropdown-item" href="/meu_perfil">{{username}}</a></li>
+            <form action="/auth/logout" method="post">
+              
+              <button type="submit" class="btn btn-link">Logout</button>
+            </form>
             {{/if}}
           </ul>
 

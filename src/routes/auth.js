@@ -13,6 +13,13 @@ auth.get('/login', checkNotAuthenticated, function(req, res) {
 	res.render('auth/login', {layout: 'auth', error: req.flash("error")})
 })
 
+auth.post('/logout', function(req, res, next){
+    req.logout(function(err) {
+      if (err) { return next(err); }
+      res.redirect('/');
+    });
+  });
+
 // Rota do método post login
 auth.post('/', passport.authenticate('local', {
 	successRedirect: '/meu_perfil',
