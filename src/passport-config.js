@@ -6,7 +6,7 @@ function initialize(passport, getUserByUsername, getUserById) {
     const authenticateUser = async(username, password, done) => {
         const user = await getUserByUsername(username);
         // console.log(user)
-        if(user == null){
+        if(!user){
             return done(null, false, {message: 'Utilizador não encontrado!'});
         }
         try {
