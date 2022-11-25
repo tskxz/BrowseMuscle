@@ -24,4 +24,9 @@ admin.get('/apagar_alimento/:id', AlimentoController.eliminar)		// Apagar alimen
 admin.get('/editar_alimento/:id', AlimentoController.atualizar)		// Página para editar alimento
 admin.post('/editar_alimento/:id', AlimentoController.atualizar)	// Atualizar o alimento
 
+// Rota para administração
+admin.get('/dashboard', function(req, res){
+	res.render('admin/dashboard', {user: req.user})
+})
+
 module.exports = admin;
