@@ -25,8 +25,25 @@ admin.get('/editar_alimento/:id', AlimentoController.atualizar)		// Página para
 admin.post('/editar_alimento/:id', AlimentoController.atualizar)	// Atualizar o alimento
 
 // Rota para administração
-admin.get('/dashboard', function(req, res){
+admin.get('/dashboard', authUser, authRole(2), function(req, res){
 	res.render('admin/dashboard', {user: req.user})
 })
+
+function authRole(role){
+    return(req,res,next) => {
+        if(req.user.id_cargo !== role){
+            res.status(401)
+            return res.send('Not allowed!')
+        }
+        next()
+    }
+}
+
+function authUser(req, res, next){
+    if(!req.user){
+        return res.redirect('/auth/login')
+    }
+    next()
+}
 
 module.exports = admin;
