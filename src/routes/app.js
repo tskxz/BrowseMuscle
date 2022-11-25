@@ -11,6 +11,7 @@ const AlimentoController = require('../controllers/Alimentos/AlimentoController'
 
 const initializePassport = require('../passport-config');
 const UtilizadoresService = require('../services/Utilizadores/UtilizadoresService');
+const UtilizadorController = require('../controllers/Utilizadores/UtilizadorController');
 
 initializePassport(
 	passport,
@@ -34,6 +35,8 @@ app.get('/meu_perfil', checkAuthenticated, function(req, res) {
 		email: req.user.email
 	})
 })
+
+app.get('/perfil/:username', UtilizadorController.perfil)
 
 function checkAuthenticated(req, res, next){
     if(req.isAuthenticated()){

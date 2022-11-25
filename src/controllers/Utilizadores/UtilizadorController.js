@@ -73,6 +73,22 @@ module.exports = {
 		res.json(json);
 	},
 
+	perfil: async(req, res) => {
+		let username = req.params.username;
+		let utilizador = await UtilizadorService.buscarUsername(username);
+		if(utilizador){
+			console.log(utilizador)
+			res.render('app/utilizador/perfil.hbs', { 
+				username: username,
+				primeiro_nome: utilizador.primeiro_nome,
+				ultimo_nome: utilizador.ultimo_nome,
+				email: utilizador.email
+			})
+		} else {
+			res.render('app/utilizador/nao_encontrado.hbs')
+		}
+	},
+
 	// Função para validar o username e a password
 	login: async (req, res) => {
 		let json = {error: '', result:[]};
