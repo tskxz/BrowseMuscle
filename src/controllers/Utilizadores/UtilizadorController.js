@@ -78,7 +78,7 @@ module.exports = {
 		let utilizador = await UtilizadorService.buscarUsername(username);
 		if(utilizador){
 			console.log(utilizador)
-			res.render('app/utilizador/perfil.hbs', { 
+			res.render('app/utilizador/perfil_user.hbs', { 
 				username: username,
 				primeiro_nome: utilizador.primeiro_nome,
 				ultimo_nome: utilizador.ultimo_nome,
