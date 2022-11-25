@@ -1,0 +1,2 @@
+ALTER TABLE `utilizadores` ADD `id_cargo` INT(6) NOT NULL DEFAULT '1' , ADD INDEX (`id_cargo`);
+ALTER TABLE `utilizadores` ADD FOREIGN KEY (`id_cargo`) REFERENCES `cargos`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
