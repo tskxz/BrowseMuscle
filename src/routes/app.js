@@ -36,7 +36,7 @@ app.get('/meu_perfil', checkAuthenticated, function(req, res) {
 	})
 })
 
-app.get('/perfil/:username', UtilizadorController.perfil)
+app.get('/perfil/:username', checkAuthenticated, UtilizadorController.perfil)
 
 function checkAuthenticated(req, res, next){
     if(req.isAuthenticated()){
