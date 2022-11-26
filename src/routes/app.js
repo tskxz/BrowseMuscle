@@ -26,6 +26,7 @@ app.post('/exercicios/pesquisa', ExercicioController.pesquisarExercicio);
 // Rota para visualizar alimentos
 app.get('/alimentos', AlimentoController.view);
 
+
 app.get('/meu_perfil', checkAuthenticated, function(req, res) {
 	res.render('app/utilizador/perfil.hbs', { 
 		user: req.user,
@@ -33,7 +34,9 @@ app.get('/meu_perfil', checkAuthenticated, function(req, res) {
 		primeiro_nome: req.user.primeiro_nome,
 		ultimo_nome: req.user.ultimo_nome,
 		email: req.user.email,
-		descricao: req.user.descricao
+		descricao: req.user.descricao,
+		id_cargo: req.user.id_cargo,
+		treinos_concluidos: req.user.treinos_concluidos
 	})
 })
 
