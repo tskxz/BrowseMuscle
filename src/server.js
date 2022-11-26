@@ -22,6 +22,7 @@ const server = express();
 const hbs = require('express-handlebars');
 
 
+
 server.use(logger('dev'));
 
 // O servidor vai extrair informacao do API do tipo JSON
@@ -53,7 +54,10 @@ server.use('/assets', express.static('./src/views/assets'));
 server.set('views', path.join(__dirname, 'views'));
 server.set( 'view engine', 'hbs' );
 server.engine( 'hbs', hbs.engine( { 
-	extname: 'hbs', 
+	helpers: {
+		ifEquals: function(arg1, arg2, options) { return (arg1 == arg2) ? options.fn(this) : options.inverse(this); },
+	},
+	extname: 'hbs',
 	partialsDir: __dirname + '/views/includes/'
 } ) );
 
