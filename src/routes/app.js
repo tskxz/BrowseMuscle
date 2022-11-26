@@ -32,19 +32,18 @@ app.get('/meu_perfil', checkAuthenticated, function(req, res) {
 		username: req.user.username,
 		primeiro_nome: req.user.primeiro_nome,
 		ultimo_nome: req.user.ultimo_nome,
-		email: req.user.email
+		email: req.user.email,
+		descricao: req.user.descricao
 	})
 })
 
-app.get('/meu_perfil/editar', checkAuthenticated, function(req, res){
-	res.render('app/utilizador/editar_perfil.hbs', { 
-		user: req.user,
-		username: req.user.username,
-		primeiro_nome: req.user.primeiro_nome,
-		ultimo_nome: req.user.ultimo_nome,
-		email: req.user.email
-	})
-})
+// Rota para editar o perfil do utilizador
+app.get('/meu_perfil/editar', checkAuthenticated, UtilizadorController.editar_perfil)
+
+// Rota para atualizar as informações do perfil do utilizador
+app.post('/meu_perfil/editar', checkAuthenticated, UtilizadorController.atualizar_perfil)
+
+// Rota para visualizar informações de um utilizador através do parametro url username
 app.get('/perfil/:username', checkAuthenticated, UtilizadorController.perfil)
 
 function checkAuthenticated(req, res, next){
