@@ -1,63 +1,100 @@
 <style>
-    .center {
-        text-align: center;
+    * {
+        margin: 0;
+        padding: 0
+    }
+
+    body {
+        background-color: #000
+    }
+
+    .card {
+        width: 550px;
+        background-color: #efefef;
+        border: none;
+        cursor: pointer;
+        transition: all 0.5s;
+    }
+
+    .image img {
+        transition: all 0.5s
+    }
+    
+    .name {
+        font-size: 40px;
+        font-weight: bold
+    }
+
+    .idd {
+        font-size: 20px;
+        font-weight: 600
+    }
+
+    .idd1 {
+        font-size: 13px
+    }
+
+    .number {
+        font-size: 22px;
+        font-weight: bold
+    }
+
+    .follow {
+        font-size: 12px;
+        font-weight: 500;
+        color: #444444
+    }
+
+    .btn1 {
+        height: 40px;
+        width: 150px;
+        border: none;
+        background-color: #000;
+        color: #aeaeae;
+        font-size: 15px
+    }
+
+    .text span {
+        font-size: 13px;
+        color: #545454;
+        font-weight: 500
+    }
+
+    .icons i {
+        font-size: 19px
+    }
+
+    hr .new1 {
+        border: 1px solid
+    }
+
+    .join {
+        font-size: 14px;
+        color: #a0a0a0;
+        font-weight: bold
+    }
+
+    .date {
+        background-color: #ccc
     }
 </style>
-
-
-<div class="container text-center">
-
-    <div class="card">
-        <div class="card-header">
-            <ul class="nav nav-pills card-header-pills">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">Perfil</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/admin/dashboard">Administração</a>
-                </li>
-                
-            </ul>
-        </div>
-        <div class="card-body">
-            <h5 class="card-title">Olá {{primeiro_nome}}!</h5>
-            <p class="card-text"> Aqui estão as informações da tua conta</p>
-
-            <div class="card mb-3" style="max-width: 540px;">
-                <div class="row g-0">
-                    <div class="col-md-4">
-                        <h1>@{{username}}</h1><br>
-                        <img src="/assets/img/default-img-perfil.png" width="100px" height="100px">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">informações</h5>
-                            <hr>
-                            <div class="row">
-                                <div class="column">
-                                    <p class="card-text">
-                                        Primeiro nome: <small class="text-muted">{{primeiro_nome}}</small>
-                                    </p>
-                                </div>
-                                <div class="column">
-                                    <p class="card-text">
-                                        Ultimo nome: <small class="text-muted">{{ultimo_nome}}</small>
-                                    </p>
-                                </div>
-                                <div class="column">
-                                    <p class="card-text">
-                                        Username: <small class="text-muted">{{username}}</small>
-                                    </p>
-                                </div>
-                                <div class="column">
-                                    <p class="card-text">
-                                        Email: <small class="text-muted">{{email}}</small>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<div class="container mt-4 mb-4 p-3 d-flex justify-content-center">
+    <div class="card p-4">
+        <div class=" image d-flex flex-column justify-content-center align-items-center"> <button
+                class="btn btn-secondary"> <img src="/assets/img/user.png" height="100"
+                    width="100" /></button> <span class="name mt-3">{{primeiro_nome}} {{ultimo_nome}}</span> <span
+                class="idd">@{{username}}</span>
+            <div class="d-flex flex-row justify-content-center align-items-center gap-2"> <span
+                    class="idd1">{{email}}</span> <span><i class="fa fa-copy"></i></span> </div>
+            <div class="d-flex flex-row justify-content-center align-items-center mt-3"> <span class="number">1069 <span
+                        class="follow">Followers</span></span> </div>
+            <div class=" d-flex mt-2"> <button class="btn1 btn-dark">Edit Profile</button> </div>
+            <div class="text mt-3"> <span>Eleanor Pena is a creator of minimalistic x bold graphics and digital
+                    artwork.<br><br> Artist/ Creative Director by Day #NFT minting@ with FND night. </span> </div>
+            <div class="gap-3 mt-3 icons d-flex flex-row justify-content-center align-items-center"> <span><i
+                        class="fa fa-twitter"></i></span> <span><i class="fa fa-facebook-f"></i></span> <span><i
+                        class="fa fa-instagram"></i></span> <span><i class="fa fa-linkedin"></i></span> </div>
+            <div class=" px-2 rounded mt-4 date "> <span class="join">Joined May,2021</span> </div>
         </div>
     </div>
+</div>
