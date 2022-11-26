@@ -33,7 +33,8 @@ app.get('/meu_perfil', checkAuthenticated, function(req, res) {
 		primeiro_nome: req.user.primeiro_nome,
 		ultimo_nome: req.user.ultimo_nome,
 		email: req.user.email,
-		descricao: req.user.descricao
+		descricao: req.user.descricao,
+		treinos_concluidos: req.user.treinos_concluidos
 	})
 })
 

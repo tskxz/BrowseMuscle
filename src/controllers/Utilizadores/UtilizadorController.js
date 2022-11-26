@@ -84,7 +84,8 @@ module.exports = {
 				primeiro_nome: utilizador.primeiro_nome,
 				ultimo_nome: utilizador.ultimo_nome,
 				email: utilizador.email,
-				descricao: utilizador.descricao
+				descricao: utilizador.descricao,
+				treinos_concluidos: utilizador.treinos_concluidos
 			})
 			console.log(utilizador.descricao)
 		} else {
@@ -107,7 +108,8 @@ module.exports = {
 				ultimo_nome: req.user.ultimo_nome,
 				email: req.user.email,
 				num_telemovel: req.user.num_telemovel,
-				descricao: req.user.descricao
+				descricao: req.user.descricao,
+				treinos_concluidos: req.user.treinos_concluidos
 			})
 		} else {
 			res.status(403);
