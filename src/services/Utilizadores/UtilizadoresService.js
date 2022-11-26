@@ -84,4 +84,17 @@ module.exports = {
 		})
 	},
 
+	// Serviço para alterar dados do utilizador através do ID
+	alterar: (id, primeiro_nome, ultimo_nome, email, num_telemovel, descricao)=> {
+		return new Promise( (aceito, rejeitado) => {
+			db.query('UPDATE utilizadores SET primeiro_nome = ?, ultimo_nome = ?, email = ?, num_telemovel = ?, descricao = ? WHERE id = ?',
+				[primeiro_nome, ultimo_nome, email, num_telemovel, descricao, id],
+				(error, results)=>{
+					if(error){ rejeitado(error); return; }
+					aceito(results);
+				}
+				);
+		})
+	},	
+
 }
