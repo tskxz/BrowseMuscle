@@ -3,15 +3,15 @@
   <img src="https://raw.githubusercontent.com/8fn/BrowseMuscle/master/src/views/assets/img/browsemuscle_light.png" width="250px" height="50px">
 </p>
 <div align="center">
- <img src="https://img.shields.io/github/repo-size/8fn/browsemuscle"> <img src="https://img.shields.io/github/last-commit/8fn/browsemuscle"> <img src="https://img.shields.io/badge/-node.js-yellow"> <img src="https://img.shields.io/badge/-mysql-yellow">
+ <img alt="Website" src="https://img.shields.io/website?url=http%3A%2F%2F13.41.64.83%3A3000%2F"> <img src="https://img.shields.io/github/repo-size/8fn/browsemuscle"> <img src="https://img.shields.io/github/last-commit/8fn/browsemuscle"> <img alt="GitHub issues" src="https://img.shields.io/github/issues/8fn/BrowseMuscle"> <img alt="GitHub closed issues" src="https://img.shields.io/github/issues-closed/8fn/BrowseMuscle"> <img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/8fn/browsemuscle"> <img alt="GitHub closed pull requests" src="https://img.shields.io/github/issues-pr-closed/8fn/browsemuscle"> <img alt="GitHub" src="https://img.shields.io/github/license/8fn/browsemuscle"> <img src="https://img.shields.io/badge/-node.js-yellow"> <img src="https://img.shields.io/badge/-mysql-yellow">  
 </div>
 
 ## 📝 - Sobre o projeto  
 
-Este projeto ainda está em **construção** e é um projeto de aptidão profissional.
+Este projeto ainda está em **construção** e é um projeto para a prova de aptidão profissional.
 BrowseMuscle serve para ajudar as pessoas a poderem obter mais informação sobre vários exercícios.
 
-BrowseMuscle serve para as pessoas com que obtenham conhecimento mais amplo sobre exercícios físicos.
+As pessoas vão obter conhecimento mais amplo sobre exercícios físicos.
 
 Para quem está a começar a ir para o ginásio e não tem muito conhecimento nem experiência sobre treino e é completamente iniciante, este projeto é útil para conhecer vários exercícios e executa-los de forma correta.
 
@@ -44,16 +44,16 @@ Os tipos de equipamentos são os seguintes
 
 Vai ter os seguintes músculos:
 
- - Peito 
- - Ombro 
- - Tricep 
- - Costas 
- - Lats 
- - Traps 
- - Biceps 
- - Quads 
- - Hamstrings 
- - Gemeos
+  - Peito 
+  - Ombro 
+  - Tricep 
+  - Costas 
+  - Lats 
+  - Traps 
+  - Biceps 
+  - Quads 
+  - Hamstrings 
+  - Gemeos
   - Antebraco 
   - Abdominais
 
