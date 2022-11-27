@@ -126,9 +126,9 @@ module.exports = {
 		let email = req.body.email;
 		let num_telemovel = req.body.num_telemovel;
 		let descricao = req.body.descricao;
-		
+
 		let utilizador = await UtilizadorService.alterar(id, primeiro_nome, ultimo_nome, email, num_telemovel, descricao)
-		if(utilizador){
+		if (utilizador) {
 			console.log(utilizador)
 			res.redirect('/meu_perfil')
 		}
@@ -185,26 +185,36 @@ module.exports = {
 
 		// Com esses valores obtidos
 		if (username && primeiro_nome && ultimo_nome && email && num_telemovel && password) {
-			// Encriptação da password
-			const salt = await bcrypt.genSalt();
-			const hashedPassword = await bcrypt.hash(password, salt); // Encriptar a password
+			// Tenta pegar algum utilizador com o username
+			let unico_username = await UtilizadorService.buscarUsername(username);
+			
+			// Se o username não existir, cria a conta
+			if (unico_username == false) {
+				// Encriptação da password
+				const salt = await bcrypt.genSalt();
+				const hashedPassword = await bcrypt.hash(password, salt); // Encriptar a password
 
-			// Chama o serviço criar que vai inserir os valores obtidos com a palavra passe encriptada
-			let UtilizadorId = await UtilizadorService.criar(username, primeiro_nome, ultimo_nome, email, num_telemovel, hashedPassword);
+				// Chama o serviço criar que vai inserir os valores obtidos com a palavra passe encriptada
+				let UtilizadorId = await UtilizadorService.criar(username, primeiro_nome, ultimo_nome, email, num_telemovel, hashedPassword);
 
-			// O resultado do UtilizadorId vai ser o id novo criado do utilizador
-			json.result = {
-				id: UtilizadorId,
-				username,
-				primeiro_nome,
-				ultimo_nome,
-				email,
-				num_telemovel,
-				password
-			};
-			res.redirect('/auth/login');
+				// O resultado do UtilizadorId vai ser o id novo criado do utilizador
+				json.result = {
+					id: UtilizadorId,
+					username,
+					primeiro_nome,
+					ultimo_nome,
+					email,
+					num_telemovel,
+					password
+				};
+				res.redirect('/auth/login');
+			} else {
+				req.flash('error', `Username já existe!`)
+				res.redirect('/auth/registar')
+			}
+
 		} else {
-			res.redirect('/auth/register')
+			res.redirect('/auth/registar')
 		}
 	},
 
