@@ -32,7 +32,7 @@ auth.post('/registar', checkNotAuthenticated, UtilizadorController.criar)
 
 // Rota do método post registar
 auth.get('/registar', checkNotAuthenticated, function(req, res) {
-	res.render('auth/registar', {layout: 'auth'})
+	res.render('auth/registar', {layout: 'auth', error: req.flash("error")})
 })
 
 function checkAuthenticated(req, res, next){
