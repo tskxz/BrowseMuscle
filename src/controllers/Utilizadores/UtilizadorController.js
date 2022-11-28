@@ -184,7 +184,7 @@ module.exports = {
 
 
 		// Com esses valores obtidos
-		if (username && primeiro_nome && ultimo_nome && email && num_telemovel && password) {
+		if (username && primeiro_nome && ultimo_nome && email && password) {
 			// Tenta pegar algum utilizador com o username
 			let unico_username = await UtilizadorService.buscarUsername(username);
 
@@ -193,7 +193,7 @@ module.exports = {
 
 			// Se o username não existir, cria a conta
 			if (unico_username == false) {
-				if (email == false) {
+				if (unico_email == false) {
 
 					// Encriptação da password
 					const salt = await bcrypt.genSalt();
@@ -212,6 +212,9 @@ module.exports = {
 						num_telemovel,
 						password
 					};
+					
+					console.log(json.result);
+
 					res.redirect('/auth/login');
 				} else {
 					req.flash('error', `Email já existe!`);
