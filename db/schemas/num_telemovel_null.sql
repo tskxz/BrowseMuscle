@@ -1,0 +1,1 @@
+ALTER TABLE `utilizadores` CHANGE `num_telemovel` `num_telemovel` VARCHAR(25) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL;
