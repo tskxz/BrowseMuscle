@@ -49,7 +49,7 @@ server.use('/admin', admin);
 server.use('/', app);
 server.use('/auth', auth)
 
-server.use('/assets', express.static('./src/views/assets'));
+server.use('/assets', express.static('./views/assets'));
 
 server.set('views', path.join(__dirname, 'views'));
 server.set( 'view engine', 'hbs' );
