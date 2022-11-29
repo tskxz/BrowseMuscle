@@ -119,7 +119,7 @@ module.exports = {
         // Percorre o array alimentos e adiciona cada alimento para o json
         for(let i in alimentos){
             json.result.push({
-                id: alimentos[i].id,
+                alimento_id: alimentos[i].alimento_id,
                 nome: alimentos[i].nome,
                 proteina: alimentos[i].proteina,
                 carbs: alimentos[i].carbs,
@@ -131,6 +131,7 @@ module.exports = {
 
         // As linhas vão ser os alimentos do resultado de visualizarTodos
         rows = json.result;
+        console.log(rows)
 
         // Mostra os alimentos ao passar o valor rows
         res.render('app/alimentos/tabela_alimentos', {layout:'tabela_alimentos', rows, user: req.user,})
@@ -144,7 +145,7 @@ module.exports = {
 
         for(let i in alimentos){
             json.result.push({
-                id: alimentos[i].id,
+                alimento_id: alimentos[i].alimento_id,
                 nome: alimentos[i].nome,
                 proteina: alimentos[i].proteina,
                 carbs: alimentos[i].carbs,
