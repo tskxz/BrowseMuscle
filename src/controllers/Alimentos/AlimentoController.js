@@ -119,8 +119,8 @@ module.exports = {
         // Percorre o array alimentos e adiciona cada alimento para o json
         for(let i in alimentos){
             json.result.push({
-                alimento_id: alimentos[i].alimento_id,
-                nome: alimentos[i].nome,
+                id: alimentos[i].id,
+                alimento: alimentos[i].alimento,
                 proteina: alimentos[i].proteina,
                 carbs: alimentos[i].carbs,
                 gordura: alimentos[i].gordura,

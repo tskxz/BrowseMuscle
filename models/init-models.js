@@ -31,6 +31,7 @@ function initModels(sequelize) {
   exercicios.belongsTo(musculos, { as: "musculo", foreignKey: "musculo_id"});
   musculos.hasMany(exercicios, { as: "exercicios", foreignKey: "musculo_id"});
   alimentos.belongsTo(marca, {as: 'marca', foreignKey: "id_marca"})
+  marca.hasMany(alimentos, {as: "alimentos", foreignKey: "id_marca"})
 
   return {
     SequelizeMeta,

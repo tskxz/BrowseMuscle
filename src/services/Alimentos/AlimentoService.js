@@ -5,7 +5,7 @@ module.exports = {
 	// Serviço para visualizar todos os alimentos existentes dentro da tabela
 	visualizarTodos: () => {
 		return new Promise( (aceito, rejeitado) =>{
-			db.query('SELECT Marcas.nome as marca, alimentos.id as alimento_id, alimentos.nome as nome, alimentos.proteina as proteina, alimentos.carbs as carbs, alimentos.gordura as gordura, alimentos.calorias as calorias FROM alimentos JOIN Marcas ON alimentos.id_marca', (error, results) => {
+			db.query('SELECT alimentos.id, alimentos.nome AS alimento, alimentos.proteina as proteina, alimentos.carbs as carbs, alimentos.gordura as gordura, alimentos.calorias as calorias, Marcas.nome as marca FROM alimentos JOIN Marcas ON alimentos.id_marca = Marcas.id', (error, results) => {
 				if(error){rejeitado(error); return;}
 				aceito(results);
 			})
