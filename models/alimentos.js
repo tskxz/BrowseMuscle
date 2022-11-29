@@ -26,6 +26,10 @@ module.exports = function(sequelize, DataTypes) {
     calorias: {
       type: DataTypes.INTEGER,
       allowNull: false
+    },
+    id_marca: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
     }
   }, {
     sequelize,

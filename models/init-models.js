@@ -8,6 +8,7 @@ var _equipamentos = require("./equipamentos");
 var _exercicios = require("./exercicios");
 var _musculos = require("./musculos");
 var _utilizadores = require("./utilizadores");
+var _marca = require("./marca")
 
 function initModels(sequelize) {
   var SequelizeMeta = _SequelizeMeta(sequelize, DataTypes);
@@ -19,6 +20,7 @@ function initModels(sequelize) {
   var exercicios = _exercicios(sequelize, DataTypes);
   var musculos = _musculos(sequelize, DataTypes);
   var utilizadores = _utilizadores(sequelize, DataTypes);
+  var marca = _marca(sequelize, DataTypes);
 
   utilizadores.belongsTo(cargos, { as: "id_cargo_cargo", foreignKey: "id_cargo"});
   cargos.hasMany(utilizadores, { as: "utilizadores", foreignKey: "id_cargo"});
@@ -28,6 +30,7 @@ function initModels(sequelize) {
   equipamentos.hasMany(exercicios, { as: "exercicios", foreignKey: "equipamento_id"});
   exercicios.belongsTo(musculos, { as: "musculo", foreignKey: "musculo_id"});
   musculos.hasMany(exercicios, { as: "exercicios", foreignKey: "musculo_id"});
+  alimentos.belongsTo(marca, {as: 'marca', foreignKey: "id_marca"})
 
   return {
     SequelizeMeta,
@@ -39,6 +42,7 @@ function initModels(sequelize) {
     exercicios,
     musculos,
     utilizadores,
+    marca
   };
 }
 module.exports = initModels;
