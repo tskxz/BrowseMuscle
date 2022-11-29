@@ -124,7 +124,8 @@ module.exports = {
                 proteina: alimentos[i].proteina,
                 carbs: alimentos[i].carbs,
                 gordura: alimentos[i].gordura,
-                calorias: alimentos[i].calorias
+                calorias: alimentos[i].calorias,
+                marca: alimentos[i].marca
             })
         }
 
@@ -148,7 +149,8 @@ module.exports = {
                 proteina: alimentos[i].proteina,
                 carbs: alimentos[i].carbs,
                 gordura: alimentos[i].gordura,
-                calorias: alimentos[i].calorias
+                calorias: alimentos[i].calorias,
+                marca: alimentos[i].marca
             })
         }
 
