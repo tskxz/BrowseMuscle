@@ -37,17 +37,21 @@
     "express-session": "^1.17.3",
     "hbs": "^4.2.0",
     "http-errors": "^2.0.0",
+    "install": "^0.13.0",
     "jquery": "^3.6.1",
     "morgan": "^1.10.0",
     "mysql": "^2.18.1",
+    "mysql2": "^2.3.3",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
     "php-express": "^0.0.3",
     "postcss": "^8.4.18",
-    "postcss-cli": "^10.0.0"
+    "postcss-cli": "^10.0.0",
+    "sequelize": "^6.26.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.20",
+    "sequelize-cli": "^6.5.2",
     "tailwindcss": "^3.2.2"
   }
 }

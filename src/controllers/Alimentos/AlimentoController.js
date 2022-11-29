@@ -120,16 +120,18 @@ module.exports = {
         for(let i in alimentos){
             json.result.push({
                 id: alimentos[i].id,
-                nome: alimentos[i].nome,
+                alimento: alimentos[i].alimento,
                 proteina: alimentos[i].proteina,
                 carbs: alimentos[i].carbs,
                 gordura: alimentos[i].gordura,
-                calorias: alimentos[i].calorias
+                calorias: alimentos[i].calorias,
+                marca: alimentos[i].marca
             })
         }
 
         // As linhas vão ser os alimentos do resultado de visualizarTodos
         rows = json.result;
+        console.log(rows)
 
         // Mostra os alimentos ao passar o valor rows
         res.render('app/alimentos/tabela_alimentos', {layout:'tabela_alimentos', rows, user: req.user,})
@@ -143,12 +145,13 @@ module.exports = {
 
         for(let i in alimentos){
             json.result.push({
-                id: alimentos[i].id,
+                alimento_id: alimentos[i].alimento_id,
                 nome: alimentos[i].nome,
                 proteina: alimentos[i].proteina,
                 carbs: alimentos[i].carbs,
                 gordura: alimentos[i].gordura,
-                calorias: alimentos[i].calorias
+                calorias: alimentos[i].calorias,
+                marca: alimentos[i].marca
             })
         }
 
