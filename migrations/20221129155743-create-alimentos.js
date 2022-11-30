@@ -14,22 +14,27 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.DOUBLE
+        type: Sequelize.INTEGER
       },
       nome: {
-        type: Sequelize.DOUBLE
+        allowNull: false,
+        type: Sequelize.STRING
       },
       proteina: {
+        allowNull: false,
         type: Sequelize.DOUBLE
       },
       carbs: {
+        allowNull: false,
         type: Sequelize.DOUBLE
       },
       gordura: {
+        allowNull: false,
         type: Sequelize.DOUBLE
       },
       calorias: {
-        type: Sequelize.DOUBLE
+        allowNull: false,
+        type: Sequelize.INTEGER
       },
       id_marca: {
         type: Sequelize.INTEGER
