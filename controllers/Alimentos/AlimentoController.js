@@ -1,5 +1,5 @@
 const AlimentoService = require('../../services/Alimentos/AlimentoService')
-
+const MarcasService = require('../../services/Marcas/MarcasService')
 module.exports = {
 
     // Visualizar todos os Alimentos existentes dentro da tabela Alimentos
@@ -172,29 +172,49 @@ module.exports = {
 		let carbs = req.body.carbs;
 		let gordura = req.body.gordura;
         let calorias = req.body.calorias;
-		
-		if(nome && proteina && carbs && gordura && calorias){
+        let id_marca = req.body.id_marca;
+		let Marcas = await MarcasService.visualizarTodos();
+        rows_marcas = Marcas
+		if(nome && proteina && carbs && gordura && calorias && id_marca){
+
+            
             // Insere alimento com os valores recebidos
-			let AlimentoId = await AlimentoService.inserir(nome, proteina, carbs, gordura, calorias);
+			let AlimentoId = await AlimentoService.inserir(nome, proteina, carbs, gordura, calorias,id_marca);
 			json.result = {
 				id: AlimentoId,
 				nome,
 				proteina,
 				carbs,
 				gordura,
-                calorias
+                calorias,
+                id_marca
 			};
 			
             // Após ser inserido, mostra o alert
-			res.render('admin/Alimentos/adicionar_alimentos', { alert: `${nome} Adicionado com sucesso`, user: req.user,});
+			res.render('admin/Alimentos/adicionar_alimentos', { alert: `${nome} Adicionado com sucesso`, user: req.user,rows_marcas});
 
 		} else {
 			json.error = 'Error!';
 		}
 
-        // Mostra a página para preencher os dados e inserir alimento
-		res.render('admin/Alimentos/adicionar_alimentos', {user: req.user,});
 	},
+
+    adicionar_form: async (req, res) => {
+		let json = {error: '', result:[]};
+
+        // Pega os valores através do body
+		let nome = req.body.nome;
+		let proteina = req.body.proteina;
+		let carbs = req.body.carbs;
+		let gordura = req.body.gordura;
+        let calorias = req.body.calorias;
+		let Marcas = await MarcasService.visualizarTodos();
+        rows_marcas = Marcas
+
+        // Mostra a página para preencher os dados e inserir alimento
+		res.render('admin/Alimentos/adicionar_alimentos', {user: req.user,rows_marcas});
+	},
+
 
     // Página - Eliminar um alimento
     eliminar: async(req, res) => {

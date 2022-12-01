@@ -19,7 +19,8 @@ module.exports = {
 				ultimo_nome: Utilizadores[i].ultimo_nome,
 				email: Utilizadores[i].email,
 				num_telemovel: Utilizadores[i].num_telemovel,
-				password: Utilizadores[i].password
+				password: Utilizadores[i].password,
+				createdAt: Utilizadores[i].createdAt
 			});
 		}
 
@@ -85,9 +86,10 @@ module.exports = {
 				ultimo_nome: utilizador.ultimo_nome,
 				email: utilizador.email,
 				descricao: utilizador.descricao,
-				treinos_concluidos: utilizador.treinos_concluidos
+				treinos_concluidos: utilizador.treinos_concluidos,
+				createdAt: utilizador.createdAt
 			})
-			console.log(utilizador.descricao)
+			
 		} else {
 			res.render('app/utilizador/nao_encontrado')
 		}
@@ -109,8 +111,10 @@ module.exports = {
 				email: req.user.email,
 				num_telemovel: req.user.num_telemovel,
 				descricao: req.user.descricao,
-				treinos_concluidos: req.user.treinos_concluidos
+				treinos_concluidos: req.user.treinos_concluidos,
+				
 			})
+			console.log(req.user)
 		} else {
 			res.status(403);
 			res.send('Error')
@@ -126,6 +130,7 @@ module.exports = {
 		let email = req.body.email;
 		let num_telemovel = req.body.num_telemovel;
 		let descricao = req.body.descricao;
+
 
 		let utilizador = await UtilizadorService.alterar(id, primeiro_nome, ultimo_nome, email, num_telemovel, descricao)
 		if (utilizador) {

@@ -22,6 +22,13 @@
             <div class="col">
                 <input type="number" step="any" class="form-control" placeholder="Calorias" name="calorias" aria-label="Calorias">
             </div>
+            <div class="col">
+                <select class="form-select" name="id_marca" aria-label="Default select example">
+                    {{#each rows_marcas}}
+                    <option value="{{this.id}}">{{this.nome}}</option>
+                    {{/each}}
+                </select>
+            </div>
 
         </div>
         <br>
