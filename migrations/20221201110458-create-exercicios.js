@@ -9,7 +9,7 @@ module.exports = {
      * Example:
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
-    await queryInterface.createTable('Alimentos', {
+    await queryInterface.createTable('Exercicios', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -19,23 +19,27 @@ module.exports = {
       nome: {
         type: Sequelize.STRING
       },
-      proteina: {
-        type: Sequelize.DOUBLE
-      },
-      carbs: {
-        type: Sequelize.DOUBLE
-      },
-      gordura: {
-        type: Sequelize.DOUBLE
-      },
-      calorias: {
-        type: Sequelize.INTEGER
-      },
-      id_marca: {
+      equipamento_id: {
         type: Sequelize.INTEGER,
         foreignKey: true,
         references: {
-          model: 'Marcas',
+          model: 'Equipamentos',
+          key: 'id'
+        }
+      },
+      dificuldade_id: {
+        type: Sequelize.INTEGER,
+        foreignKey: true,
+        references: {
+          model: 'Dificuldades',
+          key: 'id'
+        }
+      },
+      musculo_id: {
+        type: Sequelize.INTEGER,
+        foreignKey: true,
+        references: {
+          model: 'Musculos',
           key: 'id'
         }
       },
@@ -59,6 +63,6 @@ module.exports = {
      * Example:
      * await queryInterface.dropTable('users');
      */
-     await queryInterface.dropTable('Alimentos');
+    await queryInterface.dropTable('Exercicios');
   }
 };

@@ -2,14 +2,14 @@
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  async up(queryInterface, Sequelize) {
+  async up (queryInterface, Sequelize) {
     /**
      * Add altering commands here.
      *
      * Example:
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
-    await queryInterface.createTable('Alimentos', {
+     await queryInterface.createTable('Dificuldades', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -18,26 +18,6 @@ module.exports = {
       },
       nome: {
         type: Sequelize.STRING
-      },
-      proteina: {
-        type: Sequelize.DOUBLE
-      },
-      carbs: {
-        type: Sequelize.DOUBLE
-      },
-      gordura: {
-        type: Sequelize.DOUBLE
-      },
-      calorias: {
-        type: Sequelize.INTEGER
-      },
-      id_marca: {
-        type: Sequelize.INTEGER,
-        foreignKey: true,
-        references: {
-          model: 'Marcas',
-          key: 'id'
-        }
       },
       createdAt: {
         allowNull: false,
@@ -49,16 +29,20 @@ module.exports = {
         type: Sequelize.DATEONLY,
         defaultValue: Sequelize.NOW
       }
+    }).then(function(){
+      queryInterface.sequelize.query("insert into Dificuldades (nome, createdAt, updatedAt) values ('Iniciante', now(), now())")
+      queryInterface.sequelize.query("insert into Dificuldades (nome, createdAt, updatedAt) values ('Intermediario', now(), now())")
+      queryInterface.sequelize.query("insert into Dificuldades (nome, createdAt, updatedAt) values ('Avancado', now(), now())")
     });
   },
 
-  async down(queryInterface, Sequelize) {
+  async down (queryInterface, Sequelize) {
     /**
      * Add reverting commands here.
      *
      * Example:
      * await queryInterface.dropTable('users');
      */
-     await queryInterface.dropTable('Alimentos');
+     await queryInterface.dropTable('Dificuldades');
   }
 };

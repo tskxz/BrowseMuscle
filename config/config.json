@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "root",
-    "database": "BrowseMuscle",
+    "database": "BrowseMuscle_seq",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
