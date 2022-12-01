@@ -23,14 +23,15 @@ module.exports = {
 	},
 
 	// Serviço para inserir alimento através dos valores
-	inserir: (nome, proteina, carbs, gordura, calorias) => {
+	inserir: (nome, proteina, carbs, gordura, calorias, id_marca) => {
 		return new Promise((aceito, rejeitado) => {
-			db.query('INSERT INTO Alimentos (nome, proteina, carbs, gordura, calorias) VALUES (?,?,?,?,?);', [
+			db.query('INSERT INTO Alimentos (nome, proteina, carbs, gordura, calorias, id_marca) VALUES (?,?,?,?,?,?);', [
 				nome,
 				proteina,
 				carbs,
 				gordura,
-				calorias
+				calorias,
+				id_marca
 			], (error, results) => {
 				if(error){
 					rejeitado(error);
