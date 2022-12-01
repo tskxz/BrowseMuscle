@@ -1,1 +1,1 @@
-ALTER TABLE `alimentos` ADD `calorias` INT(6) NOT NULL AFTER `gordura`;
+ALTER TABLE `Alimentos` ADD `calorias` INT(6) NOT NULL AFTER `gordura`;

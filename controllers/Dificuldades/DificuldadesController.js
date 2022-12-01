@@ -2,7 +2,7 @@ const DificuldadesService = require('../../services/Dificuldades/DificuldadesSer
 
 module.exports = {
 
-	// Visualizar todos os dados existentes da tabela dificuldades
+	// Visualizar todos os dados existentes da tabela Dificuldades
 	visualizarTodos: async(req, res) => {
 		let json = {error: '', result:[]};
 

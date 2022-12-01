@@ -70,7 +70,7 @@
 <div class="">
 </div>
 <script>
-  fetch('/api/musculos/')
+  fetch('/api/Musculos/')
   .then(res => res.json())
   .then(data => {
     const nome_musculos = data.result
@@ -78,7 +78,7 @@
     buildTable_musculo(nome_musculos)
   })
   function buildTable_musculo(data_musculos) {
-    var dropdown_div = document.getElementById('dropdown-musculos');
+    var dropdown_div = document.getElementById('dropdown-Musculos');
 
     data_musculos.forEach(musculo => {
 
@@ -95,7 +95,7 @@
 </script>
 
 <script>
-  fetch('/api/equipamentos/')
+  fetch('/api/Equipamentos/')
   .then(res => res.json())
   .then(data => {
     const nome_equipamentos = data.result
@@ -118,7 +118,7 @@
 </script>
 
 <script>
-  fetch('/api/dificuldades/')
+  fetch('/api/Dificuldades/')
   .then(res => res.json())
   .then(data => {
     const nome_dificuldades = data.result

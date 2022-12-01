@@ -23,10 +23,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `alimentos`
+-- Table structure for table `Alimentos`
 --
 
-CREATE TABLE `alimentos` (
+CREATE TABLE `Alimentos` (
   `id` int(11) NOT NULL,
   `nome` varchar(100) NOT NULL,
   `proteina` double NOT NULL,
@@ -36,29 +36,29 @@ CREATE TABLE `alimentos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `alimentos`
+-- Dumping data for table `Alimentos`
 --
 
-INSERT INTO `alimentos` (`id`, `nome`, `proteina`, `carbs`, `gordura`, `calorias`) VALUES
+INSERT INTO `Alimentos` (`id`, `nome`, `proteina`, `carbs`, `gordura`, `calorias`) VALUES
 (3, 'Continente - Pudim Proteico sabor a morango', 11.1, 7, 1.6, 82),
 (6, 'Iogurte Grego', 17.3, 6.1, 3, 100);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dificuldades`
+-- Table structure for table `Dificuldades`
 --
 
-CREATE TABLE `dificuldades` (
+CREATE TABLE `Dificuldades` (
   `id` int(6) NOT NULL,
   `nome` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `dificuldades`
+-- Dumping data for table `Dificuldades`
 --
 
-INSERT INTO `dificuldades` (`id`, `nome`) VALUES
+INSERT INTO `Dificuldades` (`id`, `nome`) VALUES
 (1, 'iniciante'),
 (2, 'intermediario'),
 (3, 'avancado');
@@ -66,19 +66,19 @@ INSERT INTO `dificuldades` (`id`, `nome`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `equipamentos`
+-- Table structure for table `Equipamentos`
 --
 
-CREATE TABLE `equipamentos` (
+CREATE TABLE `Equipamentos` (
   `id` int(6) NOT NULL,
   `nome` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `equipamentos`
+-- Dumping data for table `Equipamentos`
 --
 
-INSERT INTO `equipamentos` (`id`, `nome`) VALUES
+INSERT INTO `Equipamentos` (`id`, `nome`) VALUES
 (1, 'barra'),
 (2, 'halteres'),
 (3, 'maquina'),
@@ -88,10 +88,10 @@ INSERT INTO `equipamentos` (`id`, `nome`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `exercicios`
+-- Table structure for table `Exercicios`
 --
 
-CREATE TABLE `exercicios` (
+CREATE TABLE `Exercicios` (
   `id` int(6) NOT NULL,
   `nome` varchar(100) NOT NULL,
   `equipamento_id` int(6) NOT NULL,
@@ -100,10 +100,10 @@ CREATE TABLE `exercicios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `exercicios`
+-- Dumping data for table `Exercicios`
 --
 
-INSERT INTO `exercicios` (`id`, `nome`, `equipamento_id`, `dificuldade_id`, `musculo_id`) VALUES
+INSERT INTO `Exercicios` (`id`, `nome`, `equipamento_id`, `dificuldade_id`, `musculo_id`) VALUES
 (7, 'Supino Inclinado', 2, 3, 1),
 (13, 'Dumbell Row', 2, 2, 5),
 (17, 'Deadlift', 1, 3, 4),
@@ -112,19 +112,19 @@ INSERT INTO `exercicios` (`id`, `nome`, `equipamento_id`, `dificuldade_id`, `mus
 -- --------------------------------------------------------
 
 --
--- Table structure for table `musculos`
+-- Table structure for table `Musculos`
 --
 
-CREATE TABLE `musculos` (
+CREATE TABLE `Musculos` (
   `id` int(6) NOT NULL,
   `nome` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `musculos`
+-- Dumping data for table `Musculos`
 --
 
-INSERT INTO `musculos` (`id`, `nome`) VALUES
+INSERT INTO `Musculos` (`id`, `nome`) VALUES
 (1, 'peito'),
 (2, 'ombro'),
 (3, 'tricep'),
@@ -142,10 +142,10 @@ INSERT INTO `musculos` (`id`, `nome`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `utilizadores`
+-- Table structure for table `Utilizadores`
 --
 
-CREATE TABLE `utilizadores` (
+CREATE TABLE `Utilizadores` (
   `id` int(11) NOT NULL,
   `username` varchar(25) NOT NULL,
   `primeiro_nome` varchar(25) NOT NULL,
@@ -156,10 +156,10 @@ CREATE TABLE `utilizadores` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `utilizadores`
+-- Dumping data for table `Utilizadores`
 --
 
-INSERT INTO `utilizadores` (`id`, `username`, `primeiro_nome`, `ultimo_nome`, `email`, `num_telemovel`, `password`) VALUES
+INSERT INTO `Utilizadores` (`id`, `username`, `primeiro_nome`, `ultimo_nome`, `email`, `num_telemovel`, `password`) VALUES
 (1, 'tsk', 'Tanjil', 'Khan', 'tanjlkh@gmail.com', '+351914721543', '$2b$10$mkweRrVdhpX.zAApdPYhju09ljCBjIQHXf2FBcqwpw3v6NBtva48K'),
 (2, 'guedes', 'Joao', 'Guedes', 'joaoguedes@gmail.com', '+3519339102300', '$2b$10$F92lDO90lwDUUFaYtikQZuQFSBWs.LwdcTTEU0up.3PTtUgstaD9a');
 
@@ -168,42 +168,42 @@ INSERT INTO `utilizadores` (`id`, `username`, `primeiro_nome`, `ultimo_nome`, `e
 --
 
 --
--- Indexes for table `alimentos`
+-- Indexes for table `Alimentos`
 --
-ALTER TABLE `alimentos`
+ALTER TABLE `Alimentos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `dificuldades`
+-- Indexes for table `Dificuldades`
 --
-ALTER TABLE `dificuldades`
+ALTER TABLE `Dificuldades`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `equipamentos`
+-- Indexes for table `Equipamentos`
 --
-ALTER TABLE `equipamentos`
+ALTER TABLE `Equipamentos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `exercicios`
+-- Indexes for table `Exercicios`
 --
-ALTER TABLE `exercicios`
+ALTER TABLE `Exercicios`
   ADD PRIMARY KEY (`id`),
   ADD KEY `musculo_id` (`musculo_id`),
   ADD KEY `equipamento_id` (`equipamento_id`),
   ADD KEY `dificuldade_id` (`dificuldade_id`);
 
 --
--- Indexes for table `musculos`
+-- Indexes for table `Musculos`
 --
-ALTER TABLE `musculos`
+ALTER TABLE `Musculos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `utilizadores`
+-- Indexes for table `Utilizadores`
 --
-ALTER TABLE `utilizadores`
+ALTER TABLE `Utilizadores`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -211,48 +211,48 @@ ALTER TABLE `utilizadores`
 --
 
 --
--- AUTO_INCREMENT for table `alimentos`
+-- AUTO_INCREMENT for table `Alimentos`
 --
-ALTER TABLE `alimentos`
+ALTER TABLE `Alimentos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
--- AUTO_INCREMENT for table `dificuldades`
+-- AUTO_INCREMENT for table `Dificuldades`
 --
-ALTER TABLE `dificuldades`
+ALTER TABLE `Dificuldades`
   MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
--- AUTO_INCREMENT for table `equipamentos`
+-- AUTO_INCREMENT for table `Equipamentos`
 --
-ALTER TABLE `equipamentos`
+ALTER TABLE `Equipamentos`
   MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
--- AUTO_INCREMENT for table `exercicios`
+-- AUTO_INCREMENT for table `Exercicios`
 --
-ALTER TABLE `exercicios`
+ALTER TABLE `Exercicios`
   MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
--- AUTO_INCREMENT for table `musculos`
+-- AUTO_INCREMENT for table `Musculos`
 --
-ALTER TABLE `musculos`
+ALTER TABLE `Musculos`
   MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
--- AUTO_INCREMENT for table `utilizadores`
+-- AUTO_INCREMENT for table `Utilizadores`
 --
-ALTER TABLE `utilizadores`
+ALTER TABLE `Utilizadores`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `exercicios`
+-- Constraints for table `Exercicios`
 --
-ALTER TABLE `exercicios`
-  ADD CONSTRAINT `exercicios_ibfk_1` FOREIGN KEY (`equipamento_id`) REFERENCES `equipamentos` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `exercicios_ibfk_2` FOREIGN KEY (`dificuldade_id`) REFERENCES `dificuldades` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `exercicios_ibfk_3` FOREIGN KEY (`musculo_id`) REFERENCES `musculos` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `exercicios_ibfk_4` FOREIGN KEY (`equipamento_id`) REFERENCES `equipamentos` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `exercicios_ibfk_5` FOREIGN KEY (`dificuldade_id`) REFERENCES `dificuldades` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `Exercicios`
+  ADD CONSTRAINT `exercicios_ibfk_1` FOREIGN KEY (`equipamento_id`) REFERENCES `Equipamentos` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `exercicios_ibfk_2` FOREIGN KEY (`dificuldade_id`) REFERENCES `Dificuldades` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `exercicios_ibfk_3` FOREIGN KEY (`musculo_id`) REFERENCES `Musculos` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `exercicios_ibfk_4` FOREIGN KEY (`equipamento_id`) REFERENCES `Equipamentos` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `exercicios_ibfk_5` FOREIGN KEY (`dificuldade_id`) REFERENCES `Dificuldades` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

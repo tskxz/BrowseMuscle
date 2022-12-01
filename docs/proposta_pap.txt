@@ -2,7 +2,7 @@ Este projeto pode servir para as pessoas com que obtenham conhecimento mais ampl
 
 Para quem está a começar a ir para o ginásio e não tem muito conhecimento nem experiência sobre treino e é completamente iniciante, este projeto vai ser útil para conhecer vários exercícios e executa-los de forma correta.
 
-As pessoas mesmo que conheçam mas têm dificuldades de realizar, este projeto possa ser muito útil para o indivíduo que queira conhecer e aprender.
+As pessoas mesmo que conheçam mas têm Dificuldades de realizar, este projeto possa ser muito útil para o indivíduo que queira conhecer e aprender.
 
 O projeto irá se consistir num site em que se vai mostrar todos os exercícios possíveis e que cada exercício vai obter uma explicação da realização do movimento e vai ter uma demonstração da biomecânica do exercício.
 
@@ -47,14 +47,14 @@ Tabela Quads
 Um utilizador pode visualizar e ver os exercícios de cada dificuldade.
 Por exemplo se o utilizador só quiser exercícios de dificuldade avançada, vai clicar na tabela avançada que irá mostrar apenas exercícios com dificuldade avançada.
 
-Mesma coisa com os equipamentos. Se o utilizador quiser apenas visualizar exercicios de bodyweight, irá escolher a tabela Bodyweight
+Mesma coisa com os Equipamentos. Se o utilizador quiser apenas visualizar Exercicios de bodyweight, irá escolher a tabela Bodyweight
 que irá mostrar todos os exercícios disponíveis para bodyweight.
 
 Igualmente com os grupos musculares, se quiser um musculo, irá obter todos os exercícios dísponíveis para esse grupo muscular.
 
 Iremos obter as seguintes tabelas que podemos conseguir visualizar os exercícios disponiveis da seguinte categoria no site:
 
-// Tabela das dificuldades
+// Tabela das Dificuldades
 
 iniciante
 intermediario
@@ -83,7 +83,7 @@ gemeos
 antebraco
 abdominais
 
-Neste projeto também planeio implementar a análise dos alimentos onde se pode pesquisar qualquer alimento que deseje e ver as macros como por exemplo:
+Neste projeto também planeio implementar a análise dos Alimentos onde se pode pesquisar qualquer alimento que deseje e ver as macros como por exemplo:
 
 Bolachas Filipinos - 515 calorias
 Carboidratos: 62g
@@ -92,7 +92,7 @@ Proteinas: 6.7g
 
 Cada alimento vai obter um gráfico para visualizar a quantidade de macronutrientes
 
-Um utilizador pode adicionar um alimento em que não exista na tabela da análise dos alimentos e pode preencher as informações necessárias e adiciona na tabela dos alimentos, a tabela dos alimentos vai ser pública. O problema é se o utilizador não preencher corretamente as informações e inventar os valores, o alimento não irá entrar na tabela publicamente. O administrador pode ver os alimentos que foram criados e escolher alimentos que irão para a tabela pública.
+Um utilizador pode adicionar um alimento em que não exista na tabela da análise dos Alimentos e pode preencher as informações necessárias e adiciona na tabela dos Alimentos, a tabela dos Alimentos vai ser pública. O problema é se o utilizador não preencher corretamente as informações e inventar os valores, o alimento não irá entrar na tabela publicamente. O administrador pode ver os Alimentos que foram criados e escolher Alimentos que irão para a tabela pública.
 
 Planeio também ter um track do treino, em que o utilizador pode montar o seu próprio plano de treino desejado ou rotina e dar track a cada exercício.
 Um utilizador pode ter o seguinte plano de treino:

@@ -1,16 +1,16 @@
-INSERT INTO `dificuldades` (`id`, `nome`) VALUES
+INSERT INTO `Dificuldades` (`id`, `nome`) VALUES
 (1, 'iniciante'),
 (2, 'intermediario'),
 (3, 'avancado');
 
-INSERT INTO `equipamentos` (`id`, `nome`) VALUES
+INSERT INTO `Equipamentos` (`id`, `nome`) VALUES
 (1, 'barra'),
 (2, 'halteres'),
 (3, 'maquina'),
 (4, 'cabos'),
 (5, 'peso corporal');
 
-INSERT INTO `musculos` (`id`, `nome`) VALUES
+INSERT INTO `Musculos` (`id`, `nome`) VALUES
 (1, 'peito'),
 (2, 'ombro'),
 (3, 'tricep'),

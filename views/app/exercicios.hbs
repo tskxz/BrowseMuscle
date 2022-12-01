@@ -1,6 +1,6 @@
 
 <script>
-	fetch('/api/exercicios/')
+	fetch('/api/Exercicios/')
 	.then(res => res.json())
 	.then(data => {
 		const nome_exercicios = data.result
@@ -10,7 +10,7 @@
 
 
 	function renderNames(names) {
-		const container = document.getElementById('exercicios');
+		const container = document.getElementById('Exercicios');
 		container.innerHtml = '';
 		for (const name of names) {
 			const p = document.createElement('p');

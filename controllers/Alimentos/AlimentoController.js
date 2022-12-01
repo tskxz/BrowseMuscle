@@ -2,7 +2,7 @@ const AlimentoService = require('../../services/Alimentos/AlimentoService')
 
 module.exports = {
 
-    // Visualizar todos os alimentos existentes dentro da tabela alimentos
+    // Visualizar todos os Alimentos existentes dentro da tabela Alimentos
     visualizarTodos: async(req,res) => {
         let json = {error: '', result:[]};
 
@@ -109,49 +109,49 @@ module.exports = {
         res.json(json)
     },
 
-    // Página - Visualização dos alimentos para uma tabela na página principal alimentos
+    // Página - Visualização dos Alimentos para uma tabela na página principal Alimentos
     view: async (req, res) => {
         let json = {error: '', result: []};
 
         // Chama o serviço visualizarTodos() e armazena todos os dados
-        let alimentos = await AlimentoService.visualizarTodos();
+        let Alimentos = await AlimentoService.visualizarTodos();
 
-        // Percorre o array alimentos e adiciona cada alimento para o json
-        for(let i in alimentos){
+        // Percorre o array Alimentos e adiciona cada alimento para o json
+        for(let i in Alimentos){
             json.result.push({
-                id: alimentos[i].id,
-                alimento: alimentos[i].alimento,
-                proteina: alimentos[i].proteina,
-                carbs: alimentos[i].carbs,
-                gordura: alimentos[i].gordura,
-                calorias: alimentos[i].calorias,
-                marca: alimentos[i].marca
+                id: Alimentos[i].id,
+                alimento: Alimentos[i].alimento,
+                proteina: Alimentos[i].proteina,
+                carbs: Alimentos[i].carbs,
+                gordura: Alimentos[i].gordura,
+                calorias: Alimentos[i].calorias,
+                marca: Alimentos[i].marca
             })
         }
 
-        // As linhas vão ser os alimentos do resultado de visualizarTodos
+        // As linhas vão ser os Alimentos do resultado de visualizarTodos
         rows = json.result;
         console.log(rows)
 
-        // Mostra os alimentos ao passar o valor rows
-        res.render('app/alimentos/tabela_alimentos', {layout:'tabela_alimentos', rows, user: req.user,})
+        // Mostra os Alimentos ao passar o valor rows
+        res.render('app/Alimentos/tabela_alimentos', {layout:'tabela_alimentos', rows, user: req.user,})
     },
 
-    // Página - Visualização dos alimentos para uma tabela na página de administração alimentos para fazer operações
+    // Página - Visualização dos Alimentos para uma tabela na página de administração Alimentos para fazer operações
     main: async(req, res)=>{
         let json = {error: '', result: []};
 
-        let alimentos = await AlimentoService.visualizarTodos();
+        let Alimentos = await AlimentoService.visualizarTodos();
 
-        for(let i in alimentos){
+        for(let i in Alimentos){
             json.result.push({
-                alimento_id: alimentos[i].alimento_id,
-                nome: alimentos[i].nome,
-                proteina: alimentos[i].proteina,
-                carbs: alimentos[i].carbs,
-                gordura: alimentos[i].gordura,
-                calorias: alimentos[i].calorias,
-                marca: alimentos[i].marca
+                alimento_id: Alimentos[i].alimento_id,
+                nome: Alimentos[i].nome,
+                proteina: Alimentos[i].proteina,
+                carbs: Alimentos[i].carbs,
+                gordura: Alimentos[i].gordura,
+                calorias: Alimentos[i].calorias,
+                marca: Alimentos[i].marca
             })
         }
 
@@ -159,7 +159,7 @@ module.exports = {
         console.log(rows);
 
         // Layout diferente para acrescentar a coluna editar e apagar
-        res.render('admin/alimentos/tabela_alimentos', {layout:'tabela_alimentos_crud', rows, user: req.user})
+        res.render('admin/Alimentos/tabela_alimentos', {layout:'tabela_alimentos_crud', rows, user: req.user})
     },
 
     // Página - Adicionar alimento
@@ -186,14 +186,14 @@ module.exports = {
 			};
 			
             // Após ser inserido, mostra o alert
-			res.render('admin/alimentos/adicionar_alimentos', { alert: `${nome} Adicionado com sucesso`, user: req.user,});
+			res.render('admin/Alimentos/adicionar_alimentos', { alert: `${nome} Adicionado com sucesso`, user: req.user,});
 
 		} else {
 			json.error = 'Error!';
 		}
 
         // Mostra a página para preencher os dados e inserir alimento
-		res.render('admin/alimentos/adicionar_alimentos', {user: req.user,});
+		res.render('admin/Alimentos/adicionar_alimentos', {user: req.user,});
 	},
 
     // Página - Eliminar um alimento
@@ -233,7 +233,7 @@ module.exports = {
                 calorias
 			};
             // Mostra o alert após alterar um valor do alimento
-            res.render('admin/alimentos/editar_alimento', {row, alert: `${nome} com id ${id} alterado com sucesso`, user: req.user,})
+            res.render('admin/Alimentos/editar_alimento', {row, alert: `${nome} com id ${id} alterado com sucesso`, user: req.user,})
             
             
 		} else {
@@ -244,7 +244,7 @@ module.exports = {
         row = await AlimentoService.buscarUm(id);
 
         // Com as informações do alimento, mostra por pré-definido os valores dentro dos inputs para alterar algo
-        res.render('admin/alimentos/editar_alimento', {row, user: req.user,})
+        res.render('admin/Alimentos/editar_alimento', {row, user: req.user,})
 
 	},
 

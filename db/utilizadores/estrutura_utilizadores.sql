@@ -23,10 +23,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `utilizadores`
+-- Table structure for table `Utilizadores`
 --
 
-CREATE TABLE `utilizadores` (
+CREATE TABLE `Utilizadores` (
   `id` int(11) NOT NULL,
   `username` varchar(25) NOT NULL,
   `primeiro_nome` varchar(25) NOT NULL,
@@ -41,9 +41,9 @@ CREATE TABLE `utilizadores` (
 --
 
 --
--- Indexes for table `utilizadores`
+-- Indexes for table `Utilizadores`
 --
-ALTER TABLE `utilizadores`
+ALTER TABLE `Utilizadores`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -51,9 +51,9 @@ ALTER TABLE `utilizadores`
 --
 
 --
--- AUTO_INCREMENT for table `utilizadores`
+-- AUTO_INCREMENT for table `Utilizadores`
 --
-ALTER TABLE `utilizadores`
+ALTER TABLE `Utilizadores`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

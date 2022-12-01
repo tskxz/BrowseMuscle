@@ -1,1 +1,1 @@
-ALTER TABLE `alimentos` CHANGE `proteina` `proteina` DOUBLE NOT NULL;
+ALTER TABLE `Alimentos` CHANGE `proteina` `proteina` DOUBLE NOT NULL;

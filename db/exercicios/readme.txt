@@ -45,7 +45,7 @@ Tabela Quads
 Cada equipamento vai ter uma tabela de conjunto de exercícios, vai haver relações entre cada tabelas.
 
 Cada equipamento tem vários exercícios.
-Cada grupo muscular tem vários equipamentos
+Cada grupo muscular tem vários Equipamentos
 
 Vai ter as seguintes tabelas de grupo muscular:
 - Quadriceps
@@ -62,7 +62,7 @@ Vai ter as seguintes tabelas de grupo muscular:
 - Traps
 
 
-Vai haver tabelas de equipamentos com os seguintes campos:
+Vai haver tabelas de Equipamentos com os seguintes campos:
 - Maquina
 - Bodyweight
 - Cabos
@@ -72,14 +72,14 @@ Vai haver tabelas de equipamentos com os seguintes campos:
 Um utilizador pode visualizar e ver os exercícios de cada dificuldade.
 Por exemplo se o utilizador só quiser exercícios de dificuldade avançada, vai clicar na tabela avançada que irá mostrar apenas exercícios com dificuldade avançada.
 
-Mesma coisa com os equipamentos. Se o utilizador quiser apenas visualizar exercicios de bodyweight, irá escolher a tabela Bodyweight
+Mesma coisa com os Equipamentos. Se o utilizador quiser apenas visualizar Exercicios de bodyweight, irá escolher a tabela Bodyweight
 que irá mostrar todos os exercícios disponíveis para bodyweight.
 
 Igualmente com os grupos musculares, se quiser um musculo, irá obter todos os exercícios dísponíveis para esse grupo muscular.
 
 Iremos obter as seguintes tabelas que podemos conseguir visualizar no site:
 
-// Tabela das dificuldades
+// Tabela das Dificuldades
 
 exercicios_iniciante
 exercicios_intermediario
@@ -138,7 +138,7 @@ Igualmente como:
 - exercicios_maquina
 - exercicios_barra
 
-E também devia existir uma tabela musculos
+E também devia existir uma tabela Musculos
 
 musculo(nome_musculo)
 
@@ -158,10 +158,10 @@ A principal tabela vai ser a tabela exercícios. A tabela exercícios demonstra 
 As seguintes tabelas aqui em baixo, são listas existentes que irão ser representados como tipo único para serem chave estrangeira de outras tabelas:
 
 - musculo
-- dificuldades
-- equipamentos
+- Dificuldades
+- Equipamentos
 
-Existem exercícios com equipamentos diferentes. Existem exercícios que se faz somente com peso corporal ou barra ou com cabos ou com halteres e etc... Podemos filtrar e visualizar apenas os exercícios com o equipamento adequado que desejamos visualizar. Por exemplo, eu só quero visualizar exercícios com equipamento barra. Então vou ter a possibilidade de visualizar apenas exerícios com equipamento barra. Também como os outros. Então existem para já:
+Existem exercícios com Equipamentos diferentes. Existem exercícios que se faz somente com peso corporal ou barra ou com cabos ou com halteres e etc... Podemos filtrar e visualizar apenas os exercícios com o equipamento adequado que desejamos visualizar. Por exemplo, eu só quero visualizar exercícios com equipamento barra. Então vou ter a possibilidade de visualizar apenas exerícios com equipamento barra. Também como os outros. Então existem para já:
 
 - exercicios_bodyweight
 - exercicios_cabos

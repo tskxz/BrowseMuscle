@@ -1,26 +1,27 @@
-					<script>
-						fetch('/api/exercicios_musculo/7')
-						.then(res => res.json())
-						.then(data => {
-							const nome_exercicios = data.result
 
-							buildTable(nome_exercicios)
-						})
+<script>
+	fetch('/api/exercicios_musculo/12')
+	.then(res => res.json())
+	.then(data => {
+		const nome_exercicios = data.result
+		
+		buildTable(nome_exercicios)
+	})
 
 
-						function renderNames(names){
-							const container = document.getElementById('exercicios');
-							container.innerHtml = '';
-							for (const name of names) {
-								const p = document.createElement('p');
-								const textNode = document.createTextNode(name);
-								p.appendChild(textNode);
-								container.appendChild(p);
-							}
-						}
+	function renderNames(names){
+		const container = document.getElementById('Exercicios');
+		container.innerHtml = '';
+		for (const name of names) {
+			const p = document.createElement('p');
+			const textNode = document.createTextNode(name);
+			p.appendChild(textNode);
+			container.appendChild(p);
+		}
+	}
 
-						function buildTable(data){
-							var table = document.getElementById('myTable');
+	function buildTable(data){
+		var table = document.getElementById('myTable');
 
 	  // Mostrar todos os dados e meter a primeira palavra em maisculo
 	  if(data.length > 0){

@@ -3,10 +3,10 @@ const bcrypt = require('bcrypt')
 
 module.exports = {
 
-	// Serviço para visualizar todos os utilizadores existentes
+	// Serviço para visualizar todos os Utilizadores existentes
 	buscarTodos: () => {
 		return new Promise((aceito, rejeitado)=>{
-			db.query('SELECT * FROM utilizadores', (error, results)=>{
+			db.query('SELECT * FROM Utilizadores', (error, results)=>{
 				if(error){rejeitado(error); return;}
 				aceito(results);
 			});
@@ -17,7 +17,7 @@ module.exports = {
 	// Serviço para visualizar somente um utilizador através do ID
 	buscarUm:(id) => {
 		return new Promise((aceito, rejeitado) => {
-			db.query('SELECT * FROM utilizadores WHERE id = ? ', [id], (error, results) => {
+			db.query('SELECT * FROM Utilizadores WHERE id = ? ', [id], (error, results) => {
 				if(error){rejeitado(error); return;}
 				if(results.length > 0){
 					aceito(results[0]);
@@ -31,7 +31,7 @@ module.exports = {
 	// Serviço para buscar somente um utilizador através do username
 	buscarUsername:(username) => {
 		return new Promise((aceito, rejeitado) => {
-			db.query('SELECT * FROM utilizadores WHERE username = ?', [username], (error, results) => {
+			db.query('SELECT * FROM Utilizadores WHERE username = ?', [username], (error, results) => {
 				if(error){rejeitado(error); return;}
 				if(results.length > 0){
 					aceito(results[0]);
@@ -44,7 +44,7 @@ module.exports = {
 
 	buscarEmail:(email) => {
 		return new Promise((aceito, rejeitado) => {
-			db.query('SELECT * FROM utilizadores WHERE email = ?', [email], (error, results) => {
+			db.query('SELECT * FROM Utilizadores WHERE email = ?', [email], (error, results) => {
 				if(error){rejeitado(error); return;}
 				if(results.length > 0){
 					aceito(results[0]);
@@ -58,7 +58,7 @@ module.exports = {
 	// Serviço para buscar as informações através do username
 	login:(username) => {
 		return new Promise((aceito, rejeitado) => {
-			db.query('SELECT * FROM utilizadores WHERE username = ?', [username], (error, results) => {
+			db.query('SELECT * FROM Utilizadores WHERE username = ?', [username], (error, results) => {
 				if(error){rejeitado(error); return;}
 				if(results.length > 0){
 					aceito(results[0]);
@@ -72,7 +72,7 @@ module.exports = {
 	// Serviço para inserir e criar o utilizador
     criar: (username, primeiro_nome, ultimo_nome, email, num_telemovel, password)=> {
 		return new Promise( (aceito, rejeitado) => {
-			db.query('INSERT INTO utilizadores (username, primeiro_nome, ultimo_nome, email, num_telemovel, password) VALUES(?,?,?,?,?,?);',
+			db.query('INSERT INTO Utilizadores (username, primeiro_nome, ultimo_nome, email, num_telemovel, password) VALUES(?,?,?,?,?,?);',
 				[
 				username, primeiro_nome, ultimo_nome, email, num_telemovel, password
 				],
@@ -87,7 +87,7 @@ module.exports = {
 	// Serviço para alterar dados do utilizador através do ID
 	alterar: (id, primeiro_nome, ultimo_nome, email, num_telemovel, descricao)=> {
 		return new Promise( (aceito, rejeitado) => {
-			db.query('UPDATE utilizadores SET primeiro_nome = ?, ultimo_nome = ?, email = ?, num_telemovel = ?, descricao = ? WHERE id = ?',
+			db.query('UPDATE Utilizadores SET primeiro_nome = ?, ultimo_nome = ?, email = ?, num_telemovel = ?, descricao = ? WHERE id = ?',
 				[primeiro_nome, ultimo_nome, email, num_telemovel, descricao, id],
 				(error, results)=>{
 					if(error){ rejeitado(error); return; }

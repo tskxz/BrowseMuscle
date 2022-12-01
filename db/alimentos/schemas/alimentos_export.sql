@@ -23,10 +23,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `alimentos`
+-- Table structure for table `Alimentos`
 --
 
-CREATE TABLE `alimentos` (
+CREATE TABLE `Alimentos` (
   `id` int(11) NOT NULL,
   `nome` varchar(100) NOT NULL,
   `proteina` double NOT NULL,
@@ -36,10 +36,10 @@ CREATE TABLE `alimentos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `alimentos`
+-- Dumping data for table `Alimentos`
 --
 
-INSERT INTO `alimentos` (`id`, `nome`, `proteina`, `carbs`, `gordura`, `calorias`) VALUES
+INSERT INTO `Alimentos` (`id`, `nome`, `proteina`, `carbs`, `gordura`, `calorias`) VALUES
 (3, 'Continente - Pudim Proteico sabor a morango', 11.1, 7, 1.6, 82),
 (6, 'Iogurte Grego', 17.3, 6.1, 3, 100);
 
@@ -48,9 +48,9 @@ INSERT INTO `alimentos` (`id`, `nome`, `proteina`, `carbs`, `gordura`, `calorias
 --
 
 --
--- Indexes for table `alimentos`
+-- Indexes for table `Alimentos`
 --
-ALTER TABLE `alimentos`
+ALTER TABLE `Alimentos`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -58,9 +58,9 @@ ALTER TABLE `alimentos`
 --
 
 --
--- AUTO_INCREMENT for table `alimentos`
+-- AUTO_INCREMENT for table `Alimentos`
 --
-ALTER TABLE `alimentos`
+ALTER TABLE `Alimentos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -3,23 +3,23 @@ const bcrypt = require('bcrypt')
 
 module.exports = {
 
-	// Função para mostrar todos os dados que estão dentro da tabela utilizadores
+	// Função para mostrar todos os dados que estão dentro da tabela Utilizadores
 	buscarTodos: async (req, res) => {
 		let json = { error: '', result: [] };
 
 		// Chama o serviço buscarTodos para mostrar todos os dados dentro da tabela
-		let utilizadores = await UtilizadorService.buscarTodos();
+		let Utilizadores = await UtilizadorService.buscarTodos();
 
 		// Para cada linha, acrescenta-se no json
-		for (let i in utilizadores) {
+		for (let i in Utilizadores) {
 			json.result.push({
-				id: utilizadores[i].id,
-				username: utilizadores[i].username,
-				primeiro_nome: utilizadores[i].primeiro_nome,
-				ultimo_nome: utilizadores[i].ultimo_nome,
-				email: utilizadores[i].email,
-				num_telemovel: utilizadores[i].num_telemovel,
-				password: utilizadores[i].password
+				id: Utilizadores[i].id,
+				username: Utilizadores[i].username,
+				primeiro_nome: Utilizadores[i].primeiro_nome,
+				ultimo_nome: Utilizadores[i].ultimo_nome,
+				email: Utilizadores[i].email,
+				num_telemovel: Utilizadores[i].num_telemovel,
+				password: Utilizadores[i].password
 			});
 		}
 
@@ -148,7 +148,7 @@ module.exports = {
 		console.log('Username: ' + username);
 		console.log('Password: ' + password);
 
-		// Chama o serviço login para selecionar o dado onde o username corresponde ao username que está na tabela utilizadores
+		// Chama o serviço login para selecionar o dado onde o username corresponde ao username que está na tabela Utilizadores
 		let utilizador = await UtilizadorService.login(username);
 
 		// Se o username coincidir e existir com o que está na tabela
@@ -159,7 +159,7 @@ module.exports = {
 			} else {
 				json.result = 'Password errada!' // Errado
 			}
-			// Se o username não existir na tabela utilizadores
+			// Se o username não existir na tabela Utilizadores
 		} else {
 			json.error = 'Utilizador não encontrado!'; // Não existe
 		}

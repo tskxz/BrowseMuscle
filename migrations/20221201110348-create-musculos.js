@@ -21,19 +21,19 @@ module.exports = {
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATEONLY,
-        defaultValue: Sequelize.NOW
+        type: 'TIMESTAMP',
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATEONLY,
-        defaultValue: Sequelize.NOW
+        type: 'TIMESTAMP',
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
       }
     }).then(function(){
       queryInterface.sequelize.query("insert into Musculos (nome, createdAt, updatedAt) values ('Peito', now(), now())")
       queryInterface.sequelize.query("insert into Musculos (nome, createdAt, updatedAt) values ('Ombro', now(), now())")
       queryInterface.sequelize.query("insert into Musculos (nome, createdAt, updatedAt) values ('Tricep', now(), now())")
-      queryInterface.sequelize.query("insert into Musculos (nome, createdAt, updatedAt) values ('Costa', now(), now())")
+      queryInterface.sequelize.query("insert into Musculos (nome, createdAt, updatedAt) values ('Costas', now(), now())")
       queryInterface.sequelize.query("insert into Musculos (nome, createdAt, updatedAt) values ('Dorsal', now(), now())")
       queryInterface.sequelize.query("insert into Musculos (nome, createdAt, updatedAt) values ('Trapezio', now(), now())")
       queryInterface.sequelize.query("insert into Musculos (nome, createdAt, updatedAt) values ('Quadricep', now(), now())")

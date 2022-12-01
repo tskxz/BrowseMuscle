@@ -5,7 +5,7 @@
 
 	function buildPost() {
 		var form = document.getElementById('myForm');
-		fetch('/api/musculos/')
+		fetch('/api/Musculos/')
 		.then(res => res.json())
 		.then(data => {
 			const nome_musculos = data.result
@@ -27,7 +27,7 @@
 
 		}
 
-		fetch('/api/dificuldades/')
+		fetch('/api/Dificuldades/')
 		.then(res => res.json())
 		.then(data => {
 			const nome_dificuldades = data.result
@@ -48,7 +48,7 @@
 
 		}
 
-		fetch('/api/equipamentos/')
+		fetch('/api/Equipamentos/')
 		.then(res => res.json())
 		.then(data => {
 			const nome_equipamentos = data.result
@@ -188,6 +188,6 @@ buildPost();
 		}).catch(function (error) {
 			console.log(error);
 		})
-		window.location.href = "/admin/exercicios";
+		window.location.href = "/admin/Exercicios";
 	})
 </script>

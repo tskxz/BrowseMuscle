@@ -1,6 +1,6 @@
 
 <script>
-	fetch('/api/exercicios_equipamento/1')
+	fetch('/api/exercicios_equipamento/3')
 	.then(res => res.json())
 	.then(data => {
 		const nome_exercicios = data.result
@@ -8,9 +8,8 @@
 		buildTable(nome_exercicios)
 	})
 
-
 	function renderNames(names){
-		const container = document.getElementById('exercicios');
+		const container = document.getElementById('Exercicios');
 		container.innerHtml = '';
 		for (const name of names) {
 			const p = document.createElement('p');

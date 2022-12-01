@@ -9,19 +9,19 @@ module.exports = {
 	buscarTodos: async (req, res) => {
 		let json = {error: '', result:[]};
 
-		let exercicios = await ExercicioService.buscarTodos(); // Chama o serviço do ExercicioService para mostrar todos os exercícios que existem na tabela exercícios
+		let Exercicios = await ExercicioService.buscarTodos(); // Chama o serviço do ExercicioService para mostrar todos os exercícios que existem na tabela exercícios
 
 		// Para cada exercício, vai adicionar para o json
-		for(let i in exercicios){
+		for(let i in Exercicios){
 			json.result.push({
-				id: exercicios[i].id,
-				exercicio: exercicios[i].exercicio,
-				equipamento: exercicios[i].equipamento,
-				equipamento_id: exercicios[i].equipamento_id,
-				dificuldade: exercicios[i].dificuldade,
-				dificuldade_id: exercicios[i].dificuldade_id,
-				musculo: exercicios[i].musculo,
-				musculo_id: exercicios[i].musculo_id
+				id: Exercicios[i].id,
+				exercicio: Exercicios[i].exercicio,
+				equipamento: Exercicios[i].equipamento,
+				equipamento_id: Exercicios[i].equipamento_id,
+				dificuldade: Exercicios[i].dificuldade,
+				dificuldade_id: Exercicios[i].dificuldade_id,
+				musculo: Exercicios[i].musculo,
+				musculo_id: Exercicios[i].musculo_id
 			});
 		}
 
@@ -53,19 +53,19 @@ module.exports = {
 		let json = {error: '', result:[]};
 
 		// Chama o serviço para mostrar todos os exercícios existentes dentro da tabela
-		let exercicios = await ExercicioService.buscarTodos();
+		let Exercicios = await ExercicioService.buscarTodos();
 
 		// Para cada exercício, vai enviar para o json
-		for(let i in exercicios){
+		for(let i in Exercicios){
 			json.result.push({
-				id: exercicios[i].id,
-				exercicio: exercicios[i].exercicio,
-				equipamento: exercicios[i].equipamento,
-				equipamento_id: exercicios[i].equipamento_id,
-				dificuldade: exercicios[i].dificuldade,
-				dificuldade_id: exercicios[i].dificuldade_id,
-				musculo: exercicios[i].musculo,
-				musculo_id: exercicios[i].musculo_id
+				id: Exercicios[i].id,
+				exercicio: Exercicios[i].exercicio,
+				equipamento: Exercicios[i].equipamento,
+				equipamento_id: Exercicios[i].equipamento_id,
+				dificuldade: Exercicios[i].dificuldade,
+				dificuldade_id: Exercicios[i].dificuldade_id,
+				musculo: Exercicios[i].musculo,
+				musculo_id: Exercicios[i].musculo_id
 			});
 		}
 
@@ -73,7 +73,7 @@ module.exports = {
 		rows = json.result;
 
 		// Enviar rows e mostrar os exercícios dentro da tabela
-		res.render('tabelas/exercicios', {layout: 'tabela_exercicios', rows, user: req.user,})
+		res.render('tabelas/Exercicios', {layout: 'tabela_exercicios', rows, user: req.user,})
 	},
 
 	// Página - Função para mostrar todos os exercícios
@@ -81,25 +81,25 @@ module.exports = {
 		let json = {error: '', result:[]};
 
 		// Chama o serviço para mostrar todos os exercícios existentes dentro da tabela
-		let exercicios = await ExercicioService.buscarTodos();
+		let Exercicios = await ExercicioService.buscarTodos();
 
-		for(let i in exercicios){
+		for(let i in Exercicios){
 			json.result.push({
-				id: exercicios[i].id,
-				exercicio: exercicios[i].exercicio,
-				equipamento: exercicios[i].equipamento,
-				equipamento_id: exercicios[i].equipamento_id,
-				dificuldade: exercicios[i].dificuldade,
-				dificuldade_id: exercicios[i].dificuldade_id,
-				musculo: exercicios[i].musculo,
-				musculo_id: exercicios[i].musculo_id
+				id: Exercicios[i].id,
+				exercicio: Exercicios[i].exercicio,
+				equipamento: Exercicios[i].equipamento,
+				equipamento_id: Exercicios[i].equipamento_id,
+				dificuldade: Exercicios[i].dificuldade,
+				dificuldade_id: Exercicios[i].dificuldade_id,
+				musculo: Exercicios[i].musculo,
+				musculo_id: Exercicios[i].musculo_id
 			});
 		}
 
 		rows = json.result;
 
 		// Enviar rows e mostrar os exercícios dentro da tabela porém num layout diferente para Admin que vai ser acrescentado novas colunas (editar e apagar)
-		res.render('admin/exercicios/exercicios', {layout: 'tabela_exercicios_crud', rows,  user: req.user})
+		res.render('admin/Exercicios/Exercicios', {layout: 'tabela_exercicios_crud', rows,  user: req.user})
 	},
 
 
@@ -224,20 +224,20 @@ module.exports = {
 		let musculo_id = req.body.musculo_id;
 
 
-		// Chama os serviços para visualizar os equipamentos, dificuldades e musculos
-		let equipamentos = await EquipamentosService.visualizarTodos();
-		let dificuldades = await DificuldadeService.visualizarTodos();
-		let musculos = await MusculoService.visualizarTodos();
+		// Chama os serviços para visualizar os Equipamentos, Dificuldades e Musculos
+		let Equipamentos = await EquipamentosService.visualizarTodos();
+		let Dificuldades = await DificuldadeService.visualizarTodos();
+		let Musculos = await MusculoService.visualizarTodos();
 		
 		// Armazena os resultados dos serviços
-		rows_eq = equipamentos
-		rows_df = dificuldades
-		rows_musculos = musculos;
+		rows_eq = Equipamentos
+		rows_df = Dificuldades
+		rows_musculos = Musculos;
 		
 		// Se os valores foi nos enviado através do body
 		
-		// Mostrar os equipamentos, dificuldades e músculos para fazer select
-		res.render('admin/exercicios/adicionar_exercicios', {rows_eq, rows_df, rows_musculos, user: req.user});
+		// Mostrar os Equipamentos, Dificuldades e músculos para fazer select
+		res.render('admin/Exercicios/adicionar_exercicios', {rows_eq, rows_df, rows_musculos, user: req.user});
 	},
 
 	// Página - Função para adicionar um exercício
@@ -251,15 +251,15 @@ module.exports = {
 		let musculo_id = req.body.musculo_id;
 
 
-		// Chama os serviços para visualizar os equipamentos, dificuldades e musculos
-		let equipamentos = await EquipamentosService.visualizarTodos();
-		let dificuldades = await DificuldadeService.visualizarTodos();
-		let musculos = await MusculoService.visualizarTodos();
+		// Chama os serviços para visualizar os Equipamentos, Dificuldades e Musculos
+		let Equipamentos = await EquipamentosService.visualizarTodos();
+		let Dificuldades = await DificuldadeService.visualizarTodos();
+		let Musculos = await MusculoService.visualizarTodos();
 		
 		// Armazena os resultados dos serviços
-		rows_eq = equipamentos
-		rows_df = dificuldades
-		rows_musculos = musculos;
+		rows_eq = Equipamentos
+		rows_df = Dificuldades
+		rows_musculos = Musculos;
 		
 		// Se os valores foi nos enviado através do body
 		if(nome && equipamento_id && dificuldade_id && musculo_id){
@@ -273,8 +273,8 @@ module.exports = {
 				musculo_id
 			};
 			
-			// Mostrar os resultados dos serviços de visualizar equipamentos, dificuldades e músculos para fazer dropdown da seleção options e mandar um alert após ser inserido um exercício
-			res.render('admin/exercicios/adicionar_exercicios', {rows_eq, rows_df, rows_musculos, user: req.user, alert: `${nome} Adicionado com sucesso`});
+			// Mostrar os resultados dos serviços de visualizar Equipamentos, Dificuldades e músculos para fazer dropdown da seleção options e mandar um alert após ser inserido um exercício
+			res.render('admin/Exercicios/adicionar_exercicios', {rows_eq, rows_df, rows_musculos, user: req.user, alert: `${nome} Adicionado com sucesso`});
 
 		} else {
 			json.error = 'Error!';
@@ -327,15 +327,15 @@ module.exports = {
 		let exercicio_id = await ExercicioService.buscarUm(id);
 		
 		if(exercicio_id){
-			// Chama os serviços para visualizar equipamentos, dificuldades e músculo para fazer dropdown do select option
-			let equipamentos = await EquipamentosService.visualizarTodos();
-			let dificuldades = await DificuldadeService.visualizarTodos();
-			let musculos = await MusculoService.visualizarTodos();
+			// Chama os serviços para visualizar Equipamentos, Dificuldades e músculo para fazer dropdown do select option
+			let Equipamentos = await EquipamentosService.visualizarTodos();
+			let Dificuldades = await DificuldadeService.visualizarTodos();
+			let Musculos = await MusculoService.visualizarTodos();
 			
 			// Armazena os resultados dos serviços
-			rows_eq = equipamentos
-			rows_df = dificuldades
-			rows_musculos = musculos;
+			rows_eq = Equipamentos
+			rows_df = Dificuldades
+			rows_musculos = Musculos;
 
 			json.result = exercicio_id;
 			
@@ -347,7 +347,7 @@ module.exports = {
 		
 
 		// Mandar para a página os resultados dos serviços para estar pré-definido nos inputs
-		res.render('admin/exercicios/editar_exercicios', {rows, rows_eq, rows_df, rows_musculos, user: req.user})
+		res.render('admin/Exercicios/editar_exercicios', {rows, rows_eq, rows_df, rows_musculos, user: req.user})
 	},
 
 	// Página - Função para atualizar os dados
@@ -380,7 +380,7 @@ module.exports = {
 		}
 
 		// Após atualizar, mostra o alert a dizer que foi alterado com sucesso
-		res.render('admin/exercicios/editar_exercicios', {rows, rows_eq, rows_df, rows_musculos, user: req.user, alert: `${nome} com id ${id} alterado com sucesso`})
+		res.render('admin/Exercicios/editar_exercicios', {rows, rows_eq, rows_df, rows_musculos, user: req.user, alert: `${nome} com id ${id} alterado com sucesso`})
 
 	},
 
