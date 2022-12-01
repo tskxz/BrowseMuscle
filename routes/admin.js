@@ -16,8 +16,8 @@ admin.get('/adicionar_exercicio', authUser, authRole(2), ExercicioController.adi
 admin.post('/adicionar_exercicio', authUser, authRole(2), ExercicioController.adicionar)	// Adicionar exercício
 admin.get('/apagar_exercicio/:id', authUser, authRole(2), ExercicioController.eliminar)	// Apagar exercício
 
-// Rotas para administração de alimentos
-admin.get('/main_alimentos', authUser, authRole(2), AlimentoController.main)				// Visualizar tabela alimentos
+// Rotas para administração de Alimentos
+admin.get('/main_alimentos', authUser, authRole(2), AlimentoController.main)				// Visualizar tabela Alimentos
 admin.get('/adicionar_alimento', authUser, authRole(2), AlimentoController.adicionar)		// Página para adicionar alimento
 admin.post('/adicionar_alimento', authUser, authRole(2), AlimentoController.adicionar)		// Adicionar alimento
 admin.get('/apagar_alimento/:id', authUser, authRole(2), AlimentoController.eliminar)		// Apagar alimento

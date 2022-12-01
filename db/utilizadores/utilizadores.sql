@@ -23,10 +23,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `utilizadores`
+-- Table structure for table `Utilizadores`
 --
 
-CREATE TABLE `utilizadores` (
+CREATE TABLE `Utilizadores` (
   `id` int(11) NOT NULL,
   `username` varchar(25) NOT NULL,
   `primeiro_nome` varchar(25) NOT NULL,
@@ -37,10 +37,10 @@ CREATE TABLE `utilizadores` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `utilizadores`
+-- Dumping data for table `Utilizadores`
 --
 
-INSERT INTO `utilizadores` (`id`, `username`, `primeiro_nome`, `ultimo_nome`, `email`, `num_telemovel`, `password`) VALUES
+INSERT INTO `Utilizadores` (`id`, `username`, `primeiro_nome`, `ultimo_nome`, `email`, `num_telemovel`, `password`) VALUES
 (1, 'tsk', 'Tanjil', 'Khan', 'tanjlkh@gmail.com', '+351914721543', '$2b$10$mkweRrVdhpX.zAApdPYhju09ljCBjIQHXf2FBcqwpw3v6NBtva48K'),
 (2, 'guedes', 'Joao', 'Guedes', 'joaoguedes@gmail.com', '+3519339102300', '$2b$10$F92lDO90lwDUUFaYtikQZuQFSBWs.LwdcTTEU0up.3PTtUgstaD9a');
 
@@ -49,9 +49,9 @@ INSERT INTO `utilizadores` (`id`, `username`, `primeiro_nome`, `ultimo_nome`, `e
 --
 
 --
--- Indexes for table `utilizadores`
+-- Indexes for table `Utilizadores`
 --
-ALTER TABLE `utilizadores`
+ALTER TABLE `Utilizadores`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -59,9 +59,9 @@ ALTER TABLE `utilizadores`
 --
 
 --
--- AUTO_INCREMENT for table `utilizadores`
+-- AUTO_INCREMENT for table `Utilizadores`
 --
-ALTER TABLE `utilizadores`
+ALTER TABLE `Utilizadores`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

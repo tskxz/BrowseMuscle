@@ -1,4 +1,4 @@
-CREATE TABLE alimentos (
+CREATE TABLE Alimentos (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
     proteina int(6) NOT NULL,

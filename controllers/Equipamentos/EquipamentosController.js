@@ -2,7 +2,7 @@ const EquipamentosService = require('../../services/Equipamentos/EquipamentosSer
 
 module.exports = {
 
-	// Função visualizar todos os dados dentro da tabela equipamentos
+	// Função visualizar todos os dados dentro da tabela Equipamentos
 	visualizarTodos: async(req, res) => {
 		let json = {error: '', result:[]};
 

@@ -1,4 +1,4 @@
-Tabela dos alimentos
+Tabela dos Alimentos
 
 Cada alimento vai possuir os seguintes valores que são as macronutrientes e calorias:
 

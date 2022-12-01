@@ -1,1 +1,1 @@
-ALTER TABLE `utilizadores` ADD UNIQUE(`username`);
+ALTER TABLE `Utilizadores` ADD UNIQUE(`username`);

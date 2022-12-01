@@ -1,1 +1,1 @@
-ALTER TABLE `utilizadores` ADD `descricao` MEDIUMTEXT NULL DEFAULT NULL ;
+ALTER TABLE `Utilizadores` ADD `descricao` MEDIUMTEXT NULL DEFAULT NULL ;

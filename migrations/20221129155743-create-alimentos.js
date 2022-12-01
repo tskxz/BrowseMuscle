@@ -14,10 +14,10 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.DOUBLE
+        type: Sequelize.INTEGER
       },
       nome: {
-        type: Sequelize.DOUBLE
+        type: Sequelize.STRING
       },
       proteina: {
         type: Sequelize.DOUBLE
@@ -29,18 +29,25 @@ module.exports = {
         type: Sequelize.DOUBLE
       },
       calorias: {
-        type: Sequelize.DOUBLE
+        type: Sequelize.INTEGER
       },
       id_marca: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        foreignKey: true,
+        references: {
+          model: 'Marcas',
+          key: 'id'
+        }
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: 'TIMESTAMP',
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: 'TIMESTAMP',
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
       }
     });
   },
@@ -52,5 +59,6 @@ module.exports = {
      * Example:
      * await queryInterface.dropTable('users');
      */
+     await queryInterface.dropTable('Alimentos');
   }
 };

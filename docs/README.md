@@ -15,7 +15,7 @@ As pessoas vão obter conhecimento mais amplo sobre exercícios físicos.
 
 Para quem está a começar a ir para o ginásio e não tem muito conhecimento nem experiência sobre treino e é completamente iniciante, este projeto é útil para conhecer vários exercícios e executa-los de forma correta.
 
-As pessoas mesmo que tenham experiência mas têm dificuldades de realizar ou quer conhecer novos exercícios, este projeto pode ser muito útil para o indivíduo que queira conhecer e aprender.
+As pessoas mesmo que tenham experiência mas têm Dificuldades de realizar ou quer conhecer novos exercícios, este projeto pode ser muito útil para o indivíduo que queira conhecer e aprender.
 
 ## 🗃️ - Tabelas
 No BrowseMuscle, o utilizador tem a possibilidade de visualizar a tabela exercícios.
@@ -27,7 +27,7 @@ Os exercícios tem as seguintes colunas
  - Músculo
 
 Cada exercício tem o seu tipo de equipamento, dificuldade e o músculo que esse exercício atinge.
-Os tipos de equipamentos são os seguintes
+Os tipos de Equipamentos são os seguintes
 
  - Peso Corporal (bodyweight)
  - Barra
@@ -88,8 +88,8 @@ Exemplo
 | Agachamento Livre | Barra | Avançado | Peito
 | Overhead Press | Barra | Avançado | Ombros
 
-A tabela alimentos também está presente neste projeto para que qualquer utilizador possa pesquisar e ver as macronutrientes de algum alimento.
-Os alimentos têm os seguintes campos
+A tabela Alimentos também está presente neste projeto para que qualquer utilizador possa pesquisar e ver as macronutrientes de algum alimento.
+Os Alimentos têm os seguintes campos
 
  - Proteína
  - Carbs

@@ -3,7 +3,7 @@ Um utilizador normal não deve ter permissões para entrar na parte do CRUD das 
 
 Apenas o administrador pode visualizar a rota /admin.
 
-Existem dois tipos de utilizadores, administrador e utilizador comum.
+Existem dois tipos de Utilizadores, administrador e utilizador comum.
 
 Para criar conta utilizador, o utilizador vai preencher os seguintes campos:
 
