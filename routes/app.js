@@ -36,7 +36,8 @@ app.get('/meu_perfil', checkAuthenticated, function(req, res) {
 		email: req.user.email,
 		descricao: req.user.descricao,
 		id_cargo: req.user.id_cargo,
-		treinos_concluidos: req.user.treinos_concluidos
+		treinos_concluidos: req.user.treinos_concluidos,
+		createdAt: req.user.createdAt
 	})
 })
 
