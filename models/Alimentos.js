@@ -8,33 +8,37 @@ module.exports = function(sequelize, DataTypes) {
       primaryKey: true
     },
     nome: {
-      type: DataTypes.STRING(100),
-      allowNull: false
+      type: DataTypes.STRING(255),
+      allowNull: true
     },
     proteina: {
       type: DataTypes.DOUBLE,
-      allowNull: false
+      allowNull: true
     },
     carbs: {
       type: DataTypes.DOUBLE,
-      allowNull: false
+      allowNull: true
     },
     gordura: {
       type: DataTypes.DOUBLE,
-      allowNull: false
+      allowNull: true
     },
     calorias: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: true
     },
     id_marca: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
+      references: {
+        model: 'Marcas',
+        key: 'id'
+      }
     }
   }, {
     sequelize,
     tableName: 'Alimentos',
-    timestamps: false,
+    timestamps: true,
     indexes: [
       {
         name: "PRIMARY",
@@ -42,6 +46,13 @@ module.exports = function(sequelize, DataTypes) {
         using: "BTREE",
         fields: [
           { name: "id" },
+        ]
+      },
+      {
+        name: "id_marca",
+        using: "BTREE",
+        fields: [
+          { name: "id_marca" },
         ]
       },
     ]
