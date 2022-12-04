@@ -9,8 +9,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     username: {
       type: DataTypes.STRING(25),
-      allowNull: false,
-      unique: "username"
+      allowNull: false
     },
     primeiro_nome: {
       type: DataTypes.STRING(25),
@@ -37,7 +36,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       defaultValue: 1,
       references: {
-        model: 'cargos',
+        model: 'Cargos',
         key: 'id'
       }
     },
@@ -53,7 +52,7 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     sequelize,
     tableName: 'Utilizadores',
-    timestamps: false,
+    timestamps: true,
     indexes: [
       {
         name: "PRIMARY",
@@ -61,14 +60,6 @@ module.exports = function(sequelize, DataTypes) {
         using: "BTREE",
         fields: [
           { name: "id" },
-        ]
-      },
-      {
-        name: "username",
-        unique: true,
-        using: "BTREE",
-        fields: [
-          { name: "username" },
         ]
       },
       {

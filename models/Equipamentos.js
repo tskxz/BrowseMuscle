@@ -8,13 +8,13 @@ module.exports = function(sequelize, DataTypes) {
       primaryKey: true
     },
     nome: {
-      type: DataTypes.STRING(100),
-      allowNull: false
+      type: DataTypes.STRING(255),
+      allowNull: true
     }
   }, {
     sequelize,
     tableName: 'Equipamentos',
-    timestamps: false,
+    timestamps: true,
     indexes: [
       {
         name: "PRIMARY",

@@ -8,12 +8,12 @@ module.exports = function(sequelize, DataTypes) {
       primaryKey: true
     },
     nome: {
-      type: DataTypes.STRING(100),
-      allowNull: false
+      type: DataTypes.STRING(255),
+      allowNull: true
     },
     equipamento_id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
       references: {
         model: 'Equipamentos',
         key: 'id'
@@ -21,7 +21,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     dificuldade_id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
       references: {
         model: 'Dificuldades',
         key: 'id'
@@ -29,7 +29,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     musculo_id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
       references: {
         model: 'Musculos',
         key: 'id'
@@ -38,7 +38,7 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     sequelize,
     tableName: 'Exercicios',
-    timestamps: false,
+    timestamps: true,
     indexes: [
       {
         name: "PRIMARY",
@@ -46,13 +46,6 @@ module.exports = function(sequelize, DataTypes) {
         using: "BTREE",
         fields: [
           { name: "id" },
-        ]
-      },
-      {
-        name: "musculo_id",
-        using: "BTREE",
-        fields: [
-          { name: "musculo_id" },
         ]
       },
       {
@@ -67,6 +60,13 @@ module.exports = function(sequelize, DataTypes) {
         using: "BTREE",
         fields: [
           { name: "dificuldade_id" },
+        ]
+      },
+      {
+        name: "musculo_id",
+        using: "BTREE",
+        fields: [
+          { name: "musculo_id" },
         ]
       },
     ]
