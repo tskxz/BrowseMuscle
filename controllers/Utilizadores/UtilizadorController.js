@@ -74,6 +74,35 @@ module.exports = {
 		res.json(json);
 	},
 
+	// Página para gerir os utilizadores
+	main: async(req,res) => {
+		let json = { error: '', result: [] };
+
+		// Chama o serviço buscarTodos para mostrar todos os dados dentro da tabela
+		let Utilizadores = await UtilizadorService.buscarTodos();
+
+		// Para cada linha, acrescenta-se no json
+		for (let i in Utilizadores) {
+			json.result.push({
+				id: Utilizadores[i].id,
+				username: Utilizadores[i].username,
+				primeiro_nome: Utilizadores[i].primeiro_nome,
+				ultimo_nome: Utilizadores[i].ultimo_nome,
+				email: Utilizadores[i].email,
+				num_telemovel: Utilizadores[i].num_telemovel,
+				password: Utilizadores[i].password,
+				createdAt: Utilizadores[i].createdAt
+			});
+		}
+
+		utilizadores = json.result;
+		console.log(utilizadores)
+
+		// Manda a resposta em json
+		res.render('admin/Utilizadores/Utilizadores.hbs', {layout:'tabela_utilizadores_crud', utilizadores, user: req.user});
+
+	},
+
 	perfil: async (req, res) => {
 		let username = req.params.username;
 		let utilizador = await UtilizadorService.buscarUsername(username);
