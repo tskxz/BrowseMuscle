@@ -310,5 +310,16 @@ module.exports = {
 		}
 	},
 
+	// Função apagar
+	apagar: async(req, res) => {
+		let json = {error:'', result:[]};
+		// Chama o serviço apagar para apagar o dado através do id
+		let apagado = await UtilizadorService.apagar(req.params.id);
+		if(apagado){
+			res.redirect('/admin/main_utilizadores/')
+		}
+		// Manda a resposta do servidor em JSON
+	}
+
 
 }
