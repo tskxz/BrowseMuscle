@@ -6,7 +6,8 @@ const path = require('path');
 
 // Controllers
 const AlimentoController = require('../controllers/Alimentos/AlimentoController');
-const ExercicioController = require('../controllers/ExercicioController')
+const ExercicioController = require('../controllers/ExercicioController');
+const UtilizadorController = require('../controllers/Utilizadores/UtilizadorController');
 
 // Rotas para administração de exercícios
 admin.get('/main_exercicios', authUser, authRole(2), ExercicioController.main) 			// Visualizar tabela exercícios
@@ -24,6 +25,12 @@ admin.get('/apagar_alimento/:id', authUser, authRole(2), AlimentoController.elim
 admin.get('/editar_alimento/:id', authUser, authRole(2), AlimentoController.atualizar)		// Página para editar alimento
 admin.post('/editar_alimento/:id', authUser, authRole(2), AlimentoController.atualizar)	// Atualizar o alimento
 
+
+// Rotas para administração de Utilizadores
+admin.get('/main_utilizadores', authUser, authRole(2), UtilizadorController.main)                                       // Visualizar os utilizadores
+admin.get('/editar_utilizador/:id', authUser, authRole(2), UtilizadorController.editar_utilizador)                      // Editar os utilizadores
+admin.post('/editar_utilizador_post/:id', authUser, authRole(2), UtilizadorController.editar_utilizador_post)           // Editar os utilizadores
+admin.get('/apagar_utilizador/:id', authUser, authRole(2), UtilizadorController.apagar)	                            // Apagar utilizador
 // Rota para administração
 admin.get('/dashboard', authUser, authRole(2), function(req, res){
 	res.render('admin/dashboard', {user: req.user})

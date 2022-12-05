@@ -74,6 +74,80 @@ module.exports = {
 		res.json(json);
 	},
 
+	// Página para gerir os utilizadores
+	main: async(req,res) => {
+		let json = { error: '', result: [] };
+
+		// Chama o serviço buscarTodos para mostrar todos os dados dentro da tabela
+		let Utilizadores = await UtilizadorService.buscarTodos();
+
+		// Para cada linha, acrescenta-se no json
+		for (let i in Utilizadores) {
+			json.result.push({
+				id: Utilizadores[i].id,
+				username: Utilizadores[i].username,
+				primeiro_nome: Utilizadores[i].primeiro_nome,
+				ultimo_nome: Utilizadores[i].ultimo_nome,
+				email: Utilizadores[i].email,
+				num_telemovel: Utilizadores[i].num_telemovel,
+				password: Utilizadores[i].password,
+				createdAt: Utilizadores[i].createdAt
+			});
+		}
+
+		utilizadores = json.result;
+		console.log(utilizadores)
+
+		// Manda a resposta em json
+		res.render('admin/Utilizadores/Utilizadores.hbs', {layout:'tabela_utilizadores_crud', utilizadores, user: req.user});
+
+	},
+
+	// Página para editar as informações do utilizador
+	editar_utilizador: async (req, res) => {
+
+		// Chama o serviço para pegar o dado através do parametro ID
+		let id = req.params.id;
+		let utilizador = await UtilizadorService.buscarUm(id);
+		// console.log(utilizador)	// Imprime as informações do utilizador
+		if (utilizador) {
+			res.render('admin/Utilizadores/editar_utilizador.hbs', {
+				id: id,
+				username: utilizador.username,
+				primeiro_nome: utilizador.primeiro_nome,
+				ultimo_nome: utilizador.ultimo_nome,
+				email: utilizador.email,
+				num_telemovel: utilizador.num_telemovel,
+				descricao: utilizador.descricao,
+				treinos_concluidos: utilizador.treinos_concluidos,
+				
+			})
+			console.log(utilizador)
+		} else {
+			res.status(403);
+			res.send('Error')
+		}
+
+	},
+
+	editar_utilizador_post: async (req, res) => {
+
+		let id = req.params.id;
+		let primeiro_nome = req.body.primeiro_nome;
+		let ultimo_nome = req.body.ultimo_nome;
+		let email = req.body.email;
+		let num_telemovel = req.body.num_telemovel;
+		let descricao = req.body.descricao;
+
+
+		let utilizador = await UtilizadorService.alterar(id, primeiro_nome, ultimo_nome, email, num_telemovel, descricao)
+		if (utilizador) {
+			console.log(utilizador)
+			res.redirect('/admin/main_utilizadores')
+		}
+
+	},
+
 	perfil: async (req, res) => {
 		let username = req.params.username;
 		let utilizador = await UtilizadorService.buscarUsername(username);
@@ -235,6 +309,17 @@ module.exports = {
 			res.redirect('/auth/registar')
 		}
 	},
+
+	// Função apagar
+	apagar: async(req, res) => {
+		let json = {error:'', result:[]};
+		// Chama o serviço apagar para apagar o dado através do id
+		let apagado = await UtilizadorService.apagar(req.params.id);
+		if(apagado){
+			res.redirect('/admin/main_utilizadores/')
+		}
+		// Manda a resposta do servidor em JSON
+	}
 
 
 }
