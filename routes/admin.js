@@ -27,7 +27,9 @@ admin.post('/editar_alimento/:id', authUser, authRole(2), AlimentoController.atu
 
 
 // Rotas para administração de Utilizadores
-admin.get('/main_utilizadores', authUser, authRole(2), UtilizadorController.main)           // Visualizar os utilizadores
+admin.get('/main_utilizadores', authUser, authRole(2), UtilizadorController.main)                            // Visualizar os utilizadores
+admin.get('/editar_utilizador/:id', authUser, authRole(2), UtilizadorController.editar_utilizador)           // Editar os utilizadores
+admin.post('/editar_utilizador_post/:id', authUser, authRole(2), UtilizadorController.editar_utilizador_post)           // Editar os utilizadores
 
 // Rota para administração
 admin.get('/dashboard', authUser, authRole(2), function(req, res){
