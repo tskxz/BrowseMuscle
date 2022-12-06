@@ -50,6 +50,11 @@ app.post('/meu_perfil/editar', checkAuthenticated, UtilizadorController.atualiza
 // Rota para visualizar informações de um utilizador através do parametro url username
 app.get('/perfil/:username', checkAuthenticated, UtilizadorController.perfil)
 
+// teste
+app.get('/test', function(req,res) {
+	res.render('app/tests/index.hbs')
+})
+
 function checkAuthenticated(req, res, next){
     if(req.isAuthenticated()){
         return next()
