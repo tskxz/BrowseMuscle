@@ -71,7 +71,7 @@ function checkNotAuthenticated(req, res, next){
 }
 
 // Rota para página principal
-app.get('/', function(req, res){
+app.get('/escolher_musculo', function(req, res){
 	res.render('app/homepage', {
 		title: "Bem vindo ao BrowseMuscle! 🌎",
 		user: req.user,
@@ -194,7 +194,7 @@ app.get('/avancado', function(req, res){
 
 
 // Rota para a página principal
-app.get('/pagina_principal', function(req, res){
+app.get('/', function(req, res){
 	res.render('app/index', {layout: false, user: req.user})
 })
 

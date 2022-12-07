@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -16,12 +17,15 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="assets/css/page.css" rel="stylesheet" />
 </head>
+
 <body id="page-top">
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-light  fixed-top" id="mainNav">
         <div class="container">
-             <a class="navbar-brand" href="/"><img src="/assets/img/browsemuscle_dark.png" width="210px" height="100px"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand" href="/"><img src="/assets/img/browsemuscle_dark.png" width="210px"
+                    height="100px"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
                 <i class="fas fa-bars ms-1"></i>
             </button>
@@ -30,8 +34,17 @@
                     <li class="nav-item"><a class="nav-link text-dark" href="#services">Vantagens</a></li>
                     <li class="nav-item"><a class="nav-link text-dark" href="#about">Sobre nós</a></li>
                     <li class="nav-item"><a class="nav-link text-dark" href="#contact">Contacto</a></li>
-                    <li class="nav-item"><a class="nav-link text-dark" href="/">Página Principal</a></li>
+                    
+                    {{#unless user}}
                     <li class="nav-item"><a class="nav-link text-dark" href="/auth/login">Login</a></li>
+                    {{/unless}}
+
+                    {{#if user}}
+                    <li class="nav-item"><a class="nav-link text-dark" href="/meu_perfil"><img src="/assets/img/user.png" width="26px" height="26px" /> {{user.username}}</a></li>
+                    
+                        
+                        
+                    {{/if}}
                 </ul>
             </div>
         </div>
@@ -39,13 +52,13 @@
     <!-- Masthead-->
     <header class="masthead">
         <div class="container">
-            
+
             <div class="masthead-heading">BrowseMuscle</div>
             <div class="masthead-subheading">Exercícios</div>
             <div class="masthead-subheading">Alimentos</div>
             <div class="masthead-subheading">Evoluções</div>
             <div class="masthead-subheading">Ganhos de massa muscular</div>
-            
+
             <a class="btn btn-primary btn-xl text-uppercase" href="#services">Conta me mais!</a>
         </div>
     </header>
@@ -54,18 +67,20 @@
         <div class="container">
             <div class="text-center">
                 <h2 class="section-heading text-light text-uppercase">As tuas vantagens!</h2>
-                <h3 class="section-subheading text-muted">Conhece vários exercícios e aprende como executa-lo de forma correta!<br>Guarda os exercícios para visualizar futuramente para puderes planear os teus planos de treino!</h3>
-                
+                <h3 class="section-subheading text-muted">Conhece vários exercícios e aprende como executa-lo de forma
+                    correta!<br>Guarda os exercícios para visualizar futuramente para puderes planear os teus planos de
+                    treino!</h3>
+
             </div>
             <div class="row text-center">
                 <div class="col-md-4">
                     <span class="fa-stack fa-4x">
                         <i class="fas fa-circle fa-stack-2x text-primary"></i>
                         <i class="fa-solid fa-dumbbell fa-stack-1x fa-inverse"></i>
-                        <
-                    </span>
-                    <h4 class="text-light my-3">Exercícios</h4>
-                    <p class="text-muted">Visualize os exercícios relativamente com o equipamento que queira escolher para visualizar</p>
+                        < </span>
+                            <h4 class="text-light my-3">Exercícios</h4>
+                            <p class="text-light">Visualize os exercícios relativamente com o equipamento que queira
+                                escolher para visualizar</p>
                 </div>
                 <div class="col-md-4">
                     <span class="fa-stack fa-4x">
@@ -73,7 +88,8 @@
                         <i class="fas fa-plate-wheat fa-stack-1x fa-inverse"></i>
                     </span>
                     <h4 class="text-light my-3">Alimentos</h4>
-                    <p class="text-muted">Pesquisa e visualiza as informações de macronutrientes de qualquer alimento que deseja e que esteja presente na nossa base de dados</p>
+                    <p class="text-light">Pesquisa e visualiza as informações de macronutrientes de qualquer alimento
+                        que deseja e que esteja presente na nossa base de dados</p>
                 </div>
                 <div class="col-md-4">
                     <span class="fa-stack fa-4x">
@@ -81,7 +97,8 @@
                         <i class="fas fa-users fa-stack-1x fa-inverse"></i><i class="fa-solid "></i>
                     </span>
                     <h4 class="text-light my-3">Interação</h4>
-                    <p class="text-muted">Adicione os seus amigos e veja os perfis dos seus amigos para ver a evolução de cada um dos seus treinos</p>
+                    <p class="text-light">Adicione os seus amigos e veja os perfis dos seus amigos para ver a evolução
+                        de cada um dos seus treinos</p>
                 </div>
                 <div class="col-md-4">
                     <span class="fa-stack fa-4x">
@@ -89,29 +106,33 @@
                         <i class="fas fa-table-list fa-stack-1x fa-inverse"></i><i class="fa-solid "></i>
                     </span>
                     <h4 class="text-light my-3">Planos de treino</h4>
-                    <p class="text-muted">Crie o seu próprio plano de treino. Seleciona os exercícios que queira e escolha que carga e número de repetiç
-                    oes fazes e faça checklist durante o seu treino</p>
+                    <p class="text-light">Crie o seu próprio plano de treino. Seleciona os exercícios que queira e
+                        escolha que carga e número de repetiç
+                        oes fazes e faça checklist durante o seu treino</p>
                 </div>
                 <div class="col-md-4">
                     <span class="fa-stack fa-4x">
                         <i class="fas fa-circle fa-stack-2x text-primary"></i>
                         <i class="fas fa-chart-line fa-stack-1x fa-inverse"></i><i class="fa-solid "></i>
-                        
+
                     </span>
                     <h4 class="text-light my-3">Evolução</h4>
-                    <p class="text-muted">Ao anotares as cargas e números de repetições, vai gerar gráficos para visualizar as tuas evoluções desde o começo</p>
+                    <p class="text-light">Ao anotares as cargas e números de repetições, vai gerar gráficos para
+                        visualizar as tuas evoluções desde o começo</p>
                 </div>
 
                 <div class="col-md-4">
                     <span class="fa-stack fa-4x">
                         <i class="fas fa-circle fa-stack-2x text-primary"></i>
                         <i class="fas fa-screwdriver-wrench fa-stack-1x fa-inverse"></i><i class="fa-solid "></i>
-                        
+
                     </span>
                     <h4 class="text-light my-3">Ferramentas</h4>
-                    <p class="text-muted">Usa várias ferramentas para descobrir coisas necessárias. Como por exemplo, calcular a quantidade de macronutrientes e calorias que precisas de comer e calcular o peso para X reps</p>
+                    <p class="text-light">Usa várias ferramentas para descobrir coisas necessárias. Como por exemplo,
+                        calcular a quantidade de macronutrientes e calorias que precisas de comer e calcular o peso para
+                        X reps</p>
                 </div>
-                
+
             </div>
         </div>
     </section>
@@ -119,72 +140,84 @@
     <section class="page-section" id="about">
         <div class="container">
             <div class="text-center">
-                <h2 class="section-heading text-uppercase">About</h2>
-                <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                <h2 class="section-heading text-uppercase text-light">Sobre</h2>
+                <h3 class="section-subheading text-muted">Saiba mais sobre o BrowseMuscle</h3>
             </div>
             <ul class="timeline">
                 <li>
-                    <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/1.jpg" alt="..." /></div>
+                    <div class="timeline-image"><img class="rounded-circle img-fluid" src="/assets/img/humano_musculo.png"
+                            alt="..." /></div>
                     <div class="timeline-panel">
                         <div class="timeline-heading">
-                            <h4>2009-2011</h4>
-                            <h4 class="subheading">Our Humble Beginnings</h4>
+                            <h4 class="text-light">Exercícios</h4>
+                            <h4 class="subheading text-light">Escolhe por grupo muscular</h4>
                         </div>
-                        <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
+                        <div class="timeline-body">
+                            <p class="text-muted">Escolha o grupo muscular que deseja atingir. Uma vez no grupo muscular, use as opções de classificação e filtro para encontrar os melhores exercícios para o equipamento que você possui, sua experiência de treinamento e objetivos.</p>
+                        </div>
                     </div>
                 </li>
                 <li class="timeline-inverted">
-                    <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/2.jpg" alt="..." /></div>
+                    <div class="timeline-image"><img class="rounded-circle img-fluid" src="/assets/img/writing_plan.jpg"
+                            alt="..." /></div>
                     <div class="timeline-panel">
                         <div class="timeline-heading">
-                            <h4>March 2011</h4>
-                            <h4 class="subheading">An Agency is Born</h4>
+                            <h4 class="text-light">Planos de treino</h4>
+                            <h4 class="subheading text-light">Cria os planos de treino</h4>
                         </div>
-                        <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
+                        <div class="timeline-body">
+                            <p class="text-muted">Planeia os teus próprios planos de treino. Anota os teus objetivos de carga ou número de repetições num exercício. Visualiza os detalhes do teu plano de treino. Visualiza os teus progressos ao longo dos teus treinos</p>
+                        </div>
                     </div>
                 </li>
                 <li>
-                    <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/3.jpg" alt="..." /></div>
+                    <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/calculate_macro.webp"
+                            alt="..." /></div>
                     <div class="timeline-panel">
                         <div class="timeline-heading">
-                            <h4>December 2015</h4>
-                            <h4 class="subheading">Transition to Full Service</h4>
+                            <h4 class="text-light">Alimentos</h4>
+                            <h4 class="subheading text-light">Pesquisa o alimento</h4>
                         </div>
-                        <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
+                        <div class="timeline-body">
+                            <p class="text-muted">Pesquisa os alimentos que queiras visualizar e saiba a quantidade de macronutrientes. As proteínas são importantes para a construção e manutenção dos músculos, enquanto os carboidratos fornecem energia para o corpo e as gorduras são necessárias para o bom funcionamento do sistema nervoso e outras funções corporais. Além disso, saber as macros de um alimento também pode ajudar as pessoas a controlar sua ingestão calórica e atingir seus objetivos de perda de peso ou ganho muscular.</p>
+                        </div>
                     </div>
                 </li>
                 <li class="timeline-inverted">
-                    <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/4.jpg" alt="..." /></div>
+                    <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/calculate_tools.png"
+                            alt="..." /></div>
                     <div class="timeline-panel">
                         <div class="timeline-heading">
-                            <h4>July 2020</h4>
-                            <h4 class="subheading">Phase Two Expansion</h4>
+                            <h4 class="text-light">Ferramentas</h4>
+                            <h4 class="subheading text-light">Usa as ferramentas que irás precisar</h4>
                         </div>
-                        <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
+                        <div class="timeline-body">
+                            <p class="text-muted">Usa várias ferramentas. Como por exemplo, calcular a quantidade de macronutrientes e calorias que precisas de comer e calcular o peso para X reps.</p>
+                        </div>
                     </div>
                 </li>
                 <li class="timeline-inverted">
                     <div class="timeline-image">
                         <h4>
-                            Be Part
+                            Seja parte
                             <br />
-                            Of Our
-                            <br />
-                            Story!
+                            
+                            
+                            BrowseMuscle💪
                         </h4>
                     </div>
                 </li>
             </ul>
         </div>
     </section>
-    
-    
+
+
     <!-- Contact-->
     <section class="page-section" id="contact">
         <div class="container">
             <div class="text-center">
-                <h2 class="section-heading text-uppercase">Contact Us</h2>
-                <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                <h2 class="section-heading text-uppercase">Contacte-nos</h2>
+                <h3 class="section-subheading text-muted">Contacte-nos para tirar todas as tuas dúvidas possiveis.</h3>
             </div>
             <!-- * * * * * * * * * * * * * * *-->
             <!-- * * SB Forms Contact Form * *-->
@@ -198,26 +231,32 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <!-- Name input-->
-                            <input class="form-control" id="name" type="text" placeholder="Your Name *" data-sb-validations="required" />
+                            <input class="form-control" id="name" type="text" placeholder="O teu nome *"
+                                data-sb-validations="required" />
                             <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
                         </div>
                         <div class="form-group">
                             <!-- Email address input-->
-                            <input class="form-control" id="email" type="email" placeholder="Your Email *" data-sb-validations="required,email" />
+                            <input class="form-control" id="email" type="email" placeholder="O teu email *"
+                                data-sb-validations="required,email" />
                             <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
                             <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
                         </div>
                         <div class="form-group mb-md-0">
                             <!-- Phone number input-->
-                            <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" data-sb-validations="required" />
-                            <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
+                            <input class="form-control" id="phone" type="tel" placeholder="O teu telemóvel *"
+                                data-sb-validations="required" />
+                            <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group form-group-textarea mb-md-0">
                             <!-- Message input-->
-                            <textarea class="form-control" id="message" placeholder="Your Message *" data-sb-validations="required"></textarea>
-                            <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
+                            <textarea class="form-control" id="message" placeholder="A tua mensagem *"
+                                data-sb-validations="required"></textarea>
+                            <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -230,16 +269,20 @@
                         <div class="fw-bolder">Form submission successful!</div>
                         To activate this form, sign up at
                         <br />
-                        <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                        <a
+                            href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
                     </div>
                 </div>
                 <!-- Submit error message-->
                 <!---->
                 <!-- This is what your users will see when there is-->
                 <!-- an error submitting the form-->
-                <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+                <div class="d-none" id="submitErrorMessage">
+                    <div class="text-center text-danger mb-3">Error sending message!</div>
+                </div>
                 <!-- Submit Button-->
-                <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase disabled" id="submitButton" type="submit">Send Message</button></div>
+                <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase disabled"
+                        id="submitButton" type="submit">Enviar mensagem</button></div>
             </form>
         </div>
     </section>
@@ -247,21 +290,20 @@
     <footer class="footer py-4">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-4 text-lg-start">Copyright &copy; Your Website 2022</div>
+                <div class="col-lg-4 text-lg-start">Copyright &copy; BrowseMuscle 2022/2023</div>
                 <div class="col-lg-4 my-3 my-lg-0">
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    
+                        <img src="/assets/img/poch.png" width="400" alt="">
                 </div>
                 <div class="col-lg-4 text-lg-end">
-                    <a class="link-dark text-decoration-none me-3" href="#!">Privacy Policy</a>
-                    <a class="link-dark text-decoration-none" href="#!">Terms of Use</a>
+                    <a class="link-dark text-decoration-none me-3" href="https://filipa-vilhena.edu.pt/" target="_blank">Escola Filipa de Vilhena</a>
+                    <a class="link-dark text-decoration-none" href="http://tgpsi.filipa-vilhena.edu.pt/" target="_blank">Curso TGPSI</a>
                 </div>
             </div>
         </div>
     </footer>
     <!-- Portfolio Modals-->
-    
+
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
@@ -272,4 +314,5 @@
     <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
     <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 </body>
+
 </html>
