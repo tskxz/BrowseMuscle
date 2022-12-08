@@ -50,6 +50,11 @@ app.post('/meu_perfil/editar', checkAuthenticated, UtilizadorController.atualiza
 // Rota para visualizar informações de um utilizador através do parametro url username
 app.get('/perfil/:username', checkAuthenticated, UtilizadorController.perfil)
 
+// teste
+app.get('/test', function(req,res) {
+	res.render('app/tests/index.hbs')
+})
+
 function checkAuthenticated(req, res, next){
     if(req.isAuthenticated()){
         return next()
@@ -66,14 +71,14 @@ function checkNotAuthenticated(req, res, next){
 }
 
 // Rota para página principal
-app.get('/', function(req, res){
+app.get('/escolher_musculo', checkAuthenticated, function(req, res){
 	res.render('app/homepage', {
 		title: "Bem vindo ao BrowseMuscle! 🌎",
 		user: req.user,
 	});
 })
 
-app.get('/Musculos', function(req, res){
+app.get('/Musculos', checkAuthenticated, function(req, res){
 	res.render('app/Musculos', {user: req.user})
 })
 
@@ -189,7 +194,7 @@ app.get('/avancado', function(req, res){
 
 
 // Rota para a página principal
-app.get('/pagina_principal', function(req, res){
+app.get('/', function(req, res){
 	res.render('app/index', {layout: false, user: req.user})
 })
 

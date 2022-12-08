@@ -1,29 +1,32 @@
-<div class="container bg-light">
-    <form class="row g-3" method="post" action="/meu_perfil/editar">
-        <div class="input-group">
-            <span class="input-group-text">Primeiro e Ultimo Nome</span>
-            <input type="text" aria-label="First name" value={{primeiro_nome}} class="form-control"
-                name="primeiro_nome">
-            <input type="text" aria-label="Last name" value={{ultimo_nome}} class="form-control" name="ultimo_nome">
+<div class="d-flex align-items-center justify-content-center" style="height: 60vh">
+<div class="container">
+    <form class="row g-3" method="post" action="/meu_perfil/editar">    
+        <div class="col-md-6">
+            <label for="inputEmail4" class="form-label text-light">Primeiro Nome</label>
+            <input type="text" value={{primeiro_nome}} class="form-control" id="inputEmail4" name="primeiro_nome">
         </div>
         <div class="col-md-6">
-            <label for="inputEmail4" class="form-label">Email</label>
+            <label for="inputPassword4" class="form-label text-light">Último nome</label>
+            <input type="text" aria-label="Último nome" class="form-control" name="ultimo_nome"
+                value={{ultimo_nome}}>
+        </div>
+        <div class="col-md-6">
+            <label for="inputEmail4" class="form-label text-light">Email</label>
             <input type="email" value={{email}} class="form-control" id="inputEmail4" name="email">
         </div>
         <div class="col-md-6">
-            <label for="inputPassword4" class="form-label">Número de telemóvel</label>
+            <label for="inputPassword4" class="form-label text-light">Número de telemóvel</label>
             <input type="text" aria-label="Número de telemovel" class="form-control" name="num_telemovel"
                 value={{num_telemovel}}>
         </div>
 
-        <label for="floatingTextarea2">Descrição</label>
+        <label for="floatingTextarea2" class="text-light">Descrição</label>
         <textarea class="form-control" id="floatingTextarea2" style="height: 100px"
             name="descricao">{{descricao}}</textarea>
-
-
-
         <div class="d-grid gap-2">
             <button type="submit" class="btn btn-primary">Atualizar as informações</button>
         </div>
     </form><br>
+
+</div>
 </div>
