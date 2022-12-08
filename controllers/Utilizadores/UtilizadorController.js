@@ -91,6 +91,8 @@ module.exports = {
 				email: Utilizadores[i].email,
 				num_telemovel: Utilizadores[i].num_telemovel,
 				password: Utilizadores[i].password,
+				id_cargo: Utilizadores[i].id_cargo,
+				cargo: Utilizadores[i].cargo,
 				createdAt: Utilizadores[i].createdAt
 			});
 		}

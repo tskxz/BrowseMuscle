@@ -6,7 +6,7 @@ module.exports = {
 	// Serviço para visualizar todos os Utilizadores existentes
 	buscarTodos: () => {
 		return new Promise((aceito, rejeitado)=>{
-			db.query('SELECT * FROM Utilizadores', (error, results)=>{
+			db.query('SELECT Utilizadores.id, Utilizadores.primeiro_nome AS primeiro_nome, Utilizadores.ultimo_nome as ultimo_nome, Utilizadores.email as email, Utilizadores.username as username, Utilizadores.num_telemovel as num_telemovel, Cargos.nome as cargo FROM Utilizadores JOIN Cargos ON Utilizadores.id_cargo = Cargos.id', (error, results)=>{
 				if(error){rejeitado(error); return;}
 				aceito(results);
 			});
