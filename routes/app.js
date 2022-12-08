@@ -71,14 +71,14 @@ function checkNotAuthenticated(req, res, next){
 }
 
 // Rota para página principal
-app.get('/escolher_musculo', function(req, res){
+app.get('/escolher_musculo', checkAuthenticated, function(req, res){
 	res.render('app/homepage', {
 		title: "Bem vindo ao BrowseMuscle! 🌎",
 		user: req.user,
 	});
 })
 
-app.get('/Musculos', function(req, res){
+app.get('/Musculos', checkAuthenticated, function(req, res){
 	res.render('app/Musculos', {user: req.user})
 })
 

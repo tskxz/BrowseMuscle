@@ -104,7 +104,9 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-
+        <li class="nav-item">
+          <a class="nav-link text-dark" aria-current="page" href="/">Home</a>
+        </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button"
             data-bs-toggle="dropdown" aria-expanded="false">
@@ -157,6 +159,7 @@
             <div id="dropdown_dificuldades_navegacao"></div>
           </ul>
           </li>
+           
           <form class="d-flex" method="POST" action="/Exercicios/pesquisa">
           <input class="form-control me-2" type="text" placeholder="Pesquisar" name="pesquisa" aria-label="Search">
           <button class="btn btn-outline-light text-dark" type="submit">Pesquisar</button>
@@ -167,12 +170,11 @@
         {{/unless}}
 
         {{#if user}}
-        <li class="nav-item"><a class="nav-link text-dark" href="/meu_perfil"><img src="/assets/img/user.png"
-              width="26px" height="26px" /> {{user.username}}</a></li>
-
-
-
+        
+        <li class="nav-item"><a class="nav-link text-dark" href="/meu_perfil"><img src="/assets/img/user.png" width="26px" height="26px" /> {{user.username}}</a></li>
+      
         {{/if}}
+        
         
       </ul>
     </div>

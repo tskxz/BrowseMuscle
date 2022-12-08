@@ -31,6 +31,9 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                    {{#if user}}
+                    <li class="nav-item"><a class="nav-link text-dark" href="/escolher_musculo">Escolher músculo</a></li>
+                    {{/if}}
                     <li class="nav-item"><a class="nav-link text-dark" href="#services">Vantagens</a></li>
                     <li class="nav-item"><a class="nav-link text-dark" href="#about">Sobre nós</a></li>
                     <li class="nav-item"><a class="nav-link text-dark" href="#contact">Contacto</a></li>
