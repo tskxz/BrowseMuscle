@@ -6,7 +6,7 @@ module.exports = {
 	// Serviço para visualizar todos os Utilizadores existentes
 	buscarTodos: () => {
 		return new Promise((aceito, rejeitado)=>{
-			db.query('SELECT * FROM Utilizadores', (error, results)=>{
+			db.query('SELECT Utilizadores.id, Utilizadores.primeiro_nome AS primeiro_nome, Utilizadores.ultimo_nome as ultimo_nome, Utilizadores.email as email, Utilizadores.username as username, Utilizadores.num_telemovel as num_telemovel, Cargos.nome as cargo FROM Utilizadores JOIN Cargos ON Utilizadores.id_cargo = Cargos.id', (error, results)=>{
 				if(error){rejeitado(error); return;}
 				aceito(results);
 			});
@@ -85,10 +85,10 @@ module.exports = {
 	},
 
 	// Serviço para alterar dados do utilizador através do ID
-	alterar: (id, primeiro_nome, ultimo_nome, email, num_telemovel, descricao)=> {
+	alterar: (id, primeiro_nome, ultimo_nome, email, num_telemovel, descricao, id_cargo)=> {
 		return new Promise( (aceito, rejeitado) => {
-			db.query('UPDATE Utilizadores SET primeiro_nome = ?, ultimo_nome = ?, email = ?, num_telemovel = ?, descricao = ? WHERE id = ?',
-				[primeiro_nome, ultimo_nome, email, num_telemovel, descricao, id],
+			db.query('UPDATE Utilizadores SET primeiro_nome = ?, ultimo_nome = ?, email = ?, num_telemovel = ?, descricao = ?, id_cargo=? WHERE id = ?',
+				[primeiro_nome, ultimo_nome, email, num_telemovel, descricao, id_cargo, id],
 				(error, results)=>{
 					if(error){ rejeitado(error); return; }
 					aceito(results);

@@ -91,6 +91,8 @@ module.exports = {
 				email: Utilizadores[i].email,
 				num_telemovel: Utilizadores[i].num_telemovel,
 				password: Utilizadores[i].password,
+				id_cargo: Utilizadores[i].id_cargo,
+				cargo: Utilizadores[i].cargo,
 				createdAt: Utilizadores[i].createdAt
 			});
 		}
@@ -120,6 +122,8 @@ module.exports = {
 				num_telemovel: utilizador.num_telemovel,
 				descricao: utilizador.descricao,
 				treinos_concluidos: utilizador.treinos_concluidos,
+				id_cargo: utilizador.id_cargo,
+				user: req.user,
 				
 			})
 			console.log(utilizador)
@@ -127,6 +131,7 @@ module.exports = {
 			res.status(403);
 			res.send('Error')
 		}
+		
 
 	},
 
@@ -138,9 +143,10 @@ module.exports = {
 		let email = req.body.email;
 		let num_telemovel = req.body.num_telemovel;
 		let descricao = req.body.descricao;
+		let id_cargo = req.body.id_cargo;
 
 
-		let utilizador = await UtilizadorService.alterar(id, primeiro_nome, ultimo_nome, email, num_telemovel, descricao)
+		let utilizador = await UtilizadorService.alterar(id, primeiro_nome, ultimo_nome, email, num_telemovel, descricao, id_cargo)
 		if (utilizador) {
 			console.log(utilizador)
 			res.redirect('/admin/main_utilizadores')
