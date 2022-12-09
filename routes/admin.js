@@ -33,7 +33,7 @@ admin.post('/editar_utilizador_post/:id', authUser, authRole(2), UtilizadorContr
 admin.get('/apagar_utilizador/:id', authUser, authRole(2), UtilizadorController.apagar)	                            // Apagar utilizador
 // Rota para administração
 admin.get('/dashboard', authUser, authRole(2), function(req, res){
-	res.render('admin/dashboard', {user: req.user})
+	res.render('admin/dashboard', {layout: 'main_admin',user: req.user})
 })
 
 function authRole(role){

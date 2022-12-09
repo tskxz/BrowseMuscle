@@ -22,7 +22,7 @@ auth.post('/logout', function(req, res, next){
 
 // Rota do método post login
 auth.post('/', passport.authenticate('local', {
-	successRedirect: '/meu_perfil',
+	successRedirect: '/',
     failureRedirect: '/auth/login',
     failureFlash: true
 })) 

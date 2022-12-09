@@ -2,34 +2,35 @@
 <br>
 <br>
 
-<div class="container pt-5 pb-5">
-	<h2  class="text-light"><br><br><br>
+<div class="container-fluid">
+	<h2 class="text-light"><br><br><br>
 		Gestão de utilizadores
 	</h2>
 	<div class="col-12 d-flex justify-content-end">
-    <a href="#" type="button" class="btn btn-dark align-self-center">+ adicionar utilizador</a>
-  </div>
-	
+		<a href="#" type="button" class="btn btn-dark align-self-center">+ adicionar utilizador</a>
+	</div>
+
 	<p style="text-align: center">
-		<table class="table table-hover table-light">
-			<tr class="bg-danger">
-				<th>ID</th>
-				<th>Username</th>
-				<th>Primeiro Nome</th>
-				<th>Último Nome</th>
-				<th>Email</th>
-                <th>Número de telemovel</th>
-				<th>Cargos</th>
-				<th>Ações</th>
+	<table class="table table-bordered table-hover table-light">
+		<thead class="thead-light">
+			<tr>
+				<th scope="col" >ID</th>
+				<th scope="col" >Username</th>
+				<th scope="col" >Primeiro Nome</th>
+				<th scope="col" >Último Nome</th>
+				<th scope="col" >Email</th>
+				<th scope="col" >Número de telemovel</th>
+				<th scope="col" >Cargos</th>
+				<th scope="col" class="text-end">Ações</th>
 			</tr>
-			<tbody id="myTable">
-				{{{body}}}
-			</tbody>
-		</table>
+		</thead>
+		<tbody id="myTable">
+			{{{body}}}
+		</tbody>
+	</table>
 
 	</p>
-	
+
 </div>
 </div>
 {{> footer }}
-

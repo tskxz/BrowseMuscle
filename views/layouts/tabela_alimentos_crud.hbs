@@ -3,8 +3,8 @@
 <br>
 <br>
 
-<div class="container pt-5 pb-5">
-	<h2  class="text-light">
+<div class="container-fluid">
+	<h2  class="text-light"><br><br><br>
 		Gestão de alimentos
 	</h2>
 	<div class="col-12 d-flex justify-content-end">
@@ -12,7 +12,8 @@
   </div>
 	
 	<p style="text-align: center">
-		<table class="table table-hover table-light">
+		<table class="table table-bordered table-hover table-light">
+			<thead class="thead-light">
 			<tr class="bg-danger">
 				<th>ID</th>
 				<th>Alimento</th>
@@ -23,6 +24,7 @@
 				<th>Marca</th>
 				<th>Ações</th>
 			</tr>
+			</thead>
 			<tbody id="myTable">
 				{{{body}}}
 			</tbody>
