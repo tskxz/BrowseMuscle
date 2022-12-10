@@ -37,7 +37,8 @@ app.get('/meu_perfil', checkAuthenticated, function(req, res) {
 		descricao: req.user.descricao,
 		id_cargo: req.user.id_cargo,
 		treinos_concluidos: req.user.treinos_concluidos,
-		createdAt: req.user.createdAt
+		createdAt: req.user.createdAt,
+		foto: req.user.foto
 	})
 })
 
@@ -46,9 +47,11 @@ app.get('/meu_perfil/editar', checkAuthenticated, UtilizadorController.editar_pe
 
 // Rota para atualizar as informações do perfil do utilizador
 app.post('/meu_perfil/editar', checkAuthenticated, UtilizadorController.atualizar_perfil)
+app.post('/mudar_foto', checkAuthenticated, UtilizadorController.atualizar_perfil_foto)
 
 // Rota para visualizar informações de um utilizador através do parametro url username
 app.get('/perfil/:username', checkAuthenticated, UtilizadorController.perfil)
+
 
 // teste
 app.get('/test', function(req,res) {

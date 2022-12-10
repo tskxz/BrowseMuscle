@@ -24,6 +24,7 @@ const hbs = require('express-handlebars');
 
 
 
+
 server.use(logger('dev'));
 
 // O servidor vai extrair informacao do API do tipo JSON
@@ -34,6 +35,8 @@ server.use(express.urlencoded({extended: true}));
 
 // Parse Application/JSON
 server.use(express.json())
+
+server.use(fileUpload());
 
 server.use(flash());
 server.use(session({
@@ -51,7 +54,7 @@ server.use('/', app);
 server.use('/auth', auth)
 
 server.use('/assets', express.static('./views/assets'));
-server.use(fileUpload());
+server.use('/upload', express.static('upload'));
 
 server.set('views', path.join(__dirname, 'views'));
 server.set( 'view engine', 'hbs' );

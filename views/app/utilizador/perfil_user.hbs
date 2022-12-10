@@ -105,8 +105,11 @@
 <h2 class="text-light center">Este é o perfil do @{{username}}</h2>
 <div class="container mt-4 mb-4 p-3 d-flex justify-content-center">
     <div class="card p-4">
-        <div class=" image d-flex flex-column justify-content-center align-items-center"><img src="/assets/img/user.png"
-                class="card__image" /> <span class="name mt-3">{{primeiro_nome}} {{ultimo_nome}}</span> <span
+        <div class=" image d-flex flex-column justify-content-center align-items-center">{{#if foto}}
+            <img src="/upload/{{foto}}" class="card__image" /><br>
+                {{else}}
+                <img src="/upload/user.png" class="card__image" /><br>
+            {{/if}} <span class="name mt-3">{{primeiro_nome}} {{ultimo_nome}}</span> <span
                 class="card__username">@{{username}}</span>
             <div class="d-flex flex-row justify-content-center align-items-center gap-2"> <span class="idd1"><img
                         src="/assets/img/Utilizadores/email.svg" width="15px"> {{email}}</span> <span><i
