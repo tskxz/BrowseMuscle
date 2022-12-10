@@ -9,9 +9,12 @@
     }
 
     .card {
+        text-align: center;
         width: 550px;
-        background-color: #efefef;
-        border: none;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 15px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0), 0 6px 36px rgba(0, 0, 0, 0.13);
         cursor: pointer;
         transition: all 0.5s;
     }
@@ -19,7 +22,7 @@
     .image img {
         transition: all 0.5s
     }
-    
+
     .name {
         font-size: 40px;
         font-weight: bold
@@ -77,20 +80,41 @@
     .date {
         background-color: #ccc
     }
+
+    .card__image {
+        display: block;
+        margin: 0 auto;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        overflow: hidden;
+        -o-object-fit: cover;
+        object-fit: cover;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0), 0 6px 36px rgba(0, 0, 0, 0.13);
+        border: 3px solid rgb(0, 0, 0);
+    }
+
+    .card__username {
+        color: #6e8192;
+    }
+
+    .card__title {
+        margin: 0;
+    }
 </style><br><br><br>
 <h2 class="text-light center">Este é o perfil do @{{username}}</h2>
 <div class="container mt-4 mb-4 p-3 d-flex justify-content-center">
     <div class="card p-4">
-        <div class=" image d-flex flex-column justify-content-center align-items-center"> <button
-                class="btn btn-secondary"> <img src="/assets/img/user.png" height="100"
-                    width="100" /></button> <span class="name mt-3">{{primeiro_nome}} {{ultimo_nome}}</span> <span
-                class="idd">@{{username}}</span>
-            <div class="d-flex flex-row justify-content-center align-items-center gap-2"> <span
-                    class="idd1"><img src="/assets/img/Utilizadores/email.svg" width="15px"> {{email}}</span> <span><i class="fa fa-copy"></i></span> </div>
-            <div class="d-flex flex-row justify-content-center align-items-center mt-3"> <span class="number">{{treinos_concluidos}} <span
-                        class="follow">Treinos concluídos</span></span> </div>
-            <div class=" d-flex mt-2">  </div>
-            <div class="text mt-3"> <span>{{descricao}}<br><br>  </span> </div>
+        <div class=" image d-flex flex-column justify-content-center align-items-center"><img src="/assets/img/user.png"
+                class="card__image" /> <span class="name mt-3">{{primeiro_nome}} {{ultimo_nome}}</span> <span
+                class="card__username">@{{username}}</span>
+            <div class="d-flex flex-row justify-content-center align-items-center gap-2"> <span class="idd1"><img
+                        src="/assets/img/Utilizadores/email.svg" width="15px"> {{email}}</span> <span><i
+                        class="fa fa-copy"></i></span> </div>
+            <div class="d-flex flex-row justify-content-center align-items-center mt-3"> <span
+                    class="number">{{treinos_concluidos}} <span class="follow">Treinos concluídos</span></span> </div>
+            <div class=" d-flex mt-2"> </div>
+            <div class="text mt-3"> <span>{{descricao}}<br><br> </span> </div>
             <div class="gap-3 mt-3 icons d-flex flex-row justify-content-center align-items-center"> <span><i
                         class="fa fa-twitter"></i></span> <span><i class="fa fa-facebook-f"></i></span> <span><i
                         class="fa fa-instagram"></i></span> <span><i class="fa fa-linkedin"></i></span> </div>
