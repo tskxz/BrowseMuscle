@@ -240,7 +240,7 @@ module.exports = {
 		}
 
 		sampleFile = req.files.sampleFile
-		uploadPath = path.join(__dirname, '/../../../upload/', sampleFile.name)
+		uploadPath = path.join(__dirname, '/../../upload/', sampleFile.name)
 
 		console.log(sampleFile);
 
