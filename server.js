@@ -12,6 +12,7 @@ const logger = require('morgan');
 const passport = require('passport');
 const flash = require('express-flash');
 const session = require('express-session');
+const fileUpload = require('express-fileupload')
 
 const api = require('./routes/api'); // API CRUD
 const admin = require('./routes/admin');	// Paginas para CRUD
@@ -50,6 +51,7 @@ server.use('/', app);
 server.use('/auth', auth)
 
 server.use('/assets', express.static('./views/assets'));
+server.use(fileUpload());
 
 server.set('views', path.join(__dirname, 'views'));
 server.set( 'view engine', 'hbs' );
