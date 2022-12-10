@@ -1,5 +1,6 @@
 const UtilizadorService = require('../../services/Utilizadores/UtilizadoresService'); // Usa o serviço para dar a resposta ao controlador
 const bcrypt = require('bcrypt')
+const path = require('path')
 
 module.exports = {
 
