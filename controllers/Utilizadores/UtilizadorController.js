@@ -146,7 +146,7 @@ module.exports = {
 		let id_cargo = req.body.id_cargo;
 
 
-		let utilizador = await UtilizadorService.alterar(id, primeiro_nome, ultimo_nome, email, num_telemovel, descricao, id_cargo)
+		let utilizador = await UtilizadorService.alterar_user(id, primeiro_nome, ultimo_nome, email, num_telemovel, descricao, id_cargo)
 		if (utilizador) {
 			console.log(utilizador)
 			res.redirect('/admin/main_utilizadores')
