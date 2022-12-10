@@ -75,7 +75,7 @@ module.exports = {
 	},
 
 	// Página para gerir os utilizadores
-	main: async(req,res) => {
+	main: async (req, res) => {
 		let json = { error: '', result: [] };
 
 		// Chama o serviço buscarTodos para mostrar todos os dados dentro da tabela
@@ -101,7 +101,7 @@ module.exports = {
 		console.log(utilizadores)
 
 		// Manda a resposta em json
-		res.render('admin/Utilizadores/Utilizadores.hbs', {layout:'tabela_utilizadores_crud', utilizadores, user: req.user});
+		res.render('admin/Utilizadores/Utilizadores.hbs', { layout: 'tabela_utilizadores_crud', utilizadores, user: req.user });
 
 	},
 
@@ -124,14 +124,14 @@ module.exports = {
 				treinos_concluidos: utilizador.treinos_concluidos,
 				id_cargo: utilizador.id_cargo,
 				user: req.user,
-				
+
 			})
 			console.log(utilizador)
 		} else {
 			res.status(403);
 			res.send('Error')
 		}
-		
+
 
 	},
 
@@ -167,9 +167,10 @@ module.exports = {
 				email: utilizador.email,
 				descricao: utilizador.descricao,
 				treinos_concluidos: utilizador.treinos_concluidos,
-				createdAt: utilizador.createdAt
+				createdAt: utilizador.createdAt,
+				foto: utilizador.foto
 			})
-			
+
 		} else {
 			res.render('app/utilizador/nao_encontrado')
 		}
@@ -177,6 +178,7 @@ module.exports = {
 
 	// Página para editar o perfil
 	editar_perfil: async (req, res) => {
+
 
 		// Chama o serviço para pegar os dados através da pesquisa pelo username
 		let username = req.user.username;
@@ -192,7 +194,9 @@ module.exports = {
 				num_telemovel: req.user.num_telemovel,
 				descricao: req.user.descricao,
 				treinos_concluidos: req.user.treinos_concluidos,
-				
+				foto: req.user.foto
+
+
 			})
 			console.log(req.user)
 		} else {
@@ -204,6 +208,8 @@ module.exports = {
 
 	// Atualizar as informações do perfil do utilizador
 	atualizar_perfil: async (req, res) => {
+
+
 		let id = req.user.id;
 		let primeiro_nome = req.body.primeiro_nome;
 		let ultimo_nome = req.body.ultimo_nome;
@@ -212,11 +218,43 @@ module.exports = {
 		let descricao = req.body.descricao;
 
 
+
 		let utilizador = await UtilizadorService.alterar(id, primeiro_nome, ultimo_nome, email, num_telemovel, descricao)
 		if (utilizador) {
 			console.log(utilizador)
 			res.redirect('/meu_perfil')
 		}
+
+
+	},
+
+	atualizar_perfil_foto: async (req, res) => {
+
+		let sampleFile;
+		let uploadPath;
+		let id = req.user.id;
+
+		if (!req.files || Object.keys(req.files).length === 0) {
+			return res.status(400).send('No files were uploaded.')
+		}
+
+		sampleFile = req.files.sampleFile
+		uploadPath = __dirname + '../../../upload/' + sampleFile.name
+
+		console.log(sampleFile);
+
+
+
+		sampleFile.mv(uploadPath, async function (err) {
+			if (err) return res.status(500).send(err);
+			let utilizador = await UtilizadorService.alterar_foto(id, sampleFile.name)
+			if (utilizador) {
+				console.log('Foto atualizada com sucesso!')
+				console.log(sampleFile.name)
+				res.redirect('/meu_perfil/editar')
+			}
+		})
+
 
 
 	},
@@ -297,7 +335,7 @@ module.exports = {
 						num_telemovel,
 						password
 					};
-					
+
 					console.log(json.result);
 
 					res.redirect('/auth/login');
@@ -317,11 +355,11 @@ module.exports = {
 	},
 
 	// Função apagar
-	apagar: async(req, res) => {
-		let json = {error:'', result:[]};
+	apagar: async (req, res) => {
+		let json = { error: '', result: [] };
 		// Chama o serviço apagar para apagar o dado através do id
 		let apagado = await UtilizadorService.apagar(req.params.id);
-		if(apagado){
+		if (apagado) {
 			res.redirect('/admin/main_utilizadores/')
 		}
 		// Manda a resposta do servidor em JSON

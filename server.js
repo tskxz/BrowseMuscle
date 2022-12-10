@@ -12,6 +12,7 @@ const logger = require('morgan');
 const passport = require('passport');
 const flash = require('express-flash');
 const session = require('express-session');
+const fileUpload = require('express-fileupload')
 
 const api = require('./routes/api'); // API CRUD
 const admin = require('./routes/admin');	// Paginas para CRUD
@@ -20,6 +21,7 @@ const auth = require('./routes/auth');
 
 const server = express();
 const hbs = require('express-handlebars');
+
 
 
 
@@ -33,6 +35,8 @@ server.use(express.urlencoded({extended: true}));
 
 // Parse Application/JSON
 server.use(express.json())
+
+server.use(fileUpload());
 
 server.use(flash());
 server.use(session({
@@ -50,6 +54,7 @@ server.use('/', app);
 server.use('/auth', auth)
 
 server.use('/assets', express.static('./views/assets'));
+server.use('/upload', express.static('upload'));
 
 server.set('views', path.join(__dirname, 'views'));
 server.set( 'view engine', 'hbs' );

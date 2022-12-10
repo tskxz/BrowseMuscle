@@ -1,6 +1,40 @@
+<style>
+     .card__image {
+        display: block;
+        margin: 0 auto;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        overflow: hidden;
+        -o-object-fit: cover;
+        object-fit: cover;
+        box-shadow: 0 10px 20px rgba(255, 255, 255, 0), 0 6px 36px rgba(255, 255, 255, 0.13);
+        border: 3px solid rgb(255, 255, 255);
+    }
+
+    .photo {
+        text-align: center;
+    }
+</style>
+
+
 <div class="d-flex align-items-center justify-content-center" style="height: 80vh">
 <div class="container">
-    <form class="row g-3" method="post" action="/meu_perfil/editar">    
+    <div class="photo">
+        <form action="/mudar_foto" method="post" enctype="multipart/form-data">
+            {{#if foto}}
+            <img src="/upload/{{foto}}" class="card__image" /><br>
+                {{else}}
+                <img src="/upload/user.png" class="card__image" /><br>
+            {{/if}}
+            <label for="file-input" class="btn btn-primary">Mudar a foto</label>
+            <input id="file-input" type="file" style="display:none" name="sampleFile" accept="image/*" />
+            <input type="submit" class="btn btn-primary">
+        </form>
+    </div><br>
+
+    <form class="row g-3" method="post" action="/meu_perfil/editar">
+     
         <div class="col-md-6">
             <label for="inputEmail4" class="form-label text-light">Primeiro Nome</label>
             <input type="text" value={{primeiro_nome}} class="form-control" id="inputEmail4" name="primeiro_nome">

@@ -108,6 +108,18 @@ module.exports = {
 		})
 	},
 
+	alterar_foto: (id, foto)=> {
+		return new Promise( (aceito, rejeitado) => {
+			db.query('update Utilizadores SET foto = ? where id=?',
+				[foto, id],
+				(error, results)=>{
+					if(error){ rejeitado(error); return; }
+					aceito(results);
+				}
+				);
+		})
+	},
+
 	apagar:(id) => {
 		return new Promise( (aceito, rejeitado) => {
 			db.query('DELETE FROM Utilizadores WHERE id = ?', [id], (error, results) => {
