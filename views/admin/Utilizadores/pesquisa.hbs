@@ -1,0 +1,15 @@
+{{#each rows}}
+<tr>
+	<td>{{this.id}}</td>
+	<td>{{this.username}}</td>
+	<td>{{this.primeiro_nome}}</td>
+	<td>{{this.ultimo_nome}}</td>
+	<td>{{this.email}}</td>		
+    <td>{{num_telemovel}}</td>
+    <td>{{this.cargo}}</td>	
+    <td class="text-end">
+         <a href="/admin/editar_utilizador/{{this.id}}" type="button" class="btn btn-light my-button "><i class="bi bi-pencil-square"></i> Editar</a>
+         <a href="/admin/apagar_utilizador/{{this.id}}" type="button" class="btn btn-light my-button "><i class="bi bi-person-x"></i> Apagar</a>       
+    </td>
+</tr>
+{{/each}}

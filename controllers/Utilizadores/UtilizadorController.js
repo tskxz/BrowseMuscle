@@ -364,7 +364,31 @@ module.exports = {
 			res.redirect('/admin/main_utilizadores/')
 		}
 		// Manda a resposta do servidor em JSON
-	}
+	},
+
+	pesquisarUtilizador: async(req, res) => {
+		let json = {error: '', result:[]};
+
+		// Pega o valor que nos foi enviado na barra de pesquisa
+		let pesquisa = req.body.pesquisa;
+
+		// Com o valor que foi nos enviado, vai chamar o serviço pesquisarUtilizador
+		let utilizador = await UtilizadorService.pesquisarUtilizador(pesquisa);
+
+		if(utilizador){
+			json.result = utilizador;
+		} else {
+			json.error = "err"
+		}
+
+		// Resultado do serviço armazenado em rows
+		rows = json.result;
+
+		// Mostra o resultado
+		res.render('admin/Utilizadores/pesquisa', {layout: 'tabela_utilizadores_crud', rows, user: req.user})
+
+
+	},
 
 
 }

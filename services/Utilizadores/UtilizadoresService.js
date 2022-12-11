@@ -28,6 +28,19 @@ module.exports = {
 		});
 	},
 
+	pesquisarUtilizador:(pesquisa) => {
+		return new Promise((aceito, rejeitado) => {
+			db.query('SELECT * from Utilizadores WHERE username LIKE ? OR primeiro_nome LIKE ? OR ultimo_nome LIKE ?', ['%' + pesquisa + '%', '%' + pesquisa + '%', '%' + pesquisa + '%'], (error, results) => {
+				if(error){rejeitado(error); return;}
+				if(results.length > 0){
+					aceito(results);
+				} else {
+					aceito(false);
+				}
+			})
+		})
+	},
+
 	// Serviço para buscar somente um utilizador através do username
 	buscarUsername:(username) => {
 		return new Promise((aceito, rejeitado) => {

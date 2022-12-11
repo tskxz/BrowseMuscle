@@ -36,6 +36,8 @@ admin.get('/dashboard', authUser, authRole(2), function(req, res){
 	res.render('admin/dashboard', {layout: 'main_admin',user: req.user})
 })
 
+admin.post('/Utilizadores/pesquisa', UtilizadorController.pesquisarUtilizador);
+
 function authRole(role){
     return(req,res,next) => {
         if(req.user.id_cargo !== role){
