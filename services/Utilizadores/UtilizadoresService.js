@@ -30,7 +30,7 @@ module.exports = {
 
 	pesquisarUtilizador:(pesquisa) => {
 		return new Promise((aceito, rejeitado) => {
-			db.query('SELECT * from Utilizadores WHERE username LIKE ? OR primeiro_nome LIKE ? OR ultimo_nome LIKE ?', ['%' + pesquisa + '%', '%' + pesquisa + '%', '%' + pesquisa + '%'], (error, results) => {
+			db.query('SELECT Utilizadores.id, Utilizadores.primeiro_nome AS primeiro_nome, Utilizadores.ultimo_nome as ultimo_nome, Utilizadores.email as email, Utilizadores.username as username, Utilizadores.num_telemovel as num_telemovel, Cargos.nome as cargo FROM Utilizadores JOIN Cargos ON Utilizadores.id_cargo = Cargos.id WHERE username LIKE ? OR primeiro_nome LIKE ? OR ultimo_nome LIKE ?', ['%' + pesquisa + '%', '%' + pesquisa + '%', '%' + pesquisa + '%'], (error, results) => {
 				if(error){rejeitado(error); return;}
 				if(results.length > 0){
 					aceito(results);
