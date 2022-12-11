@@ -387,7 +387,6 @@ module.exports = {
 		// Mostra o resultado
 		res.render('admin/Utilizadores/pesquisa', {layout: 'tabela_utilizadores_crud', rows, user: req.user})
 
-
 	},
 
 
