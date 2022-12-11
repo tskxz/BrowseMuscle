@@ -231,23 +231,23 @@ module.exports = {
 
 	atualizar_perfil_foto: async (req, res) => {
 
-		let sampleFile;
-		let uploadPath;
-		let id = req.user.id;
+		let sampleFile; 		// Ficheiro
+		let uploadPath;			// Diretório de uploads
+		let id = req.user.id;	// Id do utilizador
 
 		if (!req.files || Object.keys(req.files).length === 0) {
-			return res.status(400).send('No files were uploaded.')
+			return res.status(400).send('No files were uploaded.') // Se não for enviado
 		}
 
-		sampleFile = req.files.sampleFile
-		uploadPath = path.join(__dirname, '/../../upload/', sampleFile.name)
+		sampleFile = req.files.sampleFile 	// Ficheiro enviado
+		uploadPath = path.join(__dirname, '/../../upload/', sampleFile.name) // Path do Ficheiro
 
 		console.log(sampleFile);
 
-
-
+		// Mover para a pasta upload
 		sampleFile.mv(uploadPath, async function (err) {
 			if (err) return res.status(500).send(err);
+			// Alterar na base de dados, o nome da foto
 			let utilizador = await UtilizadorService.alterar_foto(id, sampleFile.name)
 			if (utilizador) {
 				console.log('Foto atualizada com sucesso!')
