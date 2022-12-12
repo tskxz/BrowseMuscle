@@ -173,7 +173,7 @@ module.exports = {
 			})
 
 		} else {
-			res.render('app/utilizador/nao_encontrado')
+			res.render('app/utilizador/nao_encontrado', {user: req.user})
 		}
 	},
 
