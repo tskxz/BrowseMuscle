@@ -2,19 +2,10 @@
 
 <div class="container">
     {{#if alert}}
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <div class="alert alert-success alert-dismissible fade show" role="alert">    
         {{alert}}
-        <form action="/" method="post" enctype="multipart/form-data">
-    <h3>Upload Profile Photo</h3>
-    <input type="file" name="sampleFile" accept="image/*"/>
-    <input type="submit" class="btn btn-primary">
-    </br>
-    </br>
-    {{#if alert}}
     
-  {{alert}}
-{{/if}}
-</form>
+
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
     {{/if}}

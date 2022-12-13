@@ -36,6 +36,7 @@ module.exports = {
       queryInterface.sequelize.query("insert into Musculos (nome, createdAt, updatedAt) values ('Costas', now(), now())")
       queryInterface.sequelize.query("insert into Musculos (nome, createdAt, updatedAt) values ('Dorsal', now(), now())")
       queryInterface.sequelize.query("insert into Musculos (nome, createdAt, updatedAt) values ('Trapezio', now(), now())")
+      queryInterface.sequelize.query("insert into Musculos (nome, createdAt, updatedAt) values ('Bicep', now(), now())")
       queryInterface.sequelize.query("insert into Musculos (nome, createdAt, updatedAt) values ('Quadricep', now(), now())")
       queryInterface.sequelize.query("insert into Musculos (nome, createdAt, updatedAt) values ('Hamstring', now(), now())")
       queryInterface.sequelize.query("insert into Musculos (nome, createdAt, updatedAt) values ('Gemeo', now(), now())")
