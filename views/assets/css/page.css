@@ -635,8 +635,7 @@ progress {
 .container-md,
 .container-sm {
   width: 100%;
-  padding-right: var(--bs-gutter-x, 5rem);
-  padding-left: var(--bs-gutter-x, 5rem);
+  
   margin-right: auto;
   margin-left: auto;
 }
@@ -7426,7 +7425,7 @@ textarea.form-control-lg {
 }
 
 .p-3 {
-  padding: 1rem !important;
+  padding: 0rem !important;
 }
 
 .p-4 {

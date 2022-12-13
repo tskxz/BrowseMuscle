@@ -104,11 +104,12 @@
     }
 
     @media only screen and (max-width: 550px) {
-        .card {
-            /* make the card take up the full width of the screen on small devices */
-            width: 550px;
-        }
-    }
+  .card {
+    /* make the card wider on small devices, but with a maximum width of 900 pixels */
+    width: 900px;
+    max-width: 900px;
+  }
+}
 </style>
 <script>
     Handlebars.registerHelper('ifEquals', function (a, b, options) {
