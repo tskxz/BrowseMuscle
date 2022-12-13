@@ -57,6 +57,7 @@
         font-size: 15px
     }
 
+
     .text span {
         font-size: 13px;
         color: #545454;
@@ -101,6 +102,14 @@
     .card__title {
         margin: 0;
     }
+
+    @media only screen and (max-width: 550px) {
+  .card {
+    /* make the card wider on small devices, but with a maximum width of 900 pixels */
+    width: 900px;
+    max-width: 900px;
+  }
+}
 </style>
 <script>
     Handlebars.registerHelper('ifEquals', function (a, b, options) {
@@ -117,8 +126,8 @@
         <div class=" image d-flex flex-column justify-content-center align-items-center">
             {{#if foto}}
             <img src="/upload/{{foto}}" class="card__image" /><br>
-                {{else}}
-                <img src="/upload/user.png" class="card__image" /><br>
+            {{else}}
+            <img src="/upload/user.png" class="card__image" /><br>
             {{/if}}
             <h1 class="card_title">{{primeiro_nome}} {{ultimo_nome}}</h1>
             <div class="card__username">@{{username}}</div>
@@ -140,12 +149,13 @@
 
             <div class="text mt-3"> <span>{{descricao}}<br><br> </span> </div>
 
-                <div class="d-grid gap-2 col-6 mx-auto">
+            <div class="d-grid gap-2 col-6 mx-auto">
                 <a href="/meu_perfil/editar" class="btn btn-primary">Editar Perfil</a>
-                </div>
-           <br>
+            </div>
+            <br>
             {{#ifEquals id_cargo "2"}}
-            <div class="d-grid gap-2 col-6 mx-auto"> <a href="/admin/dashboard" class="btn btn-primary">Administração</a>
+            <div class="d-grid gap-2 col-6 mx-auto"> <a href="/admin/dashboard"
+                    class="btn btn-primary">Administração</a>
             </div>
             {{/ifEquals}}
             <div class=" px-2 rounded mt-4 date "> <span class="join">{{createdAt}}</span> </div>
