@@ -29,11 +29,11 @@ module.exports = {
         type: 'TIMESTAMP',
         defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
       }
-    }).then(function(){
+    })/*.then(function(){
       queryInterface.sequelize.query("insert into Dificuldades (nome, createdAt, updatedAt) values ('Iniciante', now(), now())")
       queryInterface.sequelize.query("insert into Dificuldades (nome, createdAt, updatedAt) values ('Intermediario', now(), now())")
       queryInterface.sequelize.query("insert into Dificuldades (nome, createdAt, updatedAt) values ('Avancado', now(), now())")
-    });
+    });*/
   },
 
   async down (queryInterface, Sequelize) {

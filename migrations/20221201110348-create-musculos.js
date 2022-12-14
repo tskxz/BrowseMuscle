@@ -29,7 +29,7 @@ module.exports = {
         type: 'TIMESTAMP',
         defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
       }
-    }).then(function(){
+    })/*.then(function(){
       queryInterface.sequelize.query("insert into Musculos (nome, createdAt, updatedAt) values ('Peito', now(), now())")
       queryInterface.sequelize.query("insert into Musculos (nome, createdAt, updatedAt) values ('Ombro', now(), now())")
       queryInterface.sequelize.query("insert into Musculos (nome, createdAt, updatedAt) values ('Tricep', now(), now())")
@@ -45,7 +45,7 @@ module.exports = {
       queryInterface.sequelize.query("insert into Musculos (nome, createdAt, updatedAt) values ('Abdominais', now(), now())")
       
 
-    })
+    })*/
     
   },
 
