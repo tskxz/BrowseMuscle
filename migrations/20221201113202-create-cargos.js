@@ -29,10 +29,10 @@ module.exports = {
         type: 'TIMESTAMP',
         defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
       }
-    }).then(function(){
+    })/*.then(function(){
       queryInterface.sequelize.query("insert into Cargos (nome, createdAt, updatedAt) values ('BASICO', now(), now())")
       queryInterface.sequelize.query("insert into Cargos (nome, createdAt, updatedAt) values ('ADMIN', now(), now())")
-    });
+    });*/
   },
 
   async down (queryInterface, Sequelize) {

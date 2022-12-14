@@ -29,13 +29,13 @@ module.exports = {
         type: 'TIMESTAMP',
         defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
       }
-    }).then(function(){
+    })/*.then(function(){
       queryInterface.sequelize.query("insert into Equipamentos (nome, createdAt, updatedAt) values ('Barra', now(), now())")
       queryInterface.sequelize.query("insert into Equipamentos (nome, createdAt, updatedAt) values ('Halteres', now(), now())")
       queryInterface.sequelize.query("insert into Equipamentos (nome, createdAt, updatedAt) values ('Maquina', now(), now())")
       queryInterface.sequelize.query("insert into Equipamentos (nome, createdAt, updatedAt) values ('Cabos', now(), now())")
       queryInterface.sequelize.query("insert into Equipamentos (nome, createdAt, updatedAt) values ('Peso corporal', now(), now())")
-    });
+    });*/
   },
 
   async down (queryInterface, Sequelize) {

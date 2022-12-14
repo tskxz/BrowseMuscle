@@ -60,6 +60,10 @@ module.exports = {
         allowNull: false,
         defaultValue: 0
       },
+      foto: {
+        type: Sequelize.STRING(100),
+        allowNull: true,
+      },
       createdAt: {
         allowNull: false,
         type: 'TIMESTAMP',
