@@ -20,15 +20,15 @@ initializePassport(
 )
 
 // Rota para visualizar exercícios
-app.get('/Exercicios', ExercicioController.view)
-app.post('/Exercicios/pesquisa', ExercicioController.pesquisarExercicio);
+app.get('/Exercicios', checkAuthenticated, ExercicioController.view)
+app.post('/Exercicios/pesquisa', checkAuthenticated, ExercicioController.pesquisarExercicio);
 
 // Pesquisar alimentos
 
-app.post('/Alimentos/pesquisa', AlimentoController.pesquisarAlimento);
+app.post('/Alimentos/pesquisa', checkAuthenticated, AlimentoController.pesquisarAlimento);
 // Rota para visualizar Alimentos
-app.get('/Alimentos', AlimentoController.view);
-app.get('/main_alimentos', function(req,res){
+app.get('/Alimentos', checkAuthenticated, AlimentoController.view);
+app.get('/main_alimentos', checkAuthenticated, function(req,res){
 	res.render('app/Alimentos/alimentos.hbs', {
 		user: req.user,
 		foto: req.user.foto
