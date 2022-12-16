@@ -38,6 +38,12 @@ admin.get('/dashboard', authUser, authRole(2), function(req, res){
 
 admin.post('/Utilizadores/pesquisa', UtilizadorController.pesquisarUtilizador);
 
+// Pesquisar exercício
+admin.post('/Exercicios/pesquisa', ExercicioController.pesquisarExercicio_admin);
+
+// Pesquisar alimento
+admin.post('/Alimentos/pesquisa', AlimentoController.pesquisarAlimento_admin);
+
 function authRole(role){
     return(req,res,next) => {
         if(req.user.id_cargo !== role){

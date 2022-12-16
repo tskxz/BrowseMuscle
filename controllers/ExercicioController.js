@@ -123,11 +123,41 @@ module.exports = {
 		// Resultado do serviço armazenado em rows
 		rows = json.result;
 
+		// Quantidade de resultado
+		var keyCount  = Object.keys(rows).length; 
+
 		// Mostra o resultado
-		res.render('app/pesquisa', {layout: 'tabela_exercicios', rows, user: req.user})
+		res.render('app/pesquisa', {layout: 'tabela_exercicios', rows, user: req.user, alert: `${keyCount} resultados encontrados!`})
 
 
 	},
+
+	// Pesquisar através da barra de pesquisa da navegação, admin
+	pesquisarExercicio_admin: async(req, res) => {
+		let json = {error: '', result:[]};
+
+		// Pega o valor que nos foi enviado na barra de pesquisa
+		let pesquisa = req.body.pesquisa;
+
+		// Com o valor que foi nos enviado, vai chamar o serviço pesquisarExercicio para ver os exercícios que correspondem com o valor
+		let exercicio = await ExercicioService.pesquisarExercicio(pesquisa);
+
+		if(exercicio){
+			json.result = exercicio;
+		} else {
+			json.error = "err"
+		}
+
+		// Resultado do serviço armazenado em rows
+		rows = json.result;
+		var keyCount  = Object.keys(rows).length; 
+
+		// Mostra o resultado
+		res.render('admin/Exercicios/pesquisa', {layout: 'tabela_exercicios_crud', rows, user: req.user,alert: `${keyCount} resultados encontrados!`})
+
+
+	},
+	
 
 	// Função para buscar um exercício através de um determinado equipamento
 	buscarEquipamento: async (req, res) => {

@@ -23,8 +23,17 @@ initializePassport(
 app.get('/Exercicios', ExercicioController.view)
 app.post('/Exercicios/pesquisa', ExercicioController.pesquisarExercicio);
 
+// Pesquisar alimentos
+
+app.post('/Alimentos/pesquisa', AlimentoController.pesquisarAlimento);
 // Rota para visualizar Alimentos
 app.get('/Alimentos', AlimentoController.view);
+app.get('/main_alimentos', function(req,res){
+	res.render('app/Alimentos/alimentos.hbs', {
+		user: req.user,
+		foto: req.user.foto
+	})
+});
 
 
 app.get('/meu_perfil', checkAuthenticated, function(req, res) {

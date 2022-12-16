@@ -162,6 +162,58 @@ module.exports = {
         res.render('admin/Alimentos/tabela_alimentos', {layout:'tabela_alimentos_crud', rows, user: req.user})
     },
 
+    // Pesquisar através da barra de pesquisa da navegação, admin
+	pesquisarAlimento_admin: async(req, res) => {
+		let json = {error: '', result:[]};
+
+		// Pega o valor que nos foi enviado na barra de pesquisa
+		let pesquisa = req.body.pesquisa;
+
+		// Com o valor que foi nos enviado, vai chamar o serviço pesquisarAlimento para ver os alimentos que correspondem com o valor
+		let alimento = await AlimentoService.pesquisarAlimento(pesquisa);
+
+		if(alimento){
+			json.result = alimento;
+		} else {
+			json.error = "err"
+		}
+
+		// Resultado do serviço armazenado em rows
+		rows = json.result;
+
+        var keyCount  = Object.keys(rows).length; 
+        
+		// Mostra o resultado
+		res.render('admin/Alimentos/pesquisa', {layout: 'tabela_alimentos_crud', rows, user: req.user,alert: `${keyCount} resultados encontrados!`})
+
+
+	},
+
+    pesquisarAlimento: async(req, res) => {
+		let json = {error: '', result:[]};
+
+		// Pega o valor que nos foi enviado na barra de pesquisa
+		let pesquisa = req.body.pesquisa;
+
+		// Com o valor que foi nos enviado, vai chamar o serviço pesquisarAlimento para ver os alimentos que correspondem com o valor
+		let alimento = await AlimentoService.pesquisarAlimento(pesquisa);
+
+		if(alimento){
+			json.result = alimento;
+		} else {
+			json.error = "err"
+		}
+
+		// Resultado do serviço armazenado em rows
+		rows = json.result;
+        var keyCount  = Object.keys(rows).length; 
+        
+		// Mostra o resultado
+		res.render('app/Alimentos/pesquisa', {layout: 'tabela_alimentos', rows, user: req.user,alert: `${keyCount} resultados encontrados!`})
+
+
+	},
+
     // Página - Adicionar alimento
 	adicionar: async (req, res) => {
 		let json = {error: '', result:[]};

@@ -4,15 +4,28 @@
 <br>
 
 
-<div class="container-fluid">	<h2  class="text-light"><br><br><br>
+<div class="container-fluid">
+	<h2 class="text-light"><br><br><br>
 		Gestão de exercícios
 	</h2>
+
 	<div class="col-12 d-flex justify-content-end">
-    <a href="/admin/adicionar_exercicio" type="button" class="btn btn-dark align-self-center">+ adicionar exercício</a>
-  </div>
-	
+
+		<form class="d-flex" method="POST" action="/admin/Exercicios/pesquisa">
+			<input class="form-control me-2" type="text" placeholder="Pesquisar" name="pesquisa" aria-label="Search">
+			<button class="btn btn-primary" type="submit">Pesquisar</button>
+		</form>
+
+
+	</div>
+
 	<p style="text-align: center">
-		<table class="table table-bordered table-hover table-light">
+	<div class="d-grid gap-2">
+
+		<a href="/admin/adicionar_exercicio" type="button" class="btn btn-primary align-self-center">+ adicionar
+			exercício</a>
+	</div>
+	<table class="table table-bordered table-hover table-light">
 		<thead class="thead-light">
 			<tr class="bg-danger">
 				<th scope="col">ID</th>
@@ -22,15 +35,14 @@
 				<th scope="col">Músculo</th>
 				<th scope="col" class="text-end">Ações</th>
 			</tr>
-			</thead>
-			<tbody id="myTable">
-				{{{body}}}
-			</tbody>
-		</table>
+		</thead>
+		<tbody id="myTable">
+			{{{body}}}
+		</tbody>
+	</table>
 
 	</p>
-	
+
 </div>
 
 {{> footer }}
-
