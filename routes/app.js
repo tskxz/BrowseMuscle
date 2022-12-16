@@ -35,6 +35,9 @@ app.get('/main_alimentos', function(req,res){
 	})
 });
 
+// Gráfico de alimento
+app.get('/alimento/:id', checkAuthenticated, AlimentoController.grafico)		// Página para editar alimento
+
 
 app.get('/meu_perfil', checkAuthenticated, function(req, res) {
 	res.render('app/utilizador/perfil.hbs', { 

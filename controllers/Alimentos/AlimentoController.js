@@ -320,5 +320,21 @@ module.exports = {
 
 	},
 
+    // Página - Gráfico do Alimento
+    grafico: async(req,res) => {
+		let json = {error: '', result:[]};
+
+        // Obtém os valores obtidos através do body
+		let id = req.params.id;	
+
+        // Buscar as informações do alimento
+        row = await AlimentoService.buscarUmAlimento(id);
+        console.log(row)
+
+        // Com as informações do alimento, mostra por pré-definido os valores dentro dos inputs para alterar algo
+        res.render('app/Alimentos/alimento_grafico', {layout:'grafico', row, user: req.user,})
+
+	},
+
 
 }
