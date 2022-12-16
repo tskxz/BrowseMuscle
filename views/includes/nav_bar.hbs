@@ -94,9 +94,23 @@
   </div>
 </nav>
 -->
+<style>
+  .card__image_nav {
+    box-shadow: 0 1px 10px rgba(255, 255, 255, 0), 0 2px 9px rgb(0, 0, 0);
+
+    margin: 0 auto;
+    width: 26px;
+    height: 26px;
+    border-radius: 60%;
+    overflow: hidden;
+    -o-object-fit: cover;
+    object-fit: cover;
+    border: 1px solid rgb(255, 255, 255);
+  }
+</style>
 <nav class="navbar navbar-dark navbar-expand-lg bg-light fixed-top" id="mainNav">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/"><img src="/assets/img/browsemuscle_dark.png" width="250px" height="100px" ></a>
+    <a class="navbar-brand" href="/"><img src="/assets/img/browsemuscle_dark.png" width="250px" height="100px"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
       aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       Menu
@@ -108,8 +122,8 @@
           <a class="nav-link" aria-current="page" href="/">Home</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-            data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
             Exercícios
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -127,11 +141,11 @@
         </li>
 
 
-        
+
 
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-            data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
             Equipamentos
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -147,8 +161,8 @@
 
 
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-            data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
             Dificuldades
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -158,9 +172,9 @@
             </li>
             <div id="dropdown_dificuldades_navegacao"></div>
           </ul>
-          </li>
-           
-          <form class="d-flex" method="POST" action="/Exercicios/pesquisa">
+        </li>
+
+        <form class="d-flex" method="POST" action="/Exercicios/pesquisa">
           <input class="form-control me-2" type="text" placeholder="Pesquisar" name="pesquisa" aria-label="Search">
           <button class="btn btn-link" type="submit">Pesquisar</button>
         </form>
@@ -170,12 +184,20 @@
         {{/unless}}
 
         {{#if user}}
+
+
+        {{#if foto}}
+        <li class="nav-item"><a class="nav-link " href="/meu_perfil"><img class="card__image_nav"
+              src="/upload/{{user.foto}}" /> {{user.username}}</a></li>
         
-        <li class="nav-item"><a class="nav-link " href="/meu_perfil"><img src="/assets/img/user.png" width="26px" height="26px" /> {{user.username}}</a></li>
-      
+        {{else}}
+        <li class="nav-item"><a class="nav-link " href="/meu_perfil"><img class="card_image_nav"
+              src="/assets/img/user.png" width="26px" height="26px" /> {{user.username}}</a></li>
         {{/if}}
-        
-        
+
+        {{/if}}
+
+
       </ul>
     </div>
   </div>

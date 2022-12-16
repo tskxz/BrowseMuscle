@@ -14,7 +14,7 @@
         padding: 20px;
         background-color: #fff;
         border-radius: 15px;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0), 0 6px 36px rgba(0, 0, 0, 0.13);
+        box-shadow: 0 10px 20px #8b05eb, 0 6px 36px #8b05eb;
         cursor: pointer;
         transition: all 0.5s;
     }
@@ -90,8 +90,8 @@
         overflow: hidden;
         -o-object-fit: cover;
         object-fit: cover;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0), 0 6px 36px rgba(0, 0, 0, 0.13);
-        border: 3px solid rgb(0, 0, 0);
+        box-shadow: 0 10px 20px rgba(255, 255, 255, 0), 0 6px 36px rgb(0, 0, 0);
+        border: 3px solid rgb(255, 255, 255);
     }
 
     .card__username {
@@ -107,8 +107,8 @@
     <div class="card p-4">
         <div class=" image d-flex flex-column justify-content-center align-items-center">{{#if foto}}
             <img src="/upload/{{foto}}" class="card__image" /><br>
-                {{else}}
-                <img src="/upload/user.png" class="card__image" /><br>
+            {{else}}
+            <img src="/upload/user.png" class="card__image" /><br>
             {{/if}} <span class="name mt-3">{{primeiro_nome}} {{ultimo_nome}}</span> <span
                 class="card__username">@{{username}}</span>
             <div class="d-flex flex-row justify-content-center align-items-center gap-2"> <span class="idd1"><img
