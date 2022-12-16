@@ -123,8 +123,11 @@ module.exports = {
 		// Resultado do serviço armazenado em rows
 		rows = json.result;
 
+		// Quantidade de resultado
+		var keyCount  = Object.keys(rows).length; 
+
 		// Mostra o resultado
-		res.render('app/pesquisa', {layout: 'tabela_exercicios', rows, user: req.user})
+		res.render('app/pesquisa', {layout: 'tabela_exercicios', rows, user: req.user, alert: `${keyCount} resultados encontrados!`})
 
 
 	},
@@ -147,9 +150,10 @@ module.exports = {
 
 		// Resultado do serviço armazenado em rows
 		rows = json.result;
+		var keyCount  = Object.keys(rows).length; 
 
 		// Mostra o resultado
-		res.render('admin/Exercicios/pesquisa', {layout: 'tabela_exercicios_crud', rows, user: req.user})
+		res.render('admin/Exercicios/pesquisa', {layout: 'tabela_exercicios_crud', rows, user: req.user,alert: `${keyCount} resultados encontrados!`})
 
 
 	},

@@ -181,8 +181,10 @@ module.exports = {
 		// Resultado do serviço armazenado em rows
 		rows = json.result;
 
+        var keyCount  = Object.keys(rows).length; 
+        
 		// Mostra o resultado
-		res.render('admin/Alimentos/pesquisa', {layout: 'tabela_alimentos_crud', rows, user: req.user})
+		res.render('admin/Alimentos/pesquisa', {layout: 'tabela_alimentos_crud', rows, user: req.user,alert: `${keyCount} resultados encontrados!`})
 
 
 	},
@@ -204,9 +206,10 @@ module.exports = {
 
 		// Resultado do serviço armazenado em rows
 		rows = json.result;
-
+        var keyCount  = Object.keys(rows).length; 
+        
 		// Mostra o resultado
-		res.render('app/Alimentos/pesquisa', {layout: 'tabela_alimentos', rows, user: req.user})
+		res.render('app/Alimentos/pesquisa', {layout: 'tabela_alimentos', rows, user: req.user,alert: `${keyCount} resultados encontrados!`})
 
 
 	},

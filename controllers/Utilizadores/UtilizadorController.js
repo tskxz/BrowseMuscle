@@ -384,8 +384,10 @@ module.exports = {
 		// Resultado do serviço armazenado em rows
 		rows = json.result;
 
+		var keyCount  = Object.keys(rows).length; 
+
 		// Mostra o resultado
-		res.render('admin/Utilizadores/pesquisa', {layout: 'tabela_utilizadores_crud', rows, user: req.user})
+		res.render('admin/Utilizadores/pesquisa', {layout: 'tabela_utilizadores_crud', rows, user: req.user,alert: `${keyCount} resultados encontrados!`})
 
 	},
 
