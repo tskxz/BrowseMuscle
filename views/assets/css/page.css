@@ -2019,7 +2019,18 @@ progress {
   --bs-table-accent-bg: var(--bs-table-active-bg);
   color: var(--bs-table-active-color);
 }
+.card__image_nav {
+  box-shadow: 0 1px 10px rgba(255, 255, 255, 0), 0 2px 9px rgb(0, 0, 0);
 
+  margin: 0 auto;
+  width: 26px;
+  height: 26px;
+  border-radius: 60%;
+  overflow: hidden;
+  -o-object-fit: cover;
+  object-fit: cover;
+  border: 1px solid rgb(255, 255, 255);
+}
 .table-hover > tbody > tr:hover > * {
   --bs-table-accent-bg: var(--bs-table-hover-bg);
   color: var(--bs-table-hover-color);
@@ -11507,14 +11518,14 @@ header.masthead .masthead-heading {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: rgba(200, 0, 255, 0.7);
+  background: rgba(223, 0, 255, 0.42);
   align-items: center;
   justify-content: center;
   opacity: 0;
   transition: opacity ease-in-out 0.25s;
 }
 #portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content {
-  font-size: 1.25rem;
+  font-size: 0;
   color: white;
 }
 #portfolio .portfolio-item .portfolio-link:hover .portfolio-hover {

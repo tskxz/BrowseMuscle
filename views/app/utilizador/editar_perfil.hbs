@@ -1,5 +1,5 @@
 <style>
-     .card__image {
+    .card__image {
         display: block;
         margin: 0 auto;
         width: 100px;
@@ -15,52 +15,145 @@
     .photo {
         text-align: center;
     }
+
+    #image {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        margin: 0 auto;
+        display: block;
+        border: 2px solid gray;
+        border-radius: 50%;
+    }
+
+    #modal {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 400px;
+        height: 300px;
+        background-color: white;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+        border-radius: 8px;
+        z-index: 1;
+    }
 </style>
 
 
 <div class="d-flex align-items-center justify-content-center" style="height: 80vh">
-<div class="container">
-    <div class="photo">
-        <form action="/mudar_foto" method="post" enctype="multipart/form-data">
-            {{#if foto}}
-            <img src="/upload/{{foto}}" class="card__image" /><br>
+    <div class="container">
+        <div class="photo">
+            <form action="/mudar_foto" method="post" id="mudar_foto" enctype="multipart/form-data">
+                {{#if foto}}
+                <img src="/upload/{{foto}}" class="card__image" /><br>
                 {{else}}
                 <img src="/upload/user.png" class="card__image" /><br>
-            {{/if}}
-            <label for="file-input" class="btn btn-primary">Mudar a foto</label>
-            <input id="file-input" type="file" style="display:none" name="sampleFile" accept="image/*" />
-            <input type="submit" class="btn btn-primary">
-        </form>
-    </div><br>
+                {{/if}}
+                <label for="file-input" class="btn btn-primary">Mudar a foto</label>
+                <input id="file-input" type="file" style="display:none" name="sampleFile" accept="image/*" />
+            </form>
+        </div><br>
+        <script>
+            // Get the file input element
+            const fileInput = document.getElementById('file-input');
 
-    <form class="row g-3" method="post" action="/meu_perfil/editar">
-     
-        <div class="col-md-6">
-            <label for="inputEmail4" class="form-label text-light">Primeiro Nome</label>
-            <input type="text" value={{primeiro_nome}} class="form-control" id="inputEmail4" name="primeiro_nome">
-        </div>
-        <div class="col-md-6">
-            <label for="inputPassword4" class="form-label text-light">Último nome</label>
-            <input type="text" aria-label="Último nome" class="form-control" name="ultimo_nome"
-                value={{ultimo_nome}}>
-        </div>
-        <div class="col-md-6">
-            <label for="inputEmail4" class="form-label text-light">Email</label>
-            <input type="email" value={{email}} class="form-control" id="inputEmail4" name="email">
-        </div>
-        <div class="col-md-6">
-            <label for="inputPassword4" class="form-label text-light">Número de telemóvel</label>
-            <input type="text" aria-label="Número de telemovel" class="form-control" name="num_telemovel"
-                value={{num_telemovel}}>
-        </div>
+            // Add an event listener to the file input element
+            fileInput.addEventListener('change', () => {
+                // Get the file selected by the user
+                const file = fileInput.files[0];
 
-        <label for="floatingTextarea2" class="text-light">Descrição</label>
-        <textarea class="form-control" id="floatingTextarea2" style="height: 100px"
-            name="descricao">{{descricao}}</textarea>
-        <div class="d-grid gap-2">
-            <button type="submit" class="btn btn-primary">Atualizar as informações</button>
-        </div>
-    </form><br>
+                // Check if the file is an image
+                if (file.type.startsWith('image/')) {
+                    // Create a FileReader object to read the image file
+                    const reader = new FileReader();
 
+                    // Add an event listener to the FileReader object's onload event
+                    reader.addEventListener('load', () => {
+                        // Get the image element
+                        const image = document.getElementById('image');
+
+                        // Set the src attribute of the image element to the data URL of the image
+                        image.src = reader.result;
+
+                        // Show the modal
+                        const modal = document.getElementById('modal');
+                        modal.style.display = 'block';
+                    });
+
+                    // Read the image file as a data URL
+                    reader.readAsDataURL(file);
+                }
+            });
+        </script>
+
+
+        <style>
+  .backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  .modal:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #5b9dd9, 0 0 2px #5b9dd9;
+  }
+</style>
+
+<div id="modal" class="modal" style="display: none;" tabindex="-1">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <img id="image" src="#" alt="Image preview" />
+    <button type="submit" form="mudar_foto" class="btn btn-primary">Atualizar a foto</button>
+  </div>
 </div>
+
+<script>
+  function showModal() {
+    document.body.classList.add('modal-open');
+    document.body.classList.add('backdrop');
+    document.getElementById('modal').style.display = 'block';
+    document.getElementById('modal').focus();
+  }
+
+  function hideModal() {
+    document.body.classList.remove('modal-open');
+    document.body.classList.remove('backdrop');
+    document.getElementById('modal').style.display = 'none';
+  }
+
+  document.querySelector('.close').addEventListener('click', hideModal);
+</script>
+
+
+
+
+        <form class="row g-3" method="post" action="/meu_perfil/editar">
+
+            <div class="col-md-6">
+                <label for="inputEmail4" class="form-label text-light">Primeiro Nome</label>
+                <input type="text" value={{primeiro_nome}} class="form-control" id="inputEmail4" name="primeiro_nome">
+            </div>
+            <div class="col-md-6">
+                <label for="inputPassword4" class="form-label text-light">Último nome</label>
+                <input type="text" aria-label="Último nome" class="form-control" name="ultimo_nome"
+                    value={{ultimo_nome}}>
+            </div>
+            <div class="col-md-6">
+                <label for="inputEmail4" class="form-label text-light">Email</label>
+                <input type="email" value={{email}} class="form-control" id="inputEmail4" name="email">
+            </div>
+            <div class="col-md-6">
+                <label for="inputPassword4" class="form-label text-light">Número de telemóvel</label>
+                <input type="text" aria-label="Número de telemovel" class="form-control" name="num_telemovel"
+                    value={{num_telemovel}}>
+            </div>
+
+            <label for="floatingTextarea2" class="text-light">Descrição</label>
+            <textarea class="form-control" id="floatingTextarea2" style="height: 100px"
+                name="descricao">{{descricao}}</textarea>
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-primary">Atualizar as informações</button>
+            </div>
+        </form><br>
+
+    </div>
 </div>
