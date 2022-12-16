@@ -187,6 +187,30 @@ module.exports = {
 
 	},
 
+    pesquisarAlimento: async(req, res) => {
+		let json = {error: '', result:[]};
+
+		// Pega o valor que nos foi enviado na barra de pesquisa
+		let pesquisa = req.body.pesquisa;
+
+		// Com o valor que foi nos enviado, vai chamar o serviço pesquisarAlimento para ver os alimentos que correspondem com o valor
+		let alimento = await AlimentoService.pesquisarAlimento(pesquisa);
+
+		if(alimento){
+			json.result = alimento;
+		} else {
+			json.error = "err"
+		}
+
+		// Resultado do serviço armazenado em rows
+		rows = json.result;
+
+		// Mostra o resultado
+		res.render('app/Alimentos/pesquisa', {layout: 'tabela_alimentos', rows, user: req.user})
+
+
+	},
+
     // Página - Adicionar alimento
 	adicionar: async (req, res) => {
 		let json = {error: '', result:[]};

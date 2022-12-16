@@ -153,6 +153,7 @@ module.exports = {
 
 
 	},
+	
 
 	// Função para buscar um exercício através de um determinado equipamento
 	buscarEquipamento: async (req, res) => {

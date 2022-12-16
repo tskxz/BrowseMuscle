@@ -23,6 +23,9 @@ initializePassport(
 app.get('/Exercicios', ExercicioController.view)
 app.post('/Exercicios/pesquisa', ExercicioController.pesquisarExercicio);
 
+// Pesquisar alimentos
+
+app.post('/Alimentos/pesquisa', AlimentoController.pesquisarAlimento);
 // Rota para visualizar Alimentos
 app.get('/Alimentos', AlimentoController.view);
 app.get('/main_alimentos', function(req,res){
