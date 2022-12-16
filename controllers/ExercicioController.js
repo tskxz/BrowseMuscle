@@ -129,6 +129,31 @@ module.exports = {
 
 	},
 
+	// Pesquisar através da barra de pesquisa da navegação, admin
+	pesquisarExercicio_admin: async(req, res) => {
+		let json = {error: '', result:[]};
+
+		// Pega o valor que nos foi enviado na barra de pesquisa
+		let pesquisa = req.body.pesquisa;
+
+		// Com o valor que foi nos enviado, vai chamar o serviço pesquisarExercicio para ver os exercícios que correspondem com o valor
+		let exercicio = await ExercicioService.pesquisarExercicio(pesquisa);
+
+		if(exercicio){
+			json.result = exercicio;
+		} else {
+			json.error = "err"
+		}
+
+		// Resultado do serviço armazenado em rows
+		rows = json.result;
+
+		// Mostra o resultado
+		res.render('admin/Exercicios/pesquisa', {layout: 'tabela_exercicios_crud', rows, user: req.user})
+
+
+	},
+
 	// Função para buscar um exercício através de um determinado equipamento
 	buscarEquipamento: async (req, res) => {
 		let json = {error:'', result:[]};

@@ -8,10 +8,21 @@
 		Gestão de alimentos
 	</h2>
 	<div class="col-12 d-flex justify-content-end">
-    <a href="/admin/adicionar_alimento" type="button" class="btn btn-dark align-self-center">+ adicionar alimento</a>
-  </div>
+
+		<form class="d-flex" method="POST" action="/admin/Alimentos/pesquisa">
+			<input class="form-control me-2" type="text" placeholder="Pesquisar" name="pesquisa" aria-label="Search">
+			<button class="btn btn-primary" type="submit">Pesquisar</button>
+		</form>
+
+
+	</div>
 	
 	<p style="text-align: center">
+		<div class="d-grid gap-2">
+
+		    <a href="/admin/adicionar_alimento" type="button" class="btn btn-primary align-self-center">+ adicionar alimento</a>
+
+	</div>
 		<table class="table table-bordered table-hover table-light">
 			<thead class="thead-light">
 			<tr class="bg-danger">
