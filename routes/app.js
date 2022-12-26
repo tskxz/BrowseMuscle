@@ -38,6 +38,9 @@ app.get('/main_alimentos', checkAuthenticated, function(req,res){
 // Gráfico de alimento
 app.get('/alimento/:id', checkAuthenticated, AlimentoController.grafico)		// Página para editar alimento
 
+// Ferramenta para calcular valores do alimento
+app.get('/calcular_calorias', checkAuthenticated, AlimentoController.calculo_calorias)
+app.post('/calcular_calorias', checkAuthenticated, AlimentoController.calculo_calorias_post)
 
 app.get('/meu_perfil', checkAuthenticated, function(req, res) {
 	res.render('app/utilizador/perfil.hbs', { 
