@@ -67,6 +67,9 @@ app.post('/mudar_foto', checkAuthenticated, UtilizadorController.atualizar_perfi
 // Rota para visualizar informações de um utilizador através do parametro url username
 app.get('/perfil/:username', checkAuthenticated, UtilizadorController.perfil)
 
+// Rota para alterar a palavra passe do utilizador
+app.get('/mudar_pass', checkAuthenticated, UtilizadorController.mudar_pass)
+app.post('/mudar_pass', checkAuthenticated, UtilizadorController.mudar_pass_post)
 
 // teste
 app.get('/test', function(req,res) {
