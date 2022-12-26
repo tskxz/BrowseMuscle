@@ -1,0 +1,21 @@
+<br><div class="center">
+<h3 class="text-light">Calcular e exibir as calorias</h3><br>
+<form method="post" action="/calcular_calorias">
+    <label class="text-light" for="protein">Proteína (g):</label><br>
+    <input type="number" id="protein" name="protein"><br>
+    <label class="text-light" for="carbs">Carboidratos (g):</label><br>
+    <input type="number" id="carbs" name="carbs"><br>
+    <label class="text-light" for="fat">Gordura (g):</label><br>
+    <input type="number" id="fat" name="fat"><br><br>
+    <button class="btn btn-primary" type="submit">Calcular</button>
+</form>
+
+<br>
+{{#if alert}}
+    <div class="alert alert-success" role="alert">
+        <h2 >Calorias: {{alert}}</h2>
+    </div>
+{{/if}}
+</body>
+
+</html>

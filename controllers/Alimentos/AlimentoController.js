@@ -320,6 +320,22 @@ module.exports = {
 
 	},
 
+    // Página - Cálculo de valores do alimento
+    calculo_calorias: async(req, res) => {
+        res.render('app/Alimentos/alimento_calculo_calorias', {user: req.user})
+    },
+
+    // Página - Cálculo de valores do alimento
+    calculo_calorias_post: async(req, res) => {
+        
+        const protein = parseInt(req.body.protein);
+	    const carbs = parseInt(req.body.carbs);
+	    const fat = parseInt(req.body.fat);
+	    const calories = (protein * 4) + (carbs * 4) + (fat * 9);
+
+        res.render('app/Alimentos/alimento_calculo_calorias', { alert: calories, user: req.user })
+    },
+
     // Página - Gráfico do Alimento
     grafico: async(req,res) => {
 		let json = {error: '', result:[]};
@@ -335,6 +351,8 @@ module.exports = {
         res.render('app/Alimentos/alimento_grafico', {layout:'grafico', row, user: req.user,})
 
 	},
+
+    
 
 
 }
