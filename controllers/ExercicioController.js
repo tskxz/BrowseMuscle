@@ -157,6 +157,27 @@ module.exports = {
 
 
 	},
+
+	// Ferramenta para calcular 1RM
+	calcular_1rm: async(req, res) => {
+		res.render('app/calcular_1rm', {user: req.user})
+	},
+
+	calcular_1rm_post: async(req,res) => {
+		let weight = parseFloat(req.body.weight);
+		let unit = parseInt(req.body.unit);
+		let reps = req.body.reps;
+
+		if (unit === 'kg') {
+            rm1 = (weight * reps * 0.033) + weight;
+        } else {
+            rm1 = (weight * reps * 0.037) + weight;
+        }
+
+		res.render('app/calcular_1rm', {user: req.user, alert: rm1})
+		
+		
+	},
 	
 
 	// Função para buscar um exercício através de um determinado equipamento

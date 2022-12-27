@@ -42,6 +42,11 @@ app.get('/alimento/:id', checkAuthenticated, AlimentoController.grafico)		// Pá
 app.get('/calcular_calorias', checkAuthenticated, AlimentoController.calculo_calorias)
 app.post('/calcular_calorias', checkAuthenticated, AlimentoController.calculo_calorias_post)
 
+// Ferramenta para calcular 1RM
+app.get('/calcular_1rm', checkAuthenticated, ExercicioController.calcular_1rm)
+app.post('/calcular_1rm', checkAuthenticated, ExercicioController.calcular_1rm_post)
+
+
 app.get('/meu_perfil', checkAuthenticated, function(req, res) {
 	res.render('app/utilizador/perfil.hbs', { 
 		user: req.user,
