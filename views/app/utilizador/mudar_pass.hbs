@@ -1,0 +1,35 @@
+<style>
+    h1 {
+        text-align: center;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 20px;
+    }
+
+    label {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+
+</style>
+<br><br>
+<h1 class="text-light">Alterar palavra-passe</h1>
+{{#if alert}}
+    <div class="alert alert-success" role="alert">
+        <h5 >{{alert}}</h5>
+    </div>
+{{/if}}
+<form method="post" action="/mudar_pass">
+    <label class="text-light" for="palavra_passe_atual">Palavra-Passe Atual:</label><br>
+    <input class="form-control" type="password" id="palavra_passe_atual" name="palavra_passe_atual"><br>
+    <label class="text-light" for="nova_palavra_passe">Nova Palavra-Passe:</label><br>
+    <input class="form-control" type="password" id="nova_palavra_passe" name="nova_palavra_passe"><br>
+    <label class="text-light" for="confirmar_palavra_passe">Confirmar Nova Palavra-Passe:</label><br>
+    <input class="form-control" type="password" id="confirmar_palavra_passe" name="confirmar_palavra_passe"><br><br>
+    <button class="btn btn-primary" type="submit">Alterar Palavra-Passe</button>
+</form>

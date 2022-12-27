@@ -136,6 +136,8 @@ module.exports = {
 
 	},
 
+	
+
 	editar_utilizador_post: async (req, res) => {
 
 		let id = req.params.id;
@@ -227,6 +229,49 @@ module.exports = {
 		}
 
 
+	},
+
+	// Mudar palavra passe
+	mudar_pass: async(req, res)=> {
+		res.render('app/utilizador/mudar_pass', {user: req.user})
+	},
+
+	mudar_pass_post: async(req, res)=> {
+		let json = { error: '', result: [] };
+
+		// Pega os valores username e password do body
+		let username = req.user.username;
+		let palavra_passe_atual = req.body.palavra_passe_atual;
+		let confirmar_palavra_passe = req.body.confirmar_palavra_passe;
+		let nova_palavra_passe = req.body.nova_palavra_passe;
+
+		// Chama o serviço login para selecionar o dado onde o username corresponde ao username que está na tabela Utilizadores
+		let utilizador = await UtilizadorService.login(username);
+
+		// Se o username coincidir e existir com o que está na tabela
+		if (utilizador) {
+			// Se coincidir a password que foi nos enviado com a password do utilizador
+			if (await bcrypt.compare(palavra_passe_atual, utilizador.password)) {
+				json.result = "SUCESSO!"; // Sucesso
+				if(confirmar_palavra_passe === nova_palavra_passe){
+					
+					const salt = await bcrypt.genSalt();
+					const hashedNewPassword = await bcrypt.hash(nova_palavra_passe, salt); // Encriptar a password
+
+					// Chama o serviço criar que vai inserir os valores obtidos com a palavra passe encriptada
+					await UtilizadorService.mudar_pass(req.user.id, hashedNewPassword);
+					json.result = "Palavra passe mudada com sucesso!"
+
+				} else {
+					json.result = "Palavra passe não são iguais!"
+				}
+			} else {
+				json.result = 'Password errada!' // Errado
+			}
+			// Se o username não existir na tabela Utilizadores
+		}
+
+		res.render('app/utilizador/mudar_pass', {alert: json.result, user: req.user})
 	},
 
 	atualizar_perfil_foto: async (req, res) => {
