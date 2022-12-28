@@ -76,6 +76,9 @@ app.get('/perfil/:username', checkAuthenticated, UtilizadorController.perfil)
 app.get('/mudar_pass', checkAuthenticated, UtilizadorController.mudar_pass)
 app.post('/mudar_pass', checkAuthenticated, UtilizadorController.mudar_pass_post)
 
+// Rota para calcular quantidade de macros que uma pessoa precisa de consumir
+app.get('/calcular_macro', checkAuthenticated, AlimentoController.calculo_macros)
+app.post('/calcular_macro', checkAuthenticated, AlimentoController.calculo_macros_post)
 // teste
 app.get('/test', function(req,res) {
 	res.render('app/tests/index.hbs')

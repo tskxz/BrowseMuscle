@@ -3,11 +3,11 @@ const MarcasService = require('../../services/Marcas/MarcasService')
 module.exports = {
 
     // Visualizar todos os Alimentos existentes dentro da tabela Alimentos
-    visualizarTodos: async(req,res) => {
-        let json = {error: '', result:[]};
+    visualizarTodos: async (req, res) => {
+        let json = { error: '', result: [] };
 
         let alimento = await AlimentoService.visualizarTodos(); // Chama o serviço visualizarTodos()
-        for(let i in alimento){
+        for (let i in alimento) {
             // Para cada alimento, vai ser movido para json
             json.result.push({
                 id: alimento[i].id,
@@ -23,21 +23,21 @@ module.exports = {
     },
 
     // Visualizar apenas um alimento através do parametro id
-    buscarUm: async(req, res) => {
-        let json = {error: '', result:[]};
+    buscarUm: async (req, res) => {
+        let json = { error: '', result: [] };
 
         let id = req.params.id;                             // Receber o id através do url 
         let alimento = await AlimentoService.buscarUm(id);  // Resultado do serviço buscarUm()
 
-        if(alimento){
+        if (alimento) {
             json.result = alimento;                         // Dado alimento obtido através do id movido para json 
         }
         res.json(json);                                     // Enviar o response json
     },
 
     // Inserir um alimento através do body
-    inserir: async(req, res) => {
-        let json = {error: '', result:[]};
+    inserir: async (req, res) => {
+        let json = { error: '', result: [] };
 
         // Receber os seguintes valores através do body
         let nome = req.body.nome;
@@ -47,7 +47,7 @@ module.exports = {
         let calorias = req.body.calorias;
 
         // Verifica se contêm os valores
-        if(nome && proteina && carbs && gordura){
+        if (nome && proteina && carbs && gordura) {
             // Chhama o serviço inserir alimento e armazena o resultado no AlimentoId que vai ser o id incrementado
             let AlimentoId = await AlimentoService.inserir(nome, proteina, carbs, gordura, calorias);
             json.result = {
@@ -67,8 +67,8 @@ module.exports = {
     },
 
     // Alterar dados do alimento através do body
-    alterar: async(req, res) => {
-        let json = {error: '', result:[]};
+    alterar: async (req, res) => {
+        let json = { error: '', result: [] };
 
         // Receber os seguintes valores através do body
         let id = req.params.id;
@@ -79,7 +79,7 @@ module.exports = {
         let calorias = req.body.calorias;
 
         // Verifica se contêm valores
-        if(id && nome && proteina && carbs && gordura){
+        if (id && nome && proteina && carbs && gordura) {
             // Usa o serviço alterar com os valores recebidos como parametros e fazer UPDATE
             await AlimentoService.alterar(id, nome, proteina, carbs, gordura, calorias)
             json.result = {
@@ -99,8 +99,8 @@ module.exports = {
     },
 
     // Apaga um alimento através do id
-    apagar: async(req, res) => {
-        let json = {error: '', result:[]};
+    apagar: async (req, res) => {
+        let json = { error: '', result: [] };
 
         // Chama o serviço apagar e apaga através do parametro do id passado pelo URL
         await AlimentoService.apagar(req.params.id);
@@ -111,13 +111,13 @@ module.exports = {
 
     // Página - Visualização dos Alimentos para uma tabela na página principal Alimentos
     view: async (req, res) => {
-        let json = {error: '', result: []};
+        let json = { error: '', result: [] };
 
         // Chama o serviço visualizarTodos() e armazena todos os dados
         let Alimentos = await AlimentoService.visualizarTodos();
 
         // Percorre o array Alimentos e adiciona cada alimento para o json
-        for(let i in Alimentos){
+        for (let i in Alimentos) {
             json.result.push({
                 id: Alimentos[i].id,
                 alimento: Alimentos[i].alimento,
@@ -134,16 +134,16 @@ module.exports = {
         console.log(rows)
 
         // Mostra os Alimentos ao passar o valor rows
-        res.render('app/Alimentos/tabela_alimentos', {layout:'tabela_alimentos', rows, user: req.user,})
+        res.render('app/Alimentos/tabela_alimentos', { layout: 'tabela_alimentos', rows, user: req.user, })
     },
 
     // Página - Visualização dos Alimentos para uma tabela na página de administração Alimentos para fazer operações
-    main: async(req, res)=>{
-        let json = {error: '', result: []};
+    main: async (req, res) => {
+        let json = { error: '', result: [] };
 
         let Alimentos = await AlimentoService.visualizarTodos();
 
-        for(let i in Alimentos){
+        for (let i in Alimentos) {
             json.result.push({
                 alimento_id: Alimentos[i].id,
                 alimento: Alimentos[i].alimento,
@@ -159,200 +159,245 @@ module.exports = {
         console.log(rows);
 
         // Layout diferente para acrescentar a coluna editar e apagar
-        res.render('admin/Alimentos/tabela_alimentos', {layout:'tabela_alimentos_crud', rows, user: req.user})
+        res.render('admin/Alimentos/tabela_alimentos', { layout: 'tabela_alimentos_crud', rows, user: req.user })
     },
 
     // Pesquisar através da barra de pesquisa da navegação, admin
-	pesquisarAlimento_admin: async(req, res) => {
-		let json = {error: '', result:[]};
+    pesquisarAlimento_admin: async (req, res) => {
+        let json = { error: '', result: [] };
 
-		// Pega o valor que nos foi enviado na barra de pesquisa
-		let pesquisa = req.body.pesquisa;
+        // Pega o valor que nos foi enviado na barra de pesquisa
+        let pesquisa = req.body.pesquisa;
 
-		// Com o valor que foi nos enviado, vai chamar o serviço pesquisarAlimento para ver os alimentos que correspondem com o valor
-		let alimento = await AlimentoService.pesquisarAlimento(pesquisa);
+        // Com o valor que foi nos enviado, vai chamar o serviço pesquisarAlimento para ver os alimentos que correspondem com o valor
+        let alimento = await AlimentoService.pesquisarAlimento(pesquisa);
 
-		if(alimento){
-			json.result = alimento;
-		} else {
-			json.error = "err"
-		}
+        if (alimento) {
+            json.result = alimento;
+        } else {
+            json.error = "err"
+        }
 
-		// Resultado do serviço armazenado em rows
-		rows = json.result;
+        // Resultado do serviço armazenado em rows
+        rows = json.result;
 
-        var keyCount  = Object.keys(rows).length; 
-        
-		// Mostra o resultado
-		res.render('admin/Alimentos/pesquisa', {layout: 'tabela_alimentos_crud', rows, user: req.user,alert: `${keyCount} resultados encontrados!`})
+        var keyCount = Object.keys(rows).length;
 
-
-	},
-
-    pesquisarAlimento: async(req, res) => {
-		let json = {error: '', result:[]};
-
-		// Pega o valor que nos foi enviado na barra de pesquisa
-		let pesquisa = req.body.pesquisa;
-
-		// Com o valor que foi nos enviado, vai chamar o serviço pesquisarAlimento para ver os alimentos que correspondem com o valor
-		let alimento = await AlimentoService.pesquisarAlimento(pesquisa);
-
-		if(alimento){
-			json.result = alimento;
-		} else {
-			json.error = "err"
-		}
-
-		// Resultado do serviço armazenado em rows
-		rows = json.result;
-        var keyCount  = Object.keys(rows).length; 
-        
-		// Mostra o resultado
-		res.render('app/Alimentos/pesquisa', {layout: 'tabela_alimentos', rows, user: req.user,alert: `${keyCount} resultados encontrados!`})
+        // Mostra o resultado
+        res.render('admin/Alimentos/pesquisa', { layout: 'tabela_alimentos_crud', rows, user: req.user, alert: `${keyCount} resultados encontrados!` })
 
 
-	},
+    },
+
+    pesquisarAlimento: async (req, res) => {
+        let json = { error: '', result: [] };
+
+        // Pega o valor que nos foi enviado na barra de pesquisa
+        let pesquisa = req.body.pesquisa;
+
+        // Com o valor que foi nos enviado, vai chamar o serviço pesquisarAlimento para ver os alimentos que correspondem com o valor
+        let alimento = await AlimentoService.pesquisarAlimento(pesquisa);
+
+        if (alimento) {
+            json.result = alimento;
+        } else {
+            json.error = "err"
+        }
+
+        // Resultado do serviço armazenado em rows
+        rows = json.result;
+        var keyCount = Object.keys(rows).length;
+
+        // Mostra o resultado
+        res.render('app/Alimentos/pesquisa', { layout: 'tabela_alimentos', rows, user: req.user, alert: `${keyCount} resultados encontrados!` })
+
+
+    },
 
     // Página - Adicionar alimento
-	adicionar: async (req, res) => {
-		let json = {error: '', result:[]};
+    adicionar: async (req, res) => {
+        let json = { error: '', result: [] };
 
         // Pega os valores através do body
-		let nome = req.body.nome;
-		let proteina = req.body.proteina;
-		let carbs = req.body.carbs;
-		let gordura = req.body.gordura;
+        let nome = req.body.nome;
+        let proteina = req.body.proteina;
+        let carbs = req.body.carbs;
+        let gordura = req.body.gordura;
         let calorias = req.body.calorias;
         let id_marca = req.body.id_marca;
-		let Marcas = await MarcasService.visualizarTodos();
+        let Marcas = await MarcasService.visualizarTodos();
         rows_marcas = Marcas
-		if(nome && proteina && carbs && gordura && calorias && id_marca){
+        if (nome && proteina && carbs && gordura && calorias && id_marca) {
 
-            
+
             // Insere alimento com os valores recebidos
-			let AlimentoId = await AlimentoService.inserir(nome, proteina, carbs, gordura, calorias,id_marca);
-			json.result = {
-				id: AlimentoId,
-				nome,
-				proteina,
-				carbs,
-				gordura,
+            let AlimentoId = await AlimentoService.inserir(nome, proteina, carbs, gordura, calorias, id_marca);
+            json.result = {
+                id: AlimentoId,
+                nome,
+                proteina,
+                carbs,
+                gordura,
                 calorias,
                 id_marca
-			};
-			
+            };
+
             // Após ser inserido, mostra o alert
-			res.render('admin/Alimentos/adicionar_alimentos', { alert: `${nome} Adicionado com sucesso`, user: req.user,rows_marcas});
+            res.render('admin/Alimentos/adicionar_alimentos', { alert: `${nome} Adicionado com sucesso`, user: req.user, rows_marcas });
 
-		} else {
-			json.error = 'Error!';
-		}
+        } else {
+            json.error = 'Error!';
+        }
 
-	},
+    },
 
     adicionar_form: async (req, res) => {
-		let json = {error: '', result:[]};
+        let json = { error: '', result: [] };
 
         // Pega os valores através do body
-		let nome = req.body.nome;
-		let proteina = req.body.proteina;
-		let carbs = req.body.carbs;
-		let gordura = req.body.gordura;
+        let nome = req.body.nome;
+        let proteina = req.body.proteina;
+        let carbs = req.body.carbs;
+        let gordura = req.body.gordura;
         let calorias = req.body.calorias;
-		let Marcas = await MarcasService.visualizarTodos();
+        let Marcas = await MarcasService.visualizarTodos();
         rows_marcas = Marcas
 
         // Mostra a página para preencher os dados e inserir alimento
-		res.render('admin/Alimentos/adicionar_alimentos', {user: req.user,rows_marcas});
-	},
+        res.render('admin/Alimentos/adicionar_alimentos', { user: req.user, rows_marcas });
+    },
 
 
     // Página - Eliminar um alimento
-    eliminar: async(req, res) => {
-		let json = {error: '', result:[]};
-		alimento = await AlimentoService.apagar(req.params.id);
-		console.log(alimento);
+    eliminar: async (req, res) => {
+        let json = { error: '', result: [] };
+        alimento = await AlimentoService.apagar(req.params.id);
+        console.log(alimento);
 
         // Redireciona para a página principal se for apagado
-		if(alimento){
-			res.redirect('/admin/main_alimentos/')
-		}
-	},
+        if (alimento) {
+            res.redirect('/admin/main_alimentos/')
+        }
+    },
 
     // Página - Atualizar Alimento
-    atualizar: async(req,res) => {
-		let json = {error: '', result:[]};
+    atualizar: async (req, res) => {
+        let json = { error: '', result: [] };
 
         // Obtém os valores obtidos através do body
-		let id = req.params.id;
-		let nome = req.body.nome;	
-		let proteina = req.body.proteina;
-		let carbs = req.body.carbs;
-		let gordura = req.body.gordura;
-        let calorias = req.body.calorias;		
+        let id = req.params.id;
+        let nome = req.body.nome;
+        let proteina = req.body.proteina;
+        let carbs = req.body.carbs;
+        let gordura = req.body.gordura;
+        let calorias = req.body.calorias;
 
         // Se conter os valores
-		if(id && nome && proteina && carbs && gordura, calorias){
+        if (id && nome && proteina && carbs && gordura, calorias) {
             // Usa o serviço alterar com os valores obtidos
-			await AlimentoService.alterar(id, nome, proteina, carbs, gordura, calorias);
-			json.result = {
-				id,
-				nome,
-				proteina,
-				carbs,
-				gordura,
+            await AlimentoService.alterar(id, nome, proteina, carbs, gordura, calorias);
+            json.result = {
+                id,
+                nome,
+                proteina,
+                carbs,
+                gordura,
                 calorias
-			};
+            };
             // Mostra o alert após alterar um valor do alimento
-            res.render('admin/Alimentos/editar_alimento', {row, alert: `${nome} com id ${id} alterado com sucesso`, user: req.user,})
-            
-            
-		} else {
-			json.error = 'Error!';
-		}
+            res.render('admin/Alimentos/editar_alimento', { row, alert: `${nome} com id ${id} alterado com sucesso`, user: req.user, })
+
+
+        } else {
+            json.error = 'Error!';
+        }
 
         // Buscar as informações do alimento
         row = await AlimentoService.buscarUm(id);
 
         // Com as informações do alimento, mostra por pré-definido os valores dentro dos inputs para alterar algo
-        res.render('admin/Alimentos/editar_alimento', {row, user: req.user,})
+        res.render('admin/Alimentos/editar_alimento', { row, user: req.user, })
 
-	},
-
-    // Página - Cálculo de valores do alimento
-    calculo_calorias: async(req, res) => {
-        res.render('app/Alimentos/alimento_calculo_calorias', {user: req.user})
     },
 
     // Página - Cálculo de valores do alimento
-    calculo_calorias_post: async(req, res) => {
-        
+    calculo_calorias: async (req, res) => {
+        res.render('app/Alimentos/alimento_calculo_calorias', { user: req.user })
+    },
+
+    // Página - Cálculo de valores do alimento
+    calculo_calorias_post: async (req, res) => {
+
         const protein = parseInt(req.body.protein);
-	    const carbs = parseInt(req.body.carbs);
-	    const fat = parseInt(req.body.fat);
-	    const calories = (protein * 4) + (carbs * 4) + (fat * 9);
+        const carbs = parseInt(req.body.carbs);
+        const fat = parseInt(req.body.fat);
+        const calories = (protein * 4) + (carbs * 4) + (fat * 9);
 
         res.render('app/Alimentos/alimento_calculo_calorias', { alert: calories, user: req.user })
     },
 
     // Página - Gráfico do Alimento
-    grafico: async(req,res) => {
-		let json = {error: '', result:[]};
+    grafico: async (req, res) => {
+        let json = { error: '', result: [] };
 
         // Obtém os valores obtidos através do body
-		let id = req.params.id;	
+        let id = req.params.id;
 
         // Buscar as informações do alimento
         row = await AlimentoService.buscarUmAlimento(id);
         console.log(row)
 
         // Com as informações do alimento, mostra por pré-definido os valores dentro dos inputs para alterar algo
-        res.render('app/Alimentos/alimento_grafico', {layout:'grafico', row, user: req.user,})
+        res.render('app/Alimentos/alimento_grafico', { layout: 'grafico', row, user: req.user, })
 
-	},
+    },
 
-    
+    // Página para calcular macros
+    calculo_macros: async (req, res) => {
+        res.render('app/Alimentos/calc_quant_calorias', { user: req.user })
+    },
+
+    calculo_macros_post: async (req, res) => {
+        let peso = req.body.peso;
+        let altura = req.body.altura;
+        let idade = req.body.idade;
+        let sexo = req.body.sexo;
+
+        // Aplicar a fórmula de Harris-Benedict para calcular a TMB
+        var TMB;
+        // Se for homem
+        if (sexo === 'male') {
+            TMB = (10 * peso) + (6.25 * altura) - (5 * idade) + 5;
+            proteina = 2 * peso;                  // Obtêm quantidade de proteina em gramas
+            gordura = 0.5 * peso;                 // Obtêm quantidade de gordura em gramas
+            proteina_cals = proteina * 4;       // Obtêm quantidade de proteina em kcal
+            gordura_cals = gordura * 9;         // Obtêm quantidade de gordura em kcal
+            sum_proteina_gordura_cals = proteina_cals + gordura_cals; // Soma calorias proteina e gordura
+            carbs_cals = TMB - sum_proteina_gordura_cals;              // Obtêm quantidade de carbs em kcal
+            carbs = carbs_cals / 4;                                    // Obtêm quantidade de carbs em gramas
+
+        } else {
+            // Se for mulher
+            TMB = (10 * peso) + (6.25 * altura) - (5 * idade) - 161;
+            proteina = 2 * peso;  // Obtêm quantidade de proteina em gramas
+            gordura = 0.5 * peso; // Obtêm quantidade de gordura em gramas
+            proteina_cals = proteina * 4;   // Obtêm quantidade de proteina em kcal
+            gordura_cals = gordura * 9;     // Obtêm quantidade de gordura em kcal
+            sum_proteina_gordura_cals = proteina_cals + gordura_cals; // Soma calorias proteina e gordura
+            carbs_cals = TMB - sum_proteina_gordura_cals; // Obtêm quantidade de carbs em kcal
+            carbs = carbs_cals / 4; // Obtêm quantidade de carbs em gramas
+        }
+        res.render('app/Alimentos/calc_quant_calorias', {
+            user: req.user,
+            TMB: TMB,
+            proteina: proteina,
+            carbs: carbs,
+            gordura: gordura
+        })
+    }
+
+
+
 
 
 }

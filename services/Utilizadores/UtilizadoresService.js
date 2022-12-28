@@ -136,15 +136,9 @@ module.exports = {
 	mudar_pass: (id, password) => {
 		return new Promise((aceito, rejeitado) => {
 			db.query('update Utilizadores SET password = ? where id=?',
-				[
-					password,
-					id
-				],
+				[password, id],
 				(error, results) => {
-					if (error) {
-						rejeitado(error);
-						return;
-					}
+					if (error) { rejeitado(error); return; }
 					aceito(results);
 				})
 		})
