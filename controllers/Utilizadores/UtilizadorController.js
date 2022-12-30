@@ -239,13 +239,13 @@ module.exports = {
 	mudar_pass_post: async(req, res)=> {
 		let json = { error: '', result: [] };
 
-		// Pega os valores username e password do body
+		// Pega os valores username, password atual, confirmar password e nova password
 		let username = req.user.username;
 		let palavra_passe_atual = req.body.palavra_passe_atual;
 		let confirmar_palavra_passe = req.body.confirmar_palavra_passe;
 		let nova_palavra_passe = req.body.nova_palavra_passe;
 
-		// Chama o serviço login para selecionar o dado onde o username corresponde ao username que está na tabela Utilizadores
+		// Chama o serviço login para buscar o username
 		let utilizador = await UtilizadorService.login(username);
 
 		// Se o username coincidir e existir com o que está na tabela
