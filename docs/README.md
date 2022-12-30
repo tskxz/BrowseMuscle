@@ -106,6 +106,7 @@ Os Alimentos têm os seguintes campos
 ```
 PORT = 3000
 
+SESSION_SECRET=secret
 DB_HOST = localhost
 DB_USER = root
 DB_PASS = root
