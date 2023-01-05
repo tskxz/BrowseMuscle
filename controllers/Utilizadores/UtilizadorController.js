@@ -210,7 +210,7 @@ module.exports = {
 	},
 
 	criar_plano_treino: async(req, res) => {
-			
+		res.render('app/criar_plano_treino')		
 	},
 
 	// Atualizar as informações do perfil do utilizador
