@@ -209,6 +209,10 @@ module.exports = {
 
 	},
 
+	criar_plano_treino: async(req, res) => {
+			
+	},
+
 	// Atualizar as informações do perfil do utilizador
 	atualizar_perfil: async (req, res) => {
 
