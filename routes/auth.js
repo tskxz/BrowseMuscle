@@ -6,7 +6,7 @@ const path = require('path');
 const passport = require('passport');
 
 // Controlers
-const UtilizadorController = require('../controllers/Utilizadores/UtilizadorController')
+const UtilizadorController = require('../controllers/UtilizadorController')
 
 // Rota para a página login
 auth.get('/login', checkNotAuthenticated, function(req, res) {

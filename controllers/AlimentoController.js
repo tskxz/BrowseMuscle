@@ -1,5 +1,5 @@
-const AlimentoService = require('../../services/Alimentos/AlimentoService')
-const MarcasService = require('../../services/Marcas/MarcasService')
+const AlimentoService = require('../services/AlimentoService')
+const MarcasService = require('../services/MarcasService')
 module.exports = {
 
     // Visualizar todos os Alimentos existentes dentro da tabela Alimentos

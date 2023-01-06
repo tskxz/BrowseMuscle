@@ -1,4 +1,4 @@
-const db = require('../../mysql'); // Conexao a base de dados
+const db = require('../mysql'); // Conexao a base de dados
 const bcrypt = require('bcrypt')
 
 module.exports = {

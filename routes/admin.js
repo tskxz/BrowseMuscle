@@ -5,9 +5,9 @@ const admin = express.Router();
 const path = require('path');
 
 // Controllers
-const AlimentoController = require('../controllers/Alimentos/AlimentoController');
+const AlimentoController = require('../controllers/AlimentoController');
 const ExercicioController = require('../controllers/ExercicioController');
-const UtilizadorController = require('../controllers/Utilizadores/UtilizadorController');
+const UtilizadorController = require('../controllers/UtilizadorController');
 
 // Rotas para administração de exercícios
 admin.get('/main_exercicios', authUser, authRole(2), ExercicioController.main) 			// Visualizar tabela exercícios

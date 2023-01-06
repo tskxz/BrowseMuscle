@@ -1,7 +1,7 @@
 const ExercicioService = require('../services/ExercicioService'); // Importa os serviços do ExercícioService para dar a resposta ao controlador
-const MusculoService = require('../services/Musculos/MusculoService'); // Importa os serviços do MusculoService para dar a resposta ao controlador
-const DificuldadeService = require('../services/Dificuldades/DificuldadesService'); // Importa os serviços do DificuldadeService para dar a resposta ao controlador
-const EquipamentosService = require('../services/Equipamentos/EquipamentosService'); // Importa os serviços do EquipamentoService para dar a resposta ao controlador
+const MusculoService = require('../services/MusculoService'); // Importa os serviços do MusculoService para dar a resposta ao controlador
+const DificuldadeService = require('../services/DificuldadesService'); // Importa os serviços do DificuldadeService para dar a resposta ao controlador
+const EquipamentosService = require('../services/EquipamentosService'); // Importa os serviços do EquipamentoService para dar a resposta ao controlador
 
 module.exports = {
 

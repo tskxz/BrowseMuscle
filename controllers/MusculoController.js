@@ -1,4 +1,4 @@
-const MusculoService = require('../../services/Musculos/MusculoService');
+const MusculoService = require('../services/MusculoService');
 
 module.exports = {
 
