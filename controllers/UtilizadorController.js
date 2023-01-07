@@ -248,6 +248,8 @@ module.exports = {
 			json.result.push({
 				nome: SessoesTreino_user[i].nome,
 				descricao: SessoesTreino_user[i].descricao,
+				createdAt: SessoesTreino_user[i].createdAt.toLocaleDateString('pt-PT', { year: 'numeric', month: '2-digit', day: '2-digit'}),
+				estado: SessoesTreino_user[i].estado
 				
 			});
 		}
