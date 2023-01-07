@@ -232,9 +232,26 @@ module.exports = {
 
 		res.render('app/lista_planos_treinos', {alert: json.result,user: req.user})		
 	},
-	
+
 	ver_planos_treinos: async(req, res) => {
-		res.render('app/lista_planos_treinos', {user: req.user})		
+		let json = { error: '', result: [] };
+
+		// Chama o serviço buscarTodos para mostrar todos os dados dentro da tabela
+		
+		
+		let userid = req.user.id;
+		let SessoesTreino_user = await SessaoTreinoService.buscarTodos_user(userid);
+		console.log(SessoesTreino_user)
+
+		// Para cada linha, acrescenta-se no json
+		for (let i in SessoesTreino_user) {
+			json.result.push({
+				nome: SessoesTreino_user[i].nome,
+				descricao: SessoesTreino_user[i].descricao,
+				
+			});
+		}
+		res.render('app/lista_planos_treinos', {user: req.user, rows: json.result})		
 	},
 
 	// Atualizar as informações do perfil do utilizador
