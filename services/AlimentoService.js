@@ -1,4 +1,4 @@
-const db = require('../../mysql');
+const db = require('../mysql');
 
 module.exports = {
 
@@ -72,6 +72,7 @@ module.exports = {
 		})
 	},
 
+	// Serviço para pesquisar alimento através da caixa de texto
 	pesquisarAlimento:(pesquisa) => {
 		return new Promise((aceito, rejeitado) => {
 			db.query('SELECT Alimentos.id, Alimentos.nome AS alimento, Alimentos.proteina as proteina, Alimentos.carbs as carbs, Alimentos.gordura as gordura, Alimentos.calorias as calorias, Marcas.nome as marca FROM Alimentos JOIN Marcas ON Alimentos.id_marca = Marcas.id WHERE Alimentos.nome LIKE ? ', ['%' + pesquisa + '%'], (error, results) => {

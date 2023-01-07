@@ -1,4 +1,4 @@
-const UtilizadorService = require('../../services/Utilizadores/UtilizadoresService'); // Usa o serviço para dar a resposta ao controlador
+const UtilizadorService = require('../services/UtilizadoresService'); // Usa o serviço para dar a resposta ao controlador
 const bcrypt = require('bcrypt')
 const path = require('path')
 
@@ -207,6 +207,10 @@ module.exports = {
 			res.send('Error')
 		}
 
+	},
+
+	criar_plano_treino: async(req, res) => {
+		res.render('app/criar_plano_treino')		
 	},
 
 	// Atualizar as informações do perfil do utilizador

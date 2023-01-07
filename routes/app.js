@@ -7,11 +7,11 @@ const passport = require('passport');
 
 // Controllers
 const ExercicioController = require('../controllers/ExercicioController')
-const AlimentoController = require('../controllers/Alimentos/AlimentoController')
+const AlimentoController = require('../controllers/AlimentoController')
 
 const initializePassport = require('../passport-config');
-const UtilizadoresService = require('../services/Utilizadores/UtilizadoresService');
-const UtilizadorController = require('../controllers/Utilizadores/UtilizadorController');
+const UtilizadoresService = require('../services/UtilizadoresService');
+const UtilizadorController = require('../controllers/UtilizadorController');
 
 initializePassport(
 	passport,
@@ -61,6 +61,9 @@ app.get('/meu_perfil', checkAuthenticated, function(req, res) {
 		foto: req.user.foto
 	})
 })
+
+// Planos de treino
+app.get('/criar_plano_treino', checkAuthenticated, UtilizadorController.criar_plano_treino);
 
 // Rota para editar o perfil do utilizador
 app.get('/meu_perfil/editar', checkAuthenticated, UtilizadorController.editar_perfil)

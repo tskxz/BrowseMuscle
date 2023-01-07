@@ -1,4 +1,4 @@
-const MarcasService = require('../../services/Marcas/MarcasService');
+const MarcasService = require('../services/MarcasService');
 
 module.exports = {
 

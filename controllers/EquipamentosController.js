@@ -1,4 +1,4 @@
-const EquipamentosService = require('../../services/Equipamentos/EquipamentosService');
+const EquipamentosService = require('../services/EquipamentosService');
 
 module.exports = {
 

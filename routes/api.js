@@ -6,12 +6,12 @@ const api = express.Router();
 const path = require('path');
 
 // Controllers
-const DificuldadeController = require('../controllers/Dificuldades/DificuldadesController');
-const EquipamentosController = require('../controllers/Equipamentos/EquipamentosController');
+const DificuldadeController = require('../controllers/DificuldadesController');
+const EquipamentosController = require('../controllers/EquipamentosController');
 const ExercicioController = require('../controllers/ExercicioController')
-const MusculoController = require('../controllers/Musculos/MusculoController');
-const UtilizadoresController = require('../controllers/Utilizadores/UtilizadorController');
-const AlimentoController = require('../controllers/Alimentos/AlimentoController');
+const MusculoController = require('../controllers/MusculoController');
+const UtilizadoresController = require('../controllers/UtilizadorController');
+const AlimentoController = require('../controllers/AlimentoController');
 
 api.get('/Exercicios', ExercicioController.buscarTodos) 	                                        // Rota do método GET para visualizar todos os exercícios
 api.get('/exercicio/:id', ExercicioController.buscarUm);	                                        // Rota do método GET para visualizar apenas um exercício~
