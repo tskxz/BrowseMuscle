@@ -1,0 +1,149 @@
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+
+<style>
+    .main-box.no-header {
+        padding-top: 20px;
+    }
+
+    .main-box {
+        background: #FFFFFF;
+        -webkit-box-shadow: 1px 1px 2px 0 #CCCCCC;
+        -moz-box-shadow: 1px 1px 2px 0 #CCCCCC;
+        -o-box-shadow: 1px 1px 2px 0 #CCCCCC;
+        -ms-box-shadow: 1px 1px 2px 0 #CCCCCC;
+        box-shadow: 1px 1px 2px 0 #CCCCCC;
+        margin-bottom: 16px;
+        -webikt-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+    }
+
+    .table a.table-link.danger {
+        color: #e74c3c;
+    }
+
+    .label {
+        border-radius: 3px;
+        font-size: 0.875em;
+        font-weight: 600;
+    }
+
+    a {
+        color: #3498db;
+        outline: none !important;
+    }
+
+    .table thead tr th {
+        text-transform: uppercase;
+        font-size: 0.875em;
+    }
+
+    .table thead tr th {
+        border-bottom: 2px solid #e7ebee;
+    }
+
+    .table tbody tr td:first-child {
+        font-size: 1.125em;
+        font-weight: 300;
+    }
+
+    .table tbody tr td {
+        font-size: 0.875em;
+        vertical-align: middle;
+        border-top: 1px solid #e7ebee;
+        padding: 12px 8px;
+    }
+</style>
+<div class="d-flex align-items-center justify-content-center" style="height: 30vh">
+    <h3 class="text-light">As tuas sessões de treino!</h3>
+
+</div>
+{{#if alert}}
+<div class="alert alert-success" role="alert">
+    <h3>{{alert}}</h3>
+</div>
+{{/if}}
+<hr>
+<div class="container bootstrap snippets bootdey">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="main-box no-header clearfix">
+                <div class="main-box-body clearfix">
+                    <div class="table-responsive">
+                        <table class="table user-list">
+                            <thead>
+                                <tr>
+                                    <th><span>Nome da sessão</span></th>
+                                    <th><span>Data da criação</span></th>
+                                    <th><span>Status</span></th>
+                                    <th><span>Email</span></th>
+                                    <th>&nbsp;</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <a href="#" class="user-link">Full name 1</a>
+                                    </td>
+                                    <td>2013/08/12</td>
+                                    <td>
+                                        <span class="label label-default">pending</span>
+                                    </td>
+                                    <td>
+                                        <a href="#">marlon@brando.com</a>
+                                    </td>
+                                    <td class="text-end">
+                                        <a href="/admin/editar_exercicio/{{this.id}}" type="button"
+                                            class="btn btn-light btn-small"><i class="bi bi-pencil-square"></i>
+                                            Editar</a>
+                                        <a href="/admin/apagar_exercicio/{{this.id}}" type="button"
+                                            class="btn btn-light btn-small"><i class="bi bi-trash3"></i> Apagar</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="#" class="user-link">Full name 2</a>
+                                    </td>
+                                    <td>2013/08/12</td>
+                                    <td>
+                                        <span class="label label-success">Active</span>
+                                    </td>
+                                    <td>
+                                        <a href="#">marlon@brando.com</a>
+                                    </td>
+                                    <td class="text-end">
+                                        <a href="/admin/editar_exercicio/{{this.id}}" type="button"
+                                            class="btn btn-light btn-small"><i class="bi bi-pencil-square"></i>
+                                            Editar</a>
+                                        <a href="/admin/apagar_exercicio/{{this.id}}" type="button"
+                                            class="btn btn-light btn-small"><i class="bi bi-trash3"></i> Apagar</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="#" class="user-link">Full name 3</a>
+                                    </td>
+                                    <td>2013/08/12</td>
+                                    <td>
+                                        <span class="label label-danger">inactive</span>
+                                    </td>
+                                    <td>
+                                        <a href="#">marlon@brando.com</a>
+                                    </td>
+                                    <td class="text-end">
+                                        <a href="/admin/editar_exercicio/{{this.id}}" type="button"
+                                            class="btn btn-light btn-small"><i class="bi bi-pencil-square"></i>
+                                            Editar</a>
+                                        <a href="/admin/apagar_exercicio/{{this.id}}" type="button"
+                                            class="btn btn-light btn-small"><i class="bi bi-trash3"></i> Apagar</a>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

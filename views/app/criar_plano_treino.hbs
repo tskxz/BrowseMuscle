@@ -1,11 +1,13 @@
 <div class="d-flex align-items-center justify-content-center" style="height: 80vh">
-    <form class="row g-3" method="post" action="/criar_plano_treino">
-        {{#if alert}}
-        <div class="alert alert-success" role="alert">
-            <h2>{{alert}}</h2>
-        </div>
-        {{/if}}
+
+    <form class="row g-3" method="post" action="/lista_plano_treino">
+
         <div class="mb-3">
+            {{#if alert}}
+            <div class="alert alert-success" role="alert">
+                <h2>{{alert}}</h2>
+            </div>
+            {{/if}}
             <label for="inputEmail4" class="form-label text-light">Nome da sessão de treino</label>
             <input type="text" class="form-control" id="inputEmail4" name="nome">
         </div>
@@ -14,6 +16,7 @@
         <textarea class="form-control" id="floatingTextarea2" style="height: 100px" name="descricao"></textarea>
         <div class="d-grid gap-2">
             <button type="submit" class="btn btn-primary">Criar sessão de treino</button>
+            
         </div>
     </form><br>
 

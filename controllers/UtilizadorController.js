@@ -230,7 +230,11 @@ module.exports = {
 			json.result = `Erro ao criar plano de treino!`
 		}
 
-		res.render('app/criar_plano_treino', {alert: json.result,user: req.user})		
+		res.render('app/lista_planos_treinos', {alert: json.result,user: req.user})		
+	},
+	
+	ver_planos_treinos: async(req, res) => {
+		res.render('app/lista_planos_treinos', {user: req.user})		
 	},
 
 	// Atualizar as informações do perfil do utilizador

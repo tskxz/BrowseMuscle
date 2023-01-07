@@ -19,7 +19,6 @@ module.exports = {
       nome: {
         type: Sequelize.STRING(25),
         allowNull: false,
-        unique: true,
       },
       descricao: {
         type: Sequelize.STRING(155),
