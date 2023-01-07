@@ -32,7 +32,7 @@ module.exports = {
       },
       exercicio_id: {
         type: Sequelize.INTEGER,
-        allowNull: false,
+        allowNull: true,
         foreignKey: true,
         references: {
           model: 'Exercicios',
