@@ -1,4 +1,5 @@
 const UtilizadorService = require('../services/UtilizadoresService'); // Usa o serviço para dar a resposta ao controlador
+const SessaoTreinoService = require('../services/SessaoTreinoService');
 const bcrypt = require('bcrypt')
 const path = require('path')
 
@@ -211,6 +212,24 @@ module.exports = {
 
 	criar_plano_treino: async(req, res) => {
 		res.render('app/criar_plano_treino')		
+	},
+
+	criar_plano_treino_post: async(req, res) => {
+		let json = {error:'', result:[]};
+
+		let nome = req.body.nome;
+		let descricao = req.body.descricao;
+		let userid = req.user.id;
+
+
+		let sessao_treino_id = await SessaoTreinoService.criar(nome, descricao, userid);
+		if(sessao_treino_id){
+			json.result = `Plano ${nome} criado com sucesso!`
+		} else {
+			json.result = `Erro ao criar plano de treino!`
+		}
+
+		res.render('app/criar_plano_treino', {alert: json.result})		
 	},
 
 	// Atualizar as informações do perfil do utilizador

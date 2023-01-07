@@ -64,6 +64,7 @@ app.get('/meu_perfil', checkAuthenticated, function(req, res) {
 
 // Planos de treino
 app.get('/criar_plano_treino', checkAuthenticated, UtilizadorController.criar_plano_treino);
+app.post('/criar_plano_treino', checkAuthenticated, UtilizadorController.criar_plano_treino_post);
 
 // Rota para editar o perfil do utilizador
 app.get('/meu_perfil/editar', checkAuthenticated, UtilizadorController.editar_perfil)
