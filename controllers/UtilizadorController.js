@@ -225,12 +225,11 @@ module.exports = {
 		
 		if(nome && descricao && userid){
 			let sessao_treino_id = await SessaoTreinoService.criar(nome, descricao, userid);
-			json.result = `Plano ${nome} criado com sucesso!`
 		} else {
 			json.result = `Erro ao criar plano de treino!`
 		}
-
-		res.render('app/lista_planos_treinos', {alert: json.result,user: req.user})		
+		req.flash('success', `Plano ${nome} criado com sucesso!`)
+		res.redirect('/lista_plano_treino')		
 	},
 
 	ver_planos_treinos: async(req, res) => {
@@ -253,7 +252,7 @@ module.exports = {
 				
 			});
 		}
-		res.render('app/lista_planos_treinos', {user: req.user, rows: json.result})		
+		res.render('app/lista_planos_treinos', {user: req.user, rows: json.result, success: req.flash("success")})		
 	},
 
 	// Atualizar as informações do perfil do utilizador
