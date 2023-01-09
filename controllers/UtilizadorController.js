@@ -255,6 +255,12 @@ module.exports = {
 		res.render('app/lista_planos_treinos', {user: req.user, rows: json.result, success: req.flash("success")})		
 	},
 
+	ver_sessao: async(req, res) => {
+		let json = { error: '', result: [] };
+
+		
+	},
+
 	// Atualizar as informações do perfil do utilizador
 	atualizar_perfil: async (req, res) => {
 
