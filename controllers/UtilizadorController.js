@@ -224,11 +224,17 @@ module.exports = {
 
 		
 		if(nome && descricao && userid){
-			let sessao_treino_id = await SessaoTreinoService.criar(nome, descricao, userid);
+			let existeTreino = await SessaoTreinoService.buscarTodos_user_nome(userid, nome);
+			console.log(existeTreino)
+			if(existeTreino.length > 0){
+				req.flash('error', `Plano ${nome} já existe!`)
+			} else {
+				let sessao_treino_id = await SessaoTreinoService.criar(nome, descricao, userid);
+				req.flash('success', `Plano ${nome} criado com sucesso!`)
+			}
 		} else {
-			json.result = `Erro ao criar plano de treino!`
+			req.flash('error', `Erro ao criar plano de treino`)
 		}
-		req.flash('success', `Plano ${nome} criado com sucesso!`)
 		res.redirect('/lista_plano_treino')		
 	},
 
@@ -240,7 +246,7 @@ module.exports = {
 		
 		let userid = req.user.id;
 		let SessoesTreino_user = await SessaoTreinoService.buscarTodos_user(userid);
-		console.log(SessoesTreino_user)
+		
 
 		// Para cada linha, acrescenta-se no json
 		for (let i in SessoesTreino_user) {
@@ -253,7 +259,7 @@ module.exports = {
 				
 			});
 		}
-		res.render('app/lista_planos_treinos', {user: req.user, rows: json.result, success: req.flash("success")})		
+		res.render('app/lista_planos_treinos', {user: req.user, rows: json.result, success: req.flash("success"), error: req.flash("error")})		
 	},
 
 	ver_sessao: async(req, res) => {
