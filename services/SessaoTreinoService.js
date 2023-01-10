@@ -36,6 +36,15 @@ module.exports = {
 		});
 	},
 
+	buscarUm: (id) => {
+		return new Promise((aceito, rejeitado) => {
+			db.query('SELECT * FROM Sessao_Treinos WHERE id=?', [id], (error, results) => {
+				if (error) { rejeitado(error); return; }
+				aceito(results);
+			});
+		});
+	},
+
 	apagar: (id) => {
 		return new Promise((aceito, rejeitado) => {
 			db.query('DELETE FROM Sessao_Treinos WHERE id = ?', [id], (error, results) => {
