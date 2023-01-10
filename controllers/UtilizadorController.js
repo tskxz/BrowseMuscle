@@ -265,6 +265,11 @@ module.exports = {
 	ver_sessao: async(req, res) => {
 		let json = { error: '', result: [] };
 
+		let id = req.params.id;
+		let sessaoTreino = await SessaoTreinoService.buscarUm(id);
+
+		res.json(sessaoTreino)
+
 		
 	},
 
