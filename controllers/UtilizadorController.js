@@ -210,11 +210,11 @@ module.exports = {
 
 	},
 
-	criar_plano_treino: async(req, res) => {
-		res.render('app/criar_plano_treino', {user: req.user})		
+	criar_sessao_treino: async(req, res) => {
+		res.render('app/criar_sessao_treino', {user: req.user})		
 	},
 
-	criar_plano_treino_post: async(req, res) => {
+	criar_sessao_treino_post: async(req, res) => {
 		let json = {error:'', result:[]};
 
 		let nome = req.body.nome;
@@ -233,12 +233,12 @@ module.exports = {
 				req.flash('success', `Plano ${nome} criado com sucesso!`)
 			}
 		} else {
-			req.flash('error', `Erro ao criar plano de treino`)
+			req.flash('error', `Erro ao criar sessao de treino`)
 		}
-		res.redirect('/lista_plano_treino')		
+		res.redirect('/lista_sessao_treino')		
 	},
 
-	ver_planos_treinos: async(req, res) => {
+	ver_sessaos_treinos: async(req, res) => {
 		let json = { error: '', result: [] };
 
 		// Chama o serviço buscarTodos para mostrar todos os dados dentro da tabela
@@ -259,7 +259,7 @@ module.exports = {
 				
 			});
 		}
-		res.render('app/lista_planos_treinos', {user: req.user, rows: json.result, success: req.flash("success"), error: req.flash("error")})		
+		res.render('app/lista_sessoes_treinos', {user: req.user, rows: json.result, success: req.flash("success"), error: req.flash("error")})		
 	},
 
 	ver_sessao: async(req, res) => {
@@ -278,7 +278,7 @@ module.exports = {
 		// Chama o serviço apagar para apagar o dado através do id
 		let apagado = await SessaoTreinoService.apagar(req.params.id);
 		if (apagado) {
-			res.redirect('/lista_plano_treino')
+			res.redirect('/lista_sessao_treino')
 		}	
 	},
 

@@ -63,10 +63,10 @@ app.get('/meu_perfil', checkAuthenticated, function(req, res) {
 })
 
 // Planos de treino
-app.get('/criar_plano_treino', checkAuthenticated, UtilizadorController.criar_plano_treino);
-app.post('/lista_plano_treino', checkAuthenticated, UtilizadorController.criar_plano_treino_post);
-app.get('/lista_plano_treino', checkAuthenticated, UtilizadorController.ver_planos_treinos)
-app.get('/ver_plano_treino/:id', checkAuthenticated, UtilizadorController.ver_sessao)
+app.get('/criar_sessao_treino', checkAuthenticated, UtilizadorController.criar_sessao_treino);
+app.post('/criar_sessao_treino', checkAuthenticated, UtilizadorController.criar_sessao_treino_post);
+app.get('/lista_sessao_treino', checkAuthenticated, UtilizadorController.ver_sessaos_treinos)
+app.get('/ver_sessao_treino/:id', checkAuthenticated, UtilizadorController.ver_sessao)
 app.get('/apagar_sessao_treino/:id',  checkAuthenticated, UtilizadorController.apagar_sessao_treino)
 
 // Rota para editar o perfil do utilizador
