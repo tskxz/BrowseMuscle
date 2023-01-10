@@ -67,6 +67,8 @@ app.get('/criar_plano_treino', checkAuthenticated, UtilizadorController.criar_pl
 app.post('/lista_plano_treino', checkAuthenticated, UtilizadorController.criar_plano_treino_post);
 app.get('/lista_plano_treino', checkAuthenticated, UtilizadorController.ver_planos_treinos)
 app.get('/ver_plano_treino/:nome', checkAuthenticated, UtilizadorController.ver_sessao)
+app.get('/apagar_sessao_treino/:id',  checkAuthenticated, UtilizadorController.apagar_sessao_treino)
+
 // Rota para editar o perfil do utilizador
 app.get('/meu_perfil/editar', checkAuthenticated, UtilizadorController.editar_perfil)
 

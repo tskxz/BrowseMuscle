@@ -74,6 +74,7 @@
                         <table class="table user-list">
                             <thead>
                                 <tr>
+                                    
                                     <th><span>Nome da sessão</span></th>
                                     <th><span>Data da criação</span></th>
                                     <th><span>Status</span></th>
@@ -86,7 +87,7 @@
                                 <tr>
                                     
                                     <td>
-                                        <a href="#" class="user-link">{{nome}}</a>
+                                        <a href="#" class="user-link">{{this.nome}}</a>
                                     </td>
                                     <td>{{createdAt}}</td>
                                     <td>
@@ -101,13 +102,14 @@
                                         {{/ifEquals}}
                                     </td>
                                     <td>
-                                        <span class="label label-default">{{descricao}}</span>
+                                        <span class="label label-default">{{this.descricao}}</span>
                                     </td>
+                                    
                                     <td class="text-end">
-                                        <a href="/admin/editar_exercicio/{{this.id}}" type="button"
+                                        <a href="#" type="button"
                                             class="btn btn-light btn-small"><i class="bi bi-pencil-square"></i>
                                             Editar</a>
-                                        <a href="/admin/apagar_exercicio/{{this.id}}" type="button"
+                                        <a href="/apagar_sessao_treino/{{this.id}}" type="button"
                                             class="btn btn-light btn-small"><i class="bi bi-trash3"></i> Apagar</a>
                                     </td>
                                 </tr>

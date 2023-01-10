@@ -245,6 +245,7 @@ module.exports = {
 		// Para cada linha, acrescenta-se no json
 		for (let i in SessoesTreino_user) {
 			json.result.push({
+				id: SessoesTreino_user[i].id,
 				nome: SessoesTreino_user[i].nome,
 				descricao: SessoesTreino_user[i].descricao,
 				createdAt: SessoesTreino_user[i].createdAt.toLocaleDateString('pt-PT', { year: 'numeric', month: '2-digit', day: '2-digit'}),
@@ -259,6 +260,15 @@ module.exports = {
 		let json = { error: '', result: [] };
 
 		
+	},
+
+	apagar_sessao_treino: async(req,res)=> {
+		let json = { error: '', result: [] };
+		// Chama o serviço apagar para apagar o dado através do id
+		let apagado = await SessaoTreinoService.apagar(req.params.id);
+		if (apagado) {
+			res.redirect('/lista_plano_treino')
+		}	
 	},
 
 	// Atualizar as informações do perfil do utilizador
