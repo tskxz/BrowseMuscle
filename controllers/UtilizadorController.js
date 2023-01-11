@@ -217,20 +217,20 @@ module.exports = {
 	criar_sessao_treino_post: async(req, res) => {
 		let json = {error:'', result:[]};
 
+		// Buscar os valores
 		let nome = req.body.nome;
 		let descricao = req.body.descricao;
 		let userid = req.user.id;
 
-
-		
 		if(nome && descricao && userid){
+			// Verifica se a sessão do treino já existe, se existir, lanca aviso
 			let existeTreino = await SessaoTreinoService.buscarTodos_user_nome(userid, nome);
-			console.log(existeTreino)
 			if(existeTreino.length > 0){
-				req.flash('error', `Plano ${nome} já existe!`)
+				req.flash('error', `Sessão ${nome} já existe!`)
 			} else {
-				let sessao_treino_id = await SessaoTreinoService.criar(nome, descricao, userid);
-				req.flash('success', `Plano ${nome} criado com sucesso!`)
+				// Cria a sessão de treino com o nome e descricao
+				await SessaoTreinoService.criar(nome, descricao, userid);
+				req.flash('success', `Sessão ${nome} criado com sucesso!`)
 			}
 		} else {
 			req.flash('error', `Erro ao criar sessao de treino`)
@@ -238,17 +238,16 @@ module.exports = {
 		res.redirect('/lista_sessao_treino')		
 	},
 
-	ver_sessaos_treinos: async(req, res) => {
+	ver_sessoes_treinos: async(req, res) => {
 		let json = { error: '', result: [] };
-
-		// Chama o serviço buscarTodos para mostrar todos os dados dentro da tabela
 		
-		
+		// Pega o id do utilizador que está com sessão iniciada
 		let userid = req.user.id;
-		let SessoesTreino_user = await SessaoTreinoService.buscarTodos_user(userid);
-		
 
-		// Para cada linha, acrescenta-se no json
+		// Pega todos as sessões de treino criado pelo utilizador
+		let SessoesTreino_user = await SessaoTreinoService.buscarTodos_user(userid);
+
+		// Buscar os valores
 		for (let i in SessoesTreino_user) {
 			json.result.push({
 				id: SessoesTreino_user[i].id,
@@ -259,6 +258,8 @@ module.exports = {
 				
 			});
 		}
+
+		// Mandar os valores
 		res.render('app/lista_sessoes_treinos', {user: req.user, rows: json.result, success: req.flash("success"), error: req.flash("error")})		
 	},
 

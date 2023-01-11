@@ -29,7 +29,8 @@ module.exports = {
 
 	buscarTodos_user_nome: (userid, id) => {
 		return new Promise((aceito, rejeitado) => {
-			db.query('SELECT * FROM Sessao_Treinos WHERE utilizador_id = ? AND nome = ?', [userid, id], (error, results) => {
+			db.query('SELECT * FROM Sessao_Treinos WHERE utilizador_id = ? AND nome = ?', 
+			[userid, id], (error, results) => {
 				if (error) { rejeitado(error); return; }
 				aceito(results);
 			});
