@@ -297,6 +297,33 @@ module.exports = {
 
 	},
 
+	definir_sessao_treino: async(req,res)=>{
+		let id_sessao = req.params.id
+		let userid = req.user.id
+		let sessaoTreino = await SessaoTreinoService.buscarUm(id);
+		if (!sessaoTreino) {
+			json.error = "Sessão de treino não encontrado!"
+		} else {
+			// Utilizador não pode visualizar as sessões de treino de outros utilizadores diferentes
+			sessaoTreino_utilizador_id = sessaoTreino[0].utilizador_id
+			if (sessaoTreino_utilizador_id != userid) {
+				json.error = 'Não tem permissão!'
+			} else {
+				json.result.push({
+					id: sessaoTreino[0].id,
+					nome: sessaoTreino[0].nome,
+					descricao: sessaoTreino[0].descricao,
+					createdAt: sessaoTreino[0].createdAt.toLocaleDateString('pt-PT', { year: 'numeric', month: '2-digit', day: '2-digit' }),
+					exercicio_id: sessaoTreino[0].exercicio_id,
+					estado: sessaoTreino[0].estado,
+					series: sessaoTreino[0].series,
+					carga: sessaoTreino[0].carga,
+				})
+			}
+		}
+
+	},
+
 	apagar_sessao_treino: async (req, res) => {
 		let json = { error: '', result: [] };
 		// Chama o serviço apagar para apagar o dado através do id
