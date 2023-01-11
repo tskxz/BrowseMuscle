@@ -283,11 +283,17 @@ module.exports = {
 			if (sessaoTreino_utilizador_id != userid) {
 				json.error = 'Não tem permissão!'
 			} else {
-				json.result = sessaoTreino
+				json.result.push({
+					id: sessaoTreino[0].id,
+					nome: sessaoTreino[0].nome,
+					descricao: sessaoTreino[0].descricao,
+					createdAt: sessaoTreino[0].createdAt.toLocaleDateString('pt-PT', { year: 'numeric', month: '2-digit', day: '2-digit' }),
+					estado: sessaoTreino[0].estado
+				})
 			}
 		}
 
-		res.json(json)
+		res.render('app/sessao_treino', {rows: json.result, user: req.user})
 
 	},
 

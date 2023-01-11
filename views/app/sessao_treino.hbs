@@ -1,0 +1,86 @@
+<style>
+    .holder {
+        background: #f0efe9;
+        min-height: 100vh;
+    }
+
+    .rounded {
+        border-radius: 1rem !important;
+    }
+
+    .text-gray {
+        color: #aaa;
+    }
+
+    input:checked+label {
+        text-decoration: line-through;
+        color: #adb5bd;
+    }
+
+    label {
+        cursor: pointer;
+    }
+
+    a {
+        text-decoration: none;
+    }
+</style>
+{{#each rows}}
+<div class="holder d-flex align-items-center justify-content-center">
+
+    <div class="container">
+        <!-- FOR DEMO PURPOSE -->
+        <header class="text-center mb-5">
+            <h1 class="display-4">Sessão de treino - {{nome}}</h1>
+            <p class="fst-italic text-muted">{{descricao}}</p>
+        </header>
+
+
+        <div class="row">
+            <div class="col-lg-5 mx-auto">
+
+                <!-- CHECKBOX LIST -->
+                <div class="card rounded border-0 shadow-sm position-relative">
+                    <div class="card-body p-5">
+                        <div class="d-flex align-items-center mb-4 pb-4 border-bottom"><i
+                                class="far fa-calendar-alt fa-3x"></i>
+                            <div class="ms-3">
+                                {{#ifEquals estado "1"}}
+                                <h4 class="text-uppercase fw-weight-bold mb-0">{{nome}} - Por fazer</h4>
+                                {{/ifEquals}}
+                                {{#ifEquals estado "2"}}
+                                <h4 class="text-uppercase fw-weight-bold mb-0">{{nome}} - Em progresso</h4>
+                                {{/ifEquals}}
+                                {{#ifEquals estado "3"}}
+                                <h4 class="text-uppercase fw-weight-bold mb-0">{{nome}} - Realizado</h4>
+                                {{/ifEquals}}
+                                <p class="text-gray fst-italic mb-0">{{createdAt}}</p>
+                            </div>
+                        </div>
+                        <div class="d-grid gap-2">
+
+                            <a href="#" type="button" class="btn btn-primary align-self-center">Definir objetivo</a><br>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" id="flexCheck1" type="checkbox">
+                            <label class="form-check-label" for="flexCheck1"><span class="fst-italic pl-1">Exercicio
+                                    X</span></label>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" id="flexChec2" type="checkbox">
+                            <label class="form-check-label" for="flexChec2"><span class="fst-italic pl-1">Exercicio
+                                    Y</span></label>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" id="flexCheck3" type="checkbox">
+                            <label class="form-check-label" for="flexCheck3"><span class="fst-italic pl-1">Exercicio
+                                    Z</span></label>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{/each}}
