@@ -298,9 +298,10 @@ module.exports = {
 	},
 
 	definir_sessao_treino: async(req,res)=>{
+		let json = { error: '', result: [] };
 		let id_sessao = req.params.id
 		let userid = req.user.id
-		let sessaoTreino = await SessaoTreinoService.buscarUm(id);
+		let sessaoTreino = await SessaoTreinoService.buscarUm(id_sessao);
 		if (!sessaoTreino) {
 			json.error = "Sessão de treino não encontrado!"
 		} else {
@@ -318,9 +319,12 @@ module.exports = {
 					estado: sessaoTreino[0].estado,
 					series: sessaoTreino[0].series,
 					carga: sessaoTreino[0].carga,
+					reps_objetivo: sessaoTreino[0].reps_objetivo,
 				})
 			}
 		}
+
+		res.json(json.result)
 
 	},
 
