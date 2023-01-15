@@ -16,6 +16,10 @@ module.exports = {
         allowNull: false,
         primaryKey: true,
       },
+      id_sessao: {
+        type: Sequelize.INTEGER,
+        alowNull: false,
+      },
       nome: {
         type: Sequelize.STRING(25),
         allowNull: false,

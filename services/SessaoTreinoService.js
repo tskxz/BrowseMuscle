@@ -3,11 +3,11 @@ const db = require('../mysql');
 module.exports = {
 
 	// Serviço para inserir e criar sessão de treino
-	criar: (nome, descricao, userid) => {
+	criar: (id_sessao, nome, descricao, userid) => {
 		return new Promise((aceito, rejeitado) => {
-			db.query('INSERT INTO Sessao_Treinos (nome, descricao, utilizador_id) VALUES(?,?,?);',
+			db.query('INSERT INTO Sessao_Treinos (id_sessao, nome, descricao, utilizador_id) VALUES(?,?,?,?);',
 				[
-					nome, descricao, userid
+					id_sessao, nome, descricao, userid
 				],
 				(error, results) => {
 					if (error) { rejeitado(error); return; }
@@ -20,11 +20,30 @@ module.exports = {
 
     buscarTodos_user: (id) => {
 		return new Promise((aceito, rejeitado) => {
-			db.query('SELECT * FROM Sessao_Treinos WHERE utilizador_id = ?', [id], (error, results) => {
+			db.query('SELECT * FROM Sessao_Treinos WHERE utilizador_id = ? GROUP BY id_sessao', [id], (error, results) => {
 				if (error) { rejeitado(error); return; }
 				aceito(results);
 			});
 		});
+	},
+
+	buscar_nome: (id) => {
+		return new Promise((aceito, rejeitado) => {
+			db.query('SELECT nome FROM Sessao_Treinos WHERE id_sessao = ?;', [id], (error, results) => {
+				if (error) { rejeitado(error); return; }
+				aceito(results);
+			});
+		});
+	},
+
+
+	buscarTodos_sessao: (id_sessao) => {
+		return new Promise((aceito, rejeitado) => {
+			db.query('SELECT * FROM Sessao_Treinos WHERE id_sessao = ?', [id_sessao], (error, results) => {
+				if(error){rejeitado(error);return;}
+				aceito(results);
+			})
+		})
 	},
 
 	buscarTodos_user_nome: (userid, id) => {
@@ -39,7 +58,7 @@ module.exports = {
 
 	buscarUm: (id) => {
 		return new Promise((aceito, rejeitado) => {
-			db.query('SELECT * FROM Sessao_Treinos WHERE id=?', [id], (error, results) => {
+			db.query('SELECT * FROM Sessao_Treinos WHERE id_sessao=?', [id], (error, results) => {
 				if (error) { rejeitado(error); return; }
 				if(results.length > 0){
 					aceito(results);
@@ -52,7 +71,7 @@ module.exports = {
 
 	apagar: (id) => {
 		return new Promise((aceito, rejeitado) => {
-			db.query('DELETE FROM Sessao_Treinos WHERE id = ?', [id], (error, results) => {
+			db.query('DELETE FROM Sessao_Treinos WHERE id_sessao = ?', [id], (error, results) => {
 				if (error) { rejeitado(error); return; }
 				aceito(results);
 			})
@@ -60,10 +79,10 @@ module.exports = {
 	},
 
 	// Definir objetivo - Exercicio, Reps, Series, Carga
-	definir_objetivo_exercicio:(id_sessao, exercicio_id, carga, reps_objetivo, series) => {
+	definir_objetivo_exercicio:(id_sessao, utilizador_id, exercicio_id, carga, reps_objetivo, series) => {
 		return new Promise((aceito, rejeitado) => {
-			db.query('UPDATE Sessao_Treinos SET exercicio_id = ?, carga = ?, reps_objetivo = ?, series=? WHERE id=?;',
-				[exercicio_id, carga, reps_objetivo, series, id_sessao], (error, results)=>{
+			db.query('INSERT INTO Sessao_Treinos (id_sessao, utilizador_id, exercicio_id, carga, reps_objetivo, series) VALUES(?,?,?,?,?,?);',
+				[id_sessao, utilizador_id, exercicio_id, carga, reps_objetivo, series], (error, results)=>{
 					if(error){rejeitado(error);return;};
 					aceito(results);
 				})

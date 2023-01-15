@@ -95,7 +95,7 @@
                                 {{#each rows}}
                                 <tr>
                                     <td>
-                                        <a href="/ver_sessao_treino/{{this.id}}" class="user-link">{{this.nome}}</a>
+                                        <a href="/ver_sessao_treino/{{this.id_sessao}}" class="user-link">{{this.nome}}</a>
                                     </td>
                                     <td>{{createdAt}}</td>
                                     <td>
@@ -116,7 +116,7 @@
                                         <a href="#" type="button" class="btn btn-light btn-small"><i
                                                 class="bi bi-pencil-square"></i>
                                         </a>
-                                        <a href="/apagar_sessao_treino/{{this.id}}" type="button"
+                                        <a href="/apagar_sessao_treino/{{this.id_sessao}}" type="button"
                                             class="btn btn-light btn-small"><i class="bi bi-trash3"></i></a>
                                     </td>
                                 </tr>
