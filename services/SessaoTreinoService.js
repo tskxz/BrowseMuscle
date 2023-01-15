@@ -17,6 +17,16 @@ module.exports = {
 		})
 	},
 
+	buscar_nome_exercicio: (id_sessao)=>{
+		return new Promise((aceito, rejeitado) => {
+			db.query('SELECT Exercicios.nome FROM Sessao_Treinos JOIN Exercicios ON Sessao_Treinos.exercicio_id = Exercicios.id WHERE Sessao_Treinos.id_sessao = ?',
+				[id_sessao],
+				(error, results) => {
+					if(error){rejeitado(error);return;}
+					aceito(results)
+				})
+		})
+	},
 
     buscarTodos_user: (id) => {
 		return new Promise((aceito, rejeitado) => {

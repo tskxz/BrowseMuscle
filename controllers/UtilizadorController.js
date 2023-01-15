@@ -223,8 +223,8 @@ module.exports = {
 		let nome = req.body.nome;
 		let descricao = req.body.descricao;
 		let userid = req.user.id;
-
-		let randomBytes = crypto.randomBytes(4);
+		let randomBytes = 0;
+		randomBytes = crypto.randomBytes(4);
 		const id_sessao = randomBytes.readUInt32BE();
 		console.log(id_sessao)
 
@@ -272,6 +272,7 @@ module.exports = {
 
 	ver_sessao: async (req, res) => {
 		let json = { error: '', result: [] };
+		let exercicios = [];
 
 		// Id da sessão de treino
 		let id = req.params.id_sessao;
@@ -288,7 +289,6 @@ module.exports = {
 		let descricao_treino = sessaoTreino[0].descricao
 		let createdAt_treino = sessaoTreino[0].createdAt.toLocaleDateString('pt-PT', { year: 'numeric', month: '2-digit', day: '2-digit' })
 		let id_sessao = sessaoTreino[0].id_sessao
-		console.log(id_sessao)
 		// Verifica se existe a sessão de treino com esse id
 		if (!sessaoTreino) {
 			json.error = "Sessão de treino não encontrado!"
@@ -312,12 +312,19 @@ module.exports = {
 						estado: sessaoTreino[i].estado,
 						exercicio_id: sessaoTreino[i].exercicio_id,
 						
+						
 					});
 				}	
 			}
-			var theRemovedElement = json.result.shift()
-			console.log(json.result)
+			
+			nomes_exercicios = await SessaoTreinoService.buscar_nome_exercicio(id_sessao)
+			for(let i in nomes_exercicios){
+				exercicios.push({
+					nome: nomes_exercicios[i].nome
+				})
+			}
 		}
+		console.log(exercicios)
 
 		res.render('app/sessao_treino', {
 			rows: json.result,
@@ -325,7 +332,8 @@ module.exports = {
 			nome_treino: nome_treino,
 			descricao_treino: descricao_treino,
 			createdAt_treino: createdAt_treino,
-			id_sessao: id_sessao
+			id_sessao: id_sessao,
+			exercicios: exercicios,
 			})
 
 	},
