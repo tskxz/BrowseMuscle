@@ -57,5 +57,16 @@ module.exports = {
 				aceito(results);
 			})
 		})
+	},
+
+	// Definir objetivo - Exercicio, Reps, Series, Carga
+	definir_objetivo_exercicio:(id_sessao, exercicio_id, carga, reps_objetivo, series) => {
+		return new Promise((aceito, rejeitado) => {
+			db.query('UPDATE Sessao_Treinos SET exercicio_id = ?, carga = ?, reps_objetivo = ?, series=? WHERE id=?;',
+				[exercicio_id, carga, reps_objetivo, series, id_sessao], (error, results)=>{
+					if(error){rejeitado(error);return;};
+					aceito(results);
+				})
+		})
 	}
 }

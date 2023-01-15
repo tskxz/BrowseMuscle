@@ -325,9 +325,28 @@ module.exports = {
 			}
 		}
 
-		res.render('app/definir_objetivo_sessao', {rows: json.result, user: req.user, exercicios: exercicios})
+		res.render('app/definir_objetivo_sessao', {rows: json.result, user: req.user, exercicios: exercicios, id_sessao: id_sessao})
 
 	},
+
+	definir_sessao_treino_post: async(req,res)=>{
+		let json = {error: '', result: []}
+		let id_sessao = req.params.id;
+		let userid = req.user.id;
+		let carga = req.body.carga;
+		let reps_objetivo = req.body.reps_objetivo;
+		let exercicio_id = req.body.exercicio_id;
+		let series = req.body.series;
+
+		let definido = await SessaoTreinoService.definir_objetivo_exercicio(id_sessao, exercicio_id, carga, reps_objetivo, series)
+		if(!definido){
+			json.result="error"
+		}else{
+			json.result = "success!"
+		}
+		res.json(json.result)
+	},
+	
 	apagar_sessao_treino: async (req, res) => {
 		let json = { error: '', result: [] };
 		// Chama o serviço apagar para apagar o dado através do id
