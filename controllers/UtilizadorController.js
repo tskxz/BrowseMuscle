@@ -334,6 +334,7 @@ module.exports = {
 			createdAt_treino: createdAt_treino,
 			id_sessao: id_sessao,
 			exercicios: exercicios,
+			success: req.flash("success")
 			})
 
 	},
@@ -386,7 +387,7 @@ module.exports = {
 			json.result = "success!"
 			req.flash('success', `Realizado com sucesso!`)
 		}
-		res.redirect('/lista_sessao_treino')
+		res.redirect(`/ver_sessao_treino/${id_sessao}`)
 	},
 	
 	apagar_sessao_treino: async (req, res) => {
