@@ -94,8 +94,8 @@ Cada alimento vai obter um gráfico para visualizar a quantidade de macronutrien
 
 Um utilizador pode adicionar um alimento em que não exista na tabela da análise dos Alimentos e pode preencher as informações necessárias e adiciona na tabela dos Alimentos, a tabela dos Alimentos vai ser pública. O problema é se o utilizador não preencher corretamente as informações e inventar os valores, o alimento não irá entrar na tabela publicamente. O administrador pode ver os Alimentos que foram criados e escolher Alimentos que irão para a tabela pública.
 
-Planeio também ter um track do treino, em que o utilizador pode montar o seu próprio plano de treino desejado ou rotina e dar track a cada exercício.
-Um utilizador pode ter o seguinte plano de treino:
+Planeio também ter um track do treino, em que o utilizador pode montar o seu próprio sessao de treino desejado ou rotina e dar track a cada exercício.
+Um utilizador pode ter o seguinte sessao de treino:
 
 Treino A (1 semana):
 
@@ -128,7 +128,7 @@ Nome do exercício | Peso | Reps
 - exercicio 5     | xKG  |  12
 - exercicio 6     | xKG  |  12
 - etc...
-O utilizador pode planear um plano de treino e quando for realizar o treino, tem a possibilidade de anotar a carga e número de repetições que fez e dar um checklist
+O utilizador pode planear um sessao de treino e quando for realizar o treino, tem a possibilidade de anotar a carga e número de repetições que fez e dar um checklist
 
 Em cada exercício, pode se ver a progressão de carga ou número de repetições ao longo de cada treino, por exemplo:
 
@@ -154,4 +154,4 @@ Nome do exercício | Peso | Reps | Primeira série | Segunda série | Terceira s
 Neste projeto, cada utilizador vai ter o seu perfil e pode editar as informações do seu perfil como por exemplo descrição, pode alterar a sua imagem de perfil e no perfil vai ter uma opção em que se quiser, pode mostrar o seu exercício favorito e o exercício que mais detesta (opcional).
 No perfil pode mostrar os melhores "lifts" recordes pessoais e vai poder destacar no perfil.
 
-No perfil, se o utilizador quiser, pode destacar também plano de treino criado por si e tornar público ou privado cada plano de treino.
+No perfil, se o utilizador quiser, pode destacar também sessao de treino criado por si e tornar público ou privado cada sessao de treino.

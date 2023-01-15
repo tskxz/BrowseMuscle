@@ -16,10 +16,17 @@ module.exports = {
         allowNull: false,
         primaryKey: true,
       },
+      id_sessao: {
+        type: Sequelize.INTEGER,
+        alowNull: false,
+      },
       nome: {
         type: Sequelize.STRING(25),
         allowNull: false,
-        unique: true,
+      },
+      descricao: {
+        type: Sequelize.STRING(155),
+        allowNull: false,
       },
       utilizador_id: {
         type: Sequelize.INTEGER,
@@ -32,7 +39,7 @@ module.exports = {
       },
       exercicio_id: {
         type: Sequelize.INTEGER,
-        allowNull: false,
+        allowNull: true,
         foreignKey: true,
         references: {
           model: 'Exercicios',
@@ -70,6 +77,16 @@ module.exports = {
       reps_set5: {
         type: Sequelize.INTEGER,
         allowNull: true,
+      },
+      estado: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        defaultValue: 1,
+      },
+      createdAt: {
+        allowNull: false,
+        type: 'TIMESTAMP',
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
       },
       concluido: {
         type: Sequelize.BOOLEAN,
