@@ -1,0 +1,35 @@
+<div class="d-flex align-items-center justify-content-center" style="height: 60vh">
+<div class="container">
+    <form method="POST" action="#">
+        <div class="row g-3">
+          
+          <div class="col">
+                <select class="form-select" name="series">
+                    <option value="1">1 série</option>
+                    <option value="2">2 séries</option>
+                    <option value="3">3 séries</option>
+                    <option value="4">4 séries</option>
+                    <option value="5">5 séries</option>
+                </select>
+            </div>
+            <div class="col">
+                <input type="number" class="form-control" placeholder="Carga" name="carga">
+            </div>
+             <div class="col">
+                <input type="number" step="any" class="form-control" placeholder="Repetições" name="reps_objetivo">
+            </div>
+             <div class="col">
+                <select class="form-select" name="exercicio_id">
+                  {{#each exercicios}}
+                    <option value="{{id}}">{{exercicio}}</option>
+                    {{/each}}
+                </select>
+            </div>
+          }
+        </div>
+        <br>
+        <div class="d-grid gap-2">
+            <button class="btn btn-primary" type="submit">Definir objetivo</button>
+        </div>
+    </form>
+</div></div>

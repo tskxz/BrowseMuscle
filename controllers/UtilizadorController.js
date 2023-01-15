@@ -1,5 +1,6 @@
 const UtilizadorService = require('../services/UtilizadoresService'); // Usa o serviço para dar a resposta ao controlador
 const SessaoTreinoService = require('../services/SessaoTreinoService');
+const ExercicioService = require('../services/ExercicioService');
 const bcrypt = require('bcrypt')
 const path = require('path')
 
@@ -302,13 +303,13 @@ module.exports = {
 		let id_sessao = req.params.id
 		let userid = req.user.id
 		let sessaoTreino = await SessaoTreinoService.buscarUm(id_sessao);
+		let exercicios = await ExercicioService.buscarTodos();
 		if (!sessaoTreino) {
-			json.error = "Sessão de treino não encontrado!"
+			json.result = "Sessão de treino não encontrado!"
 		} else {
-			// Utilizador não pode visualizar as sessões de treino de outros utilizadores diferentes
 			sessaoTreino_utilizador_id = sessaoTreino[0].utilizador_id
 			if (sessaoTreino_utilizador_id != userid) {
-				json.error = 'Não tem permissão!'
+				json.result = 'Não tem permissão!'
 			} else {
 				json.result.push({
 					id: sessaoTreino[0].id,
@@ -324,10 +325,9 @@ module.exports = {
 			}
 		}
 
-		res.json(json.result)
+		res.render('app/definir_objetivo_sessao', {rows: json.result, user: req.user, exercicios: exercicios})
 
 	},
-
 	apagar_sessao_treino: async (req, res) => {
 		let json = { error: '', result: [] };
 		// Chama o serviço apagar para apagar o dado através do id
