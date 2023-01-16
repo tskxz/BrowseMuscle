@@ -30,7 +30,7 @@ module.exports = {
 
     buscarTodos_user: (id) => {
 		return new Promise((aceito, rejeitado) => {
-			db.query('SELECT * FROM Sessao_Treinos WHERE utilizador_id = ? GROUP BY id_sessao', [id], (error, results) => {
+			db.query('SELECT id_sessao, nome, descricao, createdAt, COUNT(*) FROM Sessao_Treinos WHERE utilizador_id = ? GROUP BY id_sessao, nome, descricao, createdAt', [id], (error, results) => {
 				if (error) { rejeitado(error); return; }
 				aceito(results);
 			});
@@ -89,10 +89,10 @@ module.exports = {
 	},
 
 	// Definir objetivo - Exercicio, Reps, Series, Carga
-	definir_objetivo_exercicio:(id_sessao, utilizador_id, exercicio_id, carga, reps_objetivo, series) => {
+	definir_objetivo_exercicio:(id_sessao, utilizador_id, exercicio_id, carga, reps_objetivo, series, nome, descricao, createdAt) => {
 		return new Promise((aceito, rejeitado) => {
-			db.query('INSERT INTO Sessao_Treinos (id_sessao, utilizador_id, exercicio_id, carga, reps_objetivo, series) VALUES(?,?,?,?,?,?);',
-				[id_sessao, utilizador_id, exercicio_id, carga, reps_objetivo, series], (error, results)=>{
+			db.query('INSERT INTO Sessao_Treinos (id_sessao, utilizador_id, exercicio_id, carga, reps_objetivo, series, nome, descricao, createdAt) VALUES(?,?,?,?,?,?,?,?,?);',
+				[id_sessao, utilizador_id, exercicio_id, carga, reps_objetivo, series, nome,descricao,createdAt], (error, results)=>{
 					if(error){rejeitado(error);return;};
 					aceito(results);
 				})

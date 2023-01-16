@@ -17,7 +17,7 @@ module.exports = {
         primaryKey: true,
       },
       id_sessao: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.BIGINT,
         alowNull: false,
       },
       nome: {
