@@ -252,6 +252,7 @@ module.exports = {
 
 		// Pega todos as sessões de treino criado pelo utilizador
 		let SessoesTreino_user = await SessaoTreinoService.buscarTodos_user(userid);
+		console.log(SessoesTreino_user)
 
 		// Buscar os valores
 		for (let i in SessoesTreino_user) {
@@ -379,8 +380,12 @@ module.exports = {
 		let reps_objetivo = req.body.reps_objetivo;
 		let exercicio_id = req.body.exercicio_id;
 		let series = req.body.series;
-
-		let definido = await SessaoTreinoService.definir_objetivo_exercicio(id_sessao, userid,exercicio_id, carga, reps_objetivo, series)
+		let sessaoTreino = await SessaoTreinoService.buscarUm(id_sessao);
+		nome = sessaoTreino[0].nome
+		descricao = sessaoTreino[0].descricao
+		createdAt = sessaoTreino[0].createdAt
+		console.log(nome)
+		let definido = await SessaoTreinoService.definir_objetivo_exercicio(id_sessao, userid,exercicio_id, carga, reps_objetivo, series, nome, descricao, createdAt)
 		if(!definido){
 			json.result="error"
 		}else{
