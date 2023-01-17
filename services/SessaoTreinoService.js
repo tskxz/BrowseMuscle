@@ -30,7 +30,7 @@ module.exports = {
 
     buscarTodos_user: (id) => {
 		return new Promise((aceito, rejeitado) => {
-			db.query('SELECT id_sessao, nome, descricao, createdAt, COUNT(*) FROM Sessao_Treinos WHERE utilizador_id = ? GROUP BY id_sessao, nome, descricao, createdAt', [id], (error, results) => {
+			db.query('SELECT id_sessao, nome, descricao, createdAt, estado, COUNT(*) FROM Sessao_Treinos WHERE utilizador_id = ? GROUP BY id_sessao, nome, descricao, createdAt, estado', [id], (error, results) => {
 				if (error) { rejeitado(error); return; }
 				aceito(results);
 			});
