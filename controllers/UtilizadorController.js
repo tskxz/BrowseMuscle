@@ -321,10 +321,12 @@ module.exports = {
 			nomes_exercicios = await SessaoTreinoService.buscar_nome_exercicio(id_sessao)
 			for(let i in nomes_exercicios){
 				exercicios.push({
+					id_sessao: id_sessao,
 					nome: nomes_exercicios[i].nome,
 					carga: nomes_exercicios[i].carga,
 					reps_objetivo: nomes_exercicios[i].reps_objetivo,
-					series: nomes_exercicios[i].series
+					series: nomes_exercicios[i].series,
+					exercicio_id: nomes_exercicios[i].exercicio_id,
 				})
 			}
 		}
@@ -396,6 +398,18 @@ module.exports = {
 			req.flash('success', `Realizado com sucesso!`)
 		}
 		res.redirect(`/ver_sessao_treino/${id_sessao}`)
+	},
+
+	definir_reps: async(req,res)=>{
+		let json = {error: '', result:[]}
+		let id_sessao = req.params.id_sessao;
+		let exercicio_id = req.params.exercicio_id
+		json.result = {
+			id_sessao: id_sessao,
+			id_exercicio: exercicio_id
+		}
+
+		res.json(json)
 	},
 	
 	apagar_sessao_treino: async (req, res) => {

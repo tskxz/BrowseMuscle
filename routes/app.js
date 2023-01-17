@@ -75,6 +75,10 @@ app.get('/apagar_sessao_treino/:id_sessao',  checkAuthenticated, UtilizadorContr
 // Rota para definir objetivo
 app.get('/definir_sessao/:id_sessao', checkAuthenticated, UtilizadorController.definir_sessao_treino)
 app.post('/definir_sessao/:id_sessao', checkAuthenticated, UtilizadorController.definir_sessao_treino_post)
+
+// Definir as repeticoes das series do exercicio
+app.get('/definir_reps/:id_sessao/:exercicio_id', checkAuthenticated, UtilizadorController.definir_reps)
+
 // Rota para editar o perfil do utilizador
 app.get('/meu_perfil/editar', checkAuthenticated, UtilizadorController.editar_perfil)
 

@@ -32,34 +32,37 @@
     <h3>{{success}}</h3>
 </div>
 {{/if}}
-        <div class="row">
-            <div class="col-lg-8 mx-auto">
+<div class="row">
+    <div class="col-lg-8 mx-auto">
 
-                <!-- CHECKBOX LIST -->
-                <div class="card rounded border-0 shadow-sm position-relative">
-                    <div class="card-body p-5">
-                        <div class="d-flex align-items-center mb-4 pb-4 border-bottom"><i
-                                class="far fa-calendar-alt fa-3x"></i>
-                            <div class="ms-3">        
-                                <h4 class="text-uppercase fw-weight-bold mb-0">{{nome_treino}}</h4>
-                                <p class="text-gray fst-italic mb-0">{{createdAt_treino}}</p>
-                            </div>
-                        </div>
-                        <div class="d-grid gap-2">
-
-                            <a href="/definir_sessao/{{id_sessao}}" type="button" class="btn btn-primary align-self-center">Adicionar exercício</a><br>
-                        </div>
-                        {{#each exercicios}}
-                        <div class="form-check mb-3">
-                            <input class="form-check-input" id="flexCheck1" type="checkbox">
-                            <label class="form-check-label" for="flexCheck1"><span class="fst-italic pl-1">{{nome}} | {{series}} séries | {{carga}}kg | {{reps_objetivo}} reps</span></label>
-                        </div>
-                        {{/each}}
-                        
-
+        <!-- CHECKBOX LIST -->
+        <div class="card rounded border-0 shadow-sm position-relative">
+            <div class="card-body p-5">
+                <div class="d-flex align-items-center mb-4 pb-4 border-bottom"><i class="far fa-calendar-alt fa-3x"></i>
+                    <div class="ms-3">
+                        <h4 class="text-uppercase fw-weight-bold mb-0">{{nome_treino}}</h4>
+                        <p class="text-gray fst-italic mb-0">{{createdAt_treino}}</p>
                     </div>
                 </div>
+                <div class="d-grid gap-2">
+
+                    <a href="/definir_sessao/{{id_sessao}}" type="button"
+                        class="btn btn-primary align-self-center">Adicionar exercício</a><br>
+                </div>
+                {{#each exercicios}}
+                <div class="form-check mb-3">
+                    <input class="form-check-input" id="flexCheck1" type="checkbox">
+                    <label class="form-check-label" for="flexCheck1"><span class="fst-italic pl-1">{{nome}} | {{series}}
+                            séries | {{carga}}kg | {{reps_objetivo}} reps</span></label>
+                    <a href="/definir_reps/{{id_sessao}}/{{exercicio_id}}" type="button" class="btn btn-light btn-small"><i class="bi bi-pencil-square"></i>
+                    </a>
+                </div>
+                {{/each}}
+
+
             </div>
         </div>
     </div>
+</div>
+</div>
 </div>
