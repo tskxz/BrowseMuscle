@@ -252,7 +252,7 @@ module.exports = {
 
 		// Pega todos as sessões de treino criado pelo utilizador
 		let SessoesTreino_user = await SessaoTreinoService.buscarTodos_user(userid);
-		console.log(SessoesTreino_user)
+		// console.log(SessoesTreino_user)
 
 		// Buscar os valores
 		for (let i in SessoesTreino_user) {
@@ -321,11 +321,14 @@ module.exports = {
 			nomes_exercicios = await SessaoTreinoService.buscar_nome_exercicio(id_sessao)
 			for(let i in nomes_exercicios){
 				exercicios.push({
-					nome: nomes_exercicios[i].nome
+					nome: nomes_exercicios[i].nome,
+					carga: nomes_exercicios[i].carga,
+					reps_objetivo: nomes_exercicios[i].reps_objetivo,
+					series: nomes_exercicios[i].series
 				})
 			}
 		}
-		console.log(exercicios)
+		console.log(nomes_exercicios)
 
 		res.render('app/sessao_treino', {
 			rows: json.result,
@@ -384,7 +387,7 @@ module.exports = {
 		nome = sessaoTreino[0].nome
 		descricao = sessaoTreino[0].descricao
 		createdAt = sessaoTreino[0].createdAt
-		console.log(nome)
+		// console.log(nome)
 		let definido = await SessaoTreinoService.definir_objetivo_exercicio(id_sessao, userid,exercicio_id, carga, reps_objetivo, series, nome, descricao, createdAt)
 		if(!definido){
 			json.result="error"
