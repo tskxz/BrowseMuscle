@@ -338,7 +338,8 @@ module.exports = {
 			createdAt_treino: createdAt_treino,
 			id_sessao: id_sessao,
 			exercicios: exercicios,
-			success: req.flash("success")
+			success: req.flash("success"),
+			error: req.flash("error")
 			})
 
 	},
@@ -393,13 +394,19 @@ module.exports = {
 		descricao = sessaoTreino[0].descricao
 		createdAt = sessaoTreino[0].createdAt
 		// console.log(nome)
-		let definido = await SessaoTreinoService.definir_objetivo_exercicio(id_sessao, userid,exercicio_id, carga, reps_objetivo, series, nome, descricao, createdAt)
-		if(!definido){
-			json.result="error"
-		}else{
-			json.result = "success!"
-			req.flash('success', `Realizado com sucesso!`)
+		if(carga && reps_objetivo && exercicio_id && series){
+			let definido = await SessaoTreinoService.definir_objetivo_exercicio(id_sessao, userid,exercicio_id, carga, reps_objetivo, series, nome, descricao, createdAt)
+			if(!definido){
+				json.result="error"
+			}else{
+				json.result = "success!"
+				req.flash('success', `Realizado com sucesso!`)
+			}
+		} else {
+			json.result = "error"
+			req.flash('error', `Erro ao adicionar o exercício`)
 		}
+		
 		res.redirect(`/ver_sessao_treino/${id_sessao}`)
 	},
 
