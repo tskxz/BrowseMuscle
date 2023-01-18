@@ -281,11 +281,9 @@ module.exports = {
 		// Id do utilizador que está com sessão iniciada
 		let userid = req.user.id
 
-		let nome_sessao_treino = await SessaoTreinoService.buscar_nome(id)
-
 		// Pega o valor 
 		let sessaoTreino = await SessaoTreinoService.buscarTodos_sessao(id);
-		
+		console.log(sessaoTreino)
 		let nome_treino = sessaoTreino[0].nome
 		let descricao_treino = sessaoTreino[0].descricao
 		let createdAt_treino = sessaoTreino[0].createdAt.toLocaleDateString('pt-PT', { year: 'numeric', month: '2-digit', day: '2-digit' })
@@ -373,7 +371,12 @@ module.exports = {
 			}
 		}
 
-		res.render('app/definir_objetivo_sessao', {rows: json.result, user: req.user, exercicios: exercicios, id_sessao: id_sessao})
+		res.render('app/definir_objetivo_sessao', {
+			rows: json.result,
+			user: req.user,
+			exercicios: exercicios,
+			id_sessao: id_sessao
+		})
 
 	},
 

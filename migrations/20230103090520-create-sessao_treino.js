@@ -21,7 +21,7 @@ module.exports = {
         alowNull: false,
       },
       nome: {
-        type: Sequelize.STRING(25),
+        type: Sequelize.STRING(100),
         allowNull: false,
       },
       descricao: {
