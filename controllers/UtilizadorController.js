@@ -226,7 +226,7 @@ module.exports = {
 		let randomBytes = 0;
 		randomBytes = crypto.randomBytes(4);
 		const id_sessao = randomBytes.readUInt32BE();
-		console.log(id_sessao)
+		// console.log(id_sessao)
 
 		if (nome && descricao && userid) {
 			// Verifica se a sessão do treino já existe, se existir, lanca aviso
@@ -283,7 +283,7 @@ module.exports = {
 
 		// Pega o valor 
 		let sessaoTreino = await SessaoTreinoService.buscarTodos_sessao(id);
-		console.log(sessaoTreino)
+		// console.log(sessaoTreino)
 		let nome_treino = sessaoTreino[0].nome
 		let descricao_treino = sessaoTreino[0].descricao
 		let createdAt_treino = sessaoTreino[0].createdAt.toLocaleDateString('pt-PT', { year: 'numeric', month: '2-digit', day: '2-digit' })
@@ -328,7 +328,7 @@ module.exports = {
 				})
 			}
 		}
-		console.log(nomes_exercicios)
+		// console.log(nomes_exercicios)
 
 		res.render('app/sessao_treino', {
 			rows: json.result,
@@ -414,9 +414,17 @@ module.exports = {
 		let json = {error: '', result:[]}
 		let id_sessao = req.params.id_sessao;
 		let exercicio_id = req.params.exercicio_id
+		let exercicios = await SessaoTreinoService.buscarUmSessaoExercicio(id_sessao, exercicio_id)
+		console.log(exercicios)
 		json.result = {
 			id_sessao: id_sessao,
-			id_exercicio: exercicio_id
+			id_exercicio: exercicio_id,
+			carga: exercicios[0].carga,
+			reps_objetivo: exercicios[0].reps_objetivo,
+			reps_set1 : exercicios[0].reps_set1,
+			reps_set2: exercicios[0].reps_set2,
+			reps_set3: exercicios[0].reps_set3,
+
 		}
 
 		res.json(json)
