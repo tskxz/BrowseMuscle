@@ -415,7 +415,7 @@ module.exports = {
 		let id_sessao = req.params.id_sessao;
 		let exercicio_id = req.params.exercicio_id
 		let exercicios = await SessaoTreinoService.buscarUmSessaoExercicio(id_sessao, exercicio_id)
-		console.log(exercicios)
+		
 		json.result = {
 			id_sessao: id_sessao,
 			id_exercicio: exercicio_id,
@@ -426,8 +426,8 @@ module.exports = {
 			reps_set3: exercicios[0].reps_set3,
 
 		}
-
-		res.json(json)
+		console.log(exercicios)
+		res.render('app/definir_reps', {user: req.user, rows: exercicios})
 	},
 	
 	apagar_sessao_treino: async (req, res) => {

@@ -81,7 +81,7 @@ module.exports = {
 
 	buscarUmSessaoExercicio: (id_sessao, exercicio_id) => {
 		return new Promise((aceito, rejeitado) => {
-			db.query('SELECT * FROM Sessao_Treinos WHERE id_sessao=? AND exercicio_id =?', [id_sessao, exercicio_id], (error, results) => {
+			db.query('SELECT Sessao_Treinos.*, Exercicios.nome as exercicio_nome FROM Sessao_Treinos JOIN Exercicios ON Sessao_Treinos.exercicio_id = Exercicios.id WHERE Sessao_Treinos.id_sessao = ? AND Sessao_Treinos.exercicio_id = ?', [id_sessao, exercicio_id], (error, results) => {
 				if (error) { rejeitado(error); return; }
 				if(results.length > 0){
 					aceito(results);
