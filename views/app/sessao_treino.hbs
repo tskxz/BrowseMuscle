@@ -24,6 +24,9 @@
     a {
         text-decoration: none;
     }
+    input[type="checkbox"] {
+    display: none;
+}
 </style>
 
 <br><br><br><br>
@@ -55,13 +58,25 @@
                         class="btn btn-primary align-self-center">Adicionar exercício</a><br>
                 </div>
                 {{#each exercicios}}
+                {{#ifEquals concluido "1"}}
+                <div class="form-check mb-3">
+                    <input class="form-check-input" id="flexCheck1" type="checkbox" checked>
+                    <label class="form-check-label" for="flexCheck1"><span class="fst-italic pl-1">{{nome}} | {{series}}
+                            séries | {{carga}}kg | {{reps_objetivo}} reps</span></label>
+                    <i class="bi-check">Concluido</i>
+                    
+                </div>
+                {{/ifEquals}}
+                {{#ifEquals concluido "0"}}
                 <div class="form-check mb-3">
                     <input class="form-check-input" id="flexCheck1" type="checkbox">
                     <label class="form-check-label" for="flexCheck1"><span class="fst-italic pl-1">{{nome}} | {{series}}
                             séries | {{carga}}kg | {{reps_objetivo}} reps</span></label>
-                    <a href="/definir_reps/{{id_sessao}}/{{exercicio_id}}" type="button" class="btn btn-light btn-small"><i class="bi bi-pencil-square"></i>
+                    <a href="/definir_reps/{{id_sessao}}/{{exercicio_id}}" type="button" class="btn btn-link"><i class="bi-pencil-square"></i>
                     </a>
                 </div>
+                {{/ifEquals}}
+                
                 {{/each}}
 
 

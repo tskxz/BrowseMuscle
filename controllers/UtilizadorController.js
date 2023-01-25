@@ -325,11 +325,13 @@ module.exports = {
 					reps_objetivo: nomes_exercicios[i].reps_objetivo,
 					series: nomes_exercicios[i].series,
 					exercicio_id: nomes_exercicios[i].exercicio_id,
+					concluido: nomes_exercicios[i].concluido
 				})
 			}
+			
 		}
 		// console.log(nomes_exercicios)
-
+		console.log(nomes_exercicios)
 		res.render('app/sessao_treino', {
 			rows: json.result,
 			user: req.user,
@@ -426,8 +428,19 @@ module.exports = {
 			reps_set3: exercicios[0].reps_set3,
 
 		}
-		console.log(exercicios)
-		res.render('app/definir_reps', {user: req.user, rows: exercicios})
+		
+		res.render('app/definir_reps', {user: req.user, rows: exercicios, id_sessao: id_sessao, exercicio_id: exercicio_id})
+	},
+
+	definir_reps_post: async(req,res)=>{
+		let json = {error: '', result:[]}
+		let id_sessao = req.params.id_sessao;
+		let exercicio_id = req.params.exercicio_id
+
+		let exercicio_concluido = await SessaoTreinoService.concluirExercicio(id_sessao, exercicio_id)
+	
+		
+		console.log('Concluido!')
 	},
 	
 	apagar_sessao_treino: async (req, res) => {

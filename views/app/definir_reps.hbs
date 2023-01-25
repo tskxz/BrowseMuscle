@@ -3,7 +3,7 @@
         {{#each rows}}
         <h1 class="text-light">{{exercicio_nome}} - {{carga}}KG - {{reps_objetivo}} Reps</h1>
         {{/each}}
-        <form method="POST" action="#">
+        <form method="POST" action="/definir_reps/{{id_sessao}}/{{exercicio_id}}">
             {{#each rows}}
             <div class="row g-3">
                 {{#times series }}

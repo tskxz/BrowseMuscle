@@ -78,7 +78,7 @@ app.post('/definir_sessao/:id_sessao', checkAuthenticated, UtilizadorController.
 
 // Definir as repeticoes das series do exercicio
 app.get('/definir_reps/:id_sessao/:exercicio_id', checkAuthenticated, UtilizadorController.definir_reps)
-
+app.post('/definir_reps/:id_sessao/:exercicio_id', checkAuthenticated, UtilizadorController.definir_reps_post)
 // Rota para editar o perfil do utilizador
 app.get('/meu_perfil/editar', checkAuthenticated, UtilizadorController.editar_perfil)
 
