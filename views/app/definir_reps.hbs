@@ -1,22 +1,23 @@
 <div class="d-flex align-items-center justify-content-center" style="height: 60vh">
-<div class="container">
-    {{#each rows}}
-    <h1 class="text-light">{{exercicio_nome}} - {{carga}}KG - {{reps_objetivo}} Reps</h1>
-    {{/each}}
-    <form method="POST" action="#">
-        
-        <div class="row g-3">
-             <div class="col">
-                <input type="number" step="any" class="form-control" placeholder="1 Série - Repetições" name="reps_set1">
+    <div class="container">
+        {{#each rows}}
+        <h1 class="text-light">{{exercicio_nome}} - {{carga}}KG - {{reps_objetivo}} Reps</h1>
+        {{/each}}
+        <form method="POST" action="#">
+            {{#each rows}}
+            <div class="row g-3">
+                {{#times series }}
+                <div class="col">
+                    <input type="number" step="any" class="form-control" placeholder="{{this}} Série - Repetições"
+                        name="reps_set{{this}}">
+                </div>
+                {{/times}}
             </div>
-            <div class="col">
-                <input type="number" step="any" class="form-control" placeholder="2 Série - Repetições" name="reps_set1">
+            {{/each}}
+            <br>
+            <div class="d-grid gap-2">
+                <button class="btn btn-primary" type="submit">Apontar</button>
             </div>
-            
-        </div>
-        <br>
-        <div class="d-grid gap-2">
-            <button class="btn btn-primary" type="submit">Apontar</button>
-        </div>
-    </form>
-</div></div>
+        </form>
+    </div>
+</div>
