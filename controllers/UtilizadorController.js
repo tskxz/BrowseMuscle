@@ -226,7 +226,7 @@ module.exports = {
 		let randomBytes = 0;
 		randomBytes = crypto.randomBytes(4);
 		const id_sessao = randomBytes.readUInt32BE();
-		console.log(id_sessao)
+		// console.log(id_sessao)
 
 		if (nome && descricao && userid) {
 			// Verifica se a sessão do treino já existe, se existir, lanca aviso
@@ -252,7 +252,7 @@ module.exports = {
 
 		// Pega todos as sessões de treino criado pelo utilizador
 		let SessoesTreino_user = await SessaoTreinoService.buscarTodos_user(userid);
-		console.log(SessoesTreino_user)
+		// console.log(SessoesTreino_user)
 
 		// Buscar os valores
 		for (let i in SessoesTreino_user) {
@@ -281,11 +281,9 @@ module.exports = {
 		// Id do utilizador que está com sessão iniciada
 		let userid = req.user.id
 
-		let nome_sessao_treino = await SessaoTreinoService.buscar_nome(id)
-
 		// Pega o valor 
 		let sessaoTreino = await SessaoTreinoService.buscarTodos_sessao(id);
-		
+		// console.log(sessaoTreino)
 		let nome_treino = sessaoTreino[0].nome
 		let descricao_treino = sessaoTreino[0].descricao
 		let createdAt_treino = sessaoTreino[0].createdAt.toLocaleDateString('pt-PT', { year: 'numeric', month: '2-digit', day: '2-digit' })
@@ -321,12 +319,19 @@ module.exports = {
 			nomes_exercicios = await SessaoTreinoService.buscar_nome_exercicio(id_sessao)
 			for(let i in nomes_exercicios){
 				exercicios.push({
-					nome: nomes_exercicios[i].nome
+					id_sessao: id_sessao,
+					nome: nomes_exercicios[i].nome,
+					carga: nomes_exercicios[i].carga,
+					reps_objetivo: nomes_exercicios[i].reps_objetivo,
+					series: nomes_exercicios[i].series,
+					exercicio_id: nomes_exercicios[i].exercicio_id,
+					concluido: nomes_exercicios[i].concluido
 				})
 			}
+			
 		}
-		console.log(exercicios)
-
+		// console.log(nomes_exercicios)
+		console.log(nomes_exercicios)
 		res.render('app/sessao_treino', {
 			rows: json.result,
 			user: req.user,
@@ -335,7 +340,8 @@ module.exports = {
 			createdAt_treino: createdAt_treino,
 			id_sessao: id_sessao,
 			exercicios: exercicios,
-			success: req.flash("success")
+			success: req.flash("success"),
+			error: req.flash("error")
 			})
 
 	},
@@ -368,7 +374,12 @@ module.exports = {
 			}
 		}
 
-		res.render('app/definir_objetivo_sessao', {rows: json.result, user: req.user, exercicios: exercicios, id_sessao: id_sessao})
+		res.render('app/definir_objetivo_sessao', {
+			rows: json.result,
+			user: req.user,
+			exercicios: exercicios,
+			id_sessao: id_sessao
+		})
 
 	},
 
@@ -384,15 +395,52 @@ module.exports = {
 		nome = sessaoTreino[0].nome
 		descricao = sessaoTreino[0].descricao
 		createdAt = sessaoTreino[0].createdAt
-		console.log(nome)
-		let definido = await SessaoTreinoService.definir_objetivo_exercicio(id_sessao, userid,exercicio_id, carga, reps_objetivo, series, nome, descricao, createdAt)
-		if(!definido){
-			json.result="error"
-		}else{
-			json.result = "success!"
-			req.flash('success', `Realizado com sucesso!`)
+		// console.log(nome)
+		if(carga && reps_objetivo && exercicio_id && series){
+			let definido = await SessaoTreinoService.definir_objetivo_exercicio(id_sessao, userid,exercicio_id, carga, reps_objetivo, series, nome, descricao, createdAt)
+			if(!definido){
+				json.result="error"
+			}else{
+				json.result = "success!"
+				req.flash('success', `Realizado com sucesso!`)
+			}
+		} else {
+			json.result = "error"
+			req.flash('error', `Erro ao adicionar o exercício`)
 		}
+		
 		res.redirect(`/ver_sessao_treino/${id_sessao}`)
+	},
+
+	definir_reps: async(req,res)=>{
+		let json = {error: '', result:[]}
+		let id_sessao = req.params.id_sessao;
+		let exercicio_id = req.params.exercicio_id
+		let exercicios = await SessaoTreinoService.buscarUmSessaoExercicio(id_sessao, exercicio_id)
+		
+		json.result = {
+			id_sessao: id_sessao,
+			id_exercicio: exercicio_id,
+			carga: exercicios[0].carga,
+			reps_objetivo: exercicios[0].reps_objetivo,
+			reps_set1 : exercicios[0].reps_set1,
+			reps_set2: exercicios[0].reps_set2,
+			reps_set3: exercicios[0].reps_set3,
+
+		}
+		
+		res.render('app/definir_reps', {user: req.user, rows: exercicios, id_sessao: id_sessao, exercicio_id: exercicio_id})
+	},
+
+	definir_reps_post: async(req,res)=>{
+		let json = {error: '', result:[]}
+		let id_sessao = req.params.id_sessao;
+		let exercicio_id = req.params.exercicio_id
+
+		let exercicio_concluido = await SessaoTreinoService.concluirExercicio(id_sessao, exercicio_id)
+	
+		
+		console.log('Concluido!')
 	},
 	
 	apagar_sessao_treino: async (req, res) => {

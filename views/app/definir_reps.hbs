@@ -1,0 +1,23 @@
+<div class="d-flex align-items-center justify-content-center" style="height: 60vh">
+    <div class="container">
+        {{#each rows}}
+        <h1 class="text-light">{{exercicio_nome}} - {{carga}}KG - {{reps_objetivo}} Reps</h1>
+        {{/each}}
+        <form method="POST" action="/definir_reps/{{id_sessao}}/{{exercicio_id}}">
+            {{#each rows}}
+            <div class="row g-3">
+                {{#times series }}
+                <div class="col">
+                    <input type="number" step="any" class="form-control" placeholder="{{this}} Série - Repetições"
+                        name="reps_set{{this}}">
+                </div>
+                {{/times}}
+            </div>
+            {{/each}}
+            <br>
+            <div class="d-grid gap-2">
+                <button class="btn btn-primary" type="submit">Apontar</button>
+            </div>
+        </form>
+    </div>
+</div>

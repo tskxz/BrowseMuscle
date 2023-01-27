@@ -19,7 +19,7 @@ module.exports = {
 
 	buscar_nome_exercicio: (id_sessao)=>{
 		return new Promise((aceito, rejeitado) => {
-			db.query('SELECT Exercicios.nome FROM Sessao_Treinos JOIN Exercicios ON Sessao_Treinos.exercicio_id = Exercicios.id WHERE Sessao_Treinos.id_sessao = ?',
+			db.query('SELECT Exercicios.nome, carga, series, reps_objetivo, exercicio_id, concluido, id_sessao FROM Sessao_Treinos JOIN Exercicios ON Sessao_Treinos.exercicio_id = Exercicios.id WHERE Sessao_Treinos.id_sessao = ?',
 				[id_sessao],
 				(error, results) => {
 					if(error){rejeitado(error);return;}
@@ -30,7 +30,7 @@ module.exports = {
 
     buscarTodos_user: (id) => {
 		return new Promise((aceito, rejeitado) => {
-			db.query('SELECT id_sessao, nome, descricao, createdAt, COUNT(*) FROM Sessao_Treinos WHERE utilizador_id = ? GROUP BY id_sessao, nome, descricao, createdAt', [id], (error, results) => {
+			db.query('SELECT id_sessao, nome, descricao, createdAt, estado, COUNT(*) FROM Sessao_Treinos WHERE utilizador_id = ? GROUP BY id_sessao, nome, descricao, createdAt, estado', [id], (error, results) => {
 				if (error) { rejeitado(error); return; }
 				aceito(results);
 			});
@@ -69,6 +69,32 @@ module.exports = {
 	buscarUm: (id) => {
 		return new Promise((aceito, rejeitado) => {
 			db.query('SELECT * FROM Sessao_Treinos WHERE id_sessao=?', [id], (error, results) => {
+				if (error) { rejeitado(error); return; }
+				if(results.length > 0){
+					aceito(results);
+				} else {
+					aceito(false);
+				};
+			});
+		});
+	},
+
+	buscarUmSessaoExercicio: (id_sessao, exercicio_id) => {
+		return new Promise((aceito, rejeitado) => {
+			db.query('SELECT Sessao_Treinos.*, Exercicios.nome as exercicio_nome FROM Sessao_Treinos JOIN Exercicios ON Sessao_Treinos.exercicio_id = Exercicios.id WHERE Sessao_Treinos.id_sessao = ? AND Sessao_Treinos.exercicio_id = ?', [id_sessao, exercicio_id], (error, results) => {
+				if (error) { rejeitado(error); return; }
+				if(results.length > 0){
+					aceito(results);
+				} else {
+					aceito(false);
+				};
+			});
+		});
+	},
+
+	concluirExercicio: (id_sessao, exercicio_id) => {
+		return new Promise((aceito, rejeitado) => {
+			db.query('UPDATE Sessao_Treinos SET concluido = 1 WHERE id_sessao = ? AND exercicio_id = ?', [id_sessao, exercicio_id], (error, results) => {
 				if (error) { rejeitado(error); return; }
 				if(results.length > 0){
 					aceito(results);
