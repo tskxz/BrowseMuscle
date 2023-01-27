@@ -528,7 +528,7 @@ module.exports = {
 		}
 
 		sampleFile = req.files.sampleFile 	// Ficheiro enviado
-		uploadPath = path.join(__dirname, '/../../upload/', sampleFile.name) // Path do Ficheiro
+		uploadPath = path.join(__dirname, '/../upload/', sampleFile.name) // Path do Ficheiro
 
 		console.log(sampleFile);
 
