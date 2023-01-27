@@ -96,11 +96,7 @@ module.exports = {
 		return new Promise((aceito, rejeitado) => {
 			db.query('UPDATE Sessao_Treinos SET concluido = 1 WHERE id_sessao = ? AND exercicio_id = ?', [id_sessao, exercicio_id], (error, results) => {
 				if (error) { rejeitado(error); return; }
-				if(results.length > 0){
-					aceito(results);
-				} else {
-					aceito(false);
-				};
+				aceito(results);
 			});
 		});
 	},
