@@ -101,6 +101,15 @@ module.exports = {
 		});
 	},
 
+	definirReps: (reps_set1, reps_set2, reps_set3, reps_set4, reps_set5, id_sessao, exercicio_id) => {
+		return new Promise((aceito, rejeitado) => {
+			db.query('UPDATE Sessao_Treinos SET reps_set1 = ?, reps_set2 = ?, reps_set3 = ?, reps_set4 = ?, reps_set5 = ? WHERE id_sessao = ? AND exercicio_id = ?', [reps_set1, reps_set2, reps_set3, reps_set4, reps_set5, id_sessao, exercicio_id], (error, results) => {
+				if (error) { rejeitado(error); return; }
+				aceito(results);
+			});
+		});
+	},
+
 	apagar: (id) => {
 		return new Promise((aceito, rejeitado) => {
 			db.query('DELETE FROM Sessao_Treinos WHERE id_sessao = ?', [id], (error, results) => {

@@ -437,7 +437,14 @@ module.exports = {
 		let id_sessao = req.params.id_sessao;
 		let exercicio_id = req.params.exercicio_id
 
+		reps_set1 = req.body.reps_set1
+		reps_set2 = req.body.reps_set2
+		reps_set3 = req.body.reps_set3
+		reps_set4 = req.body.reps_set4
+		reps_set5 = req.body.reps_set5
+
 		let exercicio_concluido = await SessaoTreinoService.concluirExercicio(id_sessao, exercicio_id)
+		let exercicio_definir_reps = await SessaoTreinoService.definirReps(reps_set1, reps_set2, reps_set3, reps_set4, reps_set5, id_sessao, exercicio_id)
 		if(!exercicio_concluido){
 			req.flash('error', `Erro!`)
 		} else {
