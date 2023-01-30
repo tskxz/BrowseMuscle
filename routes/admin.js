@@ -24,7 +24,7 @@ admin.post('/adicionar_alimento', authUser, authRole(2), AlimentoController.adic
 admin.get('/apagar_alimento/:id', authUser, authRole(2), AlimentoController.eliminar)		// Apagar alimento
 admin.get('/editar_alimento/:id', authUser, authRole(2), AlimentoController.atualizar)		// Página para editar alimento
 admin.post('/editar_alimento/:id', authUser, authRole(2), AlimentoController.atualizar)	// Atualizar o alimento
-
+admin.get('/confirmar_alimento/:id', authUser, authRole(2), AlimentoController.confirmar)
 
 // Rotas para administração de Utilizadores
 admin.get('/main_utilizadores', authUser, authRole(2), UtilizadorController.main)                                       // Visualizar os utilizadores

@@ -7,7 +7,16 @@
     <td>{{this.gordura}}</td>
     <td>{{this.calorias}}</td>
     <td>{{this.marca}}</td>
+    {{#ifEquals estado "1"}}
+    <td>Adicionado</td>
+    {{/ifEquals}}
+    {{#ifEquals estado "2"}}
+    <td>Por confirmar</td>
+    {{/ifEquals}}
     <td class="text-end">
+        {{#ifEquals estado "2"}}
+        <a href="/admin/confirmar_alimento/{{this.alimento_id}}" type="button" class="btn btn-success btn-small"><i class="bi bi-check-square"></i> Confirmar</a>
+        {{/ifEquals}}
          <a href="/admin/editar_alimento/{{this.alimento_id}}" type="button" class="btn btn-light btn-small"><i class="bi bi-pencil-square"></i> Editar</a>
          <a href="/admin/apagar_alimento/{{this.alimento_id}}" type="button" class="btn btn-light btn-small"><i class="bi bi-trash3"></i> Apagar</a>
         

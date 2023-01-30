@@ -1,0 +1,40 @@
+<div class="d-flex align-items-center justify-content-center" style="height: 60vh">
+<div class="container">
+    {{#if alert}}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{alert}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {{/if}}
+    <form method="POST" action="/Alimentos/adicionar_pedido_alimento">
+        <div class="row g-3">
+            <div class="col">
+                <input type="text" class="form-control" placeholder="Alimento" name="nome" aria-label="Alimento">
+            </div>
+             <div class="col">
+                <input type="number" step="any" class="form-control" placeholder="Proteina" name="proteina" aria-label="Proteina">
+            </div>
+            <div class="col">
+                <input type="number" step="any" class="form-control" placeholder="Carbs" name="carbs" aria-label="Carbs">
+            </div>
+            <div class="col">
+                <input type="number" step="any" class="form-control" placeholder="Gordura" name="gordura" aria-label="Gordura">
+            </div>
+            <div class="col">
+                <input type="number" step="any" class="form-control" placeholder="Calorias" name="calorias" aria-label="Calorias">
+            </div>
+            <div class="col">
+                <select class="form-select" name="id_marca" aria-label="Default select example">
+                    {{#each rows_marcas}}
+                    <option value="{{this.id}}">{{this.nome}}</option>
+                    {{/each}}
+                </select>
+            </div>
+
+        </div>
+        <br>
+        <div class="d-grid gap-2">
+            <button class="btn btn-primary" type="submit">Adicionar</button>
+        </div>
+    </form>
+</div></div>
