@@ -448,6 +448,7 @@ module.exports = {
 		if(!exercicio_concluido){
 			req.flash('error', `Erro!`)
 		} else {
+			await SessaoTreinoService.emProgresso(id_sessao)
 			req.flash('success', `Apontado com sucesso!`)
 		}
 		res.redirect(`/ver_sessao_treino/${id_sessao}`)
