@@ -39,6 +39,20 @@ module.exports = {
           key: 'id'
         }
       },
+      utilizador_id: {
+        type: Sequelize.INTEGER,
+        allowNull: true,
+        foreignKey: true,
+        references: {
+          model: 'Utilizadores',
+          key: 'id'
+        }
+      },
+      estado: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        defaultValue: 1,
+      },
       createdAt: {
         allowNull: false,
         type: 'TIMESTAMP',
