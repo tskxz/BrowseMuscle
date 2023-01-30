@@ -412,6 +412,20 @@ module.exports = {
 		res.redirect(`/ver_sessao_treino/${id_sessao}`)
 	},
 
+	concluir_sessao_treino_post: async(req,res)=>{
+		let json = {error: '', result: []}
+		let id_sessao = req.params.id_sessao;
+		let sessao_concluido = await SessaoTreinoService.concluirTreino(id_sessao)
+		if(!sessao_concluido){
+			req.flash('error', `Erro!`)
+		} else {
+			req.flash('success', `Finalizado com sucesso!`)
+		}
+		res.redirect(`/lista_sessao_treino`)
+
+	},
+
+
 	definir_reps: async(req,res)=>{
 		let json = {error: '', result:[]}
 		let id_sessao = req.params.id_sessao;

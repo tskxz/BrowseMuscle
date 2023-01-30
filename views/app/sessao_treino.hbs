@@ -55,7 +55,7 @@
                 <div class="d-grid gap-2">
 
                     <a href="/definir_sessao/{{id_sessao}}" type="button"
-                        class="btn btn-primary align-self-center">Adicionar exercício</a><br>
+                        class="btn btn-primary align-self-center">Adicionar exercício <i class="bi bi-plus"></i></a><br>
                 </div>
                 {{#each exercicios}}
                 {{#ifEquals concluido "1"}}
@@ -72,12 +72,23 @@
                     <input class="form-check-input" id="flexCheck1" type="checkbox">
                     <label class="form-check-label" for="flexCheck1"><span class="fst-italic pl-1">{{nome}} | {{series}}
                             séries | {{carga}}kg | {{reps_objetivo}} reps</span></label>
-                    <a href="/definir_reps/{{id_sessao}}/{{exercicio_id}}" type="button" class="btn btn-link"><i class="bi-pencil-square"></i>
+                    <a href="/definir_reps/{{id_sessao}}/{{exercicio_id}}" type="button" class="btn-light"><i class="bi-pencil-square"></i>
                     </a>
                 </div>
                 {{/ifEquals}}
                 
                 {{/each}}
+                <br>
+               <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <form action="/concluir_sessao/{{id_sessao}}" method="post">
+               
+                        <button class="btn btn-light align-self-center" type="submit">Finalizar o treino <i class="bi bi-check-square"></i></button>
+                </form>
+                
+                        </div>
+
+                    
+          
 
 
             </div>

@@ -76,6 +76,7 @@ app.get('/apagar_sessao_treino/:id_sessao',  checkAuthenticated, UtilizadorContr
 app.get('/definir_sessao/:id_sessao', checkAuthenticated, UtilizadorController.definir_sessao_treino)
 app.post('/definir_sessao/:id_sessao', checkAuthenticated, UtilizadorController.definir_sessao_treino_post)
 
+app.post('/concluir_sessao/:id_sessao', checkAuthenticated, UtilizadorController.concluir_sessao_treino_post)
 // Definir as repeticoes das series do exercicio
 app.get('/definir_reps/:id_sessao/:exercicio_id', checkAuthenticated, UtilizadorController.definir_reps)
 app.post('/definir_reps/:id_sessao/:exercicio_id', checkAuthenticated, UtilizadorController.definir_reps_post)
