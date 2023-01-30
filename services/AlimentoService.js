@@ -5,7 +5,16 @@ module.exports = {
 	// Serviço para visualizar todos os Alimentos existentes dentro da tabela
 	visualizarTodos: () => {
 		return new Promise( (aceito, rejeitado) =>{
-			db.query('SELECT Alimentos.id, Alimentos.nome AS alimento, Alimentos.proteina as proteina, Alimentos.carbs as carbs, Alimentos.gordura as gordura, Alimentos.calorias as calorias, Marcas.nome as marca FROM Alimentos JOIN Marcas ON Alimentos.id_marca = Marcas.id', (error, results) => {
+			db.query('SELECT Alimentos.id, Alimentos.nome AS alimento, Alimentos.proteina as proteina, Alimentos.carbs as carbs, Alimentos.gordura as gordura, Alimentos.calorias as calorias, Marcas.nome as marca FROM Alimentos JOIN Marcas ON Alimentos.id_marca = Marcas.id WHERE estado=1', (error, results) => {
+				if(error){rejeitado(error); return;}
+				aceito(results);
+			})
+		})
+	},
+
+	visualizarAlimentosUser: (utilizador_id) => {
+		return new Promise( (aceito, rejeitado) =>{
+			db.query('SELECT Alimentos.id, Alimentos.nome AS alimento, Alimentos.proteina as proteina, Alimentos.carbs as carbs, Alimentos.gordura as gordura, Alimentos.calorias as calorias, Marcas.nome as marca FROM Alimentos JOIN Marcas ON Alimentos.id_marca = Marcas.id WHERE utilizador_id = ?', [utilizador_id], (error, results) => {
 				if(error){rejeitado(error); return;}
 				aceito(results);
 			})
@@ -42,6 +51,28 @@ module.exports = {
 				gordura,
 				calorias,
 				id_marca
+			], (error, results) => {
+				if(error){
+					rejeitado(error);
+					return;
+				}
+				aceito(results.insertId)
+			})
+		})
+	},
+
+	// Serviço para adicionar alimento para o utilizador
+	inserirPedido: (nome, proteina, carbs, gordura, calorias, id_marca, utilizador_id) => {
+		return new Promise((aceito, rejeitado) => {
+			db.query('INSERT INTO Alimentos (nome, proteina, carbs, gordura, calorias, id_marca, estado,utilizador_id) VALUES (?,?,?,?,?,?,?,?);', [
+				nome,
+				proteina,
+				carbs,
+				gordura,
+				calorias,
+				id_marca,
+				2,
+				utilizador_id
 			], (error, results) => {
 				if(error){
 					rejeitado(error);
