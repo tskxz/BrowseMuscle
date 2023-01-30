@@ -173,7 +173,7 @@ module.exports = {
     main: async (req, res) => {
         let json = { error: '', result: [] };
 
-        let Alimentos = await AlimentoService.visualizarTodos();
+        let Alimentos = await AlimentoService.visualizarTodosAdmin();
 
         for (let i in Alimentos) {
             json.result.push({
@@ -183,7 +183,9 @@ module.exports = {
                 carbs: Alimentos[i].carbs,
                 gordura: Alimentos[i].gordura,
                 calorias: Alimentos[i].calorias,
-                marca: Alimentos[i].marca
+                marca: Alimentos[i].marca,
+                estado: Alimentos[i].estado,
+                
             })
         }
 
