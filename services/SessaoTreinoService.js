@@ -94,7 +94,16 @@ module.exports = {
 
 	concluirExercicio: (id_sessao, exercicio_id) => {
 		return new Promise((aceito, rejeitado) => {
-			db.query('UPDATE Sessao_Treinos SET concluido = 1 WHERE id_sessao = ? AND exercicio_id = ?', [id_sessao, exercicio_id], (error, results) => {
+			db.query('UPDATE Sessao_Treinos SET concluido = 1, estado = 2 WHERE id_sessao = ? AND exercicio_id = ?', [id_sessao, exercicio_id], (error, results) => {
+				if (error) { rejeitado(error); return; }
+				aceito(results);
+			});
+		});
+	},
+
+	emProgresso: (id_sessao) => {
+		return new Promise((aceito, rejeitado) => {
+			db.query('UPDATE Sessao_Treinos SET estado = 2 WHERE id_sessao = ?', [id_sessao], (error, results) => {
 				if (error) { rejeitado(error); return; }
 				aceito(results);
 			});
