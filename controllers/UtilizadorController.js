@@ -288,6 +288,7 @@ module.exports = {
 		let descricao_treino = sessaoTreino[0].descricao
 		let createdAt_treino = sessaoTreino[0].createdAt.toLocaleDateString('pt-PT', { year: 'numeric', month: '2-digit', day: '2-digit' })
 		let id_sessao = sessaoTreino[0].id_sessao
+		let estado = sessaoTreino[0].estado
 		// Verifica se existe a sessão de treino com esse id
 		if (!sessaoTreino) {
 			json.error = "Sessão de treino não encontrado!"
@@ -340,6 +341,7 @@ module.exports = {
 			createdAt_treino: createdAt_treino,
 			id_sessao: id_sessao,
 			exercicios: exercicios,
+			estado: estado,
 			success: req.flash("success"),
 			error: req.flash("error")
 			})

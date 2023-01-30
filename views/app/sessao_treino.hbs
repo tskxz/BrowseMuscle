@@ -79,13 +79,14 @@
                 
                 {{/each}}
                 <br>
-               <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <form action="/concluir_sessao/{{id_sessao}}" method="post">
-               
-                        <button class="btn btn-light align-self-center" type="submit">Finalizar o treino <i class="bi bi-check-square"></i></button>
-                </form>
                 
-                        </div>
+                {{#ifEquals estado "2"}}
+               <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <form action="/concluir_sessao/{{id_sessao}}" method="post">
+                        <button class="btn btn-light align-self-center" type="submit">Finalizar o treino <i class="bi bi-check-square"></i></button>
+                    </form>
+                </div>
+                {{/ifEquals}}
 
                     
           
