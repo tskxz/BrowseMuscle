@@ -288,6 +288,7 @@ module.exports = {
 		let descricao_treino = sessaoTreino[0].descricao
 		let createdAt_treino = sessaoTreino[0].createdAt.toLocaleDateString('pt-PT', { year: 'numeric', month: '2-digit', day: '2-digit' })
 		let id_sessao = sessaoTreino[0].id_sessao
+		let estado = sessaoTreino[0].estado
 		// Verifica se existe a sessão de treino com esse id
 		if (!sessaoTreino) {
 			json.error = "Sessão de treino não encontrado!"
@@ -340,6 +341,7 @@ module.exports = {
 			createdAt_treino: createdAt_treino,
 			id_sessao: id_sessao,
 			exercicios: exercicios,
+			estado: estado,
 			success: req.flash("success"),
 			error: req.flash("error")
 			})
@@ -411,6 +413,20 @@ module.exports = {
 		
 		res.redirect(`/ver_sessao_treino/${id_sessao}`)
 	},
+
+	concluir_sessao_treino_post: async(req,res)=>{
+		let json = {error: '', result: []}
+		let id_sessao = req.params.id_sessao;
+		let sessao_concluido = await SessaoTreinoService.concluirTreino(id_sessao)
+		if(!sessao_concluido){
+			req.flash('error', `Erro!`)
+		} else {
+			req.flash('success', `Finalizado com sucesso!`)
+		}
+		res.redirect(`/lista_sessao_treino`)
+
+	},
+
 
 	definir_reps: async(req,res)=>{
 		let json = {error: '', result:[]}

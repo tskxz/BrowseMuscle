@@ -101,6 +101,15 @@ module.exports = {
 		});
 	},
 
+	concluirTreino: (id_sessao, exercicio_id) => {
+		return new Promise((aceito, rejeitado) => {
+			db.query('UPDATE Sessao_Treinos SET estado = 3 WHERE id_sessao = ?', [id_sessao], (error, results) => {
+				if (error) { rejeitado(error); return; }
+				aceito(results);
+			});
+		});
+	},
+
 	emProgresso: (id_sessao) => {
 		return new Promise((aceito, rejeitado) => {
 			db.query('UPDATE Sessao_Treinos SET estado = 2 WHERE id_sessao = ?', [id_sessao], (error, results) => {
