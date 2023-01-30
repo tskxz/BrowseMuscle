@@ -102,6 +102,15 @@ module.exports = {
 		})
 	},
 
+	confirmarAlimento: (id, nome, proteina, carbs, gordura, calorias) => {
+		return new Promise( (aceito, rejeitado) => {
+			db.query('UPDATE Alimentos SET estado=1 WHERE id = ?', [id], (error, results) => {
+				if(error){rejeitado(error); return;}
+				aceito(results);
+			})
+		})
+	},
+
 	// Serviço apagar alimento através do ID
 	apagar:(id) => {
 		return new Promise( (aceito, rejeitado) => {

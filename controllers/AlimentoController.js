@@ -185,7 +185,7 @@ module.exports = {
                 calorias: Alimentos[i].calorias,
                 marca: Alimentos[i].marca,
                 estado: Alimentos[i].estado,
-                
+
             })
         }
 
@@ -405,6 +405,16 @@ module.exports = {
         // Com as informações do alimento, mostra por pré-definido os valores dentro dos inputs para alterar algo
         res.render('admin/Alimentos/editar_alimento', { row, user: req.user, })
 
+    },
+
+    confirmar: async (req, res) => {
+        let json = { error: '', result: [] };
+        alimento = await AlimentoService.confirmarAlimento(req.params.id);
+
+        // Redireciona para a página principal se for apagado
+        if (alimento) {
+            res.redirect('/admin/main_alimentos/')
+        }
     },
 
     // Página - Cálculo de valores do alimento
