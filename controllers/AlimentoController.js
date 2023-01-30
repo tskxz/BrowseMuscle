@@ -250,6 +250,57 @@ module.exports = {
         }
 
     },
+    adicionar_pedido_alimento: async (req, res) => {
+        let json = { error: '', result: [] };
+
+        // Pega os valores através do body
+        let nome = req.body.nome;
+        let proteina = req.body.proteina;
+        let carbs = req.body.carbs;
+        let gordura = req.body.gordura;
+        let calorias = req.body.calorias;
+        let Marcas = await MarcasService.visualizarTodos();
+        rows_marcas = Marcas
+
+        // Mostra a página para preencher os dados e inserir alimento
+        res.render('app/Alimentos/adicionar_alimento_pedido', { user: req.user, rows_marcas });
+    },
+
+    adicionar_pedido_alimento_post: async (req, res) => {
+        let json = { error: '', result: [] };
+
+        // Pega os valores através do body
+        let nome = req.body.nome;
+        let proteina = req.body.proteina;
+        let carbs = req.body.carbs;
+        let gordura = req.body.gordura;
+        let calorias = req.body.calorias;
+        let id_marca = req.body.id_marca;
+        let Marcas = await MarcasService.visualizarTodos();
+        rows_marcas = Marcas
+        if (nome && proteina && carbs && gordura && calorias && id_marca) {
+
+
+            // Insere alimento com os valores recebidos
+            let AlimentoId = await AlimentoService.inserir(nome, proteina, carbs, gordura, calorias, id_marca);
+            json.result = {
+                id: AlimentoId,
+                nome,
+                proteina,
+                carbs,
+                gordura,
+                calorias,
+                id_marca
+            };
+
+            // Após ser inserido, mostra o alert
+            res.render('admin/Alimentos/adicionar_alimentos', { alert: `${nome} Adicionado com sucesso`, user: req.user, rows_marcas });
+
+        } else {
+            json.error = 'Error!';
+        }
+
+    },
 
     adicionar_form: async (req, res) => {
         let json = { error: '', result: [] };

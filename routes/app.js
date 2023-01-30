@@ -35,6 +35,9 @@ app.get('/main_alimentos', checkAuthenticated, function(req,res){
 	})
 });
 
+app.get('/Alimentos/adicionar_pedido_alimento', checkAuthenticated, AlimentoController.adicionar_pedido_alimento)
+app.post('/Alimentos/adicionar_pedido_alimento', checkAuthenticated, AlimentoController.adicionar_pedido_alimento_post)
+
 // Gráfico de alimento
 app.get('/alimento/:id', checkAuthenticated, AlimentoController.grafico)		// Página para editar alimento
 
