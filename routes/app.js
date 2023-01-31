@@ -24,8 +24,8 @@ app.get('/Exercicios', checkAuthenticated, ExercicioController.view)
 app.post('/Exercicios/pesquisa', checkAuthenticated, ExercicioController.pesquisarExercicio);
 
 // Pesquisar alimentos
-
 app.post('/Alimentos/pesquisa', checkAuthenticated, AlimentoController.pesquisarAlimento);
+
 // Rota para visualizar Alimentos
 app.get('/Alimentos', checkAuthenticated, AlimentoController.view);
 app.get('/main_alimentos', checkAuthenticated, function(req,res){
@@ -35,11 +35,14 @@ app.get('/main_alimentos', checkAuthenticated, function(req,res){
 	})
 });
 
+// Rota para o utilizador adicionar pedido de alimento
 app.get('/Alimentos/adicionar_pedido_alimento', checkAuthenticated, AlimentoController.adicionar_pedido_alimento)
 app.post('/Alimentos/adicionar_pedido_alimento', checkAuthenticated, AlimentoController.adicionar_pedido_alimento_post)
 
+// Rota para visualizar alimentos que o utilizador criou
 app.get('/Alimentos/alimentos_utilizador', checkAuthenticated, AlimentoController.visualizarAlimentosUtilizador)
-// Gráfico de alimento
+
+// Gráfico do alimento
 app.get('/alimento/:id', checkAuthenticated, AlimentoController.grafico)		// Página para editar alimento
 
 // Ferramenta para calcular valores do alimento
@@ -50,7 +53,7 @@ app.post('/calcular_calorias', checkAuthenticated, AlimentoController.calculo_ca
 app.get('/calcular_1rm', checkAuthenticated, ExercicioController.calcular_1rm)
 app.post('/calcular_1rm', checkAuthenticated, ExercicioController.calcular_1rm_post)
 
-
+// Página para visualizar o perfil
 app.get('/meu_perfil', checkAuthenticated, function(req, res) {
 	res.render('app/utilizador/perfil.hbs', { 
 		user: req.user,
@@ -66,24 +69,30 @@ app.get('/meu_perfil', checkAuthenticated, function(req, res) {
 	})
 })
 
-// Planos de treino
+// Rota para criar sessões de treino
 app.get('/criar_sessao_treino', checkAuthenticated, UtilizadorController.criar_sessao_treino);
 app.post('/criar_sessao_treino', checkAuthenticated, UtilizadorController.criar_sessao_treino_post);
 
 // Página para ver a lista de sessões de treino criado pelo utilizador
 app.get('/lista_sessao_treino', checkAuthenticated, UtilizadorController.ver_sessoes_treinos)
 
+// Rota para visualizar a sessão de treino
 app.get('/ver_sessao_treino/:id_sessao', checkAuthenticated, UtilizadorController.ver_sessao)
+
+// Rota para apagar a sessão de treino
 app.get('/apagar_sessao_treino/:id_sessao',  checkAuthenticated, UtilizadorController.apagar_sessao_treino)
 
-// Rota para definir objetivo
+// Rota para definir exercícios e repetições para a sessão de treino
 app.get('/definir_sessao/:id_sessao', checkAuthenticated, UtilizadorController.definir_sessao_treino)
 app.post('/definir_sessao/:id_sessao', checkAuthenticated, UtilizadorController.definir_sessao_treino_post)
 
+// Rota para concluir a sessão de treino
 app.post('/concluir_sessao/:id_sessao', checkAuthenticated, UtilizadorController.concluir_sessao_treino_post)
+
 // Definir as repeticoes das series do exercicio
 app.get('/definir_reps/:id_sessao/:exercicio_id', checkAuthenticated, UtilizadorController.definir_reps)
 app.post('/definir_reps/:id_sessao/:exercicio_id', checkAuthenticated, UtilizadorController.definir_reps_post)
+
 // Rota para editar o perfil do utilizador
 app.get('/meu_perfil/editar', checkAuthenticated, UtilizadorController.editar_perfil)
 
@@ -106,6 +115,7 @@ app.get('/test', function(req,res) {
 	res.render('app/tests/index.hbs')
 })
 
+// Função para verificar autenticação - Se estiver com sessão iniciada
 function checkAuthenticated(req, res, next){
     if(req.isAuthenticated()){
         return next()
@@ -114,6 +124,7 @@ function checkAuthenticated(req, res, next){
     res.redirect('/auth/login')
 }
 
+// Função para verificar autenticação - Se não estiver com sessão iniciada
 function checkNotAuthenticated(req, res, next){
     if(req.isAuthenticated()){
         return res.redirect('/meu_perfil');
@@ -129,6 +140,7 @@ app.get('/escolher_musculo', checkAuthenticated, function(req, res){
 	});
 })
 
+// Visualização de músculos
 app.get('/Musculos', checkAuthenticated, function(req, res){
 	res.render('app/Musculos', {user: req.user})
 })
