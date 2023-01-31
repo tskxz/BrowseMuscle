@@ -4,9 +4,9 @@ module.exports = {
 
 	// Serviço para visualizar todas as Dificuldades
 	visualizarTodos: () => {
-		return new Promise( (aceito, rejeitado) =>{
+		return new Promise((aceito, rejeitado) => {
 			db.query('SELECT * FROM Dificuldades', (error, results) => {
-				if(error){rejeitado(error); return;}
+				if (error) { rejeitado(error); return; }
 				aceito(results);
 			})
 		})

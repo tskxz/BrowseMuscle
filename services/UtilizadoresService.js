@@ -41,7 +41,7 @@ module.exports = {
 		})
 	},
 
-	// Serviço para buscar somente um utilizador através do username
+	// Serviço para buscar utilizador através do username
 	buscarUsername: (username) => {
 		return new Promise((aceito, rejeitado) => {
 			db.query('SELECT * FROM Utilizadores WHERE username = ?', [username], (error, results) => {
@@ -55,6 +55,7 @@ module.exports = {
 		})
 	},
 
+	// Serviço para buscar utilizador através do email
 	buscarEmail: (email) => {
 		return new Promise((aceito, rejeitado) => {
 			db.query('SELECT * FROM Utilizadores WHERE email = ?', [email], (error, results) => {
@@ -97,7 +98,7 @@ module.exports = {
 		})
 	},
 
-	// Serviço para alterar dados do utilizador através do ID
+	// Serviço para alterar dados com o cargo do utilizador através do ID
 	alterar_user: (id, primeiro_nome, ultimo_nome, email, num_telemovel, descricao, id_cargo) => {
 		return new Promise((aceito, rejeitado) => {
 			db.query('UPDATE Utilizadores SET primeiro_nome = ?, ultimo_nome = ?, email = ?, num_telemovel = ?, descricao = ?, id_cargo=? WHERE id = ?',
@@ -109,6 +110,8 @@ module.exports = {
 			);
 		})
 	},
+
+	// Serviço para alterar dados do utilizador através do ID
 	alterar: (id, primeiro_nome, ultimo_nome, email, num_telemovel, descricao) => {
 		return new Promise((aceito, rejeitado) => {
 			db.query('UPDATE Utilizadores SET primeiro_nome = ?, ultimo_nome = ?, email = ?, num_telemovel = ?, descricao = ? WHERE id = ?',
@@ -121,6 +124,7 @@ module.exports = {
 		})
 	},
 
+	// Serviço para alterar foto do utilizador
 	alterar_foto: (id, foto) => {
 		return new Promise((aceito, rejeitado) => {
 			db.query('update Utilizadores SET foto = ? where id=?',
@@ -133,6 +137,7 @@ module.exports = {
 		})
 	},
 
+	// Serviço para mudar a palavra passe do utilizador
 	mudar_pass: (id, password) => {
 		return new Promise((aceito, rejeitado) => {
 			db.query('update Utilizadores SET password = ? where id=?',
@@ -144,6 +149,7 @@ module.exports = {
 		})
 	},
 
+	// Serviço para apagar utilizador
 	apagar: (id) => {
 		return new Promise((aceito, rejeitado) => {
 			db.query('DELETE FROM Utilizadores WHERE id = ?', [id], (error, results) => {

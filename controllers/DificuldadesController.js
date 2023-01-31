@@ -15,7 +15,7 @@ module.exports = {
 				nome: dificuldade[i].nome
 			});
 		}
-		
+
 		// Mostra o resultado
 		res.json(json);
 	}

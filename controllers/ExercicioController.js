@@ -9,7 +9,7 @@ module.exports = {
 	buscarTodos: async (req, res) => {
 		let json = { error: '', result: [] };
 		// Chama o serviço para mostrar todos os exercícios
-		let Exercicios = await ExercicioService.buscarTodos(); 
+		let Exercicios = await ExercicioService.buscarTodos();
 
 		for (let i in Exercicios) {
 			json.result.push({

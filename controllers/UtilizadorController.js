@@ -163,7 +163,7 @@ module.exports = {
 			descricao,
 			id_cargo
 		)
-		
+
 		// Verifica se atualizou
 		if (utilizador) {
 			res.redirect('/admin/main_utilizadores')
@@ -320,7 +320,7 @@ module.exports = {
 			if (sessaoTreino_utilizador_id != userid) {
 				json.error = 'Não tem permissão!'
 			} else {
-				for(let i in sessaoTreino){
+				for (let i in sessaoTreino) {
 					json.result.push({
 						id: sessaoTreino[i].id,
 						id_sessao: sessaoTreino[i].id_sessao,
@@ -331,12 +331,12 @@ module.exports = {
 						exercicio_id: sessaoTreino[i].exercicio_id,
 
 					});
-				}	
+				}
 			}
-			
+
 			// Mostra os nomes de exercícios que está na sessão de treino
 			nomes_exercicios = await SessaoTreinoService.buscar_nome_exercicio(id_sessao)
-			for(let i in nomes_exercicios){
+			for (let i in nomes_exercicios) {
 				exercicios.push({
 					id_sessao: id_sessao,
 					nome: nomes_exercicios[i].nome,
@@ -347,7 +347,7 @@ module.exports = {
 					concluido: nomes_exercicios[i].concluido
 				})
 			}
-			
+
 		}
 
 		// Mostra a sessão de treino
@@ -362,20 +362,20 @@ module.exports = {
 			estado: estado,
 			success: req.flash("success"),
 			error: req.flash("error")
-			})
+		})
 
 	},
 
 	// Página Utilizador - Página para definir exercícios e objetivo de número de repetições para a sessão de treino
-	definir_sessao_treino: async(req,res)=>{
+	definir_sessao_treino: async (req, res) => {
 		let json = { error: '', result: [] };
 
 		let id_sessao = req.params.id_sessao
 		let userid = req.user.id
-		
+
 		let sessaoTreino = await SessaoTreinoService.buscarUm(id_sessao);
 		let exercicios = await ExercicioService.buscarTodos();
-		
+
 		if (!sessaoTreino) {
 			json.result = "Sessão de treino não encontrado!"
 		} else {
@@ -407,8 +407,8 @@ module.exports = {
 
 	},
 	// Página Utilizador - Definir exercícios e objetivo de número de repetições para a sessão de treino
-	definir_sessao_treino_post: async(req,res)=>{
-		let json = {error: '', result: []}
+	definir_sessao_treino_post: async (req, res) => {
+		let json = { error: '', result: [] }
 
 		let id_sessao = req.params.id_sessao;
 		let userid = req.user.id;
@@ -423,12 +423,12 @@ module.exports = {
 		descricao = sessaoTreino[0].descricao
 		createdAt = sessaoTreino[0].createdAt
 
-		if(carga && reps_objetivo && exercicio_id && series){
+		if (carga && reps_objetivo && exercicio_id && series) {
 			// Inserir e definir os objetivos do exercício da sessão de treino
-			let definido = await SessaoTreinoService.definir_objetivo_exercicio(id_sessao, userid,exercicio_id, carga, reps_objetivo, series, nome, descricao, createdAt)
-			if(!definido){
-				json.result="error"
-			}else{
+			let definido = await SessaoTreinoService.definir_objetivo_exercicio(id_sessao, userid, exercicio_id, carga, reps_objetivo, series, nome, descricao, createdAt)
+			if (!definido) {
+				json.result = "error"
+			} else {
 				json.result = "success!"
 				req.flash('success', `Realizado com sucesso!`)
 			}
@@ -436,20 +436,20 @@ module.exports = {
 			json.result = "error"
 			req.flash('error', `Erro ao adicionar o exercício`)
 		}
-		
+
 		// Após definir os objetivos, vai ser redirecionado para a sessão de treino
 		res.redirect(`/ver_sessao_treino/${id_sessao}`)
 	},
 
 	// Página Utilizador - Concluir a sessão de treino
-	concluir_sessao_treino_post: async(req,res)=>{
+	concluir_sessao_treino_post: async (req, res) => {
 
 		// Usa o serviço para concluir o treino
 		let id_sessao = req.params.id_sessao;
 		let sessao_concluido = await SessaoTreinoService.concluirTreino(id_sessao)
 
 		// Verifica se foi finalizado
-		if(!sessao_concluido){
+		if (!sessao_concluido) {
 			req.flash('error', `Erro!`)
 		} else {
 			req.flash('success', `Finalizado com sucesso!`)
@@ -459,31 +459,31 @@ module.exports = {
 	},
 
 	// Página Utilizador - Página para definir número de repetições que o utilizador executou no exercício
-	definir_reps: async(req,res)=>{
-		let json = {error: '', result:[]}
+	definir_reps: async (req, res) => {
+		let json = { error: '', result: [] }
 
 		let id_sessao = req.params.id_sessao;
 		let exercicio_id = req.params.exercicio_id
 		let exercicios = await SessaoTreinoService.buscarUmSessaoExercicio(id_sessao, exercicio_id)
-		
+
 		json.result = {
 			id_sessao: id_sessao,
 			id_exercicio: exercicio_id,
 			carga: exercicios[0].carga,
 			reps_objetivo: exercicios[0].reps_objetivo,
-			reps_set1 : exercicios[0].reps_set1,
+			reps_set1: exercicios[0].reps_set1,
 			reps_set2: exercicios[0].reps_set2,
 			reps_set3: exercicios[0].reps_set3,
 
 		}
-		
+
 		// Mostra o formulário para definir o número de repetições do exercício
-		res.render('app/definir_reps', {user: req.user, rows: exercicios, id_sessao: id_sessao, exercicio_id: exercicio_id, success: req.flash("success"), error: req.flash("error")})
+		res.render('app/definir_reps', { user: req.user, rows: exercicios, id_sessao: id_sessao, exercicio_id: exercicio_id, success: req.flash("success"), error: req.flash("error") })
 	},
 
 	// Página Utilizador - Definir número de repetições que o utilizador executou no exercício
-	definir_reps_post: async(req,res)=>{
-		
+	definir_reps_post: async (req, res) => {
+
 		let id_sessao = req.params.id_sessao;
 		let exercicio_id = req.params.exercicio_id
 
@@ -498,7 +498,7 @@ module.exports = {
 
 		// Chama o serviço para definir o número de repetições do exercício realizado
 		await SessaoTreinoService.definirReps(reps_set1, reps_set2, reps_set3, reps_set4, reps_set5, id_sessao, exercicio_id)
-		if(!exercicio_concluido){
+		if (!exercicio_concluido) {
 			req.flash('error', `Erro!`)
 		} else {
 			await SessaoTreinoService.emProgresso(id_sessao)
@@ -508,7 +508,7 @@ module.exports = {
 		// Redireciona para a sessão de treino
 		res.redirect(`/ver_sessao_treino/${id_sessao}`)
 	},
-	
+
 	// Página Utilizador - Apaga a sessão de treino
 	apagar_sessao_treino: async (req, res) => {
 		let json = { error: '', result: [] };

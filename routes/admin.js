@@ -33,8 +33,8 @@ admin.post('/editar_utilizador_post/:id', authUser, authRole(2), UtilizadorContr
 admin.get('/apagar_utilizador/:id', authUser, authRole(2), UtilizadorController.apagar)	                            // Apagar utilizador
 
 // Rota para a página administração
-admin.get('/dashboard', authUser, authRole(2), function(req, res){
-	res.render('admin/dashboard', {layout: 'main_admin',user: req.user})
+admin.get('/dashboard', authUser, authRole(2), function (req, res) {
+    res.render('admin/dashboard', { layout: 'main_admin', user: req.user })
 })
 
 // Pesquisar utilizador
@@ -47,9 +47,9 @@ admin.post('/Exercicios/pesquisa', ExercicioController.pesquisarExercicio_admin)
 admin.post('/Alimentos/pesquisa', AlimentoController.pesquisarAlimento_admin);
 
 // Função para verificar o cargo
-function authRole(role){
-    return(req,res,next) => {
-        if(req.user.id_cargo !== role){
+function authRole(role) {
+    return (req, res, next) => {
+        if (req.user.id_cargo !== role) {
             res.status(401)
             return res.send('Not allowed!')
         }
@@ -58,8 +58,8 @@ function authRole(role){
 }
 
 // Função para verificar autenticação
-function authUser(req, res, next){
-    if(!req.user){
+function authUser(req, res, next) {
+    if (!req.user) {
         return res.redirect('/auth/login')
     }
     next()
