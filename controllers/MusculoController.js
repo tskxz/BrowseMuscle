@@ -2,7 +2,7 @@ const MusculoService = require('../services/MusculoService');
 
 module.exports = {
 
-	// Visualizar todos os dados dentro da tabela músculos
+	// API - JSON - Visualizar todos os dados dentro da tabela músculos
 	visualizarTodos: async(req, res) => {
 		let json = {error: '', result:[]};
 
@@ -16,7 +16,7 @@ module.exports = {
 			});
 		}
 
-		// Manda a resposta do servidor para json
+		// Mostra o resultado
 		res.json(json);
 	}
 }

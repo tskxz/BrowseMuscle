@@ -2,13 +2,12 @@ const AlimentoService = require('../services/AlimentoService')
 const MarcasService = require('../services/MarcasService')
 module.exports = {
 
-    // Visualizar todos os Alimentos existentes dentro da tabela Alimentos
+    // API - JSON - Visualizar todos os Alimentos existentes dentro da tabela Alimentos
     visualizarTodos: async (req, res) => {
         let json = { error: '', result: [] };
 
-        let alimento = await AlimentoService.visualizarTodos(); // Chama o serviço visualizarTodos()
+        let alimento = await AlimentoService.visualizarTodos();
         for (let i in alimento) {
-            // Para cada alimento, vai ser movido para json
             json.result.push({
                 id: alimento[i].id,
                 nome: alimento[i].nome,
@@ -17,25 +16,24 @@ module.exports = {
                 gordura: alimento[i].gordura,
                 calorias: alimento[i].calorias
             })
-            console.log(json)
         }
         res.json(json);
     },
 
-    // Visualizar apenas um alimento através do parametro id
+    // API - JSON - Visualizar apenas um alimento através do parametro id
     buscarUm: async (req, res) => {
         let json = { error: '', result: [] };
 
-        let id = req.params.id;                             // Receber o id através do url 
-        let alimento = await AlimentoService.buscarUm(id);  // Resultado do serviço buscarUm()
+        let id = req.params.id;
+        let alimento = await AlimentoService.buscarUm(id);
 
         if (alimento) {
-            json.result = alimento;                         // Dado alimento obtido através do id movido para json 
+            json.result = alimento;
         }
-        res.json(json);                                     // Enviar o response json
+        res.json(json);
     },
 
-    // Inserir um alimento através do body
+    // API - JSON Inserir um alimento através do body
     inserir: async (req, res) => {
         let json = { error: '', result: [] };
 
@@ -48,7 +46,7 @@ module.exports = {
 
         // Verifica se contêm os valores
         if (nome && proteina && carbs && gordura) {
-            // Chhama o serviço inserir alimento e armazena o resultado no AlimentoId que vai ser o id incrementado
+            // Insere o alimento
             let AlimentoId = await AlimentoService.inserir(nome, proteina, carbs, gordura, calorias);
             json.result = {
                 id: AlimentoId,
@@ -62,11 +60,10 @@ module.exports = {
             json.error = 'Error!';
         }
 
-        // Envia a resposta para o servidor JSON
         res.json(json);
     },
 
-    // Alterar dados do alimento através do body
+    // API - JSON - Alterar dados do alimento através do body
     alterar: async (req, res) => {
         let json = { error: '', result: [] };
 
@@ -80,7 +77,7 @@ module.exports = {
 
         // Verifica se contêm valores
         if (id && nome && proteina && carbs && gordura) {
-            // Usa o serviço alterar com os valores recebidos como parametros e fazer UPDATE
+            // Usa o serviço alterar com os valores recebidos
             await AlimentoService.alterar(id, nome, proteina, carbs, gordura, calorias)
             json.result = {
                 id,
@@ -94,11 +91,10 @@ module.exports = {
             json.error = 'Error!';
         }
 
-        // Envia a resposta para o servidor
         res.json(json)
     },
 
-    // Apaga um alimento através do id
+    // API - JSON - Apaga um alimento através do id
     apagar: async (req, res) => {
         let json = { error: '', result: [] };
 
@@ -109,14 +105,13 @@ module.exports = {
         res.json(json)
     },
 
-    // Página - Visualização dos Alimentos para uma tabela na página principal Alimentos
+    // Página - Visualização dos Alimentos na página principal da tabela Alimentos
     view: async (req, res) => {
         let json = { error: '', result: [] };
 
-        // Chama o serviço visualizarTodos() e armazena todos os dados
+        // Visualiza todos os alimentos visíveis
         let Alimentos = await AlimentoService.visualizarTodos();
 
-        // Percorre o array Alimentos e adiciona cada alimento para o json
         for (let i in Alimentos) {
             json.result.push({
                 id: Alimentos[i].id,
@@ -131,22 +126,20 @@ module.exports = {
             })
         }
 
-        // As linhas vão ser os Alimentos do resultado de visualizarTodos
+        // Mostra os alimentos na tabela
         rows = json.result;
-        console.log(rows)
-
-        // Mostra os Alimentos ao passar o valor rows
         res.render('app/Alimentos/tabela_alimentos', { layout: 'tabela_alimentos', rows, user: req.user, })
     },
 
+    // Página - Visualização dos Alimentos do utilizador que criou
     visualizarAlimentosUtilizador: async (req, res) => {
         let json = { error: '', result: [] };
 
         let utilizador_id = req.user.id
-        // Chama o serviço visualizarTodos() e armazena todos os dados
+
+        // Visualiza todos os alimentos criado pelo utilizador
         let Alimentos = await AlimentoService.visualizarAlimentosUser(utilizador_id);
 
-        // Percorre o array Alimentos e adiciona cada alimento para o json
         for (let i in Alimentos) {
             json.result.push({
                 id: Alimentos[i].id,
@@ -161,18 +154,16 @@ module.exports = {
             })
         }
 
-        // As linhas vão ser os Alimentos do resultado de visualizarTodos
+        // Mostra os alimentos na tabela
         rows = json.result;
-        console.log(rows)
-
-        // Mostra os Alimentos ao passar o valor rows
         res.render('app/Alimentos/tabela_utilizador_alimentos', { layout: 'tabela_alimentos', rows, user: req.user, })
     },
 
-    // Página - Visualização dos Alimentos para uma tabela na página de administração Alimentos para fazer operações
+    // Página de administração - Visualização dos Alimentos
     main: async (req, res) => {
         let json = { error: '', result: [] };
 
+        // Visualiza todos os alimentos
         let Alimentos = await AlimentoService.visualizarTodosAdmin();
 
         for (let i in Alimentos) {
@@ -189,14 +180,12 @@ module.exports = {
             })
         }
 
+        // Mostra os alimentos na tabela de administração
         rows = json.result;
-        console.log(rows);
-
-        // Layout diferente para acrescentar a coluna editar e apagar
         res.render('admin/Alimentos/tabela_alimentos', { layout: 'tabela_alimentos_crud', rows, user: req.user })
     },
 
-    // Pesquisar através da barra de pesquisa da navegação, admin
+    // Página de administração - Pesquisar através da barra de pesquisa
     pesquisarAlimento_admin: async (req, res) => {
         let json = { error: '', result: [] };
 
@@ -212,17 +201,18 @@ module.exports = {
             json.error = "err"
         }
 
-        // Resultado do serviço armazenado em rows
         rows = json.result;
 
+        // Quantidade de resultados encontrados semelhantes
         var keyCount = Object.keys(rows).length;
 
-        // Mostra o resultado
+        // Mostra os alimentos na tabela
         res.render('admin/Alimentos/pesquisa', { layout: 'tabela_alimentos_crud', rows, user: req.user, alert: `${keyCount} resultados encontrados!` })
 
 
     },
 
+    // Página Alimentos - Pesquisar através da barra de pesquisa
     pesquisarAlimento: async (req, res) => {
         let json = { error: '', result: [] };
 
@@ -238,17 +228,17 @@ module.exports = {
             json.error = "err"
         }
 
-        // Resultado do serviço armazenado em rows
+        // Quantidade de resultados encontrados semelhantes
         rows = json.result;
         var keyCount = Object.keys(rows).length;
 
-        // Mostra o resultado
+        // Mostra os alimentos na tabela
         res.render('app/Alimentos/pesquisa', { layout: 'tabela_alimentos', rows, user: req.user, alert: `${keyCount} resultados encontrados!` })
 
 
     },
 
-    // Página - Adicionar alimento
+    // Página de administração - Adicionar alimento
     adicionar: async (req, res) => {
         let json = { error: '', result: [] };
 
@@ -284,15 +274,10 @@ module.exports = {
         }
 
     },
-    adicionar_pedido_alimento: async (req, res) => {
-        let json = { error: '', result: [] };
 
-        // Pega os valores através do body
-        let nome = req.body.nome;
-        let proteina = req.body.proteina;
-        let carbs = req.body.carbs;
-        let gordura = req.body.gordura;
-        let calorias = req.body.calorias;
+    // Página Utilizador - Formulário para inserir alimento
+    adicionar_pedido_alimento: async (req, res) => {
+
         let Marcas = await MarcasService.visualizarTodos();
         rows_marcas = Marcas
 
@@ -300,6 +285,7 @@ module.exports = {
         res.render('app/Alimentos/adicionar_alimento_pedido', { user: req.user, rows_marcas });
     },
 
+    // Página Utilizador - Inserir pedido de alimentos
     adicionar_pedido_alimento_post: async (req, res) => {
         let json = { error: '', result: [] };
 
@@ -313,9 +299,9 @@ module.exports = {
         let Marcas = await MarcasService.visualizarTodos();
         let utilizador_id = req.user.id
         rows_marcas = Marcas
+
+        // Verifica se os valores estão preenchidos
         if (nome && proteina && carbs && gordura && calorias && id_marca) {
-
-
             // Insere alimento com os valores recebidos
             let AlimentoId = await AlimentoService.inserirPedido(nome, proteina, carbs, gordura, calorias, id_marca, utilizador_id);
             json.result = {
@@ -338,15 +324,8 @@ module.exports = {
 
     },
 
+    // Página Administração - Formulário para inserir alimento
     adicionar_form: async (req, res) => {
-        let json = { error: '', result: [] };
-
-        // Pega os valores através do body
-        let nome = req.body.nome;
-        let proteina = req.body.proteina;
-        let carbs = req.body.carbs;
-        let gordura = req.body.gordura;
-        let calorias = req.body.calorias;
         let Marcas = await MarcasService.visualizarTodos();
         rows_marcas = Marcas
 
@@ -355,11 +334,11 @@ module.exports = {
     },
 
 
-    // Página - Eliminar um alimento
+    // Página Administração - Eliminar um alimento
     eliminar: async (req, res) => {
-        let json = { error: '', result: [] };
+
+        // Remove um alimento
         alimento = await AlimentoService.apagar(req.params.id);
-        console.log(alimento);
 
         // Redireciona para a página principal se for apagado
         if (alimento) {
@@ -367,7 +346,7 @@ module.exports = {
         }
     },
 
-    // Página - Atualizar Alimento
+    // Página Administração - Atualizar Alimento
     atualizar: async (req, res) => {
         let json = { error: '', result: [] };
 
@@ -407,6 +386,7 @@ module.exports = {
 
     },
 
+    // Página Administração - Confirma para que o alimento vá para a página principal
     confirmar: async (req, res) => {
         let json = { error: '', result: [] };
         alimento = await AlimentoService.confirmarAlimento(req.params.id);
