@@ -24,9 +24,10 @@
     a {
         text-decoration: none;
     }
+
     input[type="checkbox"] {
-    display: none;
-}
+        display: none;
+    }
 </style>
 
 <br><br><br><br>
@@ -45,8 +46,11 @@
 
         <!-- CHECKBOX LIST -->
         <div class="card rounded border-0 shadow-sm position-relative">
-            <div class="card-body p-5">
-                <div class="d-flex align-items-center mb-4 pb-4 border-bottom"><i class="far fa-calendar-alt fa-3x"></i>
+            <div class="card-body p-4">
+                <div class="d-flex align-items-center mb-4 pb-4 text-center">
+                    <div class="ms-3">
+                        <i class="far fa-calendar-alt fa-3x"></i>
+                    </div>
                     <div class="ms-3">
                         <h4 class="text-uppercase fw-weight-bold mb-0">{{nome_treino}}</h4>
                         <p class="text-gray fst-italic mb-0">{{createdAt_treino}}</p>
@@ -64,7 +68,7 @@
                     <label class="form-check-label" for="flexCheck1"><span class="fst-italic pl-1">{{nome}} | {{series}}
                             séries | {{carga}}kg | {{reps_objetivo}} reps</span></label>
                     <i class="bi-check">Concluido</i>
-                    
+
                 </div>
                 {{/ifEquals}}
                 {{#ifEquals concluido "0"}}
@@ -72,24 +76,26 @@
                     <input class="form-check-input" id="flexCheck1" type="checkbox">
                     <label class="form-check-label" for="flexCheck1"><span class="fst-italic pl-1">{{nome}} | {{series}}
                             séries | {{carga}}kg | {{reps_objetivo}} reps</span></label>
-                    <a href="/definir_reps/{{id_sessao}}/{{exercicio_id}}" type="button" class="btn-light"><i class="bi-pencil-square"></i>
+                    <a href="/definir_reps/{{id_sessao}}/{{exercicio_id}}" type="button" class="btn-light"><i
+                            class="bi-pencil-square"></i>
                     </a>
                 </div>
                 {{/ifEquals}}
-                
+
                 {{/each}}
                 <br>
-                
+
                 {{#ifEquals estado "2"}}
-               <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                     <form action="/concluir_sessao/{{id_sessao}}" method="post">
-                        <button class="btn btn-light align-self-center" type="submit">Finalizar o treino <i class="bi bi-check-square"></i></button>
+                        <button class="btn btn-light align-self-center" type="submit">Finalizar o treino <i
+                                class="bi bi-check-square"></i></button>
                     </form>
                 </div>
                 {{/ifEquals}}
 
-                    
-          
+
+
 
 
             </div>

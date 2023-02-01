@@ -4129,6 +4129,11 @@ textarea.form-control-lg {
 
   .portfolio-item {
     margin-bottom: 20px;
+    align-items: center;
+    justify-content: center;
+  }
+  svg {
+    width: 100%;
   }
   .container {
   /*width: 360px;*/

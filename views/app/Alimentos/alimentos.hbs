@@ -1,13 +1,20 @@
 <div class="d-flex align-items-center justify-content-center" style="height: 60vh">
-
-<h1 class="text-light">Pesquisa os alimentos que deseja encontrar</h1>
-<p class="text-light">Escolhe um alimento que queres visualizar. Filtra por alimentos com fonte de carboidratos, fonte de proteína e fonte de gordura. Visualiza as informações através do gráfico desses alimentos</p>
-
-<div class="d-grid gap-2 col-6 mx-auto">
-    <a class="btn btn-dark" href="/alimentos">Visualiza os alimentos</a>
-     <a class="btn btn-dark" href="/calcular_calorias">Calcular os valores de macronutrientes e exibir as calorias</a>
-     <a class="btn btn-dark" href="/calcular_macro">Calcular a quantidade de macros diárias</a>
+    <h1 class="text-center text-light">Pesquisa os alimentos que deseja encontrar</h1>
+    <p class="text-center text-light">Escolhe um alimento que queres visualizar. Filtra por alimentos com fonte de
+        carboidratos, fonte de proteína e fonte de gordura. Visualiza as informações através do gráfico desses alimentos
+    </p>
+    <div class="d-flex flex-column align-items-center">
+        <a class="btn btn-dark mt-3" href="/alimentos">Visualiza os alimentos</a>
+        <a class="btn btn-dark mt-3" href="/calcular_calorias">Calcular os valores de macronutrientes e exibir as
+            calorias</a>
+        <a class="btn btn-dark mt-3" href="/calcular_macro">Calcular a quantidade de macros diárias</a>
+    </div>
 </div>
 
-</div>
-</div>
+<style>
+    @media (max-width: 767px) {
+        .d-flex {
+            flex-direction: column;
+        }
+    }
+</style>

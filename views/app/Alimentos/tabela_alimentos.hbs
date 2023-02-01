@@ -1,15 +1,8 @@
 {{#each rows}}
 <tr>
     <td>{{this.id}}</td>
-    <td>{{this.alimento}}</td>
-    <td>{{this.proteina}}</td>
-    <td>{{this.carbs}}</td>
-    <td>{{this.gordura}}</td>
-    <td>{{this.calorias}}</td>
+    <td><a href="/alimento/{{this.id}}">{{this.alimento}}</a></td>
+    <td>{{this.calorias}}kcal P:{{this.proteina}} C:{{this.carbs}} G:{{this.gordura}}</td>
     <td>{{this.marca}}</td>
-    <td class="text-end">
-        <a href="/alimento/{{this.id}}" type="button" class="btn btn-light btn-small"><i
-                class="bi bi-pencil-square"></i> Visualizar</a>
-    </td>
 </tr>
 {{/each}}
