@@ -31,11 +31,13 @@ admin.get('/main_utilizadores', authUser, authRole(2), UtilizadorController.main
 admin.get('/editar_utilizador/:id', authUser, authRole(2), UtilizadorController.editar_utilizador)                      // Editar os utilizadores
 admin.post('/editar_utilizador_post/:id', authUser, authRole(2), UtilizadorController.editar_utilizador_post)           // Editar os utilizadores
 admin.get('/apagar_utilizador/:id', authUser, authRole(2), UtilizadorController.apagar)	                            // Apagar utilizador
-// Rota para administração
-admin.get('/dashboard', authUser, authRole(2), function(req, res){
-	res.render('admin/dashboard', {layout: 'main_admin',user: req.user})
+
+// Rota para a página administração
+admin.get('/dashboard', authUser, authRole(2), function (req, res) {
+    res.render('admin/dashboard', { layout: 'main_admin', user: req.user })
 })
 
+// Pesquisar utilizador
 admin.post('/Utilizadores/pesquisa', UtilizadorController.pesquisarUtilizador);
 
 // Pesquisar exercício
@@ -44,9 +46,10 @@ admin.post('/Exercicios/pesquisa', ExercicioController.pesquisarExercicio_admin)
 // Pesquisar alimento
 admin.post('/Alimentos/pesquisa', AlimentoController.pesquisarAlimento_admin);
 
-function authRole(role){
-    return(req,res,next) => {
-        if(req.user.id_cargo !== role){
+// Função para verificar o cargo
+function authRole(role) {
+    return (req, res, next) => {
+        if (req.user.id_cargo !== role) {
             res.status(401)
             return res.send('Not allowed!')
         }
@@ -54,8 +57,9 @@ function authRole(role){
     }
 }
 
-function authUser(req, res, next){
-    if(!req.user){
+// Função para verificar autenticação
+function authUser(req, res, next) {
+    if (!req.user) {
         return res.redirect('/auth/login')
     }
     next()

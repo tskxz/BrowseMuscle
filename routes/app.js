@@ -24,22 +24,25 @@ app.get('/Exercicios', checkAuthenticated, ExercicioController.view)
 app.post('/Exercicios/pesquisa', checkAuthenticated, ExercicioController.pesquisarExercicio);
 
 // Pesquisar alimentos
-
 app.post('/Alimentos/pesquisa', checkAuthenticated, AlimentoController.pesquisarAlimento);
+
 // Rota para visualizar Alimentos
 app.get('/Alimentos', checkAuthenticated, AlimentoController.view);
-app.get('/main_alimentos', checkAuthenticated, function(req,res){
+app.get('/main_alimentos', checkAuthenticated, function (req, res) {
 	res.render('app/Alimentos/alimentos.hbs', {
 		user: req.user,
 		foto: req.user.foto
 	})
 });
 
+// Rota para o utilizador adicionar pedido de alimento
 app.get('/Alimentos/adicionar_pedido_alimento', checkAuthenticated, AlimentoController.adicionar_pedido_alimento)
 app.post('/Alimentos/adicionar_pedido_alimento', checkAuthenticated, AlimentoController.adicionar_pedido_alimento_post)
 
+// Rota para visualizar alimentos que o utilizador criou
 app.get('/Alimentos/alimentos_utilizador', checkAuthenticated, AlimentoController.visualizarAlimentosUtilizador)
-// Gráfico de alimento
+
+// Gráfico do alimento
 app.get('/alimento/:id', checkAuthenticated, AlimentoController.grafico)		// Página para editar alimento
 
 // Ferramenta para calcular valores do alimento
@@ -50,9 +53,9 @@ app.post('/calcular_calorias', checkAuthenticated, AlimentoController.calculo_ca
 app.get('/calcular_1rm', checkAuthenticated, ExercicioController.calcular_1rm)
 app.post('/calcular_1rm', checkAuthenticated, ExercicioController.calcular_1rm_post)
 
-
-app.get('/meu_perfil', checkAuthenticated, function(req, res) {
-	res.render('app/utilizador/perfil.hbs', { 
+// Página para visualizar o perfil
+app.get('/meu_perfil', checkAuthenticated, function (req, res) {
+	res.render('app/utilizador/perfil.hbs', {
 		user: req.user,
 		username: req.user.username,
 		primeiro_nome: req.user.primeiro_nome,
@@ -66,24 +69,30 @@ app.get('/meu_perfil', checkAuthenticated, function(req, res) {
 	})
 })
 
-// Planos de treino
+// Rota para criar sessões de treino
 app.get('/criar_sessao_treino', checkAuthenticated, UtilizadorController.criar_sessao_treino);
 app.post('/criar_sessao_treino', checkAuthenticated, UtilizadorController.criar_sessao_treino_post);
 
 // Página para ver a lista de sessões de treino criado pelo utilizador
 app.get('/lista_sessao_treino', checkAuthenticated, UtilizadorController.ver_sessoes_treinos)
 
+// Rota para visualizar a sessão de treino
 app.get('/ver_sessao_treino/:id_sessao', checkAuthenticated, UtilizadorController.ver_sessao)
-app.get('/apagar_sessao_treino/:id_sessao',  checkAuthenticated, UtilizadorController.apagar_sessao_treino)
 
-// Rota para definir objetivo
+// Rota para apagar a sessão de treino
+app.get('/apagar_sessao_treino/:id_sessao', checkAuthenticated, UtilizadorController.apagar_sessao_treino)
+
+// Rota para definir exercícios e repetições para a sessão de treino
 app.get('/definir_sessao/:id_sessao', checkAuthenticated, UtilizadorController.definir_sessao_treino)
 app.post('/definir_sessao/:id_sessao', checkAuthenticated, UtilizadorController.definir_sessao_treino_post)
 
+// Rota para concluir a sessão de treino
 app.post('/concluir_sessao/:id_sessao', checkAuthenticated, UtilizadorController.concluir_sessao_treino_post)
+
 // Definir as repeticoes das series do exercicio
 app.get('/definir_reps/:id_sessao/:exercicio_id', checkAuthenticated, UtilizadorController.definir_reps)
 app.post('/definir_reps/:id_sessao/:exercicio_id', checkAuthenticated, UtilizadorController.definir_reps_post)
+
 // Rota para editar o perfil do utilizador
 app.get('/meu_perfil/editar', checkAuthenticated, UtilizadorController.editar_perfil)
 
@@ -102,151 +111,154 @@ app.post('/mudar_pass', checkAuthenticated, UtilizadorController.mudar_pass_post
 app.get('/calcular_macro', checkAuthenticated, AlimentoController.calculo_macros)
 app.post('/calcular_macro', checkAuthenticated, AlimentoController.calculo_macros_post)
 // teste
-app.get('/test', function(req,res) {
+app.get('/test', function (req, res) {
 	res.render('app/tests/index.hbs')
 })
 
-function checkAuthenticated(req, res, next){
-    if(req.isAuthenticated()){
-        return next()
-    }
+// Função para verificar autenticação - Se estiver com sessão iniciada
+function checkAuthenticated(req, res, next) {
+	if (req.isAuthenticated()) {
+		return next()
+	}
 
-    res.redirect('/auth/login')
+	res.redirect('/auth/login')
 }
 
-function checkNotAuthenticated(req, res, next){
-    if(req.isAuthenticated()){
-        return res.redirect('/meu_perfil');
-    }
-    next();
+// Função para verificar autenticação - Se não estiver com sessão iniciada
+function checkNotAuthenticated(req, res, next) {
+	if (req.isAuthenticated()) {
+		return res.redirect('/meu_perfil');
+	}
+	next();
 }
 
 // Rota para página principal
-app.get('/escolher_musculo', checkAuthenticated, function(req, res){
+app.get('/escolher_musculo', checkAuthenticated, function (req, res) {
 	res.render('app/homepage', {
 		title: "Bem vindo ao BrowseMuscle! 🌎",
 		user: req.user,
 	});
 })
 
-app.get('/Musculos', checkAuthenticated, function(req, res){
-	res.render('app/Musculos', {user: req.user})
+// Visualização de músculos
+app.get('/Musculos', checkAuthenticated, function (req, res) {
+	res.render('app/Musculos', { user: req.user })
 })
 
 // Visualização da tabela exercícios para peito
-app.get('/peito', function(req, res){
-	res.render('app/Musculos/peito', {layout: 'tabelas', user: req.user})
+app.get('/peito', function (req, res) {
+	res.render('app/Musculos/peito', { layout: 'tabelas', user: req.user })
 })
 
 // Visualização da tabela exercícios para ombros
-app.get('/ombro', function(req, res){
-	res.render('app/Musculos/ombros', {layout: 'tabelas', user: req.user})
+app.get('/ombro', function (req, res) {
+	res.render('app/Musculos/ombros', { layout: 'tabelas', user: req.user })
 })
 
 // Visualização da tabela exercícios para triceps
-app.get('/tricep', function(req, res){
-	res.render('app/Musculos/triceps', {layout: 'tabelas', user: req.user})
+app.get('/tricep', function (req, res) {
+	res.render('app/Musculos/triceps', { layout: 'tabelas', user: req.user })
 })
 
 // Visualização da tabela exercícios para biceps
-app.get('/bicep', function(req, res){
-	res.render('app/Musculos/biceps', {layout: 'tabelas', user: req.user})
+app.get('/bicep', function (req, res) {
+	res.render('app/Musculos/biceps', { layout: 'tabelas', user: req.user })
 })
 
 // Visualização da tabela exercícios para costas
-app.get('/costas', function(req, res){
-	res.render('app/Musculos/costas', {layout: 'tabelas', user: req.user})
+app.get('/costas', function (req, res) {
+	res.render('app/Musculos/costas', { layout: 'tabelas', user: req.user })
 })
 
 // Visualização da tabela exercícios para abdominais
-app.get('/abdominais', function(req, res){
-	res.render('app/Musculos/abdominais', {layout: 'tabelas', user: req.user})
+app.get('/abdominais', function (req, res) {
+	res.render('app/Musculos/abdominais', { layout: 'tabelas', user: req.user })
 })
 
 // Visualização da tabela exercícios para antebraco
-app.get('/antebraco', function(req, res){
-	res.render('app/Musculos/antebraco', {layout: 'tabelas', user: req.user})
+app.get('/antebraco', function (req, res) {
+	res.render('app/Musculos/antebraco', { layout: 'tabelas', user: req.user })
 })
 
 // Visualização da tabela exercícios para dorsais
-app.get('/dorsal', function(req, res){
-	res.render('app/Musculos/dorsais', {layout: 'tabelas', user: req.user})
+app.get('/dorsal', function (req, res) {
+	res.render('app/Musculos/dorsais', { layout: 'tabelas', user: req.user })
 })
 
 // Visualização da tabela exercícios para gémeos
-app.get('/gemeo', function(req, res){
-	res.render('app/Musculos/gemeos', {layout: 'tabelas', user: req.user})
+app.get('/gemeo', function (req, res) {
+	res.render('app/Musculos/gemeos', { layout: 'tabelas', user: req.user })
 })
 
 // Visualização da tabela exercícios para quadriceps
-app.get('/quadricep', function(req, res){
-	res.render('app/Musculos/quadriceps', {layout: 'tabelas', user: req.user})
+app.get('/quadricep', function (req, res) {
+	res.render('app/Musculos/quadriceps', { layout: 'tabelas', user: req.user })
 })
 
 // Visualização da tabela exercícios para traps
-app.get('/trapezio', function(req, res){
-	res.render('app/Musculos/traps', {layout: 'tabelas', user: req.user})
+app.get('/trapezio', function (req, res) {
+	res.render('app/Musculos/traps', { layout: 'tabelas', user: req.user })
 })
 
 // Visualização da tabela exercícios para hamstrings
-app.get('/hamstring', function(req, res){
-	res.render('app/Musculos/hamstrings', {layout: 'tabelas', user: req.user})
+app.get('/hamstring', function (req, res) {
+	res.render('app/Musculos/hamstrings', { layout: 'tabelas', user: req.user })
 })
 
 // Visualização da tabela exercícios para gluteo
-app.get('/gluteo', function(req, res){
-	res.render('app/Musculos/gluteos', {layout: 'tabelas', user: req.user})
+app.get('/gluteo', function (req, res) {
+	res.render('app/Musculos/gluteos', { layout: 'tabelas', user: req.user })
 })
 
 // Tabela Equipamentos para selecionar
-app.get('/Equipamentos', function(req, res){
-	res.render('app/Equipamentos', {layout: 'tabelas', user: req.user})
+app.get('/Equipamentos', function (req, res) {
+	res.render('app/Equipamentos', { layout: 'tabelas', user: req.user })
 })
 
 // Visualização da tabela exercícios com barra
-app.get('/barra', function(req, res){
-	res.render('app/Equipamentos/barra', {layout: 'tabelas', user: req.user})
+app.get('/barra', function (req, res) {
+	res.render('app/Equipamentos/barra', { layout: 'tabelas', user: req.user })
 })
 
 // Visualização da tabela exercícios com maquina
-app.get('/maquina', function(req, res){
-	res.render('app/Equipamentos/maquina', {layout: 'tabelas', user: req.user})
+app.get('/maquina', function (req, res) {
+	res.render('app/Equipamentos/maquina', { layout: 'tabelas', user: req.user })
 })
 
 // Visualização da tabela exercícios com cabos
-app.get('/cabos', function(req, res){
-	res.render('app/Equipamentos/cabos', {layout: 'tabelas', user: req.user})
+app.get('/cabos', function (req, res) {
+	res.render('app/Equipamentos/cabos', { layout: 'tabelas', user: req.user })
 })
 
 // Visualização da tabela exercícios com halteres
-app.get('/halteres', function(req, res){
-	res.render('app/Equipamentos/halteres', {layout: 'tabelas', user: req.user})
+app.get('/halteres', function (req, res) {
+	res.render('app/Equipamentos/halteres', { layout: 'tabelas', user: req.user })
 })
 
 // Visualização da tabela exercícios com peso corporal
-app.get('/peso%20corporal', function(req, res){
-	res.render('app/Equipamentos/peso_corporal', {layout: 'tabelas', user: req.user})
+app.get('/peso%20corporal', function (req, res) {
+	res.render('app/Equipamentos/peso_corporal', { layout: 'tabelas', user: req.user })
 })
 
 // Visualização da tabela exercícios iniciante
-app.get('/iniciante', function(req, res){
-	res.render('app/Dificuldades/iniciante', {layout: 'tabelas', user: req.user})
+app.get('/iniciante', function (req, res) {
+	res.render('app/Dificuldades/iniciante', { layout: 'tabelas', user: req.user })
 })
 
 // Visualização da tabela exercícios intermediario
-app.get('/intermediario', function(req, res){
-	res.render('app/Dificuldades/intermediario', {layout: 'tabelas', user: req.user})
+app.get('/intermediario', function (req, res) {
+	res.render('app/Dificuldades/intermediario', { layout: 'tabelas', user: req.user })
 })
 
 // Visualização da tabela exercícios avancado
-app.get('/avancado', function(req, res){
-	res.render('app/Dificuldades/avancado', {layout: 'tabelas', user: req.user})
+app.get('/avancado', function (req, res) {
+	res.render('app/Dificuldades/avancado', { layout: 'tabelas', user: req.user })
 })
 
 
 // Rota para a página principal
-app.get('/', function(req, res){
-	res.render('app/index', {layout: false, user: req.user})
+app.get('/', function (req, res) {
+	res.render('app/index', { layout: false, user: req.user })
 })
 
 

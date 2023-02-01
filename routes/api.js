@@ -27,6 +27,7 @@ api.get('/Musculos', MusculoController.visualizarTodos);	                       
 api.get('/Dificuldades', DificuldadeController.visualizarTodos);                                    // Rota do método GET para visualizar todas as Dificuldades existentes
 api.get('/Equipamentos', EquipamentosController.visualizarTodos);                                   // Rota do método GET para visualizar todos os Equipamentos existentes
 
+// Utilizadores
 api.get('/Utilizadores', UtilizadoresController.buscarTodos);                                       // Rota do método GET para visualizar todos os Utilizadores existentes
 api.get('/utilizador/:id', UtilizadoresController.buscarUm);                                        // Rota do método GET para visualizar somente um utilizador através do ID
 api.post('/Utilizadores', UtilizadoresController.criar)                                             // Rota do método POST para criar um novo utilizador
@@ -34,9 +35,11 @@ api.post('/utilizador/login', UtilizadoresController.login)                     
 api.get('/utilizador_username/:username', UtilizadoresController.buscarUsername);
 api.get('/utilizador_email/:email', UtilizadoresController.buscarEmail);
 
+// Alimentos
 api.get('/Alimentos', AlimentoController.visualizarTodos);                                          // Rota do método GET para visualizar todos os Alimentos
 api.get('/alimento/:id', AlimentoController.buscarUm);                                              // Rota do método GET para visualizar somente um alimento
 api.post('/alimento/', AlimentoController.inserir);                                                 // Rota do método POST para inserir um alimento
 api.put('/alimento/:id', AlimentoController.alterar);                                               // Rota do método PUT para alterar um alimento
 api.delete('/alimento/:id', AlimentoController.apagar);                                             // Rota do método DELETE para apagar um alimento
+
 module.exports = api;

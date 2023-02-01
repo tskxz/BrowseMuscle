@@ -4,9 +4,9 @@ module.exports = {
 
 	// Serviço para visualizar todos os músculos
 	visualizarTodos: () => {
-		return new Promise( (aceito, reijeitado) =>{
+		return new Promise((aceito, reijeitado) => {
 			db.query('SELECT * FROM Musculos', (error, results) => {
-				if(error){rejeitado(error); return;}
+				if (error) { rejeitado(error); return; }
 				aceito(results);
 			})
 		})
