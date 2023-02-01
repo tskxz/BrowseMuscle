@@ -13,6 +13,8 @@ const initializePassport = require('../passport-config');
 const UtilizadoresService = require('../services/UtilizadoresService');
 const UtilizadorController = require('../controllers/UtilizadorController');
 
+const SessaoTreinoController = require('../controllers/SessaoTreinoController');
+
 initializePassport(
 	passport,
 	async username => await UtilizadoresService.buscarUsername(username),
@@ -70,28 +72,28 @@ app.get('/meu_perfil', checkAuthenticated, function (req, res) {
 })
 
 // Rota para criar sessões de treino
-app.get('/criar_sessao_treino', checkAuthenticated, UtilizadorController.criar_sessao_treino);
-app.post('/criar_sessao_treino', checkAuthenticated, UtilizadorController.criar_sessao_treino_post);
+app.get('/criar_sessao_treino', checkAuthenticated, SessaoTreinoController.criar_sessao_treino);
+app.post('/criar_sessao_treino', checkAuthenticated, SessaoTreinoController.criar_sessao_treino_post);
 
 // Página para ver a lista de sessões de treino criado pelo utilizador
-app.get('/lista_sessao_treino', checkAuthenticated, UtilizadorController.ver_sessoes_treinos)
+app.get('/lista_sessao_treino', checkAuthenticated, SessaoTreinoController.ver_sessoes_treinos)
 
 // Rota para visualizar a sessão de treino
-app.get('/ver_sessao_treino/:id_sessao', checkAuthenticated, UtilizadorController.ver_sessao)
+app.get('/ver_sessao_treino/:id_sessao', checkAuthenticated, SessaoTreinoController.ver_sessao)
 
 // Rota para apagar a sessão de treino
-app.get('/apagar_sessao_treino/:id_sessao', checkAuthenticated, UtilizadorController.apagar_sessao_treino)
+app.get('/apagar_sessao_treino/:id_sessao', checkAuthenticated, SessaoTreinoController.apagar_sessao_treino)
 
 // Rota para definir exercícios e repetições para a sessão de treino
-app.get('/definir_sessao/:id_sessao', checkAuthenticated, UtilizadorController.definir_sessao_treino)
-app.post('/definir_sessao/:id_sessao', checkAuthenticated, UtilizadorController.definir_sessao_treino_post)
+app.get('/definir_sessao/:id_sessao', checkAuthenticated,SessaoTreinoController.definir_sessao_treino)
+app.post('/definir_sessao/:id_sessao', checkAuthenticated, SessaoTreinoController.definir_sessao_treino_post)
 
 // Rota para concluir a sessão de treino
-app.post('/concluir_sessao/:id_sessao', checkAuthenticated, UtilizadorController.concluir_sessao_treino_post)
+app.post('/concluir_sessao/:id_sessao', checkAuthenticated, SessaoTreinoController.concluir_sessao_treino_post)
 
 // Definir as repeticoes das series do exercicio
-app.get('/definir_reps/:id_sessao/:exercicio_id', checkAuthenticated, UtilizadorController.definir_reps)
-app.post('/definir_reps/:id_sessao/:exercicio_id', checkAuthenticated, UtilizadorController.definir_reps_post)
+app.get('/definir_reps/:id_sessao/:exercicio_id', checkAuthenticated, SessaoTreinoController.definir_reps)
+app.post('/definir_reps/:id_sessao/:exercicio_id', checkAuthenticated, SessaoTreinoController.definir_reps_post)
 
 // Rota para editar o perfil do utilizador
 app.get('/meu_perfil/editar', checkAuthenticated, UtilizadorController.editar_perfil)
