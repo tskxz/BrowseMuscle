@@ -26,10 +26,10 @@
 {{/if}}
 <form method="post" action="/mudar_pass">
     <label class="text-light" for="palavra_passe_atual">Palavra-Passe Atual:</label><br>
-    <input class="form-control" type="password" id="palavra_passe_atual" name="palavra_passe_atual"><br>
+    <input class="form-control" type="password" id="palavra_passe_atual" name="palavra_passe_atual" required><br>
     <label class="text-light" for="nova_palavra_passe">Nova Palavra-Passe:</label><br>
-    <input class="form-control" type="password" id="nova_palavra_passe" name="nova_palavra_passe"><br>
+    <input class="form-control" type="password" id="nova_palavra_passe" name="nova_palavra_passe" required><br>
     <label class="text-light" for="confirmar_palavra_passe">Confirmar Nova Palavra-Passe:</label><br>
-    <input class="form-control" type="password" id="confirmar_palavra_passe" name="confirmar_palavra_passe"><br><br>
+    <input class="form-control" type="password" id="confirmar_palavra_passe" name="confirmar_palavra_passe" required><br><br>
     <button class="btn btn-primary" type="submit">Alterar Palavra-Passe</button>
 </form>

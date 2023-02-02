@@ -8,7 +8,7 @@
   <div class="alert alert-success alert-dismissible fade show" role="alert">
     <h4 class="alert-heading">Quantidade recomendada!</h4>
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    <p>Mínimo de calorias para consumir: {{TMB}} calorias <br>
+    <p>Mínimo de calorias para consumir (TMB): {{TMB}} calorias <br>
     <p>Proteína: {{proteina}} gramas <br>
     <p>Carbs: {{carbs}} gramas <br>
     <p>Gordura: {{gordura}} gramas <br>
@@ -25,21 +25,21 @@
     <form method="post" action="/calcular_macro">
       <div class="form-group">
         <label class="text-light" for="peso" class="text-light">Peso (kg):</label>
-        <input class="form-control" type="text" name="peso"><br>
+        <input class="form-control" type="text" name="peso" required><br>
       </div>
       <div class="form-group">
         <label class="text-light" for="altura">Altura (cm):</label>
-        <input class="form-control" type="text" name="altura"><br>
+        <input class="form-control" type="text" name="altura" required><br>
       </div>
       <div class="form-group">
         <label class="text-light" for="idade">Idade:</label>
-        <input class="form-control" type="text" name="idade"><br>
+        <input class="form-control" type="text" name="idade" required><br>
       </div>
       <div class="form-group">
         <label class="text-light" for="sexo">Sexo:</label><br>
-        <input class="form-check-input" type="radio" name="gender" value="male"> <label
+        <input class="form-check-input" type="radio" name="gender" value="male" required> <label
           class="text-light">Masculino</label><br>
-        <input class="form-check-input" type="radio" name="gender" value="female"> <label
+        <input class="form-check-input" type="radio" name="gender" value="female" required> <label
           class="text-light">Feminino</label><br>
         <button class="btn btn-primary" type="submit">Calcular</button>
       </div>
