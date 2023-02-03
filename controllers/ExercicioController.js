@@ -292,6 +292,7 @@ module.exports = {
 		let equipamento_id = req.body.equipamento_id;
 		let dificuldade_id = req.body.dificuldade_id;
 		let musculo_id = req.body.musculo_id;
+		let descricao = req.body.descricao;
 
 
 		// Chama os serviços para visualizar os Equipamentos, Dificuldades e Musculos
@@ -307,13 +308,14 @@ module.exports = {
 		// Se os valores foi nos enviado através do body
 		if (nome && equipamento_id && dificuldade_id && musculo_id) {
 			// Insere o exercício ao chamar o serviço inserir
-			let ExercicioId = await ExercicioService.inserir(nome, equipamento_id, dificuldade_id, musculo_id);
+			let ExercicioId = await ExercicioService.inserir(nome, equipamento_id, dificuldade_id, musculo_id, descricao);
 			json.result = {
 				id: ExercicioId,
 				nome,
 				equipamento_id,
 				dificuldade_id,
-				musculo_id
+				musculo_id,
+				descricao
 			};
 
 			// Mostrar os resultados dos serviços de visualizar Equipamentos, Dificuldades e músculos para fazer dropdown da seleção options e mandar um alert após ser inserido um exercício
@@ -397,16 +399,18 @@ module.exports = {
 		let equipamento_id = req.body.equipamento_id;
 		let dificuldade_id = req.body.dificuldade_id;
 		let musculo_id = req.body.musculo_id;
+		let descricao = req.body.descricao;
 
 		if (id && nome && equipamento_id && dificuldade_id && musculo_id) {
 			// Chama o serviço para atualizar os dados
-			await ExercicioService.alterar(id, nome, equipamento_id, dificuldade_id, musculo_id);
+			await ExercicioService.alterar(id, nome, equipamento_id, dificuldade_id, musculo_id, descricao);
 			json.result = {
 				id,
 				nome,
 				equipamento_id,
 				dificuldade_id,
-				musculo_id
+				musculo_id,
+				descricao
 			};
 		} else {
 			json.error = 'Error!';

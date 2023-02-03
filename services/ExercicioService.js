@@ -16,7 +16,7 @@ module.exports = {
 	// Serviço para visualizar um exercício
 	buscarUm: (id) => {
 		return new Promise((aceito, rejeitado) => {
-			db.query('SELECT Exercicios.id, Exercicios.nome AS exercicio, Equipamentos.nome as equipamento, Dificuldades.nome as dificuldade, Musculos.nome as musculo, Exercicios.equipamento_id, Exercicios.dificuldade_id, Exercicios.musculo_id FROM Exercicios JOIN Equipamentos ON Exercicios.equipamento_id = Equipamentos.id JOIN Dificuldades ON Exercicios.dificuldade_id = Dificuldades.id JOIN Musculos ON Exercicios.musculo_id = Musculos.id WHERE Exercicios.id=? ', [id], (error, results) => {
+			db.query('SELECT Exercicios.id, Exercicios.nome AS exercicio, Exercicios.descricao as descricao, Equipamentos.nome as equipamento, Dificuldades.nome as dificuldade, Musculos.nome as musculo, Exercicios.equipamento_id, Exercicios.dificuldade_id, Exercicios.musculo_id FROM Exercicios JOIN Equipamentos ON Exercicios.equipamento_id = Equipamentos.id JOIN Dificuldades ON Exercicios.dificuldade_id = Dificuldades.id JOIN Musculos ON Exercicios.musculo_id = Musculos.id WHERE Exercicios.id=? ', [id], (error, results) => {
 				if (error) { rejeitado(error); return; }
 				if (results.length > 0) {
 					aceito(results);
@@ -85,11 +85,11 @@ module.exports = {
 	},
 
 	// Serviço para inserir um exercício
-	inserir: (nome, equipamento_id, dificuldade_id, musculo_id) => {
+	inserir: (nome, equipamento_id, dificuldade_id, musculo_id, descricao) => {
 		return new Promise((aceito, rejeitado) => {
-			db.query('INSERT INTO Exercicios (nome, equipamento_id, dificuldade_id, musculo_id) VALUES(?,?,?,?);',
+			db.query('INSERT INTO Exercicios (nome, equipamento_id, dificuldade_id, musculo_id, descricao) VALUES(?,?,?,?,?);',
 				[
-					nome, equipamento_id, dificuldade_id, musculo_id,
+					nome, equipamento_id, dificuldade_id, musculo_id,descricao
 				],
 				(error, results) => {
 					if (error) { rejeitado(error); return; }
@@ -101,10 +101,10 @@ module.exports = {
 
 
 	// Serviço para alterar dados do exercício através do ID
-	alterar: (id, nome, equipamento_id, dificuldade_id, musculo_id) => {
+	alterar: (id, nome, equipamento_id, dificuldade_id, musculo_id, descricao) => {
 		return new Promise((aceito, rejeitado) => {
-			db.query('UPDATE Exercicios SET nome = ?, equipamento_id = ?, dificuldade_id = ?, musculo_id = ? WHERE id = ?',
-				[nome, equipamento_id, dificuldade_id, musculo_id, id],
+			db.query('UPDATE Exercicios SET nome = ?, equipamento_id = ?, dificuldade_id = ?, musculo_id = ?, descricao = ? WHERE id = ?',
+				[nome, equipamento_id, dificuldade_id, musculo_id, descricao, id],
 				(error, results) => {
 					if (error) { rejeitado(error); return; }
 					aceito(results);
