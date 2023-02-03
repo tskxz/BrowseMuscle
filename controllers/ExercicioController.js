@@ -69,7 +69,7 @@ module.exports = {
 
 		// Enviar rows e mostrar os exercícios dentro da tabela
 		rows = json.result;
-		res.render('tabelas/Exercicios', { layout: 'tabela_exercicios', rows, user: req.user, })
+		res.render('app/Exercicios/Exercicios', { layout: 'tabela_exercicios', rows, user: req.user, })
 	},
 
 	// Página Administração - Mostrar todos os exercícios
