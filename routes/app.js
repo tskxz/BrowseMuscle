@@ -38,7 +38,7 @@ app.get('/main_alimentos', checkAuthenticated, function (req, res) {
 });
 
 app.get('/menu_sessao_treino', checkAuthenticated, function (req, res) {
-	res.render('app/menu_sessao_treino', {
+	res.render('app/SessaoTreino/menu_sessao_treino', {
 		user: req.user,
 		foto: req.user.foto
 	})
