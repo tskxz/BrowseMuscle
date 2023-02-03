@@ -433,6 +433,31 @@ module.exports = {
 		}
 	},
 
+	// Página Administração - Página para enviar um vídeo para o exercício
+	adicionar_video_exercicio: async (req, res) => {
+		let json = { error: '', result: [] };
+
+		// Pegar os valores
+		let id = req.params.id;
+
+		// Chama o serviço para pegar os valores do exercício através do ID
+		let exercicio_id = await ExercicioService.buscarUm(id);
+
+		if (exercicio_id) {
+
+
+			json.result = exercicio_id;
+
+		}
+
+		// Armazena o resultado do serviço de buscar o exercício através do ID
+		rows = json.result;
+		console.log(rows)
+
+		// Mandar para a página os resultados dos serviços para estar pré-definido nos inputs
+		res.render('admin/Exercicios/adicionar_video_exercicio', { rows, user: req.user })
+	},
+
 	// API - JSON - Função apagar
 	apagar: async (req, res) => {
 		let json = { error: '', result: [] };
