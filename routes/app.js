@@ -37,6 +37,13 @@ app.get('/main_alimentos', checkAuthenticated, function (req, res) {
 	})
 });
 
+app.get('/menu_sessao_treino', checkAuthenticated, function (req, res) {
+	res.render('app/menu_sessao_treino', {
+		user: req.user,
+		foto: req.user.foto
+	})
+});
+
 // Rota para o utilizador adicionar pedido de alimento
 app.get('/Alimentos/adicionar_pedido_alimento', checkAuthenticated, AlimentoController.adicionar_pedido_alimento)
 app.post('/Alimentos/adicionar_pedido_alimento', checkAuthenticated, AlimentoController.adicionar_pedido_alimento_post)
