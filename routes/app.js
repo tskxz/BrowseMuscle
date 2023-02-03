@@ -145,15 +145,14 @@ function checkNotAuthenticated(req, res, next) {
 
 // Rota para página principal
 app.get('/escolher_musculo', checkAuthenticated, function (req, res) {
-	res.render('app/homepage', {
-		title: "Bem vindo ao BrowseMuscle! 🌎",
+	res.render('app/Musculos/homepage', {
 		user: req.user,
 	});
 })
 
 // Visualização de músculos
 app.get('/Musculos', checkAuthenticated, function (req, res) {
-	res.render('app/Musculos', { user: req.user })
+	res.render('app/Musculos/Musculos', { user: req.user })
 })
 
 // Visualização da tabela exercícios para peito
