@@ -1,8 +1,9 @@
 <br><br>
 {{#each rows}}
-<form action="#">
+<form action="/admin/adicionar_video_exercicio/{{id}}" method="post" enctype="multipart/form-data">
     <h1 class="text-light text-center">{{exercicio}}</h1>
-    <input class="form-control form-control-lg" id="formFileLg" type="file">
+    <input class="form-control form-control-lg" type="file" name="videoExercicio" accept="video/mp4,video/x-m4v,video/*"
+">
     <br>
     <div class="d-grid gap-2 col-6 mx-auto">
         <button type="submit" class="btn btn-primary btn-lg ">Enviar vídeo</button>

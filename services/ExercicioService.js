@@ -121,6 +121,19 @@ module.exports = {
 				aceito(results);
 			})
 		})
-	}
+	},
+
+	// Serviço para mandar video para o exercicio
+	mandar_video: (id, video) => {
+		return new Promise((aceito, rejeitado) => {
+			db.query('update Exercicios SET video = ? where id=?',
+				[video, id],
+				(error, results) => {
+					if (error) { rejeitado(error); return; }
+					aceito(results);
+				}
+			);
+		})
+	},
 
 }
