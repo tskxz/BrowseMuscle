@@ -2,8 +2,21 @@ const SessaoTreinoService = require('../services/SessaoTreinoService');
 const ExercicioService = require('../services/ExercicioService');
 const crypto = require('crypto')
 
+function makeid(length) {
+    let result = '';
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+    const charactersLength = characters.length;
+    let counter = 0;
+    while (counter < length) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+      counter += 1;
+    }
+    return result;
+}
+
+
 module.exports = {
-    
+
     // Página Utilizador - Formulário para criar uma sessão de treino
     criar_sessao_treino: async (req, res) => {
         res.render('app/criar_sessao_treino', { user: req.user })
@@ -290,4 +303,84 @@ module.exports = {
             res.redirect('/lista_sessao_treino')
         }
     },
+
+    grafico_sessao_treino: async (req, res) => {
+        let json = { error: '', result: [] };
+        let exercicios = [];
+
+        // Id da sessão de treino
+        let id = req.params.id_sessao;
+
+        // Id do utilizador 
+        let userid = req.user.id
+
+        // Pega as informações da sessão de treino através do ID
+        let sessaoTreino = await SessaoTreinoService.buscarTodos_sessao(id);
+        let nome_treino = sessaoTreino[0].nome
+        let descricao_treino = sessaoTreino[0].descricao
+        let createdAt_treino = sessaoTreino[0].createdAt.toLocaleDateString('pt-PT', { year: 'numeric', month: '2-digit', day: '2-digit' })
+        let id_sessao = sessaoTreino[0].id_sessao
+        let estado = sessaoTreino[0].estado
+
+        // Verifica se existe a sessão de treino com esse id
+        if (!sessaoTreino) {
+            json.error = "Sessão de treino não encontrado!"
+        } else {
+            // Utilizador não pode visualizar as sessões de treino de outros utilizadores diferentes
+            sessaoTreino_utilizador_id = sessaoTreino[0].utilizador_id
+            if (sessaoTreino_utilizador_id != userid) {
+                json.error = 'Não tem permissão!'
+            } else {
+                for (let i in sessaoTreino) {
+                    json.result.push({
+                        id: sessaoTreino[i].id,
+                        id_sessao: sessaoTreino[i].id_sessao,
+                        nome: sessaoTreino[i].nome,
+                        descricao: sessaoTreino[i].descricao,
+                        createdAt: sessaoTreino[i].createdAt.toLocaleDateString('pt-PT', { year: 'numeric', month: '2-digit', day: '2-digit' }),
+                        estado: sessaoTreino[i].estado,
+                        exercicio_id: sessaoTreino[i].exercicio_id,
+
+                    });
+                }
+            }
+
+            // Mostra os nomes de exercícios que está na sessão de treino
+            nomes_exercicios = await SessaoTreinoService.buscar_nome_exercicio(id_sessao)
+            for (let i in nomes_exercicios) {
+                exercicios.push({
+                    id_sessao: id_sessao,
+                    nome: nomes_exercicios[i].nome,
+                    carga: nomes_exercicios[i].carga,
+                    reps_objetivo: nomes_exercicios[i].reps_objetivo,
+                    reps_set1: nomes_exercicios[i].reps_set1,
+                    reps_set2: nomes_exercicios[i].reps_set2,
+                    reps_set3: nomes_exercicios[i].reps_set3,
+                    reps_set4: nomes_exercicios[i].reps_set4,
+                    reps_set5: nomes_exercicios[i].reps_set5,
+                    series: nomes_exercicios[i].series,
+                    exercicio_id: nomes_exercicios[i].exercicio_id,
+                    var_grafico: makeid(5),
+                    concluido: nomes_exercicios[i].concluido
+                })
+            }
+
+        }
+
+        console.log(exercicios)
+
+        // Mostra a sessão de treino
+        res.render('app/grafico_sessao_treino', {
+            rows: json.result,
+            user: req.user,
+            nome_treino: nome_treino,
+            descricao_treino: descricao_treino,
+            createdAt_treino: createdAt_treino,
+            id_sessao: id_sessao,
+            exercicios: exercicios,
+            estado: estado,
+            success: req.flash("success"),
+            error: req.flash("error")
+        })
+    }
 }

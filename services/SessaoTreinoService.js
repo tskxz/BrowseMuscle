@@ -20,7 +20,7 @@ module.exports = {
 	// Serviço para buscar informação da sessão de treino com nomes de exercícios através do id da sessao
 	buscar_nome_exercicio: (id_sessao) => {
 		return new Promise((aceito, rejeitado) => {
-			db.query('SELECT Exercicios.nome, carga, series, reps_objetivo, exercicio_id, concluido, id_sessao FROM Sessao_Treinos JOIN Exercicios ON Sessao_Treinos.exercicio_id = Exercicios.id WHERE Sessao_Treinos.id_sessao = ?',
+			db.query('SELECT Exercicios.nome, carga, series, reps_objetivo, reps_set1, reps_set2, reps_set3, reps_set4, reps_set5, exercicio_id, concluido, id_sessao FROM Sessao_Treinos JOIN Exercicios ON Sessao_Treinos.exercicio_id = Exercicios.id WHERE Sessao_Treinos.id_sessao = ?',
 				[id_sessao],
 				(error, results) => {
 					if (error) { rejeitado(error); return; }
