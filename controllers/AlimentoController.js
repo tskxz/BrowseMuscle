@@ -399,7 +399,7 @@ module.exports = {
 
     // Página - Cálculo de valores do alimento
     calculo_calorias: async (req, res) => {
-        res.render('app/Alimentos/alimento_calculo_calorias', { user: req.user })
+        res.render('app/Ferramentas/alimento_calculo_calorias', { user: req.user })
     },
 
     // Página - Cálculo de valores do alimento
@@ -410,7 +410,7 @@ module.exports = {
         const fat = parseInt(req.body.fat);
         const calories = (protein * 4) + (carbs * 4) + (fat * 9);
 
-        res.render('app/Alimentos/alimento_calculo_calorias', { alert: calories, user: req.user })
+        res.render('app/Ferramentas/alimento_calculo_calorias', { alert: calories, user: req.user })
     },
 
     // Página - Gráfico do Alimento
@@ -431,7 +431,7 @@ module.exports = {
 
     // Página para calcular macros
     calculo_macros: async (req, res) => {
-        res.render('app/Alimentos/calc_quant_calorias', { user: req.user })
+        res.render('app/Ferramentas/calc_quant_calorias', { user: req.user })
     },
 
     calculo_macros_post: async (req, res) => {
@@ -464,7 +464,7 @@ module.exports = {
             carbs_cals = TMB - sum_proteina_gordura_cals; // Obtêm quantidade de carbs em kcal
             carbs = carbs_cals / 4; // Obtêm quantidade de carbs em gramas
         }
-        res.render('app/Alimentos/calc_quant_calorias', {
+        res.render('app/Ferramentas/calc_quant_calorias', {
             user: req.user,
             TMB: TMB,
             proteina: proteina,

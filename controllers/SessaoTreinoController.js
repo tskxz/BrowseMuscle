@@ -19,7 +19,7 @@ module.exports = {
 
     // Página Utilizador - Formulário para criar uma sessão de treino
     criar_sessao_treino: async (req, res) => {
-        res.render('app/criar_sessao_treino', { user: req.user })
+        res.render('app/SessaoTreino/criar_sessao_treino', { user: req.user })
     },
 
     // Página Utilizador - Criar uma sessão de treino
@@ -74,7 +74,7 @@ module.exports = {
         }
 
         // Mostrar as sessões de treino
-        res.render('app/lista_sessoes_treinos', { user: req.user, rows: json.result, success: req.flash("success"), error: req.flash("error") })
+        res.render('app/SessaoTreino/lista_sessoes_treinos', { user: req.user, rows: json.result, success: req.flash("success"), error: req.flash("error") })
     },
 
     // Página Utilizador - Ver a sessão de treino
@@ -136,7 +136,7 @@ module.exports = {
         }
 
         // Mostra a sessão de treino
-        res.render('app/sessao_treino', {
+        res.render('app/SessaoTreino/sessao_treino', {
             rows: json.result,
             user: req.user,
             nome_treino: nome_treino,
@@ -183,7 +183,7 @@ module.exports = {
             }
         }
 
-        res.render('app/definir_objetivo_sessao', {
+        res.render('app/SessaoTreino/definir_objetivo_sessao', {
             rows: json.result,
             user: req.user,
             exercicios: exercicios,
@@ -263,7 +263,7 @@ module.exports = {
         }
 
         // Mostra o formulário para definir o número de repetições do exercício
-        res.render('app/definir_reps', { user: req.user, rows: exercicios, id_sessao: id_sessao, exercicio_id: exercicio_id, success: req.flash("success"), error: req.flash("error") })
+        res.render('app/SessaoTreino/definir_reps', { user: req.user, rows: exercicios, id_sessao: id_sessao, exercicio_id: exercicio_id, success: req.flash("success"), error: req.flash("error") })
     },
 
     // Página Utilizador - Definir número de repetições que o utilizador executou no exercício
@@ -370,7 +370,7 @@ module.exports = {
         console.log(exercicios)
 
         // Mostra a sessão de treino
-        res.render('app/grafico_sessao_treino', {
+        res.render('app/SessaoTreino/grafico_sessao_treino', {
             rows: json.result,
             user: req.user,
             nome_treino: nome_treino,

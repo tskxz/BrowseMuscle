@@ -156,7 +156,7 @@ module.exports = {
 
 	// Página - Ferramenta para calcular 1RM
 	calcular_1rm: async (req, res) => {
-		res.render('app/calcular_1rm', { user: req.user })
+		res.render('app/Ferramentas/calcular_1rm', { user: req.user })
 	},
 
 	calcular_1rm_post: async (req, res) => {
@@ -174,7 +174,7 @@ module.exports = {
 		}
 
 		// Mostrar resultado
-		res.render('app/calcular_1rm', { user: req.user, alert: rm1 })
+		res.render('app/Ferramentas/calcular_1rm', { user: req.user, alert: rm1 })
 
 
 	},
