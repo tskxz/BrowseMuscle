@@ -1,1 +1,0 @@
-ALTER TABLE `Utilizadores` ADD UNIQUE(`username`);

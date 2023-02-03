@@ -1,2 +1,0 @@
-ALTER TABLE `utilizadores` DROP FOREIGN KEY `utilizadores_ibfk_1`; ALTER TABLE `utilizadores` ADD CONSTRAINT `utilizadores_ibfk_1` FOREIGN KEY (`id_cargo`) REFERENCES `cargos`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-ALTER TABLE `utilizadores` CHANGE `id_cargo` `id_cargo` INT(11) NULL DEFAULT '1';

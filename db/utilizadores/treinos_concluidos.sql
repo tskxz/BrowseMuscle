@@ -1,1 +1,0 @@
-ALTER TABLE `Utilizadores` ADD `treinos_concluidos` INT NOT NULL DEFAULT '0' ;

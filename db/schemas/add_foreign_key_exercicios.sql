@@ -1,3 +1,0 @@
-ALTER TABLE `Exercicios` ADD FOREIGN KEY (`equipamento_id`) REFERENCES `Equipamentos`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-ALTER TABLE `Exercicios` ADD FOREIGN KEY (`dificuldade_id`) REFERENCES `Dificuldades`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-ALTER TABLE `Exercicios` ADD FOREIGN KEY (`musculo_id`) REFERENCES `Musculos`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
