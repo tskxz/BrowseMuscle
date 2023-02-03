@@ -95,6 +95,8 @@ app.post('/concluir_sessao/:id_sessao', checkAuthenticated, SessaoTreinoControll
 app.get('/definir_reps/:id_sessao/:exercicio_id', checkAuthenticated, SessaoTreinoController.definir_reps)
 app.post('/definir_reps/:id_sessao/:exercicio_id', checkAuthenticated, SessaoTreinoController.definir_reps_post)
 
+// Visualizar gráfico da sessão de treino
+app.get('/grafico_sessao/:id_sessao', checkAuthenticated, SessaoTreinoController.grafico_sessao_treino)
 // Rota para editar o perfil do utilizador
 app.get('/meu_perfil/editar', checkAuthenticated, UtilizadorController.editar_perfil)
 

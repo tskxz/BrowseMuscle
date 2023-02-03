@@ -1,0 +1,36 @@
+{{#each exercicios}}
+<br>
+<br>
+<br>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<h4 class="text-light">{{nome}}</h4>
+<div>
+  <canvas id="{{var_grafico}}"></canvas>
+</div>
+
+<script>
+  const {{var_grafico}} = document.getElementById('{{var_grafico}}');
+
+  new Chart({{var_grafico}}, {
+    type: 'bar',
+    data: {
+      labels: ['1 Série', '2 Série', '3 Série', '4 Série', '5 Série'],
+      datasets: [{
+        label: 'Número de Repetições - {{nome}}',
+        data: [{{reps_set1}}, {{reps_set2}}, {{reps_set3}}, {{reps_set4}}, {{reps_set5}}],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>
+{{/each}}
+
+
+
