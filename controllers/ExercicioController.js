@@ -497,6 +497,37 @@ module.exports = {
 
 	},
 
+	visualizarUmExercicio: async (req, res) => {
+		let json = { error: '', result: [] };
+
+		// Pegar os valores
+		let id = req.params.id;
+
+		// Chama o serviço para pegar os valores do exercício através do ID
+		let exercicio_id = await ExercicioService.buscarUm(id);
+
+		if (exercicio_id) {
+			// Chama os serviços para visualizar Equipamentos, Dificuldades e músculo para fazer dropdown do select option
+			let Equipamentos = await EquipamentosService.visualizarTodos();
+			let Dificuldades = await DificuldadeService.visualizarTodos();
+			let Musculos = await MusculoService.visualizarTodos();
+
+			// Armazena os resultados dos serviços
+			rows_eq = Equipamentos
+			rows_df = Dificuldades
+			rows_musculos = Musculos;
+
+			json.result = exercicio_id;
+
+		}
+
+		// Armazena o resultado do serviço de buscar o exercício através do ID
+		rows = json.result;
+
+		// Mandar para a página os resultados dos serviços para estar pré-definido nos inputs
+		res.render('app/Exercicios/visualizar_exercicio', { rows, rows_eq, rows_df, rows_musculos, user: req.user })
+	},
+
 
 
 }

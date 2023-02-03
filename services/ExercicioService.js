@@ -16,7 +16,7 @@ module.exports = {
 	// Serviço para visualizar um exercício
 	buscarUm: (id) => {
 		return new Promise((aceito, rejeitado) => {
-			db.query('SELECT Exercicios.id, Exercicios.nome AS exercicio, Exercicios.descricao as descricao, Equipamentos.nome as equipamento, Dificuldades.nome as dificuldade, Musculos.nome as musculo, Exercicios.equipamento_id, Exercicios.dificuldade_id, Exercicios.musculo_id FROM Exercicios JOIN Equipamentos ON Exercicios.equipamento_id = Equipamentos.id JOIN Dificuldades ON Exercicios.dificuldade_id = Dificuldades.id JOIN Musculos ON Exercicios.musculo_id = Musculos.id WHERE Exercicios.id=? ', [id], (error, results) => {
+			db.query('SELECT Exercicios.id, Exercicios.nome AS exercicio, Exercicios.video as video, Exercicios.descricao as descricao, Equipamentos.nome as equipamento, Dificuldades.nome as dificuldade, Musculos.nome as musculo, Exercicios.equipamento_id, Exercicios.dificuldade_id, Exercicios.musculo_id FROM Exercicios JOIN Equipamentos ON Exercicios.equipamento_id = Equipamentos.id JOIN Dificuldades ON Exercicios.dificuldade_id = Dificuldades.id JOIN Musculos ON Exercicios.musculo_id = Musculos.id WHERE Exercicios.id=? ', [id], (error, results) => {
 				if (error) { rejeitado(error); return; }
 				if (results.length > 0) {
 					aceito(results);
