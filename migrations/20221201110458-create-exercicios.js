@@ -38,7 +38,7 @@ module.exports = {
         }
       },
       descricao: {
-        type: Sequelize.STRING(255),
+        type: Sequelize.TEXT('long'),
         allowNull: true,
       },
       video: {
