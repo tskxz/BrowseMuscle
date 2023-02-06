@@ -118,6 +118,19 @@ module.exports = {
 		});
 	},
 
+	// Serviço para incrementar o treino concluidos do utilizador
+	treinoConcluidoUtilizador: (id_utilizador, n) => {
+		return new Promise((aceito, rejeitado) => {
+			db.query('Update Utilizadores SET treinos_concluidos = ? WHERE id = ?', [n, id_utilizador], (error, results) => {
+				if(error){
+					rejeitado(error);
+					return;
+				}
+				aceito(results);
+			})
+		})
+	},
+
 	// Servico para meter o estado em progresso
 	emProgresso: (id_sessao) => {
 		return new Promise((aceito, rejeitado) => {
