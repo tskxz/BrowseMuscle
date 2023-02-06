@@ -29,12 +29,12 @@
     }
 
     .idd {
-        font-size: 20px;
+        font-size: 25px;
         font-weight: 600
     }
 
     .idd1 {
-        font-size: 13px
+        font-size: 19px
     }
 
     .number {
@@ -43,7 +43,7 @@
     }
 
     .follow {
-        font-size: 12px;
+        font-size: 19px;
         font-weight: 500;
         color: #444444
     }
@@ -59,7 +59,7 @@
 
 
     .text span {
-        font-size: 13px;
+        font-size: 17px;
         color: #545454;
         font-weight: 500
     }
@@ -104,23 +104,15 @@
     }
 
     @media only screen and (max-width: 900px) {
-  .card {
-    /* make the card wider on small devices, but with a maximum width of 900 pixels */
-    width: 900px;
-    max-width: 900px;
-  }
-
-}
-</style>
-<script>
-    Handlebars.registerHelper('ifEquals', function (a, b, options) {
-        if (a === b) {
-            return options.fn(this);
+        .card {
+            /* make the card wider on small devices, but with a maximum width of 900 pixels */
+            width: 900px;
+            max-width: 900px;
         }
 
-        return options.inverse(this);
-    });
-</script><br><br><br>
+    }
+</style>
+<br><br><br>
 <h2 class="text-light center">Este é o teu perfil!</h2>
 <div class="container mt-4 mb-4 p-3 d-flex justify-content-center ">
     <div class="card p-4">
@@ -132,38 +124,30 @@
             {{/if}}
             <h1 class="card_title">{{primeiro_nome}} {{ultimo_nome}}</h1>
             <div class="card__username">@{{username}}</div>
-            <div class="d-flex flex-row justify-content-center align-items-center gap-2"> <span class="idd1"><img
-                        src="/assets/img/Utilizadores/email.svg" width="15px"> {{email}}</span>
-                
-            </div>
-
-
-
+            <span class="idd1"><i class="bi bi-envelope"> {{email}}</i></span>
+            <span class="number">{{treinos_concluidos}} <span class="follow">treinos concluídos</span></span>
             <br>
+            <div class="text mt-3"> <span>{{descricao}} </span> </div>
             <div class=" d-flex mt-2">
                 <form action="/auth/logout" method="post">
-                    <input type="image" src="/assets/img/logout.png" width="40px" height="40px" alt="Submit Button">
+                    <button type="submit" class="btn btn-link">
+                        <i class="bi bi-box-arrow-right"></i>
+                    </button>
                 </form>
             </div>
-
-
-
-            <div class="text mt-3"> <span>{{descricao}}<br><br> </span> </div>
-
-            <div class="d-grid gap-2 col-6 mx-auto">
-                <a href="/meu_perfil/editar" class="btn btn-primary">Editar Perfil</a>
+             <div class="dropdown">
+                <a class="btn btn-primary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Opções
+                </a>
+                <ul class="dropdown-menu">
+                    {{#ifEquals id_cargo "2"}}
+                    <li><a class="dropdown-item" href="/admin/dashboard">Admin - Dashboard</a></li>
+                    {{/ifEquals}}
+                    <li><a class="dropdown-item" href="/mudar_pass">Mudar Palavra-Passe</a></li>
+                    <li><a class="dropdown-item" href="/meu_perfil/editar">Editar perfil</a></li>
+                </ul>
             </div>
-            <br>
-            <div class="d-grid gap-2 col-6 mx-auto">
-                <a href="/mudar_pass" class="btn btn-primary">Mudar Palavra-Passe</a>
-            </div>
-            
-            <br>
-            {{#ifEquals id_cargo "2"}}
-            <div class="d-grid gap-2 col-6 mx-auto"> <a href="/admin/dashboard"
-                    class="btn btn-primary">Administração</a>
-            </div>
-            {{/ifEquals}}
             <div class=" px-2 rounded mt-4 date "> <span class="join">{{createdAt}}</span> </div>
         </div>
     </div>
