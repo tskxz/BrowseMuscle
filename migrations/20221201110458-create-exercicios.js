@@ -37,6 +37,14 @@ module.exports = {
           key: 'id'
         }
       },
+      descricao: {
+        type: Sequelize.STRING(255),
+        allowNull: true,
+      },
+      video: {
+        type: Sequelize.STRING(100),
+        allowNull: true,
+      },
       createdAt: {
         allowNull: false,
         type: 'TIMESTAMP',

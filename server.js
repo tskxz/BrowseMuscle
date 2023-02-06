@@ -65,6 +65,7 @@ server.use('/auth', auth)
 // Servir ficheiros estáticos
 server.use('/assets', express.static('./views/assets'));
 server.use('/upload', express.static('upload'));
+server.use('/videos/exercicios', express.static('videos/Exercicios'))
 
 server.listen(process.env.PORT, () => {
 	console.log(`Servidor a rodar na porta: ${process.env.PORT}`);

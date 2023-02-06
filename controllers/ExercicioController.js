@@ -2,6 +2,7 @@ const ExercicioService = require('../services/ExercicioService'); // Importa os 
 const MusculoService = require('../services/MusculoService'); // Importa os serviços do MusculoService para dar a resposta ao controlador
 const DificuldadeService = require('../services/DificuldadesService'); // Importa os serviços do DificuldadeService para dar a resposta ao controlador
 const EquipamentosService = require('../services/EquipamentosService'); // Importa os serviços do EquipamentoService para dar a resposta ao controlador
+const path = require('path')
 
 module.exports = {
 
@@ -292,6 +293,7 @@ module.exports = {
 		let equipamento_id = req.body.equipamento_id;
 		let dificuldade_id = req.body.dificuldade_id;
 		let musculo_id = req.body.musculo_id;
+		let descricao = req.body.descricao;
 
 
 		// Chama os serviços para visualizar os Equipamentos, Dificuldades e Musculos
@@ -307,13 +309,14 @@ module.exports = {
 		// Se os valores foi nos enviado através do body
 		if (nome && equipamento_id && dificuldade_id && musculo_id) {
 			// Insere o exercício ao chamar o serviço inserir
-			let ExercicioId = await ExercicioService.inserir(nome, equipamento_id, dificuldade_id, musculo_id);
+			let ExercicioId = await ExercicioService.inserir(nome, equipamento_id, dificuldade_id, musculo_id, descricao);
 			json.result = {
 				id: ExercicioId,
 				nome,
 				equipamento_id,
 				dificuldade_id,
-				musculo_id
+				musculo_id,
+				descricao
 			};
 
 			// Mostrar os resultados dos serviços de visualizar Equipamentos, Dificuldades e músculos para fazer dropdown da seleção options e mandar um alert após ser inserido um exercício
@@ -397,16 +400,18 @@ module.exports = {
 		let equipamento_id = req.body.equipamento_id;
 		let dificuldade_id = req.body.dificuldade_id;
 		let musculo_id = req.body.musculo_id;
+		let descricao = req.body.descricao;
 
 		if (id && nome && equipamento_id && dificuldade_id && musculo_id) {
 			// Chama o serviço para atualizar os dados
-			await ExercicioService.alterar(id, nome, equipamento_id, dificuldade_id, musculo_id);
+			await ExercicioService.alterar(id, nome, equipamento_id, dificuldade_id, musculo_id, descricao);
 			json.result = {
 				id,
 				nome,
 				equipamento_id,
 				dificuldade_id,
-				musculo_id
+				musculo_id,
+				descricao
 			};
 		} else {
 			json.error = 'Error!';
@@ -429,6 +434,31 @@ module.exports = {
 		}
 	},
 
+	// Página Administração - Página para enviar um vídeo para o exercício
+	adicionar_video_exercicio: async (req, res) => {
+		let json = { error: '', result: [] };
+
+		// Pegar os valores
+		let id = req.params.id;
+
+		// Chama o serviço para pegar os valores do exercício através do ID
+		let exercicio_id = await ExercicioService.buscarUm(id);
+
+		if (exercicio_id) {
+
+
+			json.result = exercicio_id;
+
+		}
+
+		// Armazena o resultado do serviço de buscar o exercício através do ID
+		rows = json.result;
+		console.log(rows)
+
+		// Mandar para a página os resultados dos serviços para estar pré-definido nos inputs
+		res.render('admin/Exercicios/adicionar_video_exercicio', { rows, user: req.user })
+	},
+
 	// API - JSON - Função apagar
 	apagar: async (req, res) => {
 		let json = { error: '', result: [] };
@@ -437,7 +467,66 @@ module.exports = {
 
 		// Manda a resposta do servidor em JSON
 		res.json(json);
-	}
+	},
+
+	mandar_video_exercicio: async (req, res) => {
+
+		let videoExercicio; 		// Ficheiro
+		let uploadPath;			// Diretório de uploads
+		let id = req.params.id;	// Id do exercicio
+
+		if (!req.files || Object.keys(req.files).length === 0) {
+			return res.status(400).send('No files were uploaded.') // Se não for enviado
+		}
+
+		videoExercicio = req.files.videoExercicio 	// Ficheiro enviado
+		uploadPath = path.join(__dirname, '/../videos/Exercicios', videoExercicio.name) // Path do Ficheiro
+
+		// Mover para a pasta upload
+		videoExercicio.mv(uploadPath, async function (err) {
+			if (err) return res.status(500).send(err);
+			// Alterar na base de dados, o nome da foto
+			let exercicio = await ExercicioService.mandar_video(id, videoExercicio.name)
+			if (exercicio) {
+				// Foto mudada com sucesso
+				res.redirect('/admin/main_exercicios')
+			}
+		})
+
+
+
+	},
+
+	visualizarUmExercicio: async (req, res) => {
+		let json = { error: '', result: [] };
+
+		// Pegar os valores
+		let id = req.params.id;
+
+		// Chama o serviço para pegar os valores do exercício através do ID
+		let exercicio_id = await ExercicioService.buscarUm(id);
+
+		if (exercicio_id) {
+			// Chama os serviços para visualizar Equipamentos, Dificuldades e músculo para fazer dropdown do select option
+			let Equipamentos = await EquipamentosService.visualizarTodos();
+			let Dificuldades = await DificuldadeService.visualizarTodos();
+			let Musculos = await MusculoService.visualizarTodos();
+
+			// Armazena os resultados dos serviços
+			rows_eq = Equipamentos
+			rows_df = Dificuldades
+			rows_musculos = Musculos;
+
+			json.result = exercicio_id;
+
+		}
+
+		// Armazena o resultado do serviço de buscar o exercício através do ID
+		rows = json.result;
+
+		// Mandar para a página os resultados dos serviços para estar pré-definido nos inputs
+		res.render('app/Exercicios/visualizar_exercicio', { rows, rows_eq, rows_df, rows_musculos, user: req.user })
+	},
 
 
 

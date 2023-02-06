@@ -25,6 +25,8 @@ initializePassport(
 app.get('/Exercicios', checkAuthenticated, ExercicioController.view)
 app.post('/Exercicios/pesquisa', checkAuthenticated, ExercicioController.pesquisarExercicio);
 
+// Rota para visualizar informações de um exercício
+app.get('/Exercicio/:id', checkAuthenticated, ExercicioController.visualizarUmExercicio)
 // Pesquisar alimentos
 app.post('/Alimentos/pesquisa', checkAuthenticated, AlimentoController.pesquisarAlimento);
 

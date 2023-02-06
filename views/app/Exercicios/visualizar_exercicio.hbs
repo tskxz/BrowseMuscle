@@ -1,0 +1,11 @@
+<br><br>
+{{#each rows}}
+<h1 class="text-light">{{exercicio}}</h1>
+<video width="500px" height="500px"
+        controls="controls"/>
+         
+        <source src="/videos/exercicios/{{video}}"
+            type="video/mp4">
+    </video>
+    <p class="text-light">{{descricao}}</p>
+{{/each}}
