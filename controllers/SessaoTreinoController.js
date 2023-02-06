@@ -1,6 +1,8 @@
 const SessaoTreinoService = require('../services/SessaoTreinoService');
 const ExercicioService = require('../services/ExercicioService');
-const crypto = require('crypto')
+const UtilizadorService = require('../services/UtilizadoresService')
+const crypto = require('crypto');
+const UtilizadoresService = require('../services/UtilizadoresService');
 
 function makeid(length) {
     let result = '';
@@ -231,12 +233,16 @@ module.exports = {
 
         // Usa o serviço para concluir o treino
         let id_sessao = req.params.id_sessao;
+        let id_user = req.user.id
         let sessao_concluido = await SessaoTreinoService.concluirTreino(id_sessao)
 
         // Verifica se foi finalizado
         if (!sessao_concluido) {
             req.flash('error', `Erro!`)
         } else {
+            let Utilizador = await UtilizadoresService.buscarUm(id_user)
+            let treinos_concluidos = Utilizador.treinos_concluidos + 1;
+            await SessaoTreinoService.treinoConcluidoUtilizador(id_user, treinos_concluidos)
             req.flash('success', `Finalizado com sucesso!`)
         }
         res.redirect(`/lista_sessao_treino`)
