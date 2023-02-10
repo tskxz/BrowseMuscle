@@ -274,9 +274,29 @@ module.exports = {
             res.render('app/SessaoTreino/editar_sessao', {
                 user: req.user,
                 nome_treino: nome_treino,
-                descricao_treino: descricao_treino
+                descricao_treino: descricao_treino,
+                id_sessao: id
             })
         }
+    },
+
+    editar_sessao_post: async (req, res) => {
+        // Id da sessão de treino
+        let id = req.params.id_sessao;
+
+        // Pega as informações da sessão de treino através do body
+        let nome_treino = req.body.nome
+        let descricao_treino = req.body.descricao
+
+        console.log(nome_treino, descricao_treino)
+
+        // Edita as informações
+        if(!nome_treino && !descricao_treino){
+        } else {
+            await SessaoTreinoService.editar(id, nome_treino, descricao_treino);
+        }
+        
+        res.redirect('/lista_sessao_treino')
     },
 
     // Página Utilizador - Página para definir número de repetições que o utilizador executou no exercício

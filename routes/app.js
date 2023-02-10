@@ -102,6 +102,8 @@ app.post('/concluir_sessao/:id_sessao', checkAuthenticated, SessaoTreinoControll
 
 // Rota para editar informações da sessão de treino
 app.get('/editar_sessao/:id_sessao', checkAuthenticated, SessaoTreinoController.editar_sessao)
+app.post('/editar_sessao/:id_sessao', checkAuthenticated, SessaoTreinoController.editar_sessao_post)
+
 // Definir as repeticoes das series do exercicio
 app.get('/definir_reps/:id_sessao/:exercicio_id', checkAuthenticated, SessaoTreinoController.definir_reps)
 app.post('/definir_reps/:id_sessao/:exercicio_id', checkAuthenticated, SessaoTreinoController.definir_reps_post)

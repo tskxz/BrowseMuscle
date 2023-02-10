@@ -1,5 +1,5 @@
 <div class="d-flex align-items-center justify-content-center" style="height: 80vh">
-    <form class="row g-3" method="post" action="/criar_sessao_treino">
+    <form class="row g-3" method="post" action="/editar_sessao/{{id_sessao}}">
         <div class="mb-3">
             <label class="form-label text-light">Nome da sessão de treino</label>
             <input type="text" value="{{nome_treino}}" class="form-control" name="nome" required>
@@ -7,7 +7,7 @@
         <label for="floatingTextarea2" class="text-light">Descrição</label>
         <textarea class="form-control" style="height: 100px" name="descricao" required>{{descricao_treino}}</textarea>
         <div class="d-grid gap-2">
-            <button type="submit" class="btn btn-primary">Criar sessão de treino</button>
+            <button type="submit" class="btn btn-primary">Editar sessão de treino</button>
         </div>
     </form><br>
 </div>
