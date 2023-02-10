@@ -10,8 +10,8 @@ function makeid(length) {
     const charactersLength = characters.length;
     let counter = 0;
     while (counter < length) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-      counter += 1;
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        counter += 1;
     }
     return result;
 }
@@ -247,6 +247,36 @@ module.exports = {
         }
         res.redirect(`/lista_sessao_treino`)
 
+    },
+
+    editar_sessao: async (req, res) => {
+        // Id da sessão de treino
+        let id = req.params.id_sessao;
+
+        // Id do utilizador 
+        let userid = req.user.id
+
+        // Pega as informações da sessão de treino através do ID
+        let sessaoTreino = await SessaoTreinoService.buscarTodos_sessao(id);
+        let nome_treino = sessaoTreino[0].nome
+        let descricao_treino = sessaoTreino[0].descricao
+
+        // Verifica se existe a sessão de treino com esse id
+        if (!sessaoTreino) {
+            json.error = "Sessão de treino não encontrado!"
+        } else {
+            // Utilizador não pode visualizar as sessões de treino de outros utilizadores diferentes
+            sessaoTreino_utilizador_id = sessaoTreino[0].utilizador_id
+            if (sessaoTreino_utilizador_id != userid) {
+                json.error = 'Não tem permissão!'
+            }
+
+            res.render('app/SessaoTreino/editar_sessao', {
+                user: req.user,
+                nome_treino: nome_treino,
+                descricao_treino: descricao_treino
+            })
+        }
     },
 
     // Página Utilizador - Página para definir número de repetições que o utilizador executou no exercício
