@@ -59,6 +59,16 @@ module.exports = {
 		})
 	},
 
+	editar: (id_sessao, nome, descricao) => {
+		return new Promise((aceito, rejeitado) => {
+			db.query('UPDATE Sessao_Treinos SET nome = ?, descricao = ? WHERE id_sessao = ?', 
+			[nome, descricao, id_sessao], (error, results) => {
+				if (error) { rejeitado(error); return; }
+				aceito(results);
+			})
+		})
+	},
+
 	// Serviço para buscar informações da sessão de treino através do nome e do utilizador que criou
 	buscarTodos_user_nome: (userid, id) => {
 		return new Promise((aceito, rejeitado) => {
