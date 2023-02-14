@@ -50,8 +50,11 @@
                 {{else}}
                 <img src="/upload/user.png" class="card__image img-fluid" /><br>
                 {{/if}}
-                <label for="file-input" class="btn btn-primary">Mudar a foto</label>
+                <label for="file-input" class="btn btn-primary">Mudar a foto <i class="bi bi-camera"></i></label>
                 <input id="file-input" type="file" style="display:none" name="sampleFile" accept="image/*" />
+            </form><br>
+            <form action="/meu_perfil/apagar_foto" method="post">
+                <button type="submit" class="btn btn-primary">Apagar a foto <i class="bi bi-x"></i></button>
             </form>
         </div><br>
         <script>

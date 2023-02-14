@@ -113,6 +113,9 @@ app.get('/grafico_sessao/:id_sessao', checkAuthenticated, SessaoTreinoController
 // Rota para editar o perfil do utilizador
 app.get('/meu_perfil/editar', checkAuthenticated, UtilizadorController.editar_perfil)
 
+// Apagar foto de perfil
+app.post('/meu_perfil/apagar_foto', checkAuthenticated, UtilizadorController.apagar_foto)
+
 // Rota para atualizar as informações do perfil do utilizador
 app.post('/meu_perfil/editar', checkAuthenticated, UtilizadorController.atualizar_perfil)
 app.post('/mudar_foto', checkAuthenticated, UtilizadorController.atualizar_perfil_foto)

@@ -98,6 +98,18 @@ module.exports = {
 		})
 	},
 
+	// Serviço para apagar foto de perfil do utilizador
+	apagar_foto: (id) => {
+		return new Promise((aceito, rejeitado) => {
+			db.query('update Utilizadores SET foto = "user.png" where id=?',
+				[id],
+				(error, results) => {
+					if (error) { rejeitado(error); return; }
+					aceito(results);
+				}
+			);
+		})
+	},
 	// Serviço para alterar dados com o cargo do utilizador através do ID
 	alterar_user: (id, primeiro_nome, ultimo_nome, email, num_telemovel, descricao, id_cargo) => {
 		return new Promise((aceito, rejeitado) => {
