@@ -1,6 +1,8 @@
 const UtilizadorService = require('../services/UtilizadoresService'); // Usa o serviço para dar a resposta ao controlador
 const bcrypt = require('bcrypt')
 const path = require('path')
+const { v4: uuidv4 } = require('uuid');
+
 
 module.exports = {
 
@@ -314,7 +316,15 @@ module.exports = {
 		}
 
 		sampleFile = req.files.sampleFile 	// Ficheiro enviado
-		uploadPath = path.join(__dirname, '/../upload/', sampleFile.name) // Path do Ficheiro
+		
+		// Gerar o nome único para a imagem
+		let gen = uuidv4().substring(0, 6);
+		let ext = path.extname(sampleFile.name);
+		sampleFile.name = gen + ext;
+
+		// Diretório do caminho de uploads imagens
+		uploadPath = path.join(__dirname, '/../upload/', sampleFile.name)
+		console.log(sampleFile)
 
 		// Mover para a pasta upload
 		sampleFile.mv(uploadPath, async function (err) {
