@@ -198,6 +198,15 @@ module.exports = {
 		}
 	},
 
+	apagar_foto: async(req,res) => {
+		let utilizador_id = req.user.id;
+		let apagar = await UtilizadorService.apagar_foto(utilizador_id);
+		if(!apagar){
+			res.send('err')
+		} else {
+			res.redirect('/meu_perfil')
+		}
+	},
 	// Página Utilizador - Editar o perfil
 	editar_perfil: async (req, res) => {
 
