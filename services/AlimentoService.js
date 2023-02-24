@@ -3,9 +3,9 @@ const db = require('../mysql');
 module.exports = {
 
 	// Serviço para visualizar todos os Alimentos visíveis
-	visualizarTodos: () => {
+	visualizarTodos: (utilizador_id) => {
 		return new Promise((aceito, rejeitado) => {
-			db.query('SELECT Alimentos.id, Alimentos.nome AS alimento, Alimentos.proteina as proteina, Alimentos.carbs as carbs, Alimentos.gordura as gordura, Alimentos.calorias as calorias, Marcas.nome as marca FROM Alimentos JOIN Marcas ON Alimentos.id_marca = Marcas.id WHERE estado=1', (error, results) => {
+			db.query('SELECT Alimentos.id, Alimentos.nome AS alimento, Alimentos.proteina as proteina, Alimentos.carbs as carbs, Alimentos.gordura as gordura, Alimentos.calorias as calorias, Marcas.nome as marca FROM Alimentos LEFT JOIN Utilizadores ON Alimentos.utilizador_id = Utilizadores.id JOIN Marcas ON Alimentos.id_marca = Marcas.id  WHERE Alimentos.estado = 1 OR Alimentos.utilizador_id = ?', [utilizador_id], (error, results) => {
 				if (error) { rejeitado(error); return; }
 				aceito(results);
 			})

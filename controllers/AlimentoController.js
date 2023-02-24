@@ -110,7 +110,7 @@ module.exports = {
         let json = { error: '', result: [] };
 
         // Visualiza todos os alimentos visíveis
-        let Alimentos = await AlimentoService.visualizarTodos();
+        let Alimentos = await AlimentoService.visualizarTodos(req.user.id);
 
         for (let i in Alimentos) {
             json.result.push({
