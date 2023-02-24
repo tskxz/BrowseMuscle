@@ -1,23 +1,16 @@
-<div class="d-flex align-items-center justify-content-center" style="height: 60vh">
-    <h1 class="text-center text-light">Sessão de treino</h1>
-    <p class="text-center text-light">Cria as tuas próprias sessões de treino! <br>
-        Escolhe os exercícios para a tua sessão de treino e define o objetivo de número de repetições e a carga. <br>
-        Durante a realização do treino, aponte o número de repetições concluídas</p>
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <header class="mb-auto">
+  </header>
+  <main class="px-3">
+    <h1 class="text-light">Sessão de treino</h1>
+    <p class="lead text-light">Cria as tuas próprias sessões de treino!
+Escolhe os exercícios para a tua sessão de treino e define o objetivo de número de repetições e a carga.
+Durante a realização do treino, aponte o número de repetições concluídas</p>
+    <p class="text-light">
+      <a href="/lista_sessao_treino" class="btn btn-lg btn-secondary fw-bold border-white bg-white">As tuas sessões de treino</a>
+    </p>
+  </main>
 
-    <div class="d-flex flex-column align-items-center">
-        <a class="btn btn-light mt-3" href="/lista_sessao_treino">As tuas sessões de treino</a>
-    </div>
+    {{> footer_cover}}
+  
 </div>
-
-<style>
-    @media (max-width: 767px) {
-        .d-flex {
-            flex-direction: column;
-        }
-    }
-    body {
-    background-image: url('/assets/img/sessao_treino_wall.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-</style>

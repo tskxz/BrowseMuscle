@@ -1,23 +1,14 @@
-<div class="d-flex align-items-center justify-content-center" style="height: 60vh">
-    <h1 class="text-center text-light">Pesquisa os exercícios por grupo muscular</h1>
-    <p class="text-center text-light">Escolhe um grupo muscular que queres treinar. Filtra e vê os melhores exercícios
-        para o equipamento que
-        tens, experiência e objetivos.</p>
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <header class="mb-auto">
+  </header>
+  <main class="px-3">
+    <h1 class="text-light">Pesquisa os exercícios por grupo muscular</h1>
+    <p class="lead text-light">Escolhe um grupo muscular que queres treinar. Visualiza os exercícios que podes realizar.</p>
+    <p class="text-light">
+      <a href="/Musculos" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Músculos</a>
+    </p>
+  </main>
 
-    <div class="d-flex flex-column align-items-center">
-        <a class="btn btn-light mt-3" href="/Musculos">Músculo</a>
-    </div>
+    {{> footer_cover}}
+  
 </div>
-
-<style>
-    @media (max-width: 767px) {
-        .d-flex {
-            flex-direction: column;
-        }
-    }
-    body {
-    background-image: url('/assets/img/musculo_wall.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-</style>

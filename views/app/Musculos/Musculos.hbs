@@ -1,375 +1,255 @@
-<!-- Portfolio Grid-->
-<style>
-.same-width {
-  width: 100px; /* Set the width to 100px */
-}
-</style>
+<!doctype html>
+<html lang="en">
 
-<section class="page-section" id="portfolio">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.104.2">
+    <title>Album example · Bootstrap v5.2</title>
 
-    <div class="text-center">
-        <h2 class="section-heading text-uppercase text-light">Músculos</h2>
-        <h3 class="section-subheading text-muted">Escolhe o grupo muscular para visualizar os exercícios que o atingem
-        </h3>
-    </div>
-    <div class="row">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/album/">
 
-        <div class="col-lg-4 col-sm-6 mb-4 d-flex align-items-center">
-            <!-- Portfolio item 1-->
-            <div class="portfolio-item">
-                <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
-                    <div class="portfolio-hover">
-                        <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+
+
+
+
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+
+        .b-example-divider {
+            height: 3rem;
+            background-color: rgba(0, 0, 0, .1);
+            border: solid rgba(0, 0, 0, .15);
+            border-width: 1px 0;
+            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+        }
+
+        .b-example-vr {
+            flex-shrink: 0;
+            width: 1.5rem;
+            height: 100vh;
+        }
+
+        .bi {
+            vertical-align: -.125em;
+            fill: currentColor;
+        }
+
+        .nav-scroller {
+            position: relative;
+            z-index: 2;
+            height: 2.75rem;
+            overflow-y: hidden;
+        }
+
+        .nav-scroller .nav {
+            display: flex;
+            flex-wrap: nowrap;
+            padding-bottom: 1rem;
+            margin-top: -1px;
+            overflow-x: auto;
+            text-align: center;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+        }
+        .center {
+            text-align: center;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <header>
+        <div class="collapse bg-dark" id="navbarHeader">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8 col-md-7 py-4">
+                        <h4 class="text-white">About</h4>
+                        <p class="text-muted">Add some information about the album below, the author, or any other
+                            background context. Make it a few sentences long so folks can pick up some informative
+                            tidbits. Then, link them off to some social networking sites or contact information.</p>
                     </div>
-                    <svg width="300" height="400">
-                        <image xlink:href="/assets/img/Musculos/bracos.svg" width="400" filter="invert(100%)" />
-                    </svg>
-                </a>
-                <div class="portfolio-caption">
-                    <div class="portfolio-caption-heading">Braços</div>
-                    <div class="portfolio-caption-subheading text-muted">Exercícios para braços</div>
+                    <div class="col-sm-4 offset-md-1 py-4">
+                        <h4 class="text-white">Contact</h4>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="text-white">Follow on Twitter</a></li>
+                            <li><a href="#" class="text-white">Like on Facebook</a></li>
+                            <li><a href="#" class="text-white">Email me</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-lg-4 col-sm-6 mb-4 d-flex align-items-center">
-            <!-- Portfolio item 2-->
-            <div class="portfolio-item">
-                <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
-                    <div class="portfolio-hover">
-                        <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                    </div>
-                    <svg width="400" height="400">
-                        <image xlink:href="/assets/img/Musculos/peitos.svg" width="400" filter="invert(100%)" />
+        <div class="navbar navbar-dark bg-dark shadow-sm">
+            <div class="container">
+                <a href="#" class="navbar-brand d-flex align-items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
+                        stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2"
+                        viewBox="0 0 24 24">
+                        <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+                        <circle cx="12" cy="13" r="4" />
                     </svg>
-
+                    <strong>Album</strong>
                 </a>
-                <div class="portfolio-caption">
-                    <div class="portfolio-caption-heading">Peito</div>
-                    <div class="portfolio-caption-subheading text-muted">Exercícios para peito</div>
-                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader"
+                    aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
             </div>
         </div>
-        <div class="col-lg-4 col-sm-6 mb-4 d-flex align-items-center">
-            <!-- Portfolio item 3-->
-            <div class="portfolio-item">
-                <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal3">
-                    <div class="portfolio-hover">
-                        <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                    </div>
-                    <svg width="400" height="400">
-                        <image xlink:href="/assets/img/Musculos/abdominal.svg" width="400" filter="invert(100%)" />
-                    </svg>
-                </a>
-                <div class="portfolio-caption">
-                    <div class="portfolio-caption-heading">Abdominais</div>
-                    <div class="portfolio-caption-subheading text-muted">Exercícios para abdominais</div>
+    </header>
+
+    <main>
+
+        <section class="py-5 text-center container">
+            <div class="row py-lg-5">
+                <div class="col-lg-6 col-md-8 mx-auto">
+                    <h1 class="text-light">Músculos</h1>
+                    <p class="lead text-light">Escolhe um grupo muscular que queres treinar. Visualiza os exercícios que
+                        podes realizar. Também podes criar a tua sessão de treino</p>
+                    <p>
+                        <a href="/Exercicios" class="btn btn-primary my-2">Exercícios</a>
+                        <a href="/menu_sessao_treino" class="btn btn-secondary my-2">Sessão de treino</a>
+                    </p>
                 </div>
             </div>
-        </div>
-        <div class="col-lg-4 col-sm-6 mb-4 d-flex align-items-center">
-            <!-- Portfolio item 4-->
-            <div class="portfolio-item">
-                <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal4">
-                    <div class="portfolio-hover">
-                        <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                    </div>
-                    <svg width="400" height="400">
-                        <image xlink:href="/assets/img/Musculos/ombro.svg" width="400" filter="invert(100%)" />
-                    </svg>
+        </section>
 
-                </a>
-                <div class="portfolio-caption">
-                    <div class="portfolio-caption-heading">Ombros</div>
-                    <div class="portfolio-caption-subheading text-muted">Exercícios para ombros</div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4 col-sm-6 mb-4 d-flex align-items-center">
-            <!-- Portfolio item 5-->
-            <div class="portfolio-item">
-                <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal5">
-                    <div class="portfolio-hover">
-                        <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                    </div>
+        <div class="album py-5 ">
+            <div class="container">
 
-                    <svg width="400" height="400">
-                        <image xlink:href="/assets/img/Musculos/costas.svg" width="400" filter="invert(100%)" />
-                    </svg>
-                </a>
-                <div class="portfolio-caption">
-                    <div class="portfolio-caption-heading">Costas</div>
-                    <div class="portfolio-caption-subheading text-muted">Exercícios para costas</div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4 col-sm-6 mb-4 d-flex align-items-center">
-            <!-- Portfolio item 6-->
-            <div class="portfolio-item">
-                <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal6">
-                    <div class="portfolio-hover">
-                        <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                    </div>
-                    <svg width="400" height="400">
-                        <image xlink:href="/assets/img/Musculos/pernas.svg" width="400" filter="invert(100%)" />
-                    </svg>
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <img src="/assets/img/Musculos/bracos.svg">
+                            <div class="card-body">
+                                <p class="card-text">Os músculos do braços são compostos principalmente pelos bíceps, tríceps e antebraço. Bíceps é responsável pela flexão do braço, enquanto o tríceps é responsável pela
+                                    extensão.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="center">
+                                        <div class="btn-group">
+                                            <a href="/Bicep" class="btn btn-sm btn-outline-secondary">Bicep</a>
+                                            <a href="/Tricep" class="btn btn-sm btn-outline-secondary">Tricep</a>
+                                            <a href="/Antebraco" class="btn btn-sm btn-outline-secondary">Antebraço</a>
+                                        </div>
+                                    </div>
 
-                </a>
-                <div class="portfolio-caption">
-                    <div class="portfolio-caption-heading">Pernas</div>
-                    <div class="portfolio-caption-subheading text-muted">Exercícios para pernas</div>
-                </div>
-            </div>
-        </div>
-
-
-
-    </div>
-    </div>
-</section>
-<!-- Portfolio item 1 modal popup-->
-<div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content bg-dark">
-            <div class="close-modal " data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" />
-            </div>
-            <div class="container ">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8 ">
-                        <div class="modal-body bg-dark">
-                            <!-- Project details-->
-                            <h2 class="text-uppercase text-light">Braços</h2>
-                            <p class="item-intro text-light text">Exercícios para braços</p>
-                            <p class="text-light">Os músculos do braço são um conjunto de músculos localizados na região dos braços, desde o ombro até o punho. São responsáveis por realizar movimentos de flexão, extensão, rotação e adução dos braços. Para fortalecer os músculos dos braços, existem diversos exercícios que podem ser realizados, como flexões de braço, tríceps pushdown, curl de bíceps com barra e curl de bíceps com halteres. É importante lembrar de sempre usar a técnica adequada e aumentar gradativamente a carga de trabalho para evitar lesões.</p>
-                            <svg width="200" height="200">
-                                <image xlink:href="/assets/img/Musculos/bicep.svg" width="200" filter="invert(100%)" />
-                            </svg>
-                            
-                            
-                            <p></p>
-                            <ul class="list-inline">
-                                <li>
-                                    <strong class="text-light">Seguintes músculos</strong><br><br>
-                                    <a class="btn btn-primary same-width" href="/bicep">Bicep</a><br>
-                                    <a class="btn btn-primary same-width" href="/tricep">Tricep</a><br>
-                                    <a class="btn btn-primary same-width" href="/antebraco">Antebraco</a>
-                                </li>
-                            </ul>
-                            <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                <i class="fas fa-xmark me-1"></i>
-                                Fechar
-                            </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Portfolio item 2 modal popup-->
-<div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content bg-dark">
-            <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" />
-            </div>
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <div class="modal-body bg-dark">
-                            <!-- Project details-->
-                            <h2 class="text-uppercase text-light">Peito</h2>
-                            <p class="item-intro text-light">Exercícios para peito</p>
-                            <p class="text-light">O músculo peito, também conhecido como músculo peitoral, é um conjunto de músculos grandes e fortes que se localizam na região do tórax, abaixo do pescoço e acima do abdômen. São responsáveis por conectar o braço ao tronco e são fundamentais para a execução de atividades que envolvem o movimento dos braços, como levantar objetos, puxar e empurrar. Para fortalecer os músculos do peito, existem diversos exercícios que podem ser realizados, como flexões de braço, supino reto com halteres, supino inclinado com barra e supino inclinado com halteres. É importante lembrar de sempre usar a técnica adequada e aumentar gradativamente a carga de trabalho para evitar lesões. Além disso, é importante equilibrar o treinamento dos músculos do peito com o treinamento dos músculos das costas, para evitar desequilíbrios musculares.</p>
-                            <svg width="400" height="400">
-                                <image xlink:href="/assets/img/Musculos/peitos.svg" width="400" filter="invert(100%)" />
-                            </svg>
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <img src="/assets/img/Musculos/peitos.svg">
 
-                            <ul class="list-inline">
-                                <li>
-                                    <strong class="text-light">Tabela de exercícios</strong><br><br>
-                                    <a class="btn btn-primary same-width" href="/peito">Peito</a>
-                                </li>
-
-                            </ul>
-                            <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                <i class="fas fa-xmark me-1"></i>
-                                Fechar
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Portfolio item 3 modal popup-->
-<div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content bg-dark">
-            <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" />
-            </div>
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <div class="modal-body bg-dark">
-                            <!-- Project details-->
-                            <h2 class="text-uppercase text-light">Abdominais</h2>
-                            <p class="item-intro text-light">Exercícios para abdominais</p>
-                            <p class="text-light">Os músculos abdominais são um conjunto de músculos localizados na região do abdômen, que formam a parede abdominal e são responsáveis por proteger os órgãos internos, estabilizar a coluna vertebral e auxiliar na respiração e no movimento. Existem diversas maneiras de fortalecer os músculos abdominais, como exercícios de flexão do tronco, como abdominais e pranchas, ou através de exercícios de rotação e inclinação do tronco, como os oblíquos. É importante lembrar de sempre manter a postura correta e usar a técnica adequada ao realizar qualquer tipo de exercício para evitar lesões.</p>
-                            <svg width="400" height="400">
-                                <image xlink:href="/assets/img/Musculos/abdominal.svg" width="400"
-                                    filter="invert(100%)" />
-                            </svg>
-                            <ul class="list-inline">
-                                <li>
-                                    <strong class="text-light">Tabela de exercícios</strong><br><br>
-                                    <a class="btn btn-primary" href="/abdominais">Abdominais</a>
-                                </li>
-                            </ul>
-                            <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                <i class="fas fa-xmark me-1"></i>
-                                Fechar
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Portfolio item 4 modal popup-->
-<div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content bg-dark">
-            <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" />
-            </div>
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <div class="modal-body bg-dark">
-                            <!-- Project details-->
-                            <h2 class="text-uppercase text-light">Ombros</h2>
-                            <p class="item-intro text-light">Exercícios para ombros</p>
-                            <p class="text-light">Os músculos dos ombros são importantes para muitas atividades quotidianas, como levantar objetos, alcançar prateleiras altas e praticar desportos. Eles são importantes pois contribuem para o equilíbrio e a estabilidade do corpo durante o treinamento de força e ajudam a construir uma aparência muscular atraente. Para treinar os músculos dos ombros, existem muitos exercícios eficazes que podem ser incluídos no seu sessao de treino. Alguns exemplos incluem elevações laterais de ombro com halteres, press com Barra para ombros, elevações frontais com halteres e etc...</p>
-                            <svg width="400" height="400">
-                                <image xlink:href="/assets/img/Musculos/ombro.svg" width="400" filter="invert(100%)" />
-                            </svg>
-                            <ul class="list-inline">
-                                <strong class="text-light">Seguintes músculos</strong><br><br>
-                                    <a class="btn btn-primary same-width" href="/ombro">Ombros</a><br>
-                                    <a class="btn btn-primary same-width" href="/trapezio">Trapezio</a><br>
+                            <div class="card-body">
+                                <p class="card-text">O músculo peitoral é o grande músculo localizado na região do tórax, responsável por movimentos de flexão, adução e rotação interna do braço. Para fortalecer, existem diversos exercícios que podem ser realizados</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a href="/Peito" class="btn btn-sm btn-outline-secondary">Peito</a>
+                                        
+                                    </div>
                                     
-                            </ul>
-                            <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                <i class="fas fa-xmark me-1"></i>
-                                Fechar
-                            </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Portfolio item 5 modal popup-->
-<div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content bg-dark">
-            <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" />
-            </div>
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <div class="modal-body bg-dark">
-                            <!-- Project details-->
-                            <h2 class="text-uppercase text-light">Costas</h2>
-                            <p class="item-intro text-light">Exercícios para costas.</p>
-                            <p class="text-light">Os músculos das costas são importantes para a postura, o equilíbrio e a força corporal geral. Eles também são importantes para muitas atividades cotidianas, como levantar objetos pesados e sustentar o corpo durante atividades físicas. Os músculos das costas também são valorizados por contribuir para uma aparência atraente e proporcionada. Para treinar os músculos das costas, existem muitos exercícios eficazes que podem ser incluídos no seu treino. Alguns exemplos incluem remadas com barra, remadas com halteres, puxadas na barra fixa e elevações de tronco.</p>
-                            <svg width="400" height="400">
-                                <image xlink:href="/assets/img/Musculos/costas.svg" width="400" filter="invert(100%)" />
-                            </svg>
-                            <ul class="list-inline">
-                                <strong class="text-light">Seguintes músculos</strong><br><br>
-                                    <a class="btn btn-primary same-width" href="/costas">Costas</a><br>
-                                    <a class="btn btn-primary same-width" href="/dorsal">Dorsais</a><br>
-                            </ul>
-                            <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                <i class="fas fa-xmark me-1"></i>
-                                Fechar
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Portfolio item 6 modal popup-->
-<div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content bg-dark">
-            <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" />
-            </div>
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <div class="modal-body bg-dark">
-                            <!-- Project details-->
-                            <h2 class="text-uppercase text-light">Pernas</h2>
-                            <p class="item-intro text-light">Exercícios para pernas</p>
-                            <p class="text-light">Os músculos das pernas são importantes para muitas atividades quotidianas, como andar, subir escadas e praticar desportto. Eles são muito importantes pois contribuem para o equilíbrio e a estabilidade do corpo durante o treino de força e ajudam a construir uma aparência muscular atraente. Alguns exemplos incluem agachamentos, levantamentos terra, exercícios de panturrilha com peso corporal ou com halteres e agachamentos com barra ou halteres. É importante lembrar de variar os exercícios e aumentar a intensidade de forma progressiva para continuar a estimular o crescimento muscular.</p>
-                            <svg width="400" height="400">
-                                <image xlink:href="/assets/img/Musculos/pernas.svg" width="400" filter="invert(100%)" />
-                            </svg>
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <img src="/assets/img/Musculos/abdominal.svg">
 
-                            <ul class="list-inline">
-                                
-                               <strong class="text-light">Seguintes músculos</strong><br><br>
-                                    <a class="btn btn-primary same-width" href="/quadricep">Quadríceps</a><br>
-                                    <a class="btn btn-primary same-width" href="/hamstring">Hamstring</a><br>
-                                    <a class="btn btn-primary same-width" href="/gemeo">Gémeos</a><br>
-                                    <a class="btn btn-primary same-width" href="/gluteo">Gluteo</a>
-                            </ul>
-                            <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                <i class="fas fa-xmark me-1"></i>
-                                Fechar
-                            </button>
+                            <div class="card-body">
+                                <p class="card-text">Os músculos abdominais são um grupo de músculos localizados na região do abdômen, responsáveis pela estabilização do tronco e movimentos de flexão.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a href="/Abdominais" class="btn btn-sm btn-outline-secondary">Abdominais</a>
+                                    </div>
+                                    
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="portfolio-modal modal fade" id="portfolioModal7" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content bg-dark">
-            <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" />
-            </div>
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <div class="modal-body bg-dark">
-                            <!-- Project details-->
-                            <h2 class="text-uppercase text-light">Quadriceps</h2>
-                            <p class="item-intro text-light">Exercícios para quadriceps</p>
-                            <svg width="420" height="400">
-                                <image xlink:href="/assets/img/Musculos/quads.svg" width="400" filter="invert(100%)" />
-                            </svg>
 
-                            <ul class="list-inline"><br>
-                                <li>
-                                    <strong class="text-light">Tabela de exercícios</strong><br><br>
-                                    <a class="btn btn-primary same-width" href="/quadricep">Quadricep</a>
-                                </li>
-                            </ul>
-                            <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                <i class="fas fa-xmark me-1"></i>
-                                Fechar
-                            </button>
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <img src="/assets/img/Musculos/ombro.svg">
+
+                            <div class="card-body">
+                                <p class="card-text">Os músculos dos ombros incluem o deltóide e o trapézio. O deltóide é o principal músculo responsável pelo movimento de abdução do braço, enquanto o trapézio é importante para a elevação da escápula e movimentos de rotação.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a href="/Ombro" class="btn btn-sm btn-outline-secondary">Ombros</a>
+                                        <a href="/Trapezio" class="btn btn-sm btn-outline-secondary">Trapezio</a>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <img src="/assets/img/Musculos/costas.svg">
+
+                            <div class="card-body">
+                                <p class="card-text">Os músculos das costas são fundamentais para a postura, equilíbrio e movimentação do corpo. Eles são compostos pelo grande dorsal. Podem ser trabalhados com exercícios como a barra fixa e remadas. O treinamento adequado das costas pode melhorar a força e a estética muscular, além de prevenir lesões e dores nas costas.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a href="/Costas" class="btn btn-sm btn-outline-secondary">Costas</a>
+                                        <a href="/Dorsal" class="btn btn-sm btn-outline-secondary">Dorsal</a>
+                                        
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <img src="/assets/img/Musculos/pernas.svg">
+
+                            <div class="card-body">
+                                <p class="card-text">Os músculos das pernas incluem os quadríceps, os isquiotibiais ou hamstrings, os glúteos e os músculos dos gémeos. Os quadríceps são responsáveis pela extensão do joelho, enquanto os isquiotibiais são responsáveis pela flexão.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a href="/Quadricep" class="btn btn-sm btn-outline-secondary">Quadríceps</a>
+                                        <a href="/Hamstrings" class="btn btn-sm btn-outline-secondary">Hamstrings</a>
+                                        <a href="/Gluteo" class="btn btn-sm btn-outline-secondary">Gluteo</a>
+                                        <a href="/Gluteo" class="btn btn-sm btn-outline-secondary">Gémeos</a>
+
+                                    </div>
+                                    
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
+
+    </main>
+
+    {{> footer_cover}}
+
+
+</body>
+
+</html>
