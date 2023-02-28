@@ -1,6 +1,3 @@
-// Os controladores tratam de toda a lógica por trás da validação de parâmetros de solicitação, consulta e envio de respostas.
-// Os serviços contém as consultas á base de dados e objetos a retornar ou lançar erros
-
 const express = require('express');
 const api = express.Router();
 const path = require('path');
@@ -13,8 +10,9 @@ const MusculoController = require('../controllers/MusculoController');
 const UtilizadoresController = require('../controllers/UtilizadorController');
 const AlimentoController = require('../controllers/AlimentoController');
 
+// Exercícios
 api.get('/Exercicios', ExercicioController.buscarTodos) 	                                        // Rota do método GET para visualizar todos os exercícios
-api.get('/exercicio/:id', ExercicioController.buscarUm);	                                        // Rota do método GET para visualizar apenas um exercício~
+api.get('/exercicio/:id', ExercicioController.buscarUm);	                                        // Rota do método GET para visualizar apenas um exercício
 api.get('/exercicios_equipamento/:equipamento_id', ExercicioController.buscarEquipamento);          // Rota do método GET para visualizar todos os exercícios de um determinado equipamento
 api.get('/exercicios_dificuldade/:dificuldade_id', ExercicioController.buscarDificuldade);          // Rota do método GET para visualizar todos os exercícios de uma determinada dificuldade
 api.get('/exercicios_musculo/:musculo_id', ExercicioController.buscarMusculo);                      // Rota o método GET para visualizar todos os exercícios de um determinado músculo
@@ -32,8 +30,8 @@ api.get('/Utilizadores', UtilizadoresController.buscarTodos);                   
 api.get('/utilizador/:id', UtilizadoresController.buscarUm);                                        // Rota do método GET para visualizar somente um utilizador através do ID
 api.post('/Utilizadores', UtilizadoresController.criar)                                             // Rota do método POST para criar um novo utilizador
 api.post('/utilizador/login', UtilizadoresController.login)                                         // Rota do método POST para validar a conta
-api.get('/utilizador_username/:username', UtilizadoresController.buscarUsername);
-api.get('/utilizador_email/:email', UtilizadoresController.buscarEmail);
+api.get('/utilizador_username/:username', UtilizadoresController.buscarUsername);                   // Rota do método GET para visualizar o utilizador através do username
+api.get('/utilizador_email/:email', UtilizadoresController.buscarEmail);                            // ROta do método GET para visualizar o utilizador através do email
 
 // Alimentos
 api.get('/Alimentos', AlimentoController.visualizarTodos);                                          // Rota do método GET para visualizar todos os Alimentos
