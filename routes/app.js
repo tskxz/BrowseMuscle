@@ -5,6 +5,9 @@ const app = express.Router();
 const path = require('path');
 const passport = require('passport');
 
+// Middlewares
+const { checkAuthenticated, checkNotAuthenticated } = require('../middlewares/authenticated');
+
 // Controllers
 const ExercicioController = require('../controllers/ExercicioController')
 const AlimentoController = require('../controllers/AlimentoController')
@@ -134,23 +137,6 @@ app.post('/calcular_macro', checkAuthenticated, AlimentoController.calculo_macro
 app.get('/test', function (req, res) {
 	res.render('app/tests/index.hbs')
 })
-
-// Função para verificar autenticação - Se estiver com sessão iniciada
-function checkAuthenticated(req, res, next) {
-	if (req.isAuthenticated()) {
-		return next()
-	}
-
-	res.redirect('/auth/login')
-}
-
-// Função para verificar autenticação - Se não estiver com sessão iniciada
-function checkNotAuthenticated(req, res, next) {
-	if (req.isAuthenticated()) {
-		return res.redirect('/meu_perfil');
-	}
-	next();
-}
 
 // Rota para página principal
 app.get('/escolher_musculo', checkAuthenticated, function (req, res) {

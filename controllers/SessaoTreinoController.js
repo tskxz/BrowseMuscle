@@ -18,6 +18,7 @@ function makeid(length) {
 
 
 module.exports = {
+    
 
     // Página Utilizador - Formulário para criar uma sessão de treino
     criar_sessao_treino: async (req, res) => {
