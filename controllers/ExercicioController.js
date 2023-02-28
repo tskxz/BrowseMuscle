@@ -21,7 +21,9 @@ module.exports = {
 				dificuldade: Exercicios[i].dificuldade,
 				dificuldade_id: Exercicios[i].dificuldade_id,
 				musculo: Exercicios[i].musculo,
-				musculo_id: Exercicios[i].musculo_id
+				musculo_id: Exercicios[i].musculo_id,
+				video: Exercicios[i].video,
+				descricao: Exercicios[i].descricao
 			});
 		}
 

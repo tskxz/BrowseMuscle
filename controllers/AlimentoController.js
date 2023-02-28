@@ -10,7 +10,7 @@ module.exports = {
         for (let i in alimento) {
             json.result.push({
                 id: alimento[i].id,
-                nome: alimento[i].nome,
+                nome: alimento[i].alimento,
                 proteina: alimento[i].proteina,
                 carbs: alimento[i].carbs,
                 gordura: alimento[i].gordura,
