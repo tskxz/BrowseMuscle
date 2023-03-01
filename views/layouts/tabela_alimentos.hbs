@@ -3,35 +3,55 @@
 <br>
 
 <div class="container pt-5 pb-5">
-	<h2  class="text-light"><br><br><br>
+	<h2 class="text-light"><br><br><br>
 		Alimentos
 	</h2>
 	<p class="lead text-light">
-  Não encontra o alimento que deseja ver? <a href="/Alimentos/adicionar_pedido_alimento" class="text-reset">Adicione o seu alimento!</a><br>
-  Veja os seus <a href="/Alimentos/alimentos_utilizador" class="text-reset">alimentos!</a>
-</p>
-	<div class="col-12 d-flex justify-content-end">
-		<form class="d-flex" method="POST" action="/Alimentos/pesquisa">
-          <input class="form-control me-2" type="text" placeholder="Pesquisar" name="pesquisa" aria-label="Search">
-          <button class="btn btn-primary" type="submit">Pesquisar</button>
-        </form>
-	</div>
+		Não encontra o alimento que deseja ver? <a href="/Alimentos/adicionar_pedido_alimento"
+			class="text-reset">Adicione o seu alimento!</a><br>
+		Veja os seus <a href="/Alimentos/alimentos_utilizador" class="text-reset">alimentos!</a>
+	</p>
+
 	<p style="text-align: center">
-		<table class="table table-hover table-light">
-			<tr class="bg-danger">
+	<table id="alimentos" class="table table-hover table-light">
+		<thead>
+			<tr>
 				<th>ID</th>
 				<th>Alimento</th>
 				<th>Macros</th>
 				<th>Marca</th>
 			</tr>
-			<tbody id="myTable">
-				{{{body}}}
-			</tbody>
-		</table>
+		</thead>
+
+		<tbody id="myTable">
+			{{{body}}}
+		</tbody>
+	</table>
 
 	</p>
-	
+
 </div>
+<script>
+	$(document).ready(function () {
+		$('#alimentos').DataTable({
+
+			"language": {
+				"search": "Pesquisar ",
+				"lengthMenu": "Mostrar _MENU_ registos por página",
+				"zeroRecords": "Nenhum registo encontrado",
+				"info": "A mostrar página _PAGE_ de _PAGES_",
+				"infoEmpty": "Sem registos disponíveis",
+				"infoFiltered": "(filtrado de _MAX_ registos no total)",
+				"paginate": {
+					"previous": "Anterior",
+					"next": "Próximo"
+				}
+			},
+
+			
+		});
+	});
+
+</script>
 
 {{> footer }}
-
