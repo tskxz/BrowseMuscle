@@ -48,7 +48,7 @@ module.exports = {
 		res.json(json)
 
 	},
-
+	
 	// API - JSON - Buscar um utilizador através do username
 	buscarUsername: async (req, res) => {
 		let json = { error: '', result: [] };
@@ -192,7 +192,7 @@ module.exports = {
 				email: utilizador.email,
 				descricao: utilizador.descricao,
 				treinos_concluidos: utilizador.treinos_concluidos,
-				createdAt: utilizador.createdAt,
+				createdAt: utilizador.createdAt.toLocaleDateString('pt-PT', { year: 'numeric', month: '2-digit', day: '2-digit' }),
 				foto: utilizador.foto
 			})
 		} else {
