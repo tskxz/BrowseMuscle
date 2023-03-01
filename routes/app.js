@@ -78,7 +78,7 @@ app.get('/meu_perfil', checkAuthenticated, function (req, res) {
 		descricao: req.user.descricao,
 		id_cargo: req.user.id_cargo,
 		treinos_concluidos: req.user.treinos_concluidos,
-		createdAt: req.user.createdAt,
+		createdAt: req.user.createdAt.toLocaleDateString('pt-PT', { year: 'numeric', month: '2-digit', day: '2-digit' }),
 		foto: req.user.foto
 	})
 })
