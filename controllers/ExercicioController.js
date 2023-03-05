@@ -205,6 +205,7 @@ module.exports = {
       layout: "tabela_exercicios_crud",
       rows: Exercicios,
       user: req.user,
+      error: req.flash("error"),
       success: req.flash("success"),
     });
   },
@@ -295,11 +296,7 @@ module.exports = {
     let musculo_id = req.body.musculo_id;
     let descricao = req.body.descricao;
 
-    // Chama os serviços para visualizar os Equipamentos, Dificuldades e Musculos
-    let Equipamentos = await EquipamentosService.visualizarTodos();
-    let Dificuldades = await DificuldadeService.visualizarTodos();
-    let Musculos = await MusculoService.visualizarTodos();
-
+  
     // Se os valores foi nos enviado através do body
     if (nome && equipamento_id && dificuldade_id && musculo_id) {
       // Insere o exercício ao chamar o serviço inserir
@@ -311,13 +308,8 @@ module.exports = {
         descricao
       );
 
-      res.render("admin/Exercicios/adicionar_exercicios", {
-        rows_eq: Equipamentos,
-        rows_df: Dificuldades,
-        rows_musculos: Musculos,
-        user: req.user,
-        alert: `${nome} Adicionado com sucesso`,
-      });
+      req.flash("success", `Exercício ${nome} adicionado com sucesso!`)
+      res.redirect('/admin/main_exercicios')
     } else {
       res.status(400).send("erro ao enviar um exercício");
     }
@@ -382,6 +374,7 @@ module.exports = {
 
     if (exercicio) {
       // Se for apagado, vai redirecionar para a página da tabela
+      req.flash("success", `Apagado com sucesso!`);
       res.redirect("/admin/main_exercicios/");
     }
   },
@@ -430,6 +423,7 @@ module.exports = {
       );
       if (exercicio) {
         // Foto mudada com sucesso
+        req.flash("success", `Vídeo ${videoExercicio.name} enviado com sucesso!`);
         res.redirect("/admin/main_exercicios");
       }
     });

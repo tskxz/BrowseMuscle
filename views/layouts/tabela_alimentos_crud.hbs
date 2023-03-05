@@ -18,6 +18,12 @@
 	</div>
 	
 	<p style="text-align: center">
+		{{#if success}}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{success}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {{/if}}
 		<div class="d-grid gap-2">
 
 		    <a href="/admin/adicionar_alimento" type="button" class="btn btn-primary align-self-center">+ adicionar alimento</a>

@@ -13,7 +13,7 @@ const UtilizadorController = require('../controllers/UtilizadorController')
 
 // Rota para a página login
 auth.get('/login', checkNotAuthenticated, function (req, res) {
-    res.render('auth/login', { layout: 'auth', error: req.flash("error") })
+    res.render('auth/login', { layout: 'auth', error: req.flash("error"), success: req.flash("success")})
 })
 
 // Rota para fazer logout
@@ -36,7 +36,7 @@ auth.post('/registar', checkNotAuthenticated, UtilizadorController.criar)
 
 // Rota do método post para criar uma conta
 auth.get('/registar', checkNotAuthenticated, function (req, res) {
-    res.render('auth/registar', { layout: 'auth', error: req.flash("error") })
+    res.render('auth/registar', { layout: 'auth', error: req.flash("error"), success: req.flash("success")})
 })
 
 
