@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
@@ -9,7 +9,7 @@ module.exports = {
      * Example:
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
-    await queryInterface.createTable('Sessao_Treinos', {
+    await queryInterface.createTable("Sessao_Treinos", {
       id: {
         autoIncrement: true,
         type: Sequelize.INTEGER,
@@ -33,18 +33,18 @@ module.exports = {
         allowNull: false,
         foreignKey: true,
         references: {
-          model: 'Utilizadores',
-          key: 'id'
-        }
+          model: "Utilizadores",
+          key: "id",
+        },
       },
       exercicio_id: {
         type: Sequelize.INTEGER,
         allowNull: true,
         foreignKey: true,
         references: {
-          model: 'Exercicios',
-          key: 'id'
-        }
+          model: "Exercicios",
+          key: "id",
+        },
       },
       reps_objetivo: {
         type: Sequelize.INTEGER,
@@ -85,18 +85,17 @@ module.exports = {
       },
       createdAt: {
         allowNull: false,
-        type: 'TIMESTAMP',
-        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+        type: "TIMESTAMP",
+        defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),
       },
       concluido: {
         type: Sequelize.BOOLEAN,
         defaultValue: false,
       },
-
-    })
+    });
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Sessao_Treino');
-  }
+    await queryInterface.dropTable("Sessao_Treino");
+  },
 };

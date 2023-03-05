@@ -6,8 +6,7 @@ const path = require('path');
 const passport = require('passport');
 
 // Middlewares
-const { checkAuthenticated, checkNotAuthenticated } = require('../middlewares/authenticated');
-
+const { checkNotAuthenticated } = require('../middlewares/authenticated');
 
 // Controlers
 const UtilizadorController = require('../controllers/UtilizadorController')

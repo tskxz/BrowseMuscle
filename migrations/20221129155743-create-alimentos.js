@@ -1,46 +1,46 @@
-'use strict';
+"use strict";
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Alimentos', {
+    await queryInterface.createTable("Alimentos", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       nome: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       proteina: {
-        type: Sequelize.DOUBLE
+        type: Sequelize.DOUBLE,
       },
       carbs: {
-        type: Sequelize.DOUBLE
+        type: Sequelize.DOUBLE,
       },
       gordura: {
-        type: Sequelize.DOUBLE
+        type: Sequelize.DOUBLE,
       },
       calorias: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       id_marca: {
         type: Sequelize.INTEGER,
         foreignKey: true,
         references: {
-          model: 'Marcas',
-          key: 'id'
-        }
+          model: "Marcas",
+          key: "id",
+        },
       },
       utilizador_id: {
         type: Sequelize.INTEGER,
         allowNull: true,
         foreignKey: true,
         references: {
-          model: 'Utilizadores',
-          key: 'id'
-        }
+          model: "Utilizadores",
+          key: "id",
+        },
       },
       estado: {
         type: Sequelize.INTEGER,
@@ -49,18 +49,18 @@ module.exports = {
       },
       createdAt: {
         allowNull: false,
-        type: 'TIMESTAMP',
-        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+        type: "TIMESTAMP",
+        defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),
       },
       updatedAt: {
         allowNull: false,
-        type: 'TIMESTAMP',
-        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
-      }
+        type: "TIMESTAMP",
+        defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),
+      },
     });
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Alimentos');
-  }
+    await queryInterface.dropTable("Alimentos");
+  },
 };
