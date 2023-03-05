@@ -1,6 +1,5 @@
 const express = require('express');
 const api = express.Router();
-const path = require('path');
 
 // Controllers
 const DificuldadeController = require('../controllers/DificuldadesController');

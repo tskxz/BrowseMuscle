@@ -1,39 +1,39 @@
-'use strict';
+"use strict";
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Utilizadores', {
+    await queryInterface.createTable("Utilizadores", {
       id: {
         autoIncrement: true,
         type: Sequelize.INTEGER,
         allowNull: false,
-        primaryKey: true
+        primaryKey: true,
       },
       username: {
         type: Sequelize.STRING(25),
         allowNull: false,
-        unique: "username"
+        unique: "username",
       },
       primeiro_nome: {
         type: Sequelize.STRING(25),
-        allowNull: false
+        allowNull: false,
       },
       ultimo_nome: {
         type: Sequelize.STRING(25),
-        allowNull: false
+        allowNull: false,
       },
       email: {
         type: Sequelize.STRING(100),
-        allowNull: false
+        allowNull: false,
       },
       num_telemovel: {
         type: Sequelize.STRING(25),
-        allowNull: true
+        allowNull: true,
       },
       password: {
         type: Sequelize.STRING(100),
-        allowNull: false
+        allowNull: false,
       },
       id_cargo: {
         type: Sequelize.INTEGER,
@@ -41,18 +41,18 @@ module.exports = {
         defaultValue: 1,
         foreignKey: true,
         references: {
-          model: 'Cargos',
-          key: 'id'
-        }
+          model: "Cargos",
+          key: "id",
+        },
       },
       descricao: {
         type: Sequelize.TEXT,
-        allowNull: true
+        allowNull: true,
       },
       treinos_concluidos: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        defaultValue: 0
+        defaultValue: 0,
       },
       foto: {
         type: Sequelize.STRING(100),
@@ -60,18 +60,18 @@ module.exports = {
       },
       createdAt: {
         allowNull: false,
-        type: 'TIMESTAMP',
-        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+        type: "TIMESTAMP",
+        defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),
       },
       updatedAt: {
         allowNull: false,
-        type: 'TIMESTAMP',
-        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
-      }
-    })
+        type: "TIMESTAMP",
+        defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),
+      },
+    });
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Utilizadores');
-  }
+    await queryInterface.dropTable("Utilizadores");
+  },
 };

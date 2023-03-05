@@ -2,13 +2,12 @@
 
 const express = require('express');
 const admin = express.Router();
-const path = require('path');
 
 
 // Middlewares
 
 const { authRole } = require('../middlewares/authRole');
-const { checkAuthenticated, checkNotAuthenticated } = require('../middlewares/authenticated');
+const { checkAuthenticated, } = require('../middlewares/authenticated');
 
 // Controllers
 const AlimentoController = require('../controllers/AlimentoController');

@@ -1,48 +1,45 @@
 {{> header }}
-
 <br>
 <br>
-
-
 <div class="container-fluid">
 	<h2 class="text-light"><br><br><br>
 		Gestão de exercícios
 	</h2>
 
 	<div class="col-12 d-flex justify-content-end">
-
 		<form class="d-flex" method="POST" action="/admin/Exercicios/pesquisa">
 			<input class="form-control me-2" type="text" placeholder="Pesquisar" name="pesquisa" aria-label="Search">
 			<button class="btn btn-primary" type="submit">Pesquisar</button>
 		</form>
-
-
 	</div>
 
 	<p style="text-align: center">
-	<div class="d-grid gap-2">
-
-		<a href="/admin/adicionar_exercicio" type="button" class="btn btn-primary align-self-center">+ adicionar
-			exercício</a>
-	</div>
-	<table class="table table-bordered table-hover table-light">
-		<thead class="thead-light">
-			<tr class="bg-danger">
-				<th scope="col">ID</th>
-				<th scope="col">Exercício</th>
-				<th scope="col">Equipamento</th>
-				<th scope="col">Dificuldade</th>
-				<th scope="col">Músculo</th>
-				<th scope="col" class="text-end">Ações</th>
-			</tr>
-		</thead>
-		<tbody id="myTable">
-			{{{body}}}
-		</tbody>
-	</table>
-
+		<div class="d-grid gap-2">
+			{{#if success}}
+			<div class="alert alert-success alert-dismissible fade show" role="alert">
+				{{success}}
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+			</div>
+			{{/if}}
+			<a href="/admin/adicionar_exercicio" type="button" class="btn btn-primary align-self-center">+ adicionar
+				exercício</a>
+		</div>
+		<table class="table table-bordered table-hover table-light">
+			<thead class="thead-light">
+				<tr class="bg-danger">
+					<th scope="col">ID</th>
+					<th scope="col">Exercício</th>
+					<th scope="col">Equipamento</th>
+					<th scope="col">Dificuldade</th>
+					<th scope="col">Músculo</th>
+					<th scope="col" class="text-end">Ações</th>
+				</tr>
+			</thead>
+			<tbody id="myTable">
+				{{{body}}}
+			</tbody>
+		</table>
 	</p>
-
 </div>
 
 {{> footer }}
