@@ -91,6 +91,8 @@ module.exports = {
       layout: "tabela_utilizadores_crud",
       Utilizadores,
       user: req.user,
+      error: req.flash("error"),
+      success: req.flash("success"),
     });
   },
 
@@ -143,6 +145,7 @@ module.exports = {
 
     // Verifica se atualizou
     if (utilizador) {
+      req.flash("success", `Utilizador atualizado com sucesso!`);
       res.redirect("/admin/main_utilizadores");
     } else {
       res.status(403);
@@ -186,6 +189,7 @@ module.exports = {
     if (!apagar) {
       res.send("err");
     } else {
+      req.flash("success", "Foto apagada!")
       res.redirect("/meu_perfil");
     }
   },
@@ -234,6 +238,7 @@ module.exports = {
       descricao
     );
     if (utilizador) {
+      req.flash("success", "Perfil atualizado com sucesso!")
       res.redirect("/meu_perfil");
     }
   },
@@ -266,6 +271,8 @@ module.exports = {
           // Chama o serviço criar que vai inserir os valores obtidos com a palavra passe encriptada
           await UtilizadorService.mudar_pass(req.user.id, hashedNewPassword);
           message = "Palavra passe mudada com sucesso!";
+          req.flash("success", "Palavra passe mudada com sucesso!")
+          res.redirect('/meu_perfil')
         } else {
           message = "Palavra passe não são iguais!";
         }
@@ -340,7 +347,7 @@ module.exports = {
     res.json(json);
   },
 
-  // API - JSON - Criar um utilizador
+  // API - Criar um utilizador
   criar: async (req, res) => {
     let json = { error: "", result: [] };
 
@@ -388,6 +395,7 @@ module.exports = {
             password,
           };
 
+          req.flash("success", `Conta criada com sucesso! Entre na sua conta.`);
           res.redirect("/auth/login");
         } else {
           req.flash("error", `Email já existe!`);
@@ -407,6 +415,7 @@ module.exports = {
     // Chama o serviço apagar para apagar o dado através do id
     let apagado = await UtilizadorService.apagar(req.params.id);
     if (apagado) {
+      req.flash("success", `Utilizador apagado com sucesso!`);
       res.redirect("/admin/main_utilizadores/");
     }
   },
@@ -420,7 +429,7 @@ module.exports = {
     let utilizador = await UtilizadorService.pesquisarUtilizador(pesquisa);
 
     // Quantidade de resultado
-    var keyCount = Object.keys(rows).length;
+    var keyCount = Object.keys(utilizador).length;
 
     // Mostra o resultado
     res.render("admin/Utilizadores/pesquisa", {

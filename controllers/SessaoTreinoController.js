@@ -252,7 +252,7 @@ module.exports = {
           json.result = "error";
         } else {
           json.result = "success!";
-          req.flash("success", `Realizado com sucesso!`);
+          req.flash("success", `Exercício adicionado com sucesso!`);
         }
       } else {
         json.result = "nao pode adicionar o mesmo exercicio";
@@ -283,7 +283,7 @@ module.exports = {
         id_user,
         treinos_concluidos
       );
-      req.flash("success", `Finalizado com sucesso!`);
+      req.flash("success", `Sessão de treino finalizado com sucesso!`);
     }
     res.redirect(`/lista_sessao_treino`);
   },
@@ -327,14 +327,13 @@ module.exports = {
     let nome_treino = req.body.nome;
     let descricao_treino = req.body.descricao;
 
-    console.log(nome_treino, descricao_treino);
-
     // Edita as informações
     if (!nome_treino && !descricao_treino) {
     } else {
       await SessaoTreinoService.editar(id, nome_treino, descricao_treino);
     }
 
+    req.flash("success", `Sessão de treino ${nome_treino} atualizado com sucesso!`)
     res.redirect("/lista_sessao_treino");
   },
 

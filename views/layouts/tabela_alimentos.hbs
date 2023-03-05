@@ -11,7 +11,12 @@
 			class="text-reset">Adicione o seu alimento!</a><br>
 		Veja os seus <a href="/Alimentos/alimentos_utilizador" class="text-reset">alimentos!</a>
 	</p>
-
+	{{#if success}}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{success}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {{/if}}
 	<p style="text-align: center">
 	<table id="alimentos" class="table table-hover table-light">
 		<thead>

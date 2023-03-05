@@ -127,6 +127,8 @@ module.exports = {
       layout: "tabela_alimentos",
       rows: Alimentos,
       user: req.user,
+      error: req.flash("error"),
+      success: req.flash("success"),
     });
   },
 
@@ -156,6 +158,8 @@ module.exports = {
       layout: "tabela_alimentos_crud",
       rows: Alimentos,
       user: req.user,
+      error: req.flash("error"),
+      success: req.flash("success"),
     });
   },
 
@@ -222,13 +226,10 @@ module.exports = {
         calorias,
         id_marca
       );
+      req.flash("success", `Alimento ${nome} adicionado com sucesso!`);
+      res.redirect("/admin/main_alimentos");
 
-      // Após ser inserido, mostra o alert
-      res.render("admin/Alimentos/adicionar_alimentos", {
-        alert: `${nome} Adicionado com sucesso`,
-        user: req.user,
-        rows_marcas: Marcas,
-      });
+     
     } else {
       res.status(400).send("Erro ao adicionar alimento");
     }
@@ -270,13 +271,9 @@ module.exports = {
         id_marca,
         utilizador_id
       );
+      req.flash("success", `${nome} adicionado com sucesso!`);
+      res.redirect("/alimentos");
 
-      // Após ser inserido, mostra o alert
-      res.render("app/Alimentos/adicionar_alimento_pedido", {
-        alert: `${nome} Adicionado com sucesso`,
-        user: req.user,
-        rows_marcas,
-      });
     } else {
       res.status(400).send("Erro ao adicionar alimento");
     }
@@ -300,6 +297,7 @@ module.exports = {
 
     // Redireciona para a página principal se for apagado
     if (alimento) {
+      req.flash("success", `Apagado com sucesso!`)
       res.redirect("/admin/main_alimentos/");
     }
   },
@@ -339,13 +337,8 @@ module.exports = {
         gordura,
         calorias
       );
-
-      // Mostra o alert após alterar um valor do alimento
-      res.render("admin/Alimentos/editar_alimento", {
-        row,
-        alert: `${nome} com id ${id} alterado com sucesso`,
-        user: req.user,
-      });
+      req.flash("success", `Alimento ${nome} atualizado com sucesso!`);
+      res.redirect("/admin/main_alimentos");
     } else {
       res.status(400).send("Erro ao editar alimento");
     }
