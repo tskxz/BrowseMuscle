@@ -9,7 +9,7 @@
         labels: ['Proteina', 'Hidratos de Carbono', 'Gordura'], // Macronutrientes
         datasets: [
             {
-                label: 'Dataset 1',
+                label: 'Gramas',
                 data: [{{ this.proteina }}, {{ this.carbs }}, {{ this.gordura }}], // Proteina: 12 | Hidratos de carbono: 29 | Gordura: 12
     backgroundColor: [
         'rgba(255, 99, 132)',
@@ -24,7 +24,7 @@
         type: 'pie', // Gráfico redondo
         data: data,
         options: {
-            responsive: true,
+            responsive: false,
 
             plugins: {
                 legend: {

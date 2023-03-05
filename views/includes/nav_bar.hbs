@@ -1,211 +1,63 @@
-<!--
-<nav class="navbar navbar-expand-lg fixed-top navbar navbar-dark bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="/"><img src="/assets/img/browsemuscle_dark.png" width="250px" height="50px"></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active text-dark" aria-current="page" href="/">Home</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button"
-            data-bs-toggle="dropdown" aria-expanded="false">
-            Exercícios
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="/Exercicios">Exercícios</a></li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <div id="dropdown-Musculos">
-
-            </div>
-
-
-          </ul>
-        </li>
-
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button"
-            data-bs-toggle="dropdown" aria-expanded="false">
-            Equipamentos
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item disabled">Equipamentos</a></li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <div id="dropdown_equipamentos_navegacao"></div>
-          </ul>
-        </li>
-
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button"
-            data-bs-toggle="dropdown" aria-expanded="false">
-            Dificuldades
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item">Dificuldades</a></li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <div id="dropdown_dificuldades_navegacao"></div>
-          </ul>
-        <li class="nav-item">
-          <a class="nav-link text-dark" aria-current="page" href="/Alimentos">Alimentos</a>
-        </li>
-        </li>
-      </ul>
-      <form class="d-flex" method="POST" action="/Exercicios/pesquisa">
-        <input class="form-control me-2" type="text" placeholder="Pesquisar" name="pesquisa" aria-label="Search">
-        <button class="btn btn-outline-light text-dark" type="submit">Pesquisar</button>
-      </form>
-
-      <ul class="navbar-nav dropstart">
-        <li class="nav-item dropdown ">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-            aria-expanded="false">
-            <img src="/assets/img/user.png" width="26px" height="26px" />
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-
-            {{#unless username}}
-            <li><a class="dropdown-item" href="/auth/login">Login</a></li>
-            {{/unless}}
-
-            {{#if username}}
-            <li><a class="dropdown-item" href="/meu_perfil">{{username}}</a></li>
-            <form action="/auth/logout" method="post">
-
-              <button type="submit" class="btn btn-link">Logout</button>
-            </form>
-            {{/if}}
-          </ul>
-
-        </li>
-      </ul>
-
-    </div>
-  </div>
-</nav>
--->
 <style>
-  .card__image_nav {
-    box-shadow: 0 1px 10px rgba(255, 255, 255, 0), 0 2px 9px rgb(0, 0, 0);
-
-    margin: 0 auto;
-    width: 26px;
-    height: 26px;
-    border-radius: 60%;
-    overflow: hidden;
-    -o-object-fit: cover;
-    object-fit: cover;
-    border: 1px solid rgb(255, 255, 255);
-  }
+  header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+}
+@media (max-width: 767.98px) {
+  .my-container {
+    margin-top: 260px; /* altura da barra de navegação */
+  },
+   .my-container-crud-ex {
+    margin-top: 160px;
+  },
+}
 </style>
-<nav class="navbar navbar-dark navbar-expand-lg bg-light fixed-top" id="mainNav">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="/"><img src="/assets/img/browsemuscle_dark.png" width="250px" height="100px"></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
-      aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-      Menu
-      <i class="fas fa-bars ms-1"></i>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
-      <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="/">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="/main_alimentos">Alimentos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="/menu_sessao_treino">Sessão de Treino</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="/escolher_musculo">Músculo</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-            aria-expanded="false">
-            Exercícios
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="/Exercicios">Exercícios</a></li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
+<nav id="navScroll" class="navbar navbar-dark bg-black fixed-top px-vw-5" tabindex="0">
+  <div class="container">
+    <a class="navbar-brand pe-md-4 fs-4 col-12 col-md-auto text-center" href="/">
+  <img src="/assets/img/browsemuscle_light.png" width="300">
+</a>
 
-            <div id="dropdown-Musculos">
-
-            </div>
-
-
-          </ul>
-        </li>
-
-
-
-
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-            aria-expanded="false">
-            Equipamentos
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-
-            <li><a class="dropdown-item disabled">Equipamentos</a></li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <div id="dropdown_equipamentos_navegacao"></div>
-          </ul>
-        </li>
-
-
-
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-            aria-expanded="false">
-            Dificuldades
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item disabled">Dificuldades</a></li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <div id="dropdown_dificuldades_navegacao"></div>
-          </ul>
-        </li>
-
-        
-
-        {{#unless user}}
-        <li class="nav-item"><a class="nav-link" href="/auth/login">Login</a></li>
-        {{/unless}}
-
-        {{#if user}}
-
-
-        {{#if foto}}
-        <li class="nav-item"><a class="nav-link " href="/meu_perfil"><img class="card__image_nav"
-              src="/upload/{{user.foto}}" /> {{user.username}}</a></li>
-        
-        {{else}}
-        <li class="nav-item"><a class="nav-link " href="/meu_perfil"><img class="card_image_nav"
-              src="/assets/img/user.png" width="26px" height="26px" /> {{user.username}}</a></li>
-        {{/if}}
-
-        {{/if}}
-
-
-      </ul>
-    </div>
-  </div>
-
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0 list-group list-group-horizontal">
+      <li class="nav-item">
+  <a class="nav-link fs-5" href="/" aria-label="Homepage">
+    Home
+  </a>
+</li>
+<li class="nav-item">
+  <a class="nav-link fs-5" href="/content" aria-label="A sample content page">
+    Content
+  </a>
+</li>
+<li class="nav-item">
+  <a class="nav-link fs-5" href="/musculos" aria-label="A sample content page">
+    Músculos
+  </a>
+</li>
+<li class="nav-item">
+  <a class="nav-link fs-5" href="/main_alimentos" aria-label="A sample content page">
+    Alimentos
+  </a>
+</li>
+    </ul>
+    {{#unless user}}
+      <a href="/auth/login" aria-label="Download this template" class="btn btn-outline-light">
+        <small>Login</small>
+      </a>
+    {{/unless}}
+     {{#if user}}
+     <a href="/meu_perfil" class="btn btn-outline-light">
+        <small>Perfil</small>
+      </a> &nbsp;
+      {{#ifEquals user.id_cargo "2"}}
+      <a href="/admin/dashboard" class="btn btn-outline-light">
+        <small>Administração</small>
+      </a>
+      {{/ifEquals}}
+      
+    {{/if}}
+</div>
 </nav>

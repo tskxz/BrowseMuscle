@@ -17,7 +17,7 @@ auth.get('/login', checkNotAuthenticated, function (req, res) {
 })
 
 // Rota para fazer logout
-auth.post('/logout', function (req, res, next) {
+auth.get('/logout', function (req, res, next) {
     req.logout(function (err) {
         if (err) { return next(err); }
         res.redirect('/');

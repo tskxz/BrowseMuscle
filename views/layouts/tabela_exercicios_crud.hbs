@@ -1,8 +1,9 @@
 {{> header }}
+{{> nav_bar}}
 <br>
 <br>
-<div class="container-fluid">
-	<h2 class="text-light"><br><br><br>
+<div class="container-fluid my-container">
+	<h2 class="text-dark"><br><br><br>
 		Gestão de exercícios
 	</h2>
 
@@ -18,7 +19,7 @@
 			{{#if success}}
 			<div class="alert alert-success alert-dismissible fade show" role="alert">
 				{{success}}
-				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+				
 			</div>
 			{{/if}}
 			<a href="/admin/adicionar_exercicio" type="button" class="btn btn-primary align-self-center">+ adicionar

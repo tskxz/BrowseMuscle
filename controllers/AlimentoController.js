@@ -172,7 +172,7 @@ module.exports = {
     let alimento = await AlimentoService.pesquisarAlimento(pesquisa);
 
     // Quantidade de resultados encontrados semelhantes
-    var keyCount = Object.keys(rows).length;
+    var keyCount = Object.keys(alimento).length;
 
     // Mostra os alimentos na tabela
     res.render("admin/Alimentos/pesquisa", {

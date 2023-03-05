@@ -1,4 +1,8 @@
-<div class="d-flex align-items-center justify-content-center" style="height: 60vh">
+{{> header }}
+
+
+<body class="bg-black text-dark mt-0" data-bs-spy="scroll" data-bs-target="#navScroll"><br><br><br><br>
+{{> nav_bar}}<div class="d-flex align-items-center justify-content-center" style="height: 60vh">
     <div class="container">
         {{#each rows}}
         <h1 class="text-light">{{exercicio_nome}} - {{carga}}KG - {{reps_objetivo}} Reps</h1>

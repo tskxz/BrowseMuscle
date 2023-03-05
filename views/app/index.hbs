@@ -1,345 +1,313 @@
-<!DOCTYPE html>
-<html lang="en">
+{{> header}}
+  <body class="bg-black text-white mt-0" data-bs-spy="scroll" data-bs-target="#navScroll">
 
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    {{> nav_bar}}
 
+    <main>
+      <div class="w-100 overflow-hidden position-relative bg-black text-white" data-aos="fade">
+  <div class="position-absolute w-100 h-100 bg-black opacity-75 top-0 start-0"></div>
+  <div class="container py-vh-4 position-relative mt-5 px-vw-5 text-center">
+  <div class="row d-flex align-items-center justify-content-center py-vh-5">
+    <div class="col-12 col-xl-10">
+      <span class="h5 text-secondary fw-lighter">A nossa missão</span>
+      <h1 class="display-huge mt-3 mb-3 lh-1">BrowseMuscle </h1>
+      <h1 class="display-huge mt-3 mb-3 lh-1">Fitness & Musculação</h1>
+      
+    </div>
+    <div class="col-12 col-xl-8">
+      <p class="lead text-secondary">Obtém conhecimento mais amplo sobre exercício físico! Conhece e aprende a executar de forma correta os exercícios.
+      </p>
+    </div>
+    <div class="col-12 text-center">
+      <a href="/auth/registar" class="btn btn-xl btn-light">Junta te a nós
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+</svg>
+</a>
+    </div>
+  </div>
+</div>
 
-    <meta name="description" content="" />
-    <meta name="author" content="" />
+</div>
 
-    <title>BrowseMuscle</title>
-    <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
-    <!-- Font Awesome icons (free version)-->
-    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-    <!-- Google fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
-    <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="assets/css/page.css" rel="stylesheet" />
-</head>
-
-  <link href="/assets/css/cover.css" rel="stylesheet">
-
-
-<body id="page-top" class="h-100 text-center text-bg-dark">
-    <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-light  fixed-top" id="mainNav">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="/"><img src="/assets/img/browsemuscle_dark.png" width="250px"
-                    height="100px"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
-                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                Menu
-                <i class="fas fa-bars ms-1"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                    {{#if user}}
-                    <li class="nav-item"><a class="nav-link" href="/main_alimentos">Alimentos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/menu_sessao_treino">Sessão de Treino</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/escolher_musculo">Músculo</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/exercicios">Exercícios</a></li>
-                    
-                    {{/if}}
-                    <li class="nav-item"><a class="nav-link" href="#vantagens">Vantagens</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#sobre">Sobre nós</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contacto</a></li>
-
-                    {{#unless user}}
-                    <li class="nav-item"><a class="nav-link" href="/auth/login">Login</a></li>
-                    {{/unless}}
-
-                    {{#if user}}
-
-                    {{#if user.foto}}
-                    <li class="nav-item"><a class="nav-link " href="/meu_perfil"><img class="card__image_nav"
-                                src="/upload/{{user.foto}}" /> {{user.username}}</a></li>
-
-                    {{else}}
-                    <li class="nav-item"><a class="nav-link " href="/meu_perfil"><img class="card_image_nav"
-                                src="/assets/img/user.png" width="26px" height="26px" /> {{user.username}}</a></li>
-                    {{/if}}
-
-                    {{/if}}
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <!-- Masthead-->
-    <header class="masthead">
-        <div class="container">
-
-            <div class="masthead-heading">BrowseMuscle</div>
-            <div class="masthead-subheading">Exercícios</div>
-            <div class="masthead-subheading">Alimentos</div>
-            <div class="masthead-subheading">Evoluções</div>
-            <div class="masthead-subheading">Ganhos de massa muscular</div>
-
-            <a class="btn btn-primary btn-xl text-uppercase" href="#vantagens">Conta me mais!</a>
-        </div>
-    </header>
-    <!-- vantagens-->
-    <section class="page-section" id="vantagens">
-        <div class="container">
-            <div class="text-center">
-                <h2 class="section-heading text-light text-uppercase">As tuas vantagens!</h2>
-                <h3 class="section-subheading text-light">Conhece vários exercícios e aprende como executa-lo de forma
-                    correta!<br>Guarda os exercícios para visualizar futuramente para puderes planear os teus sessaos de
-                    treino!</h3>
-
-            </div>
-            <div class="row text-center">
-                <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa-solid fa-dumbbell fa-stack-1x fa-inverse"></i>
-                        < </span>
-                            <h4 class="text-light my-3">Exercícios</h4>
-                            <p class="text-light">Visualize os exercícios relativamente com o equipamento que queira
-                                escolher para visualizar</p>
-                </div>
-                <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fas fa-plate-wheat fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <h4 class="text-light my-3">Alimentos</h4>
-                    <p class="text-light">Pesquisa e visualiza as informações de macronutrientes de qualquer alimento
-                        que deseja e que esteja presente na nossa base de dados</p>
-                </div>
-                <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fas fa-users fa-stack-1x fa-inverse"></i><i class="fa-solid "></i>
-                    </span>
-                    <h4 class="text-light my-3">Interação</h4>
-                    <p class="text-light">Adicione os seus amigos e veja os perfis dos seus amigos para ver a evolução
-                        de cada um dos seus treinos</p>
-                </div>
-                <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fas fa-table-list fa-stack-1x fa-inverse"></i><i class="fa-solid "></i>
-                    </span>
-                    <h4 class="text-light my-3">Sessões de treino</h4>
-                    <p class="text-light">Crie as suas próprias sessões de treino. Seleciona os exercícios que queira e
-                        escolha que carga e número de repetições vai fazer e faça checklist durante o seu treino</p>
-                </div>
-                <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fas fa-chart-line fa-stack-1x fa-inverse"></i><i class="fa-solid "></i>
-
-                    </span>
-                    <h4 class="text-light my-3">Evolução</h4>
-                    <p class="text-light">Ao anotares as cargas e números de repetições, vai gerar gráficos para
-                        visualizar as tuas evoluções desde o começo</p>
-                </div>
-
-                <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fas fa-screwdriver-wrench fa-stack-1x fa-inverse"></i><i class="fa-solid "></i>
-
-                    </span>
-                    <h4 class="text-light my-3">Ferramentas</h4>
-                    <p class="text-light">Usa várias ferramentas para descobrir coisas necessárias. Como por exemplo,
-                        calcular a quantidade de macronutrientes e calorias que precisas de comer e calcular o peso para
-                        X reps</p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-    <!-- sobre-->
-    <section class="page-section" id="sobre">
-        <div class="container">
-            <div class="text-center">
-                <h2 class="section-heading text-uppercase text-light">Sobre</h2>
-                <h3 class="section-subheading text-light">Saiba mais sobre o BrowseMuscle</h3>
-            </div>
-            <ul class="timeline">
-                <li>
-                    <div class="timeline-image"><img class="rounded-circle img-fluid"
-                            src="/assets/img/humano_musculo.png" alt="..." /></div>
-                    <div class="timeline-panel">
-                        <div class="timeline-heading">
-                            <h4 class="text-light">Exercícios</h4>
-                            <h4 class="subheading text-light">Escolhe por grupo muscular</h4>
-                        </div>
-                        <div class="timeline-body">
-                            <p class="text-light">Escolha o grupo muscular que deseja atingir. Uma vez no grupo
+<div class="w-100 position-relative bg-black text-white bg-cover d-flex align-items-center">
+  <div class="container-fluid px-vw-5">
+    <div class="position-absolute w-100 h-50 bg-dark bottom-0 start-0"></div>
+    <div class="row d-flex align-items-center position-relative justify-content-center px-0 g-5">
+      <div class="col-12 col-lg-6">
+        <img src="/assets/video/one_leg_press.gif" width="2280" height="1732" alt="abstract image" class="img-fluid position-relative rounded-5 shadow" data-aos="fade-up">
+      </div>
+      <div class="col-12 col-md-6 col-lg-3">
+        <img src="/assets/video/shoulder_press.gif" width="1116" height="1578" alt="abstract image" class="img-fluid position-relative rounded-5 shadow" data-aos="fade-up" data-aos-duration="2000">
+      </div>
+      <div class="col-12 col-md-6 col-lg-3">
+        <img src="/assets/video/one_arm.gif" width="1116" height="848" alt="abstract image" class="img-fluid position-relative rounded-5 shadow" data-aos="fade-up" data-aos-duration="3000">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="bg-dark">
+  <div class="container px-vw-5 py-vh-5">
+    <div class="row d-flex align-items-center">
+      <div class="col-12 col-lg-7 text-lg-end" data-aos="fade-right">
+        <span class="h5 text-secondary fw-lighter">Objetivo</span>
+        <h2 class="display-4">Aprender a executar de forma correta e conhecer novos exercícios para atingir o seu músculo desejado</h2>
+      </div>
+      <div class="col-12 col-lg-5" data-aos="fade-left">
+        <h3 class="pt-5">Visualiza a nossa tabela de exercícios</h3>
+        <p class="text-secondary">Escolha o grupo muscular que deseja atingir. Uma vez no grupo
                                 muscular, use as opções de classificação e filtro para encontrar os melhores exercícios
-                                para o equipamento que você possui, sua experiência de treinamento e objetivos.</p>
-                        </div>
-                    </div>
-                </li>
-                <li class="timeline-inverted">
-                    <div class="timeline-image"><img class="rounded-circle img-fluid" src="/assets/img/writing_plan.jpg"
-                            alt="..." /></div>
-                    <div class="timeline-panel">
-                        <div class="timeline-heading">
-                            <h4 class="text-light">Sessões de treino</h4>
-                            <h4 class="subheading text-light">Cria as sessões de treino</h4>
-                        </div>
-                        <div class="timeline-body">
-                            <p class="text-light">Planeia as tuas próprias sessões de treino. Anota os teus objetivos de
-                                carga ou número de repetições num exercício. Visualiza os detalhes do teu sessao de
-                                treino. Visualiza os teus progressos ao longo dos teus treinos</p>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="timeline-image"><img class="rounded-circle img-fluid"
-                            src="assets/img/calculate_macro.webp" alt="..." /></div>
-                    <div class="timeline-panel">
-                        <div class="timeline-heading">
-                            <h4 class="text-light">Alimentos</h4>
-                            <h4 class="subheading text-light">Pesquisa o alimento</h4>
-                        </div>
-                        <div class="timeline-body">
-                            <p class="text-light">Pesquisa os alimentos que queiras visualizar e saiba a quantidade de
-                                macronutrientes. As proteínas são importantes para a construção e manutenção dos
-                                músculos, enquanto os carboidratos fornecem energia para o corpo e as gorduras são
-                                necessárias para o bom funcionamento do sistema nervoso e outras funções corporais. Além
-                                disso, saber as macros de um alimento também pode ajudar as pessoas a controlar sua
-                                ingestão calórica e atingir seus objetivos de perda de peso ou ganho muscular.</p>
-                        </div>
-                    </div>
-                </li>
-                <li class="timeline-inverted">
-                    <div class="timeline-image"><img class="rounded-circle img-fluid"
-                            src="assets/img/calculate_tools.png" alt="..." /></div>
-                    <div class="timeline-panel">
-                        <div class="timeline-heading">
-                            <h4 class="text-light">Ferramentas</h4>
-                            <h4 class="subheading text-light">Usa as ferramentas que irás precisar</h4>
-                        </div>
-                        <div class="timeline-body">
-                            <p class="text-light">Usa várias ferramentas. Como por exemplo, calcular a quantidade de
-                                macronutrientes e calorias que precisas de comer e calcular o peso para X reps.</p>
-                        </div>
-                    </div>
-                </li>
-                <li class="timeline-inverted">
-                    <div class="timeline-image">
-                        <h4>
-                            Seja parte
-                            <br />
+                                para o equipamento que você possui, sua experiência de treino e objetivos<br>
+          <a href="#" class="link-fancy link-fancy-light me-2">Tell me more</a>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+</svg>
+</p>
+        <h3 class="border-top border-secondary pt-5 mt-5">Usa as ferramentas que poderás vir precisar</h3>
+        <p class="text-secondary">Usa várias ferramentas. Como por exemplo, calcular a quantidade de
+                                macronutrientes e calorias que precisas de comer e calcular o peso para X reps.<br>
+          <a href="#" class="link-fancy link-fancy-light me-2">Tell me more</a>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+</svg>
+</p>
+      </div>
+    </div>
+  </div>
+</div>
 
+<div class="bg-black py-vh-3">
+  <div class="container bg-black px-vw-5 py-vh-3 rounded-5 shadow">
 
-                            BrowseMuscle💪
-                        </h4>
-                    </div>
-                </li>
-            </ul>
+  <div class="row gx-5">
+    <div class="col-12 col-md-6">
+      <div class="card bg-transparent mb-5" data-aos="zoom-in-up">
+        <div class="bg-dark shadow rounded-5 p-0">
+          <img src="/assets/video/squat.gif" width="582" height="327" alt="abstract image" class="img-fluid rounded-5 no-bottom-radius" loading="lazy">
+          <div class="p-5">
+            <h2 class="fw-lighter">Sê consistente e faz as tuas sessões de treino</h2>
+            <p class="pb-4 text-secondary">Ser consistente é fundamental para quem quer transformar-se e crescer no mundo da musculação. Com consistência, é possível evoluir e alcançar objetivos cada vez maiores.</p>
+            <a href="#" class="link-fancy link-fancy-light">Read more</a>
+          </div>
         </div>
-    </section>
+      </div>
 
-
-    <!-- Contact-->
-    <section class="page-section" id="contact">
-        <div class="container">
-            <div class="text-center">
-                <h2 class="section-heading text-uppercase">Contacte-nos</h2>
-                <h3 class="section-subheading text-light">Contacte-nos para tirar todas as tuas dúvidas possiveis.</h3>
-            </div>
-            <!-- * * * * * * * * * * * * * * *-->
-            <!-- * * SB Forms Contact Form * *-->
-            <!-- * * * * * * * * * * * * * * *-->
-            <!-- This form is pre-integrated with SB Forms.-->
-            <!-- To make this form functional, sign up at-->
-            <!-- https://startbootstrap.com/solution/contact-forms-->
-            <!-- to get an API token!-->
-            <form id="contactForm" data-sb-form-api-token="API_TOKEN">
-                <div class="row align-items-stretch mb-5">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <!-- Name input-->
-                            <input class="form-control" id="name" type="text" placeholder="O teu nome *"
-                                data-sb-validations="required" />
-                            <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
-                        </div>
-                        <div class="form-group">
-                            <!-- Email address input-->
-                            <input class="form-control" id="email" type="email" placeholder="O teu email *"
-                                data-sb-validations="required,email" />
-                            <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
-                            <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
-                        </div>
-                        <div class="form-group mb-md-0">
-                            <!-- Phone number input-->
-                            <input class="form-control" id="phone" type="tel" placeholder="O teu telemóvel *"
-                                data-sb-validations="required" />
-                            <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group form-group-textarea mb-md-0">
-                            <!-- Message input-->
-                            <textarea class="form-control" id="message" placeholder="A tua mensagem *"
-                                data-sb-validations="required"></textarea>
-                            <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Submit success message-->
-                <!---->
-                <!-- This is what your users will see when the form-->
-                <!-- has successfully submitted-->
-                <div class="d-none" id="submitSuccessMessage">
-                    <div class="text-center text-white mb-3">
-                        <div class="fw-bolder">Formulário enviado com sucesso!</div>
-                        
-                    </div>
-                </div>
-                <!-- Submit error message-->
-                <!---->
-                <!-- This is what your users will see when there is-->
-                <!-- an error submitting the form-->
-                <div class="d-none" id="submitErrorMessage">
-                    <div class="text-center text-danger mb-3">Error sending message!</div>
-                </div>
-                <!-- Submit Button-->
-                <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase disabled"
-                        id="submitButton" type="submit">Enviar mensagem</button></div>
-            </form>
+      <div class="card bg-transparent" data-aos="zoom-in-up">
+        <div class="bg-dark shadow rounded-5 p-0">
+          <img src="/assets/video/bicep.gif" width="582" height="442" alt="abstract image" class="img-fluid rounded-5 no-bottom-radius" loading="lazy">
+          <div class="p-5">
+            <h2 class="fw-lighter">Planeia as tuas sessões de treino</h2>
+            <p class="pb-4 text-secondary">Planear as sessões de treino é essencial para obter resultados consistentes e efetivos na musculação. Podes definir metas realistas e acompanhar o seu progresso ao longo do tempo. Planear as suas sessões de treino permite que seja mais eficiente e eficaz o que pode levar a resultados mais rápidos e satisfatórios.</p>
+            <a href="#" class="link-fancy link-fancy-light">Read more</a>
+          </div>
         </div>
-    </section>
-    <!-- Footer-->
-    <footer class="footer py-4">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-4 text-lg-start">Copyright &copy; BrowseMuscle 2022/2023</div>
-                <div class="col-lg-4 my-3 my-lg-0">
-
-                    <img src="/assets/img/poch.png" width="300" alt="">
-                </div>
-                <div class="col-lg-4 text-lg-end">
-                    <a class="link-dark text-decoration-none me-3" href="https://filipa-vilhena.edu.pt/"
-                        target="_blank">Escola Filipa de Vilhena</a>
-                    <a class="link-dark text-decoration-none" href="http://tgpsi.filipa-vilhena.edu.pt/"
-                        target="_blank">Curso TGPSI</a>
-                </div>
-            </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="p-5 pt-0 mt-5" data-aos="fade">
+        <span class="h5 text-secondary fw-lighter">Organiza-te!</span>
+        <h2 class="display-4">Cria as tuas próprias sessões de treino!</h2>
+      </div>
+      <div class="card bg-transparent mb-5 mt-5" data-aos="zoom-in-up">
+        <div class="bg-dark shadow rounded-5 p-0">
+          <img src="/assets/video/hacksquat.gif" width="582" height="390" alt="abstract image" class="img-fluid rounded-5 no-bottom-radius" loading="lazy">
+          <div class="p-5">
+            <h2 class="fw-lighter">Anota a carga e repetições</h2>
+            <p class="pb-4 text-secondary">Anotar a carga e as repetições é essencial para medir o progresso nos treinos. Ao manter um registo consistente, é possível ajustar a intensidade dos exercícios para crescer e progredir carga. Por isso, sempre que possível, anote as suas cargas e repetições para obter os melhores resultados.</p>
+            <a href="#" class="link-fancy link-fancy-light">Read more</a>
+          </div>
         </div>
-    </footer>
-    <!-- Portfolio Modals-->
+      </div>
 
-    <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Core theme JS-->
-    <script src="/assets/js/scripts.js"></script>
-    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-    <!-- * *                               SB Forms JS                               * *-->
-    <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-</body>
+      <div class="card bg-transparent" data-aos="zoom-in-up">
+        <div class="bg-dark shadow rounded-5 p-0">
+          <img src="/assets/video/deadlift.gif" width="582" height="327" alt="abstract image" class="img-fluid rounded-5 no-bottom-radius" loading="lazy">
+          <div class="p-5">
+            <h2 class="fw-lighter">Seleciona os exercícios</h2>
+            <p class="pb-4 text-secondary"> importante dedicar algum tempo para selecionar os exercícios certos para suas sessões de treino. É uma parte importante do planeamento de um treino eficaz</p>
+            <a href="#" class="link-fancy link-fancy-light">Read more</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
+</div>
+
+</div>
+<div class="bg-dark position-relative">
+  <div class="container px-vw-5 py-vh-5">
+    <div class="row d-flex align-items-center">
+
+      <div class="col-12 col-lg-7">
+        <img class="img-fluid rounded-5 mb-n5 shadow" src="/assets/video/food.gif" width="512" height="512" alt="a nice person" loading="lazy" data-aos="zoom-in-right">
+        
+      </div>
+      <div class="col-12 col-lg-5 bg-dark rounded-5 py-5" data-aos="fade">
+        <span class="h5 text-secondary fw-lighter">Alimentos</span>
+        <h2 class="display-4">Acede á nossa tabela de alimentos e visualiza as macros!</h2>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="bg-dark py-vh-5">
+<div class="container px-vw-5">
+  <div class="row d-flex gx-5 align-items-center">
+    <div class="col-12 col-lg-6">
+      <div class="rounded-5 bg-black p-5 shadow" data-aos="zoom-in-right">
+        <div class="fs-1">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+</svg>
+
+
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+</svg>
+
+
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+</svg>
+
+
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+</svg>
+
+
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+</svg>
+
+
+        </div>
+        <p class="text-secondary lead">"Muito útil até mesmo para quem já é avançado no ginásio. É possivel conhecer e realizar novos exercícios para o determinado músculo que eu quero."</p>
+        <div class="d-flex justify-content-start align-items-center border-top border-secondary pt-3">
+          <img src="/assets/img/ricardo.jpg" width="96" height="96" class="rounded-circle me-3" alt="a nice person" data-aos="fade" loading="lazy">
+          <div>
+            <span class="h6 fw-5">Ricardo Nuno Texeira Magalhães</span><br>
+            <small class="text-secondary">Aluno da Escola Secundária Filipa de Vilhena 12ºJ</small>
+          </div>
+        </div>
+      </div>
+      <div class="rounded-5 bg-black p-5 shadow mt-5" data-aos="zoom-in-right">
+        <div class="fs-1">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+</svg>
+
+
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+</svg>
+
+
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+</svg>
+
+
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+</svg>
+
+
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-half" viewBox="0 0 16 16">
+  <path d="M5.354 5.119 7.538.792A.516.516 0 0 1 8 .5c.183 0 .366.097.465.292l2.184 4.327 4.898.696A.537.537 0 0 1 16 6.32a.548.548 0 0 1-.17.445l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256a.52.52 0 0 1-.146.05c-.342.06-.668-.254-.6-.642l.83-4.73L.173 6.765a.55.55 0 0 1-.172-.403.58.58 0 0 1 .085-.302.513.513 0 0 1 .37-.245l4.898-.696zM8 12.027a.5.5 0 0 1 .232.056l3.686 1.894-.694-3.957a.565.565 0 0 1 .162-.505l2.907-2.77-4.052-.576a.525.525 0 0 1-.393-.288L8.001 2.223 8 2.226v9.8z"/>
+</svg>
+
+        </div>
+        <p class="text-secondary lead">"Muito bom para quem está a começar a ir treinar e está meio perdido. Para quem está a começar a frequentar o ginásio e não sabem o que fazer, deviam utilizar o BrowseMuscle."</p>
+        <div class="d-flex justify-content-start align-items-center border-top border-secondary pt-3">
+          <img src="/assets/img/erico.jpg" width="96" height="96" class="rounded-circle me-3" alt="a nice person" data-aos="fade" loading="lazy">
+          <div>
+            <span class="h6 fw-5">Érico Veloso</span><br>
+            <small class="text-secondary">Aluno da Escola Secundária Filipa de Vilhena 12ºJ</small>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-12 col-lg-6">
+      <div class="p-5 pt-0" data-aos="fade">
+        <span class="h5 text-secondary fw-lighter">O que os outros têm a dizer</span>
+        <h2 class="display-4">BrowseMuscle</h2>
+      </div>
+      <div class="rounded-5 bg-black p-5 shadow mt-5 gradient" data-aos="zoom-in-left">
+        <div class="fs-1">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+</svg>
+
+
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+</svg>
+
+
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+</svg>
+
+
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+</svg>
+
+
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+</svg>
+
+
+        </div>
+        <p class="lead">"Fantástica utilidade para todos os atletas para quem têm dificuldade em executar algum exercício."</p>
+        <div class="d-flex justify-content-start align-items-center border-top pt-3">
+          <img src="/assets/img/moura.jpg" width="96" height="96" class="rounded-circle me-3" alt="a nice person" data-aos="fade" loading="lazy">
+          <div>
+            <span class="h6 fw-5">José Guilherme Mounteiro Moura</span><br>
+            <small>Aluno da Escola Secundária Filipa de Vilhena 12ºJ</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+    </main>
+
+    
+{{> footer}}
+
+<script src="/assets/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/js/aos.js"></script>
+<script>
+AOS.init({
+ duration: 800, // values from 0 to 3000, with step 50ms
+});
+</script>
+<script>
+  let scrollpos = window.scrollY
+  const header = document.querySelector(".navbar")
+  const header_height = header.offsetHeight
+
+  const add_class_on_scroll = () => header.classList.add("scrolled", "shadow-sm")
+  const remove_class_on_scroll = () => header.classList.remove("scrolled", "shadow-sm")
+
+  window.addEventListener('scroll', function() {
+    scrollpos = window.scrollY;
+
+    if (scrollpos >= header_height) { add_class_on_scroll() }
+    else { remove_class_on_scroll() }
+
+    console.log(scrollpos)
+  })
+</script>
+
+  </body>
 </html>

@@ -1,20 +1,22 @@
 {{> header }}
-<br>
-<br>
+
+
+<body class="bg-black text-dark mt-0" data-bs-spy="scroll" data-bs-target="#navScroll">
+{{> nav_bar}}
 
 <div class="container pt-5 pb-5">
-	<h2 class="text-light"><br><br><br>
+	<h2 class="text-white"><br><br><br>
 		Alimentos
 	</h2>
-	<p class="lead text-light">
+	<p class="lead text-white">
 		Não encontra o alimento que deseja ver? <a href="/Alimentos/adicionar_pedido_alimento"
-			class="text-reset">Adicione o seu alimento!</a><br>
+			class="text-white">Adicione o seu alimento!</a><br>
 		Veja os seus <a href="/Alimentos/alimentos_utilizador" class="text-reset">alimentos!</a>
 	</p>
 	{{#if success}}
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             {{success}}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            
         </div>
     {{/if}}
 	<p style="text-align: center">
@@ -58,5 +60,5 @@
 	});
 
 </script>
-
+</body>
 {{> footer }}
