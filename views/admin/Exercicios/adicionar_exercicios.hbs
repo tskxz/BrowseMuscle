@@ -2,12 +2,9 @@
 
 <div class="container">
     {{#if alert}}
-    <div class="alert alert-success alert-dismissible fade show" role="alert">    
-        {{alert}}
-    
-
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">    
+            {{alert}} <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
     {{/if}}
     <form method="POST" action="/admin/adicionar_exercicio">
         <div class="row g-3">

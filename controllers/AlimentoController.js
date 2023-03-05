@@ -107,101 +107,44 @@ module.exports = {
 
     // Página - Visualização dos Alimentos na página principal da tabela Alimentos
     view: async (req, res) => {
-        let json = { error: '', result: [] };
-
         // Visualiza todos os alimentos visíveis
         let Alimentos = await AlimentoService.visualizarTodos(req.user.id);
 
-        for (let i in Alimentos) {
-            json.result.push({
-                id: Alimentos[i].id,
-                alimento: Alimentos[i].alimento,
-                proteina: Alimentos[i].proteina,
-                carbs: Alimentos[i].carbs,
-                gordura: Alimentos[i].gordura,
-                calorias: Alimentos[i].calorias,
-                estado: Alimentos[i].estado,
-                utilizador_id: Alimentos[i].utilizador_id,
-                marca: Alimentos[i].marca
-            })
-        }
-
         // Mostra os alimentos na tabela
-        rows = json.result;
+        rows = Alimentos;
         res.render('app/Alimentos/tabela_alimentos', { layout: 'tabela_alimentos', rows, user: req.user, })
     },
 
     // Página - Visualização dos Alimentos do utilizador que criou
     visualizarAlimentosUtilizador: async (req, res) => {
-        let json = { error: '', result: [] };
-
         let utilizador_id = req.user.id
 
         // Visualiza todos os alimentos criado pelo utilizador
         let Alimentos = await AlimentoService.visualizarAlimentosUser(utilizador_id);
 
-        for (let i in Alimentos) {
-            json.result.push({
-                id: Alimentos[i].id,
-                alimento: Alimentos[i].alimento,
-                proteina: Alimentos[i].proteina,
-                carbs: Alimentos[i].carbs,
-                gordura: Alimentos[i].gordura,
-                calorias: Alimentos[i].calorias,
-                estado: Alimentos[i].estado,
-                utilizador_id: Alimentos[i].utilizador_id,
-                marca: Alimentos[i].marca
-            })
-        }
-
         // Mostra os alimentos na tabela
-        rows = json.result;
+        rows = Alimentos;
         res.render('app/Alimentos/tabela_utilizador_alimentos', { layout: 'tabela_alimentos', rows, user: req.user, })
     },
 
     // Página de administração - Visualização dos Alimentos
     main: async (req, res) => {
-        let json = { error: '', result: [] };
-
         // Visualiza todos os alimentos
         let Alimentos = await AlimentoService.visualizarTodosAdmin();
 
-        for (let i in Alimentos) {
-            json.result.push({
-                alimento_id: Alimentos[i].id,
-                alimento: Alimentos[i].alimento,
-                proteina: Alimentos[i].proteina,
-                carbs: Alimentos[i].carbs,
-                gordura: Alimentos[i].gordura,
-                calorias: Alimentos[i].calorias,
-                marca: Alimentos[i].marca,
-                estado: Alimentos[i].estado,
-
-            })
-        }
-
         // Mostra os alimentos na tabela de administração
-        rows = json.result;
+        rows = Alimentos;
         res.render('admin/Alimentos/tabela_alimentos', { layout: 'tabela_alimentos_crud', rows, user: req.user })
     },
 
     // Página de administração - Pesquisar através da barra de pesquisa
     pesquisarAlimento_admin: async (req, res) => {
-        let json = { error: '', result: [] };
-
         // Pega o valor que nos foi enviado na barra de pesquisa
         let pesquisa = req.body.pesquisa;
 
         // Com o valor que foi nos enviado, vai chamar o serviço pesquisarAlimento para ver os alimentos que correspondem com o valor
         let alimento = await AlimentoService.pesquisarAlimento(pesquisa);
-
-        if (alimento) {
-            json.result = alimento;
-        } else {
-            json.error = "err"
-        }
-
-        rows = json.result;
+        rows = alimento;
 
         // Quantidade de resultados encontrados semelhantes
         var keyCount = Object.keys(rows).length;
@@ -214,22 +157,14 @@ module.exports = {
 
     // Página Alimentos - Pesquisar através da barra de pesquisa
     pesquisarAlimento: async (req, res) => {
-        let json = { error: '', result: [] };
-
         // Pega o valor que nos foi enviado na barra de pesquisa
         let pesquisa = req.body.pesquisa;
 
         // Com o valor que foi nos enviado, vai chamar o serviço pesquisarAlimento para ver os alimentos que correspondem com o valor
         let alimento = await AlimentoService.pesquisarAlimento(pesquisa);
 
-        if (alimento) {
-            json.result = alimento;
-        } else {
-            json.error = "err"
-        }
-
         // Quantidade de resultados encontrados semelhantes
-        rows = json.result;
+        rows = alimento;
         var keyCount = Object.keys(rows).length;
 
         // Mostra os alimentos na tabela
@@ -240,8 +175,6 @@ module.exports = {
 
     // Página de administração - Adicionar alimento
     adicionar: async (req, res) => {
-        let json = { error: '', result: [] };
-
         // Pega os valores através do body
         let nome = req.body.nome;
         let proteina = req.body.proteina;
@@ -249,35 +182,25 @@ module.exports = {
         let gordura = req.body.gordura;
         let calorias = req.body.calorias;
         let id_marca = req.body.id_marca;
+
         let Marcas = await MarcasService.visualizarTodos();
         rows_marcas = Marcas
+
         if (nome && proteina && carbs && gordura && calorias && id_marca) {
-
-
             // Insere alimento com os valores recebidos
-            let AlimentoId = await AlimentoService.inserir(nome, proteina, carbs, gordura, calorias, id_marca);
-            json.result = {
-                id: AlimentoId,
-                nome,
-                proteina,
-                carbs,
-                gordura,
-                calorias,
-                id_marca
-            };
-
+            await AlimentoService.inserir(nome, proteina, carbs, gordura, calorias, id_marca);
+            
             // Após ser inserido, mostra o alert
             res.render('admin/Alimentos/adicionar_alimentos', { alert: `${nome} Adicionado com sucesso`, user: req.user, rows_marcas });
 
         } else {
-            json.error = 'Error!';
+            res.status(400).send('Erro ao adicionar alimento')
         }
 
     },
 
     // Página Utilizador - Formulário para inserir alimento
     adicionar_pedido_alimento: async (req, res) => {
-
         let Marcas = await MarcasService.visualizarTodos();
         rows_marcas = Marcas
 
@@ -287,8 +210,6 @@ module.exports = {
 
     // Página Utilizador - Inserir pedido de alimentos
     adicionar_pedido_alimento_post: async (req, res) => {
-        let json = { error: '', result: [] };
-
         // Pega os valores através do body
         let nome = req.body.nome;
         let proteina = req.body.proteina;
@@ -303,23 +224,13 @@ module.exports = {
         // Verifica se os valores estão preenchidos
         if (nome && proteina && carbs && gordura && calorias && id_marca) {
             // Insere alimento com os valores recebidos
-            let AlimentoId = await AlimentoService.inserirPedido(nome, proteina, carbs, gordura, calorias, id_marca, utilizador_id);
-            json.result = {
-                id: AlimentoId,
-                nome,
-                proteina,
-                carbs,
-                gordura,
-                calorias,
-                id_marca,
-                utilizador_id
-            };
-
+            await AlimentoService.inserirPedido(nome, proteina, carbs, gordura, calorias, id_marca, utilizador_id);
+            
             // Após ser inserido, mostra o alert
             res.render('app/Alimentos/adicionar_alimento_pedido', { alert: `${nome} Adicionado com sucesso`, user: req.user, rows_marcas });
 
         } else {
-            json.error = 'Error!';
+            res.status(400).send('Erro ao adicionar alimento')
         }
 
     },
@@ -347,9 +258,19 @@ module.exports = {
     },
 
     // Página Administração - Atualizar Alimento
-    atualizar: async (req, res) => {
-        let json = { error: '', result: [] };
+    atualizar_form: async (req, res) => {
+        let id = req.params.id;
+        let Marcas = await MarcasService.visualizarTodos();
+        rows_marcas = Marcas
+        // Buscar as informações do alimento
+        row = await AlimentoService.buscarUmAlimento(id);
 
+        // Com as informações do alimento, mostra por pré-definido os valores dentro dos inputs para alterar algo
+        res.render('admin/Alimentos/editar_alimento', { rows_marcas, row, user: req.user, })
+
+    },
+
+    atualizar: async(req, res) => {
         // Obtém os valores obtidos através do body
         let id = req.params.id;
         let nome = req.body.nome;
@@ -362,33 +283,17 @@ module.exports = {
         if (id && nome && proteina && carbs && gordura, calorias) {
             // Usa o serviço alterar com os valores obtidos
             await AlimentoService.alterar(id, nome, proteina, carbs, gordura, calorias);
-            json.result = {
-                id,
-                nome,
-                proteina,
-                carbs,
-                gordura,
-                calorias
-            };
+            
             // Mostra o alert após alterar um valor do alimento
             res.render('admin/Alimentos/editar_alimento', { row, alert: `${nome} com id ${id} alterado com sucesso`, user: req.user, })
 
-
         } else {
-            json.error = 'Error!';
+            res.status(400).send('Erro ao editar alimento')
         }
-
-        // Buscar as informações do alimento
-        row = await AlimentoService.buscarUm(id);
-
-        // Com as informações do alimento, mostra por pré-definido os valores dentro dos inputs para alterar algo
-        res.render('admin/Alimentos/editar_alimento', { row, user: req.user, })
-
     },
 
     // Página Administração - Confirma para que o alimento vá para a página principal
     confirmar: async (req, res) => {
-        let json = { error: '', result: [] };
         alimento = await AlimentoService.confirmarAlimento(req.params.id);
 
         // Redireciona para a página principal se for apagado
@@ -472,9 +377,5 @@ module.exports = {
             gordura: gordura
         })
     }
-
-
-
-
 
 }
