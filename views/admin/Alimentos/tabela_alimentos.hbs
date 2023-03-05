@@ -1,7 +1,7 @@
 {{#each rows}}
 <tr>
-    <td>{{this.alimento_id}}</td>
-    <td><a href="/alimento/{{this.alimento_id}}">{{this.alimento}}</a></td>
+    <td>{{this.id}}</td>
+    <td><a href="/alimento/{{this.id}}">{{this.alimento}}</a></td>
     <td>{{this.proteina}}</td>
     <td>{{this.carbs}}</td>
     <td>{{this.gordura}}</td>
@@ -15,10 +15,10 @@
     {{/ifEquals}}
     <td class="text-end">
         {{#ifEquals estado "2"}}
-        <a href="/admin/confirmar_alimento/{{this.alimento_id}}" type="button" class="btn btn-success btn-small"><i class="bi bi-check-square"></i> Confirmar</a>
+        <a href="/admin/confirmar_alimento/{{this.id}}" type="button" class="btn btn-success btn-small"><i class="bi bi-check-square"></i> Confirmar</a>
         {{/ifEquals}}
-         <a href="/admin/editar_alimento/{{this.alimento_id}}" type="button" class="btn btn-light btn-small"><i class="bi bi-pencil-square"></i> Editar</a>
-         <a href="/admin/apagar_alimento/{{this.alimento_id}}" type="button" class="btn btn-light btn-small"><i class="bi bi-trash3"></i> Apagar</a>
+         <a href="/admin/editar_alimento/{{this.id}}" type="button" class="btn btn-light btn-small"><i class="bi bi-pencil-square"></i> Editar</a>
+         <a href="/admin/apagar_alimento/{{this.id}}" type="button" class="btn btn-light btn-small"><i class="bi bi-trash3"></i> Apagar</a>
         
     </td>
 </tr>

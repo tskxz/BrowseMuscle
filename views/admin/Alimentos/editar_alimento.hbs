@@ -11,7 +11,7 @@
 
             <div class="row g-3">
                 <div class="col">
-                    <input type="text" value="{{this.nome}}" class="form-control" placeholder="Alimento" name="nome"
+                    <input type="text" value="{{this.alimento}}" class="form-control" placeholder="Alimento" name="nome"
                         aria-label="Alimento">
                 </div>
                 <div class="col">
@@ -30,6 +30,15 @@
                     <input type="number" value="{{this.calorias}}" step="any" class="form-control"
                         placeholder="Calorias" name="calorias" aria-label="Calorias">
                 </div>
+                <div class="col">
+                <select class="form-select" name="id_marca" aria-label="Default select example">
+                    <option value="{{this.id_marca}}" selected>{{this.marca}}</option>
+                    {{#each ../rows_marcas}}
+                    
+                    <option value="{{this.id}}">{{this.nome}}</option>
+                    {{/each}}
+                </select>
+            </div>
 
             </div>
             <br>

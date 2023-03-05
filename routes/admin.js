@@ -30,7 +30,7 @@ admin.get('/main_alimentos', checkAuthenticated, authRole(2), AlimentoController
 admin.get('/adicionar_alimento', checkAuthenticated, authRole(2), AlimentoController.adicionar_form)		// Página para adicionar alimento
 admin.post('/adicionar_alimento', checkAuthenticated, authRole(2), AlimentoController.adicionar)		// Adicionar alimento
 admin.get('/apagar_alimento/:id', checkAuthenticated, authRole(2), AlimentoController.eliminar)		// Apagar alimento
-admin.get('/editar_alimento/:id', checkAuthenticated, authRole(2), AlimentoController.atualizar)		// Página para editar alimento
+admin.get('/editar_alimento/:id', checkAuthenticated, authRole(2), AlimentoController.atualizar_form)		// Página para editar alimento
 admin.post('/editar_alimento/:id', checkAuthenticated, authRole(2), AlimentoController.atualizar)	// Atualizar o alimento
 admin.get('/confirmar_alimento/:id', checkAuthenticated, authRole(2), AlimentoController.confirmar)
 
