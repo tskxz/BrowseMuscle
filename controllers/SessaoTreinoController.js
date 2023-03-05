@@ -212,14 +212,21 @@ module.exports = {
         createdAt = sessaoTreino[0].createdAt
 
         if (carga && reps_objetivo && exercicio_id && series) {
-            // Inserir e definir os objetivos do exercício da sessão de treino
-            let definido = await SessaoTreinoService.definir_objetivo_exercicio(id_sessao, userid, exercicio_id, carga, reps_objetivo, series, nome, descricao, createdAt)
-            if (!definido) {
-                json.result = "error"
+            let verificar_exercicio_sessaotreino = await SessaoTreinoService.buscarExercicioSessaoTreino(id_sessao, userid, exercicio_id);
+            if(verificar_exercicio_sessaotreino.length === 0){
+                // Inserir e definir os objetivos do exercício da sessão de treino
+                let definido = await SessaoTreinoService.definir_objetivo_exercicio(id_sessao, userid, exercicio_id, carga, reps_objetivo, series, nome, descricao, createdAt)
+                if (!definido) {
+                    json.result = "error"
+                } else {
+                    json.result = "success!"
+                    req.flash('success', `Realizado com sucesso!`)
+                }
             } else {
-                json.result = "success!"
-                req.flash('success', `Realizado com sucesso!`)
+                json.result = "nao pode adicionar o mesmo exercicio"
+                
             }
+            
         } else {
             json.result = "error"
             req.flash('error', `Erro ao adicionar o exercício`)

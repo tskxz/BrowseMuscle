@@ -94,6 +94,21 @@ module.exports = {
 		});
 	},
 
+	// Verificar se existe um exercicio ja definido na sessao de treino
+	buscarExercicioSessaoTreino: (id_sessao, userid, exercicio_id) => {
+		return new Promise((aceito, rejeitado) => {
+			db.query('SELECT * FROM Sessao_Treinos WHERE id_sessao = ? AND utilizador_id = ? AND exercicio_id = ?' , [id_sessao, userid, exercicio_id], (error, results) => {
+				if (error) { rejeitado(error); return; }
+				if(results){
+					aceito(results);
+				} else {
+					aceito(false);
+				}
+			})
+		})
+		
+	},
+
 	// Servico para buscar informação de uma sessão de treino com nomes de exercício
 	buscarUmSessaoExercicio: (id_sessao, exercicio_id) => {
 		return new Promise((aceito, rejeitado) => {

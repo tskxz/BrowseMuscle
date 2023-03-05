@@ -86,30 +86,11 @@ module.exports = {
 
 	// Página Administração - Visualizar todos os utilizadores
 	main: async (req, res) => {
-		let json = { error: '', result: [] };
-
 		// Chama o serviço para mostrar todos os utilizadores
 		let Utilizadores = await UtilizadorService.buscarTodos();
 
-		for (let i in Utilizadores) {
-			json.result.push({
-				id: Utilizadores[i].id,
-				username: Utilizadores[i].username,
-				primeiro_nome: Utilizadores[i].primeiro_nome,
-				ultimo_nome: Utilizadores[i].ultimo_nome,
-				email: Utilizadores[i].email,
-				num_telemovel: Utilizadores[i].num_telemovel,
-				password: Utilizadores[i].password,
-				id_cargo: Utilizadores[i].id_cargo,
-				cargo: Utilizadores[i].cargo,
-				createdAt: Utilizadores[i].createdAt
-			});
-		}
-
-		utilizadores = json.result;
-
 		// Mostra a tabela de utilizadores
-		res.render('admin/Utilizadores/Utilizadores.hbs', { layout: 'tabela_utilizadores_crud', utilizadores, user: req.user });
+		res.render('admin/Utilizadores/Utilizadores.hbs', { layout: 'tabela_utilizadores_crud', Utilizadores, user: req.user });
 
 	},
 
@@ -268,8 +249,6 @@ module.exports = {
 
 	// Página Utilizador - Mudar palavra passe
 	mudar_pass_post: async (req, res) => {
-		let json = { error: '', result: [] };
-
 		// Pega os valores username, password atual, confirmar password e nova password
 		let username = req.user.username;
 		let palavra_passe_atual = req.body.palavra_passe_atual;
@@ -283,7 +262,7 @@ module.exports = {
 		if (utilizador) {
 			// Se coincidir a password que foi nos enviado com a password do utilizador
 			if (await bcrypt.compare(palavra_passe_atual, utilizador.password)) {
-				json.result = "SUCESSO!"; // Sucesso
+				message = "SUCESSO!"; // Sucesso
 				if (confirmar_palavra_passe === nova_palavra_passe) {
 
 					const salt = await bcrypt.genSalt();
@@ -291,18 +270,18 @@ module.exports = {
 
 					// Chama o serviço criar que vai inserir os valores obtidos com a palavra passe encriptada
 					await UtilizadorService.mudar_pass(req.user.id, hashedNewPassword);
-					json.result = "Palavra passe mudada com sucesso!"
+					message = "Palavra passe mudada com sucesso!"
 
 				} else {
-					json.result = "Palavra passe não são iguais!"
+					message = "Palavra passe não são iguais!"
 				}
 			} else {
-				json.result = 'Password errada!' // Errado
+				message = 'Password errada!' // Errado
 			}
 			// Se o username não existir na tabela Utilizadores
 		}
 
-		res.render('app/utilizador/mudar_pass', { alert: json.result, user: req.user })
+		res.render('app/utilizador/mudar_pass', { alert: message, user: req.user })
 	},
 
 	atualizar_perfil_foto: async (req, res) => {
@@ -443,22 +422,14 @@ module.exports = {
 
 	// Página Administração - Apagar utilizador
 	pesquisarUtilizador: async (req, res) => {
-		let json = { error: '', result: [] };
-
 		// Pega o valor que nos foi enviado na barra de pesquisa
 		let pesquisa = req.body.pesquisa;
 
 		// Com o valor que foi nos enviado, vai chamar o serviço pesquisarUtilizador
 		let utilizador = await UtilizadorService.pesquisarUtilizador(pesquisa);
 
-		if (utilizador) {
-			json.result = utilizador;
-		} else {
-			json.error = "err"
-		}
-
 		// Resultado do serviço armazenado em rows
-		rows = json.result;
+		rows = utilizador;
 
 		var keyCount = Object.keys(rows).length;
 
