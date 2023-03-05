@@ -52,52 +52,21 @@ module.exports = {
 
 	// Página Utilizador - Mostrar todos os exercícios
 	view: async (req, res) => {
-		let json = { error: '', result: [] };
-
 		// Chama o serviço para mostrar todos os exercícios existentes
 		let Exercicios = await ExercicioService.buscarTodos();
 
-		for (let i in Exercicios) {
-			json.result.push({
-				id: Exercicios[i].id,
-				exercicio: Exercicios[i].exercicio,
-				equipamento: Exercicios[i].equipamento,
-				equipamento_id: Exercicios[i].equipamento_id,
-				dificuldade: Exercicios[i].dificuldade,
-				dificuldade_id: Exercicios[i].dificuldade_id,
-				musculo: Exercicios[i].musculo,
-				musculo_id: Exercicios[i].musculo_id
-			});
-		}
-
 		// Enviar rows e mostrar os exercícios dentro da tabela
-		rows = json.result;
+		rows = Exercicios;
 		res.render('app/Exercicios/Exercicios', { layout: 'tabela_exercicios', rows, user: req.user, })
 	},
 
 	// Página Administração - Mostrar todos os exercícios
 	main: async (req, res) => {
-		let json = { error: '', result: [] };
-
 		// Chama o serviço para mostrar todos os exercícios existentes dentro da tabela
 		let Exercicios = await ExercicioService.buscarTodos();
+		rows = Exercicios;
 
-		for (let i in Exercicios) {
-			json.result.push({
-				id: Exercicios[i].id,
-				exercicio: Exercicios[i].exercicio,
-				equipamento: Exercicios[i].equipamento,
-				equipamento_id: Exercicios[i].equipamento_id,
-				dificuldade: Exercicios[i].dificuldade,
-				dificuldade_id: Exercicios[i].dificuldade_id,
-				musculo: Exercicios[i].musculo,
-				musculo_id: Exercicios[i].musculo_id
-			});
-		}
-
-		rows = json.result;
-
-		// Enviar rows e mostrar os exercícios dentro da tabela porém num layout diferente para Admin que vai ser acrescentado novas colunas (editar e apagar)
+		// Mostra os dados na tabela de administração de exertcícios
 		res.render('admin/Exercicios/Exercicios', { layout: 'tabela_exercicios_crud', rows, user: req.user })
 	},
 
@@ -105,22 +74,14 @@ module.exports = {
 
 	// Pesquisar através da barra de pesquisa da navegação
 	pesquisarExercicio: async (req, res) => {
-		let json = { error: '', result: [] };
-
 		// Pega o valor que nos foi enviado na barra de pesquisa
 		let pesquisa = req.body.pesquisa;
 
 		// Com o valor que foi nos enviado, vai chamar o serviço para ver os exercícios que correspondem com o valor
 		let exercicio = await ExercicioService.pesquisarExercicio(pesquisa);
 
-		if (exercicio) {
-			json.result = exercicio;
-		} else {
-			json.error = "err"
-		}
-
 		// Resultado do serviço armazenado em rows
-		rows = json.result;
+		rows = exercicio;
 
 		// Quantidade de resultado
 		var keyCount = Object.keys(rows).length;
@@ -133,27 +94,18 @@ module.exports = {
 
 	// Página Administração - Pesquisar através da barra de pesquisa da navegação
 	pesquisarExercicio_admin: async (req, res) => {
-		let json = { error: '', result: [] };
-
 		// Pega o valor que nos foi enviado na barra de pesquisa
 		let pesquisa = req.body.pesquisa;
 
 		// Com o valor que foi nos enviado, vai chamar o serviço pesquisarExercicio para ver os exercícios que correspondem com o valor
 		let exercicio = await ExercicioService.pesquisarExercicio(pesquisa);
 
-		if (exercicio) {
-			json.result = exercicio;
-		} else {
-			json.error = "err"
-		}
-
 		// Resultado do serviço armazenado em rows
-		rows = json.result;
+		rows = exercicio;
 		var keyCount = Object.keys(rows).length;
 
 		// Mostra o resultado
 		res.render('admin/Exercicios/pesquisa', { layout: 'tabela_exercicios_crud', rows, user: req.user, alert: `${keyCount} resultados encontrados!` })
-
 
 	},
 
@@ -286,9 +238,8 @@ module.exports = {
 		res.render('admin/Exercicios/adicionar_exercicios', { rows_eq, rows_df, rows_musculos, user: req.user });
 	},
 
-	//  Página Administração - Mostrar página para inserir exercício
+	//  Página Administração - Inserir exercício para a tabela
 	adicionar: async (req, res) => {
-		let json = { error: '', result: [] };
 
 		// Obter os valores através do body
 		let nome = req.body.nome;
@@ -296,7 +247,6 @@ module.exports = {
 		let dificuldade_id = req.body.dificuldade_id;
 		let musculo_id = req.body.musculo_id;
 		let descricao = req.body.descricao;
-
 
 		// Chama os serviços para visualizar os Equipamentos, Dificuldades e Musculos
 		let Equipamentos = await EquipamentosService.visualizarTodos();
@@ -311,21 +261,12 @@ module.exports = {
 		// Se os valores foi nos enviado através do body
 		if (nome && equipamento_id && dificuldade_id && musculo_id) {
 			// Insere o exercício ao chamar o serviço inserir
-			let ExercicioId = await ExercicioService.inserir(nome, equipamento_id, dificuldade_id, musculo_id, descricao);
-			json.result = {
-				id: ExercicioId,
-				nome,
-				equipamento_id,
-				dificuldade_id,
-				musculo_id,
-				descricao
-			};
+			await ExercicioService.inserir(nome, equipamento_id, dificuldade_id, musculo_id, descricao);
 
-			// Mostrar os resultados dos serviços de visualizar Equipamentos, Dificuldades e músculos para fazer dropdown da seleção options e mandar um alert após ser inserido um exercício
 			res.render('admin/Exercicios/adicionar_exercicios', { rows_eq, rows_df, rows_musculos, user: req.user, alert: `${nome} Adicionado com sucesso` });
 
 		} else {
-			json.error = 'Error!';
+			res.error('erro ao enviar um exercício')
 		}
 	},
 
@@ -362,15 +303,13 @@ module.exports = {
 
 	// Página Administração - Mostrar página para editar exercício
 	editar: async (req, res) => {
-		let json = { error: '', result: [] };
-
 		// Pegar os valores
 		let id = req.params.id;
 
 		// Chama o serviço para pegar os valores do exercício através do ID
-		let exercicio_id = await ExercicioService.buscarUm(id);
+		let exercicio = await ExercicioService.buscarUm(id);
 
-		if (exercicio_id) {
+		if (exercicio) {
 			// Chama os serviços para visualizar Equipamentos, Dificuldades e músculo para fazer dropdown do select option
 			let Equipamentos = await EquipamentosService.visualizarTodos();
 			let Dificuldades = await DificuldadeService.visualizarTodos();
@@ -380,13 +319,10 @@ module.exports = {
 			rows_eq = Equipamentos
 			rows_df = Dificuldades
 			rows_musculos = Musculos;
-
-			json.result = exercicio_id;
-
 		}
 
 		// Armazena o resultado do serviço de buscar o exercício através do ID
-		rows = json.result;
+		rows = exercicio;
 
 		// Mandar para a página os resultados dos serviços para estar pré-definido nos inputs
 		res.render('admin/Exercicios/editar_exercicios', { rows, rows_eq, rows_df, rows_musculos, user: req.user })
@@ -394,8 +330,6 @@ module.exports = {
 
 	// Página Administração - Atualizar os dados
 	atualizar: async (req, res) => {
-		let json = { error: '', result: [] };
-
 		// Obter os valores
 		let id = req.params.id;
 		let nome = req.body.nome;
@@ -407,16 +341,8 @@ module.exports = {
 		if (id && nome && equipamento_id && dificuldade_id && musculo_id) {
 			// Chama o serviço para atualizar os dados
 			await ExercicioService.alterar(id, nome, equipamento_id, dificuldade_id, musculo_id, descricao);
-			json.result = {
-				id,
-				nome,
-				equipamento_id,
-				dificuldade_id,
-				musculo_id,
-				descricao
-			};
 		} else {
-			json.error = 'Error!';
+			res.error('erro ao atualizar exercício')
 		}
 
 		// Após atualizar, mostra o alert a dizer que foi alterado com sucesso
@@ -426,7 +352,6 @@ module.exports = {
 
 	// Página Administração - Apagar um exercício
 	eliminar: async (req, res) => {
-		let json = { error: '', result: [] };
 		// Chama o serviço apagar para eliminar um dado através do id
 		exercicio = await ExercicioService.apagar(req.params.id);
 
@@ -438,24 +363,14 @@ module.exports = {
 
 	// Página Administração - Página para enviar um vídeo para o exercício
 	adicionar_video_exercicio: async (req, res) => {
-		let json = { error: '', result: [] };
-
 		// Pegar os valores
 		let id = req.params.id;
 
 		// Chama o serviço para pegar os valores do exercício através do ID
-		let exercicio_id = await ExercicioService.buscarUm(id);
-
-		if (exercicio_id) {
-
-
-			json.result = exercicio_id;
-
-		}
+		let exercicio = await ExercicioService.buscarUm(id);
 
 		// Armazena o resultado do serviço de buscar o exercício através do ID
-		rows = json.result;
-		console.log(rows)
+		rows = exercicio;
 
 		// Mandar para a página os resultados dos serviços para estar pré-definido nos inputs
 		res.render('admin/Exercicios/adicionar_video_exercicio', { rows, user: req.user })
