@@ -178,7 +178,7 @@ module.exports = {
   pesquisarAlimento: (pesquisa) => {
     return new Promise((aceito, rejeitado) => {
       db.query(
-        "SELECT Alimentos.id, Alimentos.nome AS alimento, Alimentos.proteina as proteina, Alimentos.carbs as carbs, Alimentos.gordura as gordura, Alimentos.calorias as calorias, Marcas.nome as marca FROM Alimentos JOIN Marcas ON Alimentos.id_marca = Marcas.id WHERE Alimentos.nome LIKE ? ",
+        "SELECT Alimentos.id, Alimentos.nome AS alimento, Alimentos.proteina as proteina, Alimentos.carbs as carbs, Alimentos.gordura as gordura, Alimentos.calorias as calorias, Alimentos.estado as estado, Marcas.nome as marca FROM Alimentos JOIN Marcas ON Alimentos.id_marca = Marcas.id WHERE Alimentos.nome LIKE ? ",
         ["%" + pesquisa + "%"],
         (error, results) => {
           if (error) {

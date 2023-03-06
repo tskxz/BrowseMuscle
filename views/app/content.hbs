@@ -1,204 +1,82 @@
-
-<!doctype html>
-<html class="h-100" lang="en">
-
-  <head>
-      <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
-  <meta name="description" content="A well made and handcrafted Bootstrap 5 template">
-  <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon-16x16.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="/assets/img/favicon.png">
-  <meta name="author" content="Holger Koenemann">
-  <meta name="generator" content="Eleventy v2.0.0">
-  <meta name="HandheldFriendly" content="true">
-  <title>About</title>
-  <link rel="stylesheet" href="/assets/css/theme.min.css">
-
-   <style>
-
-/* inter-300 - latin */
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 300;
-  font-display: swap;
-  src: local(''),
-       url('fonts/inter-v12-latin-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('fonts/inter-v12-latin-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-
-/* inter-400 - latin */
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: local(''),
-       url('fonts/inter-v12-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('fonts/inter-v12-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: local(''),
-       url('fonts/inter-v12-latin-500.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('fonts/inter-v12-latin-500.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: local(''),
-       url('fonts/inter-v12-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('fonts/inter-v12-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-
-</style>
-
-
-  </head>
-
+{{> header}}
   <body class="bg-black text-white mt-0" data-bs-spy="scroll" data-bs-target="#navScroll">
-
-    <nav id="navScroll" class="navbar navbar-dark bg-black fixed-top px-vw-5" tabindex="0">
-  <div class="container">
-    <a class="navbar-brand pe-md-4 fs-4 col-12 col-md-auto text-center" href="/">
-  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-stack" viewBox="0 0 16 16">
-    <path d="m14.12 10.163 1.715.858c.22.11.22.424 0 .534L8.267 15.34a.598.598 0 0 1-.534 0L.165 11.555a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0l5.317-2.66zM7.733.063a.598.598 0 0 1 .534 0l7.568 3.784a.3.3 0 0 1 0 .535L8.267 8.165a.598.598 0 0 1-.534 0L.165 4.382a.299.299 0 0 1 0-.535L7.733.063z"/>
-    <path d="m14.12 6.576 1.715.858c.22.11.22.424 0 .534l-7.568 3.784a.598.598 0 0 1-.534 0L.165 7.968a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0l5.317-2.659z"/>
-  </svg>
-  <span class="ms-md-1 mt-1 fw-bolder me-md-5">Klar</span>
-</a>
-
-      <ul class="navbar-nav mx-auto mb-2 mb-lg-0 list-group list-group-horizontal">
-      <li class="nav-item">
-  <a class="nav-link fs-5" href="/" aria-label="Homepage">
-    Home
-  </a>
-</li>
-<li class="nav-item">
-  <a class="nav-link fs-5" href="/content" aria-label="A sample content page">
-    Content
-  </a>
-</li>
-<li class="nav-item">
-  <a class="nav-link fs-5" href="/system" aria-label="A system message page">
-    System
-  </a>
-</li>
-
-    </ul>
-      <a href="https://templatedeck.com/klar-html-template.html" aria-label="Download this template" class="btn btn-outline-light">
-        <small>Download Template</small>
-      </a>
-</div>
-</nav>
-
+    {{> nav_bar}} <br> <br> <br>
     <main>
       <div class="container">
   <div class="row d-flex justify-content-center py-vh-5 pb-0">
     <div class="col-12 col-lg-10 col-xl-8">
       <div class="row">
         <div class="col-12">
-          <h1 class="display-1 fw-bold">Example
-            <span class="fs-4">of a</span><br>
-            content page</h1>
-          <p class="lead border-top pt-5 mt-5" data-aos="fade-up">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-            voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-            labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-            sed diam voluptua.
+          <h1 class="display-1 fw-bold">Funcionalidades</h1>
+          <p class="lead border-top pt-5 mt-5" data-aos="fade-up">BrowseMuscle ajuda as pessoas interessadas em fitness a encontrar informações úteis sobre exercícios e saber os valores nutricionais da alimentação, e também a criar sessões de treino personalizados. É possível visualizar exercícios por grupo muscular, além de encontrar informações detalhadas sobre cada um deles, como vídeo demonstrativo e equipamento necessário. Além disso, o BrowseMuscle oferece uma base de dados de alimentos para ajudar os utilizadores a terem conhecimento das informações nutricionais, como quantidade de calorias, carboidratos, proteínas e gorduras.
           </p>
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col-12 py-vh-2">
-      <img src="/assets/img/webp/abstract18.webp" width="1446" height="982" alt="abstract image" class="img-fluid position-relative rounded-5 shadow" data-aos="zoom-up">
+      <img src="/assets/video/deadlift2.gif" width="946" height="682" class="img-fluid position-relative rounded-5 shadow" data-aos="zoom-up">
     </div>
     </div>
         <div class="col-12 col-lg-10 col-xl-8">
       <div class="row d-flex align-items-start" data-aos="fade-right">
         <div class="col-12 col-lg-7">
-          <h2 class="h3 mt-5 border-top pt-5">01. Dolor istam est</h2>
-          <p class="text-secondary">At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
-            et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
-            ipsum dolor sit amet. Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.</p>
+          <h2 class="h3 mt-5 border-top pt-5">Exercícios</h2>
+          <p class="text-secondary">No browsemuscle, após autenticar-se, tem se a possibilidade de acessar a uma tabela completa de exercícios que pode ser visualizada por equipamento, dificuldade e músculo trabalhado. Cada exercício contém informações detalhadas, incluindo descrição e vídeo explicativo para ajudá-lo a executá-lo corretamente. Além disso, os utilizadores podem explorar a ferramenta de cálculo de 1RM para descobrir sua 1 repetição máxima. A ferramenta de cálculo de 1RM é útil para planear e monitorar o progresso de seus treinos, permitindo que ajuste o programa de treino para atingir seus objetivos de forma eficaz. Com essas funcionalidades, o browsemuscle é uma ótima opção para aqueles que desejam melhorar seu desempenho físico e alcançar seus objetivos de fitness.</p>
         </div>
         <div class="col-12 col-lg-4 offset-lg-1 bg-gray-900 p-5 mt-5">
-          <h3 class="h6">tl;dr</h3>
+          <h3 class="h6">Exercícios</h3>
           <p class="text-secondary">
-            Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet
+            <a class="link-fancy link-fancy-light me-2" href="/musculos">Músculos <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+</svg></a> 
+            <a class="link-fancy link-fancy-light me-2" href="/exercicios">Exercícios <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+</svg></a> 
+
           </p>
         </div>
       </div>
 
       <div class="row d-flex align-items-start" data-aos="fade-right">
         <div class="col-12 col-lg-7">
-          <h2 class="h3 mt-5 border-top pt-5">02. Lorem ipsum</h2>
-          <p class="text-secondary">At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
-            et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
-            ipsum dolor sit amet. Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.</p>
+          <h2 class="h3 mt-5 border-top pt-5">Alimentos</h2>
+          <p class="text-secondary">Após autenticar-se, o utilizador tem acesso a uma seção que mostra uma lista de alimentos e suas respectivas informações nutricionais, como proteína, carboidratos e gordura. O utilizador pode criar seus próprios alimentos e adicioná-los à lista. Cada alimento também terá um gráfico mostrando a distribuição de macronutrientes. O utilizador pode facilmente visualizar os seus alimentos na tabela e também pode editar ou excluir alimentos já existentes. Com essas informações disponíveis, o utilizador pode planear melhor a sua dieta de acordo com as suas necessidades nutricionais.</p>
         </div>
         <div class="col-12 col-lg-4 offset-lg-1 bg-gray-900 p-5 mt-5">
-          <h3 class="h6">tl;dr</h3>
+          <h3 class="h6">Alimentos</h3>
           <p class="text-secondary">
-            Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet
+             <a class="link-fancy link-fancy-light me-2" href="/alimentos">Alimentos <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+</svg></a> 
+            <a class="link-fancy link-fancy-light me-2" href="/calcular_calorias">Calcular Calorias <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+</svg></a> 
+<a class="link-fancy link-fancy-light me-2" href="/calcular_macro">Calcular Macros <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+</svg></a> 
           </p>
         </div>
       </div>
       <div class="row d-flex align-items-start" data-aos="fade-right">
         <div class="col-12 col-lg-7">
-          <h2 class="h3 mt-5 border-top pt-5">03. Dolor sitam est
+          <h2 class="h3 mt-5 border-top pt-5">Sessões de treino
           </h2>
-          <p class="text-secondary">At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
-            et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
-            ipsum dolor sit amet. Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.</p>
+          <p class="text-secondary">o utilizador tem acesso a uma lista de sessões de treino que ele criou previamente. Ele pode criar suas próprias sessões de treino e adicionar os exercícios que deseja realizar em cada uma delas. Durante a seleção de cada exercício, o utilizador pode definir o objetivo e a meta de número de repetições, carga e número de séries para cada um. Quando o utilizador adiciona o exercício à sessão de treino, ele pode iniciar a realização do exercício e apontar quantas repetições fez para cada série. Quando o exercício estiver concluído, o utilizador pode finalizar o treino e visualizar um gráfico com as informações sobre as repetições feitas em cada série. Dessa forma, o utilizador pode acompanhar o seu progresso em cada exercício e sessão de treino.</p>
         </div>
         <div class="col-12 col-lg-4 offset-lg-1 bg-gray-900 p-5 mt-5">
-          <h3 class="h6">tl;dr</h3>
+          <h3 class="h6">Treino</h3>
           <p class="text-secondary">
-            Et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet
+             <a class="link-fancy link-fancy-light me-2" href="/alimentos">Sessões Treino <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+</svg></a> 
+           <a class="link-fancy link-fancy-light me-2" href="/calcular_1rm">Calcular 1RM <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+</svg></a> 
           </p>
         </div>
       </div>
-      <div class="row d-flex align-items-start" data-aos="fade-right">
-        <div class="col-12 col-lg-7">
-          <h2 class="h3 mt-5 border-top pt-5">04. Eirmod tempor invidunt</h2>
-          <p class="text-secondary">Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
-            amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no
-            sea takimata sanctus est Lorem ipsum dolor sit amet. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.</p>
-        </div>
-        <div class="col-12 col-lg-4 offset-lg-1 bg-gray-900 p-5 mt-5">
-          <h3 class="h6">tl;dr</h3>
-          <p class="text-secondary">
-            Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet
-          </p>
-        </div>
-      </div>
-      <div class="row d-flex align-items-start" data-aos="fade-right">
-        <div class="col-12 col-lg-7">
-          <h2 class="h3 mt-5 border-top pt-5">05. Lorem ipsum</h2>
-          <p class="text-secondary">At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
-            et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
-            ipsum dolor sit amet. Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
-            ipsum dolor sit amet. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.</p>
-        </div>
-        <div class="col-12 col-lg-4 offset-lg-1 bg-gray-900 p-5 mt-5">
-          <h3 class="h6">tl;dr</h3>
-          <p class="text-secondary">
-            Eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet
-          </p>
-        </div>
-      </div>
-
-
-    </div>
+      
   </div>
   <div class="row d-flex align-items-start justify-content-center py-vh-3 text-muted" data-aos="fade">
       <div class="col-12 col-lg-10 col-xl-9">
@@ -214,85 +92,7 @@
 
     </main>
 
-    <footer class="bg-black border-top border-dark">
-  <div class="container py-vh-4 text-secondary fw-lighter">
-    <div class="row">
-      <div class="col-12 col-lg-5 py-4 text-center text-lg-start">
-            <a class="navbar-brand pe-md-4 fs-4 col-12 col-md-auto text-center" href="/">
-  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-stack" viewBox="0 0 16 16">
-    <path d="m14.12 10.163 1.715.858c.22.11.22.424 0 .534L8.267 15.34a.598.598 0 0 1-.534 0L.165 11.555a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0l5.317-2.66zM7.733.063a.598.598 0 0 1 .534 0l7.568 3.784a.3.3 0 0 1 0 .535L8.267 8.165a.598.598 0 0 1-.534 0L.165 4.382a.299.299 0 0 1 0-.535L7.733.063z"/>
-    <path d="m14.12 6.576 1.715.858c.22.11.22.424 0 .534l-7.568 3.784a.598.598 0 0 1-.534 0L.165 7.968a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0l5.317-2.659z"/>
-  </svg>
-  <span class="ms-md-1 mt-1 fw-bolder me-md-5">Klar</span>
-</a>
-
-      </div>
-      <div class="col border-end border-dark">
-        <span class="h6">Company</span>
-<ul class="nav flex-column">
-  <li class="nav-item">
-    <a href="#" class="link-fancy link-fancy-light">About us</a>
-  </li>
-  <li class="nav-item">
-    <a href="#" class="link-fancy link-fancy-light">Legal</a>
-  </li>
-
-  <li class="nav-item">
-    <a href="#" class="link-fancy link-fancy-light">Career</a>
-  </li>
-  <li class="nav-item">
-    <a href="#" class="link-fancy link-fancy-light">Contact</a>
-  </li>
-</ul>
-      </div>
-      <div class="col border-end border-dark">
-                <span class="h6">Services</span>
-                <ul class="nav flex-column">
-                  <li class="nav-item">
-                    <a href="#" class="link-fancy link-fancy-light">Pricing</a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="#" class="link-fancy link-fancy-light">Products</a>
-                  </li>
-
-                  <li class="nav-item">
-                    <a href="#" class="link-fancy link-fancy-light">Customers</a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="#" class="link-fancy link-fancy-light">Portfolio</a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="#" class="link-fancy link-fancy-light">Success Stories</a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="#" class="link-fancy link-fancy-light">More</a>
-                  </li>
-                </ul>
-      </div>
-      <div class="col">
-                <span class="h6">Support</span>
-                <ul class="nav flex-column">
-                  <li class="nav-item">
-                    <a href="#" class="link-fancy link-fancy-light">About us</a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="#" class="link-fancy link-fancy-light">Legal</a>
-                  </li>
-
-                  <li class="nav-item">
-                    <a href="#" class="link-fancy link-fancy-light">Career</a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="#" class="link-fancy link-fancy-light">Contact</a>
-                  </li>
-                </ul>
-      </div>
-    </div>
-  </div>
-  <div class="container text-center small py-vh-2 border-top border-dark">Made by
-    <a href="https://templatedeck.com" class="link-fancy link-fancy-light" target="_blank">templatedeck.com</a>
-  </div>
-</footer>
+    {{> footer}}
 
 
 

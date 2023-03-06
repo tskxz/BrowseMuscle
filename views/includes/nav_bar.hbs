@@ -27,11 +27,13 @@
     Home
   </a>
 </li>
+
 <li class="nav-item">
   <a class="nav-link fs-5" href="/content" aria-label="A sample content page">
-    Content
+    Funcionalidades
   </a>
 </li>
+{{#if user}}
 <li class="nav-item">
   <a class="nav-link fs-5" href="/musculos" aria-label="A sample content page">
     Músculos
@@ -42,6 +44,7 @@
     Alimentos
   </a>
 </li>
+{{/if}}
     </ul>
     {{#unless user}}
       <a href="/auth/login" aria-label="Download this template" class="btn btn-outline-light">
