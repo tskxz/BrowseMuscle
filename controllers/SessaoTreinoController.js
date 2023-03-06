@@ -413,6 +413,7 @@ module.exports = {
     // Chama o serviço apagar para apagar o dado através do id
     let apagado = await SessaoTreinoService.apagar(req.params.id_sessao);
     if (apagado) {
+      req.flash("success", "Sessão de treino apagado com sucesso!")
       res.redirect("/lista_sessao_treino");
     }
   },
