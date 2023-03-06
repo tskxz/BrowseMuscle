@@ -1,7 +1,8 @@
-<br><br>
+{{> nav_bar}}
+<br><br><br>
 {{#each rows}}
 <form action="/admin/adicionar_video_exercicio/{{id}}" method="post" enctype="multipart/form-data">
-    <h1 class="text-light text-center">{{exercicio}}</h1>
+    <h1 class="text-dark text-center">{{exercicio}}</h1>
     <input class="form-control form-control-lg" type="file" name="videoExercicio" accept="video/mp4,video/x-m4v,video/*"
 ">
     <br>

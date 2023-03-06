@@ -1,186 +1,76 @@
-<!DOCTYPE html>
-<html lang="en" class="h-100">
+<!doctype html>
+<html class="h-100" lang="en">
 
-
-<head>
-  <meta charset="utf-8">
-  <meta https-equiv="X-UA-Compatible" content="IE=edge">
+  <head>
+      <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+  <meta name="description" content="BrowseMuscle - Visualiza os exercícios e aprende a executar de forma correta">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/img/favicon.ico">
+  <meta name="author" content="Holger Koenemann">
+  <meta name="generator" content="Eleventy v2.0.0">
+  <meta name="HandheldFriendly" content="true">
   <title>BrowseMuscle</title>
-
-  <meta name="description" content="BrowseMuscle💪 | Visualiza e conhece vários exercícios!">
-  <meta name="author" content="tanjil">
-  <link rel="shortcut icon" href="/assets/img/favicon.ico">
-  <link rel="stylesheet" href="/assets/css/page.css">
-  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-  <link href="/assets/css/cover.css" rel="stylesheet">
-  <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
-  <link href="https://cdn.datatables.net/1.13.3/css/jquery.dataTables.css">
-  <!-- Font Awesome icons (free version)-->
+  <link rel="stylesheet" href="/assets/css/theme.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-    <!-- Google fonts-->
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
-  <script src="https://cdn.datatables.net/1.13.3/js/jquery.dataTables.js"></script>
-
-  <style>
-    p {
-      font-size: 20px;
-    }
-
-    body {
-      margin: 0;
-      padding: 0;
-      /*background: url(/assets/img/fundo.png) no-repeat center center fixed;*/
-      -webkit-background-size: cover;
-      -moz-background-size: cover;
-      -o-background-size: cover;
-      background-size: cover;
-      background-color: #211d1d;
-    }
-
-
-    .topnav {
-      overflow: hidden;
-      background-color: #333;
-    }
-
-    .topnav a {
-      float: left;
-      color: #f2f2f2;
-      text-align: center;
-      padding: 14px 16px;
-      text-decoration: none;
-      font-size: 17px;
-    }
-
-    .topnav a:hover {
-      background-color: #ddd;
-      color: black;
-    }
-
-    .topnav a.active {
-      background-color: #8b05eb;
-      color: white;
-    }
-    
-    .center {
-      text-align: center;
-    }
-  </style>
-<style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-
-      .b-example-divider {
-        height: 3rem;
-        background-color: rgba(0, 0, 0, .1);
-        border: solid rgba(0, 0, 0, .15);
-        border-width: 1px 0;
-        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-      }
-
-      .b-example-vr {
-        flex-shrink: 0;
-        width: 1.5rem;
-        height: 100vh;
-      }
-
-      .bi {
-        vertical-align: -.125em;
-        fill: currentColor;
-      }
-
-      
-    </style>
-</head>
-
-<body class="d-flex h-100 text-center text-bg-dark">
-
-  {{> nav_bar username=user.username foto=user.foto}}
+  <script src="/assets/js/bootstrap.min.js"></script>
   
-<div class="">
-</div>
 
-<script>
-  fetch('/api/Musculos/')
-  .then(res => res.json())
-  .then(data => {
-    const nome_musculos = data.result
+   <style>
+.center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+/* inter-300 - latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: local(''),
+       url('/assets/fonts/inter-v12-latin-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('/assets/fonts/inter-v12-latin-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
 
-    buildTable_musculo(nome_musculos)
-  })
-  function buildTable_musculo(data_musculos) {
-    var dropdown_div = document.getElementById('dropdown-Musculos');
+/* inter-400 - latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local(''),
+       url('/assets/fonts/inter-v12-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('/assets/fonts/inter-v12-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
 
-    data_musculos.forEach(musculo => {
-
-      var dropdown = `
-      
-      <li><a class="dropdown-item" href="/${musculo.nome}">${musculo.nome}</a></li>
-      `
-      dropdown_div.innerHTML += dropdown
-    })
-
-
-  }
-
-</script>
-
-<script>
-  fetch('/api/Equipamentos/')
-  .then(res => res.json())
-  .then(data => {
-    const nome_equipamentos = data.result
-
-    buildTable_equipamento(nome_equipamentos)
-  })
-  function buildTable_equipamento(data_equipamentos) {
-    var dropdown_div_equipamentos = document.getElementById('dropdown_equipamentos_navegacao');
-    data_equipamentos.forEach(equipamento => {
-
-      var dropdown_equipamentos_navegacao = `
-      <li><a class="dropdown-item" href="/${equipamento.nome}">${equipamento.nome}</a></li>
-      `
-      dropdown_div_equipamentos.innerHTML += dropdown_equipamentos_navegacao
-    })
-
-
-  }
-
-</script>
-
-<script>
-  fetch('/api/Dificuldades/')
-  .then(res => res.json())
-  .then(data => {
-    const nome_dificuldades = data.result
-    buildTable_dificuldades(nome_dificuldades)
-  })
-  function buildTable_dificuldades(data_dificuldades) {
-    var dropdown_div_dificuldades = document.getElementById('dropdown_dificuldades_navegacao');
-    data_dificuldades.forEach(dificuldade => {
-
-      var dropdown_dificuldades_navegacao = `
-      <li><a class="dropdown-item" href="/${dificuldade.nome}">${dificuldade.nome}</a></li>
-      `
-      dropdown_div_dificuldades.innerHTML += dropdown_dificuldades_navegacao
-    })
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: local(''),
+       url('/assets/fonts/inter-v12-latin-500.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('/assets/fonts/inter-v12-latin-500.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local(''),
+       url('/assets/fonts/inter-v12-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('/assets/fonts/inter-v12-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
 
 
-  }
 
-</script>
+
+
+</style>
+
+
+  </head>

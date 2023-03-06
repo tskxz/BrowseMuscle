@@ -1,26 +1,27 @@
+{{> nav_bar}}
 <div class="d-flex align-items-center justify-content-center" style="height: 90vh">
     <div class="container">
         <form class="row g-3" method="post" action="/admin/editar_utilizador_post/{{id}}">
             <div class="col-md-6">
-                <label for="inputEmail4" class="form-label text-light">Primeiro Nome</label>
+                <label for="inputEmail4" class="form-label text-dark">Primeiro Nome</label>
                 <input type="text" value={{primeiro_nome}} class="form-control" id="inputEmail4" name="primeiro_nome">
             </div>
             <div class="col-md-6">
-                <label for="inputPassword4" class="form-label text-light">Último nome</label>
+                <label for="inputPassword4" class="form-label text-dark">Último nome</label>
                 <input type="text" aria-label="Último nome" class="form-control" name="ultimo_nome"
                     value={{ultimo_nome}}>
             </div>
             <div class="col-md-6">
-                <label for="inputEmail4" class="form-label text-light">Email</label>
+                <label for="inputEmail4" class="form-label text-dark">Email</label>
                 <input type="email" value={{email}} class="form-control" id="inputEmail4" name="email">
             </div>
             <div class="col-md-6">
-                <label for="inputPassword4" class="form-label text-light">Número de telemóvel</label>
+                <label for="inputPassword4" class="form-label text-dark">Número de telemóvel</label>
                 <input type="text" aria-label="Número de telemovel" class="form-control" name="num_telemovel"
                     value={{num_telemovel}}>
             </div>
 
-            <label for="floatingTextarea2" class="text-light">Descrição</label>
+            <label for="floatingTextarea2" class="text-dark">Descrição</label>
             <textarea class="form-control" id="floatingTextarea2" style="height: 100px"
                 name="descricao">{{descricao}}</textarea>
             <div class="d-grid gap-2">
@@ -29,13 +30,13 @@
             {{#ifEquals id_cargo "1"}}
                 <div class="form-check">
                 <input class="form-check-input" type="radio" value="1" id="flexRadioDefault1" name="id_cargo" checked>
-                <label class="form-check-label text-light" for="flexRadioDefault1">
+                <label class="form-check-label text-dark" for="flexRadioDefault1">
                     BÁSICO
                 </label>
             </div>
             <div class="form-check">
                 <input class="form-check-input" type="radio" value="2" id="flexRadioDefault2" name="id_cargo" >
-                <label class="form-check-label text-light" for="flexRadioDefault2">
+                <label class="form-check-label text-dark" for="flexRadioDefault2">
                     ADMINISTRADOR
                 </label>
             </div>
@@ -43,13 +44,13 @@
              {{#ifEquals id_cargo "2"}}
                 <div class="form-check">
                 <input class="form-check-input" type="radio" value="1" id="flexRadioDefault1" name="id_cargo">
-                <label class="form-check-label text-light" for="flexRadioDefault1">
+                <label class="form-check-label text-dark" for="flexRadioDefault1">
                     BÁSICO
                 </label>
             </div>
             <div class="form-check">
                 <input class="form-check-input" type="radio" value="2" id="flexRadioDefault2" name="id_cargo" checked>
-                <label class="form-check-label text-light" for="flexRadioDefault2">
+                <label class="form-check-label text-dark" for="flexRadioDefault2">
                     ADMINISTRADOR
                 </label>
             </div>

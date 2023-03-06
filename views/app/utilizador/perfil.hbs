@@ -1,12 +1,15 @@
+{{> header }}
+
+
+<body class="bg-black text-dark mt-0" data-bs-spy="scroll" data-bs-target="#navScroll"><br><br>
+{{> nav_bar}}
 <style>
     * {
         margin: 0;
         padding: 0
     }
 
-    body {
-        background-color: #211d1d;
-    }
+   
 
     .card {
         text-align: center;
@@ -48,18 +51,8 @@
         color: #444444
     }
 
-    .btn1 {
-        height: 40px;
-        width: 150px;
-        border: none;
-        background-color: #000;
-        color: #aeaeae;
-        font-size: 15px
-    }
-
-
     .text span {
-        font-size: 17px;
+        font-size: 20px;
         color: #545454;
         font-weight: 500
     }
@@ -73,8 +66,8 @@
     }
 
     .join {
-        font-size: 14px;
-        color: #a0a0a0;
+        font-size: 20px;
+        color: #000000;
         font-weight: bold
     }
 
@@ -112,8 +105,9 @@
 
     }
 </style>
-<br><br><br>
-<h2 class="text-light center">Este é o teu perfil!</h2>
+<br>
+<body class="bg-black">
+    <h2 class="text-light center">Este é o teu perfil!</h2>
 {{#if success}}
   <div class="alert alert-success alert-dismissible fade show" role="alert">
     {{success}}
@@ -146,20 +140,15 @@
                     </button>
                 </form>
             </div>
-             <div class="dropdown">
-                <a class="btn btn-primary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                    Opções
-                </a>
-                <ul class="dropdown-menu">
-                    {{#ifEquals id_cargo "2"}}
-                    <li><a class="dropdown-item" href="/admin/dashboard">Admin - Dashboard</a></li>
-                    {{/ifEquals}}
-                    <li><a class="dropdown-item" href="/mudar_pass">Mudar Palavra-Passe</a></li>
-                    <li><a class="dropdown-item" href="/meu_perfil/editar">Editar perfil</a></li>
-                </ul>
-            </div>
+             
+      <a href="/meu_perfil/editar" class="btn btn-dark">
+        <small>Editar Perfil</small>
+      </a><br>
+      <a href="/auth/logout" class="btn btn-dark">
+        <small>Sair da conta</small>
+      </a>
             <div class=" px-2 rounded mt-4 date "> <span class="join">Entrou em: {{createdAt}}</span> </div>
         </div>
     </div>
 </div>
+</body>

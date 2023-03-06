@@ -219,7 +219,7 @@ module.exports = {
     let exercicio = await ExercicioService.pesquisarExercicio(pesquisa);
 
     // Quantidade de resultado
-    var keyCount = Object.keys(rows).length;
+    var keyCount = Object.keys(exercicio).length;
 
     // Mostra o resultado
     res.render("app/pesquisa", {
@@ -238,7 +238,7 @@ module.exports = {
     // Com o valor que foi nos enviado, vai chamar o serviço pesquisarExercicio para ver os exercícios que correspondem com o valor
     let exercicio = await ExercicioService.pesquisarExercicio(pesquisa);
 
-    var keyCount = Object.keys(rows).length;
+    var keyCount = Object.keys(exercicio).length;
 
     // Mostra o resultado
     res.render("admin/Exercicios/pesquisa", {

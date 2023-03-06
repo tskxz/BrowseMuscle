@@ -1,5 +1,9 @@
-<br><br><br>
-<h1 class="text-light center">Calculadora de Macros</h1>
+{{> header }}
+
+
+<body class="bg-black text-dark mt-0" data-bs-spy="scroll" data-bs-target="#navScroll">
+{{> nav_bar}}<br><br><br><br>
+<h1 class="text-light">Calculadora de Macros</h1>
   {{#if TMB}}
   {{#if proteina}}
   {{#if carbs}}
@@ -7,14 +11,21 @@
   
   <div class="alert alert-success alert-dismissible fade show" role="alert">
     <h4 class="alert-heading">Quantidade recomendada!</h4>
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    
     <p>Mínimo de calorias para consumir (TMB): {{TMB}} calorias <br>
     <p>Proteína: {{proteina}} gramas <br>
     <p>Carbs: {{carbs}} gramas <br>
     <p>Gordura: {{gordura}} gramas <br>
     <hr>
     <p class="mb-0">TMB significa taxa metabólica basal que significa as calorias que gastamos para sobreviver. </p>
+     <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+    ></button>
   </div>
+  
   {{/if}}
   {{/if}}
   {{/if}}

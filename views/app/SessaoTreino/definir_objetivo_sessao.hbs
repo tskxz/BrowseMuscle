@@ -1,3 +1,8 @@
+{{> header }}
+
+
+<body class="bg-black text-dark mt-0" data-bs-spy="scroll" data-bs-target="#navScroll"><br><br><br><br>
+{{> nav_bar}}
 <div class="d-flex align-items-center justify-content-center" style="height: 60vh">
 <div class="container">
     <form method="POST" action="/definir_sessao/{{id_sessao}}">
@@ -25,7 +30,7 @@
                     {{/each}}
                 </select>
             </div>
-          }
+          
         </div>
         <br>
         <div class="d-grid gap-2">

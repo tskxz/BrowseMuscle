@@ -267,5 +267,12 @@ app.get('/', function (req, res) {
 	res.render('app/index', { layout: false, user: req.user })
 })
 
+app.get('/system', function (req, res) {
+	res.render('app/system', { layout: false, user: req.user })
+})
+
+app.get('/content', function (req, res) {
+	res.render('app/content', { layout: false, user: req.user })
+})
 
 module.exports = app;
