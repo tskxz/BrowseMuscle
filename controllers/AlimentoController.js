@@ -246,6 +246,13 @@ module.exports = {
     });
   },
 
+  // Página - Calcular e saber as macros a partir da quantidade de gramas de um alimento
+  macros_calc: async (req, res) => {
+    let Alimentos = await AlimentoService.visualizarTodos(req.user.id);
+
+    res.render("app/Alimentos/macros_calc", {rows: Alimentos})
+  },
+
   // Página Utilizador - Inserir pedido de alimentos
   adicionar_pedido_alimento_post: async (req, res) => {
     // Pega os valores através do body
