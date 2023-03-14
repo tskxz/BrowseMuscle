@@ -31,6 +31,15 @@
       <div id="container">
   <canvas id="lineChart" width="500" height="500"></canvas>
 </div><br>
+<div id="gramas-form" style="display: none;">
+  <form>
+    <div class="mb-3">
+      <label for="gramas" class="form-label">Gramas</label>
+      <input id="gramas" type="number" class="form-control">  
+    </div>
+    <button type="submit" class="btn btn-primary">Calcular</button>
+  </form>
+</div>
 
 </div>
 <script>
@@ -44,6 +53,27 @@
         const selectedOption = select.options[select.selectedIndex];
         const selectedAlimentoId = selectedOption.value;
         const alimentoDetailsDiv = document.querySelector('#alimento-details');
+        
+        const gramasForm = document.querySelector('#gramas-form');
+        const gramasInput = document.querySelector('#gramas');
+        
+        // mostra o formulário de gramas apenas quando um alimento for selecionado
+        gramasForm.style.display = 'block';
+        // envia o valor do id do alimento no método POST do formulário
+  gramasForm.addEventListener('submit', event => {
+    event.preventDefault();
+    const gramas = gramasInput.value;
+    fetch(`/api/alimento/calcular/${selectedAlimentoId}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ gramas })
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data)
+      })
+      .catch(error => console.error(error));
+  });
         
         if (lineChart) {
       lineChart.destroy();
@@ -89,13 +119,7 @@
 
             }
         }
-    });
-    
-    
-    
-              
-              
-              
+    });  
 
     Chart.defaults.font.size = 16;
     Chart.defaults.color = '#FFF';
@@ -109,8 +133,6 @@
                     <p>Gorduras: ${data.result[0].gordura}</p>
                 `;
                 alimentoDetailsDiv.innerHTML = alimentoDetails;
-                
-                
             })
             .catch(error => console.error(error));
     }
