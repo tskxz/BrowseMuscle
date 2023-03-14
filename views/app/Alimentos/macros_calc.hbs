@@ -26,20 +26,81 @@
         <option value="{{this.id}}">{{this.alimento}}</option>
     {{/each}}
     </select>
-  </main>
+  </main><br>
       <div id="alimento-details"></div>
+      <div id="container">
+  <canvas id="lineChart" width="500" height="500"></canvas>
+</div><br>
 
 </div>
 <script>
+  let lineChart = null;
     function getAlimentoDetails() {
+
+        const ctx = document.getElementById('lineChart').getContext('2d');
+        
+
         const select = document.querySelector('.form-select');
         const selectedOption = select.options[select.selectedIndex];
         const selectedAlimentoId = selectedOption.value;
         const alimentoDetailsDiv = document.querySelector('#alimento-details');
         
+        if (lineChart) {
+      lineChart.destroy();
+    }
+        
+
         fetch(`/api/alimento/${selectedAlimentoId}`)
             .then(response => response.json())
             .then(data => {
+              
+              
+              const data_alimento = {
+        labels: ['Proteina', 'Hidratos de Carbono', 'Gordura'], // Macronutrientes
+        datasets: [
+            {
+                label: 'Gramas',
+                data: [data.result[0].proteina, data.result[0].carbs, data.result[0].gordura], // Proteina: 12 | Hidratos de carbono: 29 | Gordura: 12
+    backgroundColor: [
+        'rgba(255, 99, 132)',
+        'rgba(54, 162, 235)',
+        'rgba(255, 206, 86)',
+    ],
+	}]
+}
+              lineChart = new Chart(ctx, {
+        type: 'pie', // Gráfico redondo
+        data: data_alimento,
+        options: {
+            responsive: false,
+
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                title: {
+                    display: true,
+                    text: 'Macronutrientes {{this.alimento}}',
+                    font: {
+                        size: 20
+                    }
+
+                },
+
+            }
+        }
+    });
+    
+    
+    
+              
+              
+              
+
+    Chart.defaults.font.size = 16;
+    Chart.defaults.color = '#FFF';
+    
+    
                 const alimentoDetails = `
                     <h3>${data.result[0].nome}</h3>
                     <p>Calorias: ${data.result[0].calorias}</p>
@@ -48,12 +109,9 @@
                     <p>Gorduras: ${data.result[0].gordura}</p>
                 `;
                 alimentoDetailsDiv.innerHTML = alimentoDetails;
+                
+                
             })
             .catch(error => console.error(error));
     }
 </script>
-
-
-
-
-
