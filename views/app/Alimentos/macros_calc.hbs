@@ -71,6 +71,47 @@
       .then(response => response.json())
       .then(data => {
         console.log(data)
+        if (lineChart) {
+          lineChart.destroy();
+      }
+      const data_alimento = {
+        labels: ['Proteina', 'Hidratos de Carbono', 'Gordura'], // Macronutrientes
+        datasets: [
+            {
+                label: 'Gramas',
+                data: [data.result[0].proteina, data.result[0].carbs, data.result[0].gordura], // Proteina: 12 | Hidratos de carbono: 29 | Gordura: 12
+    backgroundColor: [
+        'rgba(255, 99, 132)',
+        'rgba(54, 162, 235)',
+        'rgba(255, 206, 86)',
+    ],
+	}]
+}
+              lineChart = new Chart(ctx, {
+        type: 'pie', // Gráfico redondo
+        data: data_alimento,
+        options: {
+            responsive: false,
+
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                title: {
+                    display: true,
+                    text: 'Macronutrientes {{this.alimento}}',
+                    font: {
+                        size: 20
+                    }
+
+                },
+
+            }
+        }
+    });  
+
+    Chart.defaults.font.size = 16;
+    Chart.defaults.color = '#FFF';
       })
       .catch(error => console.error(error));
   });
@@ -78,6 +119,7 @@
         if (lineChart) {
       lineChart.destroy();
     }
+    
         
 
         fetch(`/api/alimento/${selectedAlimentoId}`)

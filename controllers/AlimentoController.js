@@ -131,8 +131,8 @@ module.exports = {
     gordura = alimento[0].gordura
 
     calc_proteina = (proteina / 100) * gramas
-    calc_carbs = (carbs / 100) * carbs
-    calc_gordura = (gordura / 100) * gordura
+    calc_carbs = (carbs / 100) * gramas
+    calc_gordura = (gordura / 100) * gramas
     calc_calorias = (calc_proteina * 4) + (calc_carbs * 4) + (calc_gordura * 9) 
 
     json.result.push({
