@@ -137,7 +137,7 @@ module.exports = {
 
     json.result.push({
       id: alimento[0].id,
-      nome: alimento[0].alimento,
+      nome: alimento[0].nome,
       proteina: calc_proteina,
       carbs: calc_carbs,
       gordura: calc_gordura,
