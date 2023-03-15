@@ -112,6 +112,14 @@
 
     Chart.defaults.font.size = 16;
     Chart.defaults.color = '#FFF';
+    const alimentoDetails = `
+                    <h3>${data.result[0].nome}</h3>
+                    <p>Calorias: ${data.result[0].calorias}</p>
+                    <p>Proteínas: ${data.result[0].proteina}</p>
+                    <p>Carboidratos: ${data.result[0].carbs}</p>
+                    <p>Gorduras: ${data.result[0].gordura}</p>
+                `;
+                alimentoDetailsDiv.innerHTML = alimentoDetails;
       })
       .catch(error => console.error(error));
   });
