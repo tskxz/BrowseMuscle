@@ -38,5 +38,5 @@ api.get('/alimento/:id', AlimentoController.buscarUm);                          
 api.post('/alimento/', AlimentoController.inserir);                                                 // Rota do método POST para inserir um alimento
 api.put('/alimento/:id', AlimentoController.alterar);                                               // Rota do método PUT para alterar um alimento
 api.delete('/alimento/:id', AlimentoController.apagar);                                             // Rota do método DELETE para apagar um alimento
-
+api.post('/alimento/calcular/:id', AlimentoController.calcular_gramas_macro)
 module.exports = api;

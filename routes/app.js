@@ -49,6 +49,9 @@ app.get('/menu_sessao_treino', checkAuthenticated, function (req, res) {
 	})
 });
 
+// Rota para saber as macros através da quantidade de gramas da comida
+app.get('/Alimentos/macros_calc', checkAuthenticated, AlimentoController.macros_calc)
+
 // Rota para o utilizador adicionar pedido de alimento
 app.get('/Alimentos/adicionar_pedido_alimento', checkAuthenticated, AlimentoController.adicionar_pedido_alimento)
 app.post('/Alimentos/adicionar_pedido_alimento', checkAuthenticated, AlimentoController.adicionar_pedido_alimento_post)

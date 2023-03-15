@@ -116,6 +116,38 @@ module.exports = {
     // Envia resposta
     res.json(json);
   },
+  // API - JSON - Calcular e saber as macros a partir de quantidade de gramas de um alimento
+
+  calcular_gramas_macro: async (req, res) => {
+    let json = { error: "", result: [] };
+
+    let id = req.params.id;
+    let gramas = req.body.gramas;
+
+    let alimento = await AlimentoService.buscarUm(id);
+    
+    proteina = alimento[0].proteina
+    carbs = alimento[0].carbs
+    gordura = alimento[0].gordura
+
+    calc_proteina = (proteina / 100) * gramas
+    calc_carbs = (carbs / 100) * gramas
+    calc_gordura = (gordura / 100) * gramas
+    calc_calorias = (calc_proteina * 4) + (calc_carbs * 4) + (calc_gordura * 9) 
+
+    json.result.push({
+      id: alimento[0].id,
+      nome: alimento[0].alimento,
+      proteina: calc_proteina,
+      carbs: calc_carbs,
+      gordura: calc_gordura,
+      calorias: calc_calorias,
+      gramas: gramas,
+    });
+
+    res.json(json)
+
+  },
 
   // Página - Visualização dos Alimentos na página principal da tabela Alimentos
   view: async (req, res) => {
@@ -244,6 +276,13 @@ module.exports = {
       user: req.user,
       rows_marcas: Marcas,
     });
+  },
+
+  // Página - Calcular e saber as macros a partir da quantidade de gramas de um alimento
+  macros_calc: async (req, res) => {
+    let Alimentos = await AlimentoService.visualizarTodos(req.user.id);
+
+    res.render("app/Alimentos/macros_calc", {rows: Alimentos})
   },
 
   // Página Utilizador - Inserir pedido de alimentos
