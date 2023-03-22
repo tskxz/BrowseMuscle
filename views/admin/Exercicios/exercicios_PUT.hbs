@@ -15,63 +15,63 @@
 		var dificuldade_id = url.searchParams.get("dificuldade_id");
 		var musculo_id = url.searchParams.get("musculo_id");
 		fetch('/api/exercicio/' + id)
-		.then(res => res.json())
-		.then(data => {
-			const nome_exercicios = data.result
-			fetch('/api/Equipamentos/')
 			.then(res => res.json())
 			.then(data => {
-				const nome_equipamentos = data.result
-				fetch('/api/Dificuldades/')
-				.then(res => res.json())
-				.then(data => {
-					const nome_dificuldades = data.result
-
-					fetch('/api/Musculos/')
+				const nome_exercicios = data.result
+				fetch('/api/Equipamentos/')
 					.then(res => res.json())
 					.then(data => {
-						const nome_musculos = data.result
-						buildTable(nome_exercicios, nome_equipamentos, nome_dificuldades, nome_musculos)
-						var dropdown_div = document.getElementById('selectionMusculo');
-						console.log(dropdown_div);
-						nome_musculos.forEach(musculo => {
+						const nome_equipamentos = data.result
+						fetch('/api/Dificuldades/')
+							.then(res => res.json())
+							.then(data => {
+								const nome_dificuldades = data.result
 
-							var dropdown = `
+								fetch('/api/Musculos/')
+									.then(res => res.json())
+									.then(data => {
+										const nome_musculos = data.result
+										buildTable(nome_exercicios, nome_equipamentos, nome_dificuldades, nome_musculos)
+										var dropdown_div = document.getElementById('selectionMusculo');
+										console.log(dropdown_div);
+										nome_musculos.forEach(musculo => {
+
+											var dropdown = `
 							
 							<option type="number" value=${musculo.id}>${musculo.nome}</option>
 							`
-							dropdown_div.innerHTML += dropdown
-						})
+											dropdown_div.innerHTML += dropdown
+										})
 
-						var dropdown_div_equipamento = document.getElementById('selectionEquipamento');
-						console.log(dropdown_div_equipamento);
-						nome_equipamentos.forEach(equipamento => {
+										var dropdown_div_equipamento = document.getElementById('selectionEquipamento');
+										console.log(dropdown_div_equipamento);
+										nome_equipamentos.forEach(equipamento => {
 
-							var dropdown_equipamento = `
+											var dropdown_equipamento = `
 							<option type="number" value=${equipamento.id}>${equipamento.nome}</option>
 							`
-							dropdown_div_equipamento.innerHTML += dropdown_equipamento
-						})
+											dropdown_div_equipamento.innerHTML += dropdown_equipamento
+										})
 
 
-						var dropdown_div_dificuldade = document.getElementById('selectionDificuldade');
-						console.log(dropdown_div_dificuldade);
-						nome_dificuldades.forEach(dificuldade => {
+										var dropdown_div_dificuldade = document.getElementById('selectionDificuldade');
+										console.log(dropdown_div_dificuldade);
+										nome_dificuldades.forEach(dificuldade => {
 
-							var dropdown_dificuldade = `
+											var dropdown_dificuldade = `
 							<option type="number" value=${dificuldade.id}>${dificuldade.nome}</option>
 							`
-							dropdown_div_dificuldade.innerHTML += dropdown_dificuldade
-						})
+											dropdown_div_dificuldade.innerHTML += dropdown_dificuldade
+										})
 
 
 
 
 
+									})
+							})
 					})
-				})
 			})
-		})
 
 
 

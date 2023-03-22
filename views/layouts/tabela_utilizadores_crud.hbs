@@ -8,36 +8,31 @@
 	</h2>
 	<div class="col-12 d-flex justify-content-end">
 		<form class="d-flex" method="POST" action="/admin/Utilizadores/pesquisa">
-          <input class="form-control me-2" type="text" placeholder="Pesquisar" name="pesquisa" aria-label="Search">
-          <button class="btn btn-primary" type="submit">Pesquisar</button>
-        </form>
+			<input class="form-control me-2" type="text" placeholder="Pesquisar" name="pesquisa" aria-label="Search">
+			<button class="btn btn-primary" type="submit">Pesquisar</button>
+		</form>
 	</div>
-{{#if success}}
-			<div class="alert alert-success alert-dismissible fade show" role="alert">
-				{{success}}
-				<button
-      type="button"
-      class="btn-close"
-      data-bs-dismiss="alert"
-      aria-label="Close"
-    ></button>
-			</div>
-			{{/if}}
+	{{#if success}}
+	<div class="alert alert-success alert-dismissible fade show" role="alert">
+		{{success}}
+		<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+	</div>
+	{{/if}}
 	<p style="text-align: center">
-		<div class="d-grid gap-2">
+	<div class="d-grid gap-2">
 
-		
+
 	</div>
 	<table class="table table-bordered table-hover table-light">
 		<thead class="thead-light">
 			<tr>
-				<th scope="col" >ID</th>
-				<th scope="col" >Username</th>
-				<th scope="col" >Primeiro Nome</th>
-				<th scope="col" >Último Nome</th>
-				<th scope="col" >Email</th>
-				<th scope="col" >Número de telemovel</th>
-				<th scope="col" >Cargos</th>
+				<th scope="col">ID</th>
+				<th scope="col">Username</th>
+				<th scope="col">Primeiro Nome</th>
+				<th scope="col">Último Nome</th>
+				<th scope="col">Email</th>
+				<th scope="col">Número de telemovel</th>
+				<th scope="col">Cargos</th>
 				<th scope="col" class="text-end">Ações</th>
 			</tr>
 		</thead>

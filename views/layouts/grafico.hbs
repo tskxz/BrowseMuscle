@@ -1,24 +1,28 @@
 {{> header }}
 
 <br><br><br><br><br><br><br>
+
 <body class="bg-black text-dark mt-0" data-bs-spy="scroll" data-bs-target="#navScroll">
-{{> nav_bar}}
+  {{> nav_bar}}
 
-<style>
-  #container {
-    display: flex;
-    justify-content: center; /* horizontal alignment */
-    align-items: center; /* vertical alignment */
-    margin: auto; /* centering */
-  }
-</style>
+  <style>
+    #container {
+      display: flex;
+      justify-content: center;
+      /* horizontal alignment */
+      align-items: center;
+      /* vertical alignment */
+      margin: auto;
+      /* centering */
+    }
+  </style>
 
-<div id="container">
-  <canvas id="lineChart" width="500" height="500"></canvas>
-</div><br>
+  <div id="container">
+    <canvas id="lineChart" width="500" height="500"></canvas>
+  </div><br>
 
 
 
 
-{{{body}}}
-{{> footer }}
+  {{{body}}}
+  {{> footer }}

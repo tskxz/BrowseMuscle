@@ -189,7 +189,7 @@ module.exports = {
     if (!apagar) {
       res.send("err");
     } else {
-      req.flash("success", "Foto apagada!")
+      req.flash("success", "Foto apagada!");
       res.redirect("/meu_perfil");
     }
   },
@@ -238,7 +238,7 @@ module.exports = {
       descricao
     );
     if (utilizador) {
-      req.flash("success", "Perfil atualizado com sucesso!")
+      req.flash("success", "Perfil atualizado com sucesso!");
       res.redirect("/meu_perfil");
     }
   },
@@ -271,8 +271,8 @@ module.exports = {
           // Chama o serviço criar que vai inserir os valores obtidos com a palavra passe encriptada
           await UtilizadorService.mudar_pass(req.user.id, hashedNewPassword);
           message = "Palavra passe mudada com sucesso!";
-          req.flash("success", "Palavra passe mudada com sucesso!")
-          res.redirect('/meu_perfil')
+          req.flash("success", "Palavra passe mudada com sucesso!");
+          res.redirect("/meu_perfil");
         } else {
           message = "Palavra passe não são iguais!";
         }

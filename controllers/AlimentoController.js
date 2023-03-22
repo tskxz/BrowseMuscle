@@ -125,15 +125,15 @@ module.exports = {
     let gramas = req.body.gramas;
 
     let alimento = await AlimentoService.buscarUm(id);
-    
-    proteina = alimento[0].proteina
-    carbs = alimento[0].carbs
-    gordura = alimento[0].gordura
 
-    calc_proteina = (proteina / 100) * gramas
-    calc_carbs = (carbs / 100) * gramas
-    calc_gordura = (gordura / 100) * gramas
-    calc_calorias = (calc_proteina * 4) + (calc_carbs * 4) + (calc_gordura * 9) 
+    proteina = alimento[0].proteina;
+    carbs = alimento[0].carbs;
+    gordura = alimento[0].gordura;
+
+    calc_proteina = (proteina / 100) * gramas;
+    calc_carbs = (carbs / 100) * gramas;
+    calc_gordura = (gordura / 100) * gramas;
+    calc_calorias = calc_proteina * 4 + calc_carbs * 4 + calc_gordura * 9;
 
     json.result.push({
       id: alimento[0].id,
@@ -145,8 +145,7 @@ module.exports = {
       gramas: gramas,
     });
 
-    res.json(json)
-
+    res.json(json);
   },
 
   // Página - Visualização dos Alimentos na página principal da tabela Alimentos
@@ -260,8 +259,6 @@ module.exports = {
       );
       req.flash("success", `Alimento ${nome} adicionado com sucesso!`);
       res.redirect("/admin/main_alimentos");
-
-     
     } else {
       res.status(400).send("Erro ao adicionar alimento");
     }
@@ -282,7 +279,10 @@ module.exports = {
   macros_calc: async (req, res) => {
     let Alimentos = await AlimentoService.visualizarTodos(req.user.id);
 
-    res.render("app/Alimentos/macros_calc", {user: req.user, rows: Alimentos})
+    res.render("app/Alimentos/macros_calc", {
+      user: req.user,
+      rows: Alimentos,
+    });
   },
 
   // Página Utilizador - Inserir pedido de alimentos
@@ -312,7 +312,6 @@ module.exports = {
       );
       req.flash("success", `${nome} adicionado com sucesso!`);
       res.redirect("/alimentos");
-
     } else {
       res.status(400).send("Erro ao adicionar alimento");
     }
@@ -336,7 +335,7 @@ module.exports = {
 
     // Redireciona para a página principal se for apagado
     if (alimento) {
-      req.flash("success", `Apagado com sucesso!`)
+      req.flash("success", `Apagado com sucesso!`);
       res.redirect("/admin/main_alimentos/");
     }
   },

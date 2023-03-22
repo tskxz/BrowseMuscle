@@ -1,66 +1,72 @@
 <style>
   header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 999;
-}
-@media (max-width: 767.98px) {
-  .my-container {
-    margin-top: 260px; /* altura da barra de navegação */
-  },
-   .my-container-crud-ex {
-    margin-top: 160px;
-  },
-}
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+  }
+
+  @media (max-width: 767.98px) {
+    .my-container {
+      margin-top: 260px;
+      /* altura da barra de navegação */
+    }
+
+    ,
+    .my-container-crud-ex {
+      margin-top: 160px;
+    }
+
+    ,
+  }
 </style>
 <nav id="navScroll" class="navbar navbar-dark bg-black fixed-top px-vw-5" tabindex="0">
   <div class="container">
     <a class="navbar-brand pe-md-4 fs-4 col-12 col-md-auto text-center" href="/">
-  <img src="/assets/img/browsemuscle_light.png" width="300">
-</a>
+      <img src="/assets/img/browsemuscle_light.png" width="300">
+    </a>
 
-      <ul class="navbar-nav mx-auto mb-2 mb-lg-0 list-group list-group-horizontal">
+    <ul class="navbar-nav mx-auto mb-2 mb-lg-0 list-group list-group-horizontal">
       <li class="nav-item">
-  <a class="nav-link fs-5" href="/" aria-label="Homepage">
-    Home
-  </a>
-</li>
+        <a class="nav-link fs-5" href="/" aria-label="Homepage">
+          Home
+        </a>
+      </li>
 
-<li class="nav-item">
-  <a class="nav-link fs-5" href="/funcionalidades" aria-label="A sample content page">
-    Funcionalidades
-  </a>
-</li>
-{{#if user}}
-<li class="nav-item">
-  <a class="nav-link fs-5" href="/musculos" aria-label="A sample content page">
-    Músculos
-  </a>
-</li>
-<li class="nav-item">
-  <a class="nav-link fs-5" href="/main_alimentos" aria-label="A sample content page">
-    Alimentos
-  </a>
-</li>
-{{/if}}
+      <li class="nav-item">
+        <a class="nav-link fs-5" href="/funcionalidades" aria-label="A sample content page">
+          Funcionalidades
+        </a>
+      </li>
+      {{#if user}}
+      <li class="nav-item">
+        <a class="nav-link fs-5" href="/musculos" aria-label="A sample content page">
+          Músculos
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link fs-5" href="/main_alimentos" aria-label="A sample content page">
+          Alimentos
+        </a>
+      </li>
+      {{/if}}
     </ul>
     {{#unless user}}
-      <a href="/auth/login" aria-label="Download this template" class="btn btn-outline-light">
-        <small>Login</small>
-      </a>
+    <a href="/auth/login" aria-label="Download this template" class="btn btn-outline-light">
+      <small>Login</small>
+    </a>
     {{/unless}}
-     {{#if user}}
-     <a href="/meu_perfil" class="btn btn-outline-light">
-        <small>Perfil</small>
-      </a> &nbsp;
-      {{#ifEquals user.id_cargo "2"}}
-      <a href="/admin/dashboard" class="btn btn-outline-light">
-        <small>Administração</small>
-      </a>
-      {{/ifEquals}}
-      
+    {{#if user}}
+    <a href="/meu_perfil" class="btn btn-outline-light">
+      <small>Perfil</small>
+    </a> &nbsp;
+    {{#ifEquals user.id_cargo "2"}}
+    <a href="/admin/dashboard" class="btn btn-outline-light">
+      <small>Administração</small>
+    </a>
+    {{/ifEquals}}
+
     {{/if}}
-</div>
+  </div>
 </nav>

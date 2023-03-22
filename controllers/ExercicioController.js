@@ -296,7 +296,6 @@ module.exports = {
     let musculo_id = req.body.musculo_id;
     let descricao = req.body.descricao;
 
-  
     // Se os valores foi nos enviado através do body
     if (nome && equipamento_id && dificuldade_id && musculo_id) {
       // Insere o exercício ao chamar o serviço inserir
@@ -308,8 +307,8 @@ module.exports = {
         descricao
       );
 
-      req.flash("success", `Exercício ${nome} adicionado com sucesso!`)
-      res.redirect('/admin/main_exercicios')
+      req.flash("success", `Exercício ${nome} adicionado com sucesso!`);
+      res.redirect("/admin/main_exercicios");
     } else {
       res.status(400).send("erro ao enviar um exercício");
     }
@@ -351,7 +350,7 @@ module.exports = {
     if (id && nome && equipamento_id && dificuldade_id && musculo_id) {
       // Chama o serviço para atualizar os dados
       await ExercicioService.alterar(
-    	id,
+        id,
         nome,
         equipamento_id,
         dificuldade_id,
@@ -423,7 +422,10 @@ module.exports = {
       );
       if (exercicio) {
         // Foto mudada com sucesso
-        req.flash("success", `Vídeo ${videoExercicio.name} enviado com sucesso!`);
+        req.flash(
+          "success",
+          `Vídeo ${videoExercicio.name} enviado com sucesso!`
+        );
         res.redirect("/admin/main_exercicios");
       }
     });
