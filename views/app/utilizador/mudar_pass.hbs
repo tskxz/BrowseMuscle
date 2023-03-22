@@ -1,4 +1,8 @@
-<style>
+{{> header }}
+
+
+<body class="bg-black text-dark mt-0" data-bs-spy="scroll" data-bs-target="#navScroll"><br><br><br><br>
+{{> nav_bar}}<style>
     h1 {
         text-align: center;
     }
@@ -20,8 +24,14 @@
 <br><br>
 <h1 class="text-light">Alterar palavra-passe</h1>
 {{#if alert}}
-    <div class="alert alert-success" role="alert">
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
         <h5 >{{alert}}</h5>
+        <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+    ></button>
     </div>
 {{/if}}
 <form method="post" action="/mudar_pass">
