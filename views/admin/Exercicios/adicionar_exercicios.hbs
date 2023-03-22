@@ -1,50 +1,46 @@
 <div class="d-flex align-items-center justify-content-center" style="height: 60vh">
+    <div class="container">
+        {{#if alert}}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{alert}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {{/if}}
+        <form method="POST" action="/admin/adicionar_exercicio">
+            <div class="row g-3">
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Exercicio" name="nome" aria-label="Exercicio"
+                        required>
+                </div>
+                <div class="col">
+                    <select class="form-select" name="equipamento_id" aria-label="Default select example">
+                        {{#each rows_eq}}
+                        <option value="{{this.id}}">{{this.nome}}</option>
+                        {{/each}}
+                    </select>
 
-<div class="container">
-    {{#if alert}}
-        <div class="alert alert-success alert-dismissible fade show" role="alert">    
-            {{alert}} 
-            <button
-      type="button"
-      class="btn-close"
-      data-bs-dismiss="alert"
-      aria-label="Close"
-    ></button>
-        </div>
-    {{/if}}
-    <form method="POST" action="/admin/adicionar_exercicio">
-        <div class="row g-3">
-            <div class="col">
-                <input type="text" class="form-control" placeholder="Exercicio" name="nome" aria-label="Exercicio" required>
+                </div>
+                <div class="col">
+                    <select class="form-select" name="dificuldade_id" aria-label="Default select example">
+                        {{#each rows_df}}
+                        <option value="{{this.id}}">{{this.nome}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <div class="col">
+                    <select class="form-select" name="musculo_id" aria-label="Default select example">
+                        {{#each rows_musculos}}
+                        <option value="{{this.id}}">{{this.nome}}</option>
+                        {{/each}}
+                    </select>
+                </div>
             </div>
-            <div class="col">
-                <select class="form-select" name="equipamento_id" aria-label="Default select example">
-                    {{#each rows_eq}}
-                    <option value="{{this.id}}">{{this.nome}}</option>
-                    {{/each}}
-                </select>
-
+            <br>
+            <label for="floatingTextarea2" class="text-light">Descrição</label>
+            <textarea class="form-control" style="height: 100px" name="descricao" required></textarea><br>
+            <div class="d-grid gap-2">
+                <button class="btn btn-primary" type="submit">Adicionar</button>
             </div>
-            <div class="col">
-                <select class="form-select" name="dificuldade_id" aria-label="Default select example">
-                    {{#each rows_df}}
-                    <option value="{{this.id}}">{{this.nome}}</option>
-                    {{/each}}
-                </select>
-            </div>
-            <div class="col">
-                <select class="form-select" name="musculo_id" aria-label="Default select example">
-                    {{#each rows_musculos}}
-                    <option value="{{this.id}}">{{this.nome}}</option>
-                    {{/each}}
-                </select>
-            </div>
-        </div>
-        <br>
-        <label for="floatingTextarea2" class="text-light">Descrição</label>
-        <textarea class="form-control" style="height: 100px" name="descricao" required></textarea><br>
-        <div class="d-grid gap-2">
-            <button class="btn btn-primary" type="submit">Adicionar</button>
-        </div>
-    </form>
-</div></div>
+        </form>
+    </div>
+</div>

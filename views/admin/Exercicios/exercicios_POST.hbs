@@ -6,11 +6,11 @@
 	function buildPost() {
 		var form = document.getElementById('myForm');
 		fetch('/api/Musculos/')
-		.then(res => res.json())
-		.then(data => {
-			const nome_musculos = data.result
-			buildTable_musculo(nome_musculos)
-		})
+			.then(res => res.json())
+			.then(data => {
+				const nome_musculos = data.result
+				buildTable_musculo(nome_musculos)
+			})
 
 		function buildTable_musculo(data_musculos) {
 			var dropdown_div_musculo = document.getElementById('nome_musculo');
@@ -28,11 +28,11 @@
 		}
 
 		fetch('/api/Dificuldades/')
-		.then(res => res.json())
-		.then(data => {
-			const nome_dificuldades = data.result
-			buildTable_dificuldade(nome_dificuldades)
-		})
+			.then(res => res.json())
+			.then(data => {
+				const nome_dificuldades = data.result
+				buildTable_dificuldade(nome_dificuldades)
+			})
 		function buildTable_dificuldade(data_dificuldades) {
 			var dropdown_div = document.getElementById('selectionDificuldade');
 			console.log(dropdown_div);
@@ -49,31 +49,31 @@
 		}
 
 		fetch('/api/Equipamentos/')
-		.then(res => res.json())
-		.then(data => {
-			const nome_equipamentos = data.result
-			buildTable_equipamento(nome_equipamentos)
-		})
+			.then(res => res.json())
+			.then(data => {
+				const nome_equipamentos = data.result
+				buildTable_equipamento(nome_equipamentos)
+			})
 		function buildTable_equipamento(data_equipamentos) {
 			var dropdown_div = document.getElementById('selectionEquipamento');
-		// console.log(dropdown_div);
-		data_equipamentos.forEach(equipamento => {
+			// console.log(dropdown_div);
+			data_equipamentos.forEach(equipamento => {
 
-			var dropdown = `
+				var dropdown = `
 			<option type="number" value=${equipamento.id}>${equipamento.nome}</option>
 			`
-			dropdown_div.innerHTML += dropdown
-		})
+				dropdown_div.innerHTML += dropdown
+			})
 
 
 
-	}
+		}
 
 
 
-	
 
-	var value = `
+
+		var value = `
 	<table class="table table-striped table-hover table-light">
 	<tr class="bg-danger">
 
@@ -149,8 +149,8 @@
 	</form>
 
 	`
-	form.innerHTML += value
-}
+		form.innerHTML += value
+	}
 
 
 
@@ -158,7 +158,7 @@
 
 
 
-buildPost();
+	buildPost();
 
 
 

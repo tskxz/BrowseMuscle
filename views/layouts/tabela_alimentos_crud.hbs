@@ -4,7 +4,7 @@
 <br>
 <br>
 <div class="container-fluid my-container">
-	<h2  class="text-dark"><br><br><br>
+	<h2 class="text-dark"><br><br><br>
 		Gestão de alimentos
 	</h2>
 	<div class="col-12 d-flex justify-content-end">
@@ -16,46 +16,41 @@
 
 
 	</div>
-	
+
 	<p style="text-align: center">
 		{{#if success}}
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {{success}}
-            <button
-      type="button"
-      class="btn-close"
-      data-bs-dismiss="alert"
-      aria-label="Close"
-    ></button>
-        </div>
-    {{/if}}
-		<div class="d-grid gap-2">
+	<div class="alert alert-success alert-dismissible fade show" role="alert">
+		{{success}}
+		<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+	</div>
+	{{/if}}
+	<div class="d-grid gap-2">
 
-		    <a href="/admin/adicionar_alimento" type="button" class="btn btn-primary align-self-center">+ adicionar alimento</a>
+		<a href="/admin/adicionar_alimento" type="button" class="btn btn-primary align-self-center">+ adicionar
+			alimento</a>
 
 	</div>
-		<table class="table table-bordered table-hover table-light">
-			<thead class="thead-light">
+	<table class="table table-bordered table-hover table-light">
+		<thead class="thead-light">
 			<tr class="bg-danger">
 				<th>ID</th>
 				<th>Alimento</th>
 				<th>Proteina</th>
 				<th>Carbs</th>
-                <th>Gordura</th>
-                <th>Calorias</th>
+				<th>Gordura</th>
+				<th>Calorias</th>
 				<th>Marca</th>
 				<th>Estado</th>
 				<th>Ações</th>
 			</tr>
-			</thead>
-			<tbody id="myTable">
-				{{{body}}}
-			</tbody>
-		</table>
+		</thead>
+		<tbody id="myTable">
+			{{{body}}}
+		</tbody>
+	</table>
 
 	</p>
-	
+
 </div>
 </div>
 {{> footer }}
-

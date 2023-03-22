@@ -1,60 +1,59 @@
 {{> header }}
 
 
-  <body class="bg-black text-white mt-0" data-bs-spy="scroll" data-bs-target="#navScroll">
+<body class="bg-black text-white mt-0" data-bs-spy="scroll" data-bs-target="#navScroll">
 
-   {{> nav_bar}} <br><br>
+  {{> nav_bar}} <br><br>
 
-    <main>
-      <div class="container">
-  <div class="row d-flex justify-content-center py-vh-5 pb-0">
-    <div class="col-12 col-lg-10 col-xl-8">
-      <div class="row">
-        <div class="col-12">
-            {{#each rows}}
-          <h1 class="display-1 fw-bold">{{exercicio}}
-            </h1>
-             <div class="row">
-      <div class="col-12 py-vh-2">
-        <video width="500px" height="500px"
-        controls="controls"/>
-         
-        <source src="/videos/exercicios/{{video}}"
-            type="video/mp4">
-    </video>
-    </div>
-    </div>
-          <p class="lead border-top pt-5 mt-5" data-aos="fade-up">{{descricao}}
-          </p>
+  <main>
+    <div class="container">
+      <div class="row d-flex justify-content-center py-vh-5 pb-0">
+        <div class="col-12 col-lg-10 col-xl-8">
+          <div class="row">
+            <div class="col-12">
+              {{#each rows}}
+              <h1 class="display-1 fw-bold">{{exercicio}}
+              </h1>
+              <div class="row">
+                <div class="col-12 py-vh-2">
+                  <video width="500px" height="500px" controls="controls" />
+
+                  <source src="/videos/exercicios/{{video}}" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+              <p class="lead border-top pt-5 mt-5" data-aos="fade-up">{{descricao}}
+              </p>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-    {{/each}}
-   
-<script src="/assets/js/bootstrap.bundle.min.js"></script>
-<script src="/assets/js/aos.js"></script>
-<script>
-AOS.init({
- duration: 800, // values from 0 to 3000, with step 50ms
-});
-</script>
-<script>
-  let scrollpos = window.scrollY
-  const header = document.querySelector(".navbar")
-  const header_height = header.offsetHeight
+        {{/each}}
 
-  const add_class_on_scroll = () => header.classList.add("scrolled", "shadow-sm")
-  const remove_class_on_scroll = () => header.classList.remove("scrolled", "shadow-sm")
+        <script src="/assets/js/bootstrap.bundle.min.js"></script>
+        <script src="/assets/js/aos.js"></script>
+        <script>
+          AOS.init({
+            duration: 800, // values from 0 to 3000, with step 50ms
+          });
+        </script>
+        <script>
+          let scrollpos = window.scrollY
+          const header = document.querySelector(".navbar")
+          const header_height = header.offsetHeight
 
-  window.addEventListener('scroll', function() {
-    scrollpos = window.scrollY;
+          const add_class_on_scroll = () => header.classList.add("scrolled", "shadow-sm")
+          const remove_class_on_scroll = () => header.classList.remove("scrolled", "shadow-sm")
 
-    if (scrollpos >= header_height) { add_class_on_scroll() }
-    else { remove_class_on_scroll() }
+          window.addEventListener('scroll', function () {
+            scrollpos = window.scrollY;
 
-    console.log(scrollpos)
-  })
-</script>
+            if (scrollpos >= header_height) { add_class_on_scroll() }
+            else { remove_class_on_scroll() }
 
-  </body>
+            console.log(scrollpos)
+          })
+        </script>
+
+</body>
+
 </html>

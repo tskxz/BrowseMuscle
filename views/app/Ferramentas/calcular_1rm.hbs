@@ -1,18 +1,12 @@
 {{> header }}
-
-
 <body class="bg-black text-dark mt-0" data-bs-spy="scroll" data-bs-target="#navScroll">
-{{> nav_bar}}<br><br><br><br>
+    {{> nav_bar}}<br><br><br><br>
 
     <h1 class="text-light">Calculadora de 1RM</h1>
     {{#if alert}}
     <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <h4>1RM: {{alert}}</h4>  <button
-      type="button"
-      class="btn-close"
-      data-bs-dismiss="alert"
-      aria-label="Close"
-    ></button>
+        <h4>1RM: {{alert}}</h4> <button type="button" class="btn-close" data-bs-dismiss="alert"
+            aria-label="Close"></button>
     </div>
     {{/if}}
     <div class="row mt-5">
@@ -40,5 +34,3 @@
     </div>
 
     <br>
-    
-

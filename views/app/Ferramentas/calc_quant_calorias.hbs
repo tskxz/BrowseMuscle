@@ -1,61 +1,54 @@
 {{> header }}
-
-
 <body class="bg-black text-dark mt-0" data-bs-spy="scroll" data-bs-target="#navScroll">
-{{> nav_bar}}<br><br><br><br>
-<h1 class="text-light">Calculadora de Macros</h1>
+  {{> nav_bar}}<br><br><br><br>
+  <h1 class="text-light">Calculadora de Macros</h1>
   {{#if TMB}}
   {{#if proteina}}
   {{#if carbs}}
   {{#if gordura}}
-  
+
   <div class="alert alert-success alert-dismissible fade show" role="alert">
     <h4 class="alert-heading">Quantidade recomendada!</h4>
-    
+
     <p>Mínimo de calorias para consumir (TMB): {{TMB}} calorias <br>
     <p>Proteína: {{proteina}} gramas <br>
     <p>Carbs: {{carbs}} gramas <br>
     <p>Gordura: {{gordura}} gramas <br>
-    <hr>
+      <hr>
     <p class="mb-0">TMB significa taxa metabólica basal que significa as calorias que gastamos para sobreviver. </p>
-     <button
-      type="button"
-      class="btn-close"
-      data-bs-dismiss="alert"
-      aria-label="Close"
-    ></button>
-  </div>
-  
-  {{/if}}
-  {{/if}}
-  {{/if}}
-  {{/if}}
-
-<div class="row mt-5">
-  <div class="col-md-6 offset-md-3">
-    <form method="post" action="/calcular_macro">
-      <div class="form-group">
-        <label class="text-light" for="peso" class="text-light">Peso (kg):</label>
-        <input class="form-control" type="text" name="peso" required><br>
-      </div>
-      <div class="form-group">
-        <label class="text-light" for="altura">Altura (cm):</label>
-        <input class="form-control" type="text" name="altura" required><br>
-      </div>
-      <div class="form-group">
-        <label class="text-light" for="idade">Idade:</label>
-        <input class="form-control" type="text" name="idade" required><br>
-      </div>
-      <div class="form-group">
-        <label class="text-light" for="sexo">Sexo:</label><br>
-        <input class="form-check-input" type="radio" name="gender" value="male" required> <label
-          class="text-light">Masculino</label><br>
-        <input class="form-check-input" type="radio" name="gender" value="female" required> <label
-          class="text-light">Feminino</label><br>
-        <button class="btn btn-primary" type="submit">Calcular</button>
-      </div>
-
-    </form>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>
 
-  <br>
+  {{/if}}
+  {{/if}}
+  {{/if}}
+  {{/if}}
+
+  <div class="row mt-5">
+    <div class="col-md-6 offset-md-3">
+      <form method="post" action="/calcular_macro">
+        <div class="form-group">
+          <label class="text-light" for="peso" class="text-light">Peso (kg):</label>
+          <input class="form-control" type="text" name="peso" required><br>
+        </div>
+        <div class="form-group">
+          <label class="text-light" for="altura">Altura (cm):</label>
+          <input class="form-control" type="text" name="altura" required><br>
+        </div>
+        <div class="form-group">
+          <label class="text-light" for="idade">Idade:</label>
+          <input class="form-control" type="text" name="idade" required><br>
+        </div>
+        <div class="form-group">
+          <label class="text-light" for="sexo">Sexo:</label><br>
+          <input class="form-check-input" type="radio" name="gender" value="male" required> <label
+            class="text-light">Masculino</label><br>
+          <input class="form-check-input" type="radio" name="gender" value="female" required> <label
+            class="text-light">Feminino</label><br>
+          <button class="btn btn-primary" type="submit">Calcular</button>
+        </div>
+
+      </form>
+    </div>
+
+    <br>

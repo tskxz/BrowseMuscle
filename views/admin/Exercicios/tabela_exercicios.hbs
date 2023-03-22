@@ -1,12 +1,12 @@
 <script>
 	fetch('/api/Exercicios/')
-	.then(res => res.json())
-	.then(data => {
-		const nome_exercicios = data.result
-		
-		buildTable(nome_exercicios)
-	})
-	
+		.then(res => res.json())
+		.then(data => {
+			const nome_exercicios = data.result
+
+			buildTable(nome_exercicios)
+		})
+
 
 
 	function buildTable(data) {

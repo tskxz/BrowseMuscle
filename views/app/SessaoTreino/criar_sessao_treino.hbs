@@ -2,18 +2,18 @@
 
 
 <body class="bg-black text-dark mt-0" data-bs-spy="scroll" data-bs-target="#navScroll"><br><br><br><br>
-{{> nav_bar}}
-<div class="d-flex align-items-center justify-content-center" style="height: 80vh">
-    <form class="row g-3" method="post" action="/criar_sessao_treino">
-        <div class="mb-3">
-            <label class="form-label text-light">Nome da sessão de treino</label>
-            <input type="text" class="form-control" name="nome" required>
-        </div>
-        <label for="floatingTextarea2" class="text-light">Descrição</label>
-        <textarea class="form-control" style="height: 100px" name="descricao" required></textarea>
-        <div class="d-grid gap-2">
-            <button type="submit" class="btn btn-primary">Criar sessão de treino</button>
-        </div>
-    </form><br>
-</div>
-</div>
+    {{> nav_bar}}
+    <div class="d-flex align-items-center justify-content-center" style="height: 80vh">
+        <form class="row g-3" method="post" action="/criar_sessao_treino">
+            <div class="mb-3">
+                <label class="form-label text-light">Nome da sessão de treino</label>
+                <input type="text" class="form-control" name="nome" required>
+            </div>
+            <label for="floatingTextarea2" class="text-light">Descrição</label>
+            <textarea class="form-control" style="height: 100px" name="descricao" required></textarea>
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-primary">Criar sessão de treino</button>
+            </div>
+        </form><br>
+    </div>
+    </div>

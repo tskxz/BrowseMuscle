@@ -1,19 +1,14 @@
 {{#if alert}}
 <div class="alert alert-success alert-dismissible fade show" role="alert">
-    {{alert}}
-    <button
-      type="button"
-      class="btn-close"
-      data-bs-dismiss="alert"
-      aria-label="Close"
-    ></button>
+  {{alert}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
 {{/if}}
 {{#each rows}}
 <tr>
-	<td><a href=" /Exercicio/{{this.id}}">{{this.exercicio}}</a></td>
-	<td>{{this.equipamento}}</td>
-	<td>{{this.dificuldade}}</td>
-	<td>{{this.musculo}}</td>			
+  <td><a href=" /Exercicio/{{this.id}}">{{this.exercicio}}</a></td>
+  <td>{{this.equipamento}}</td>
+  <td>{{this.dificuldade}}</td>
+  <td>{{this.musculo}}</td>
 </tr>
 {{/each}}

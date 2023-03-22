@@ -3,12 +3,7 @@
         {{#if alert}}
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             {{alert}}
-            <button
-      type="button"
-      class="btn-close"
-      data-bs-dismiss="alert"
-      aria-label="Close"
-    ></button>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
         {{/if}}
         {{#each row}}
@@ -36,14 +31,14 @@
                         placeholder="Calorias" name="calorias" aria-label="Calorias">
                 </div>
                 <div class="col">
-                <select class="form-select" name="id_marca" aria-label="Default select example">
-                    <option value="{{this.id_marca}}" selected>{{this.marca}}</option>
-                    {{#each ../rows_marcas}}
-                    
-                    <option value="{{this.id}}">{{this.nome}}</option>
-                    {{/each}}
-                </select>
-            </div>
+                    <select class="form-select" name="id_marca" aria-label="Default select example">
+                        <option value="{{this.id_marca}}" selected>{{this.marca}}</option>
+                        {{#each ../rows_marcas}}
+
+                        <option value="{{this.id}}">{{this.nome}}</option>
+                        {{/each}}
+                    </select>
+                </div>
 
             </div>
             <br>
