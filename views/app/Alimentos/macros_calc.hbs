@@ -3,187 +3,183 @@
 <style>
   #container {
     display: flex;
-    justify-content: center; /* horizontal alignment */
-    align-items: center; /* vertical alignment */
-    margin: auto; /* centering */
+    justify-content: center;
+    /* horizontal alignment */
+    align-items: center;
+    /* vertical alignment */
+    margin: auto;
+    /* centering */
   }
 </style>
 
-  <body class="bg-black text-white mt-0" data-bs-spy="scroll" data-bs-target="#navScroll">
+<body class="bg-black text-white mt-0" data-bs-spy="scroll" data-bs-target="#navScroll">
 
-   {{> nav_bar}} 
-<br>
-<br>
-<br>
+  {{> nav_bar}}
+  <br>
+  <br>
+  <br>
 
-<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-  <header class="mb-auto">
-  </header>
-  <main class="px-3">
-    <select class="form-select" aria-label="Default select example" onchange="getAlimentoDetails()">
+  <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <header class="mb-auto">
+    </header>
+    <main class="px-3">
+      <select class="form-select" onchange="getAlimentoDetails()">
         <option selected>Escolhe um alimento</option>
-    {{#each rows}}
+        {{#each rows}}
         <option value="{{this.id}}">{{this.alimento}}</option>
-    {{/each}}
-    </select>
-  </main><br>
-      <div id="alimento-details"></div>
-      <div id="container">
-  <canvas id="lineChart" width="500" height="500"></canvas>
-</div><br>
-<div id="gramas-form" style="display: none;">
-  <form>
-    <div class="mb-3">
-      <label for="gramas" class="form-label">Gramas</label>
-      <input id="gramas" type="number" class="form-control">  
+        {{/each}}
+      </select>
+    </main><br>
+    <div id="alimento-details"></div>
+    <div id="container">
+      <canvas id="lineChart" width="500" height="500"></canvas>
+    </div><br>
+    <div id="gramas-form" style="display: none;">
+      <form>
+        <div class="mb-3">
+          <label for="gramas" class="form-label">Gramas</label>
+          <input id="gramas" type="number" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary">Calcular</button>
+      </form>
     </div>
-    <button type="submit" class="btn btn-primary">Calcular</button>
-  </form>
-</div>
 
-</div>
-<script>
-  let lineChart = null;
+  </div>
+  <script>
+    let lineChart = null;
     function getAlimentoDetails() {
+      const ctx = document.getElementById('lineChart').getContext('2d');
+      
+      const select = document.querySelector('.form-select');
+      const selectedOption = select.options[select.selectedIndex];
+      const selectedAlimentoId = selectedOption.value;
+      const alimentoDetailsDiv = document.querySelector('#alimento-details');
 
-        const ctx = document.getElementById('lineChart').getContext('2d');
-        
+      const gramasForm = document.querySelector('#gramas-form');
+      const gramasInput = document.querySelector('#gramas');
 
-        const select = document.querySelector('.form-select');
-        const selectedOption = select.options[select.selectedIndex];
-        const selectedAlimentoId = selectedOption.value;
-        const alimentoDetailsDiv = document.querySelector('#alimento-details');
-        
-        const gramasForm = document.querySelector('#gramas-form');
-        const gramasInput = document.querySelector('#gramas');
-        
-        // mostra o formulário de gramas apenas quando um alimento for selecionado
-        gramasForm.style.display = 'block';
-        // envia o valor do id do alimento no método POST do formulário
-  gramasForm.addEventListener('submit', event => {
-    event.preventDefault();
-    const gramas = gramasInput.value;
-    fetch(`/api/alimento/calcular/${selectedAlimentoId}`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ gramas })
-    })
-      .then(response => response.json())
-      .then(data => {
-        console.log(data)
-        if (lineChart) {
-          lineChart.destroy();
+      // mostra o formulário de gramas apenas quando um alimento for selecionado
+      gramasForm.style.display = 'block';
+      // envia o valor do id do alimento no método POST do formulário
+      gramasForm.addEventListener('submit', event => {
+        event.preventDefault();
+        const gramas = gramasInput.value;
+        fetch(`/api/alimento/calcular/${selectedAlimentoId}`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ gramas })
+        })
+          .then(response => response.json())
+          .then(data => {
+            console.log(data)
+            if (lineChart) {
+              lineChart.destroy();
+            }
+            const data_alimento = {
+              labels: ['Proteina', 'Hidratos de Carbono', 'Gordura'], // Macronutrientes
+              datasets: [
+                {
+                  label: 'Gramas',
+                  data: [data.result[0].proteina, data.result[0].carbs, data.result[0].gordura], // Proteina: 12 | Hidratos de carbono: 29 | Gordura: 12
+                  backgroundColor: [
+                    'rgba(255, 99, 132)',
+                    'rgba(54, 162, 235)',
+                    'rgba(255, 206, 86)',
+                  ],
+                }]
+            }
+            lineChart = new Chart(ctx, {
+              type: 'pie', // Gráfico redondo
+              data: data_alimento,
+              options: {
+                responsive: false,
+
+                plugins: {
+                  legend: {
+                    position: 'top',
+                  },
+                  title: {
+                    display: true,
+                    text: `Macronutrientes ${data.result[0].nome}`,
+                    font: {
+                      size: 20
+                    }
+
+                  },
+
+                }
+              }
+            });
+
+            Chart.defaults.font.size = 16;
+            Chart.defaults.color = '#FFF';
+            const alimentoDetails = `
+                    <h3>${data.result[0].nome}</h3>
+                    <p>Calorias: ${data.result[0].calorias}</p>
+                    <p>Proteínas: ${data.result[0].proteina}</p>
+                    <p>Carboidratos: ${data.result[0].carbs}</p>
+                    <p>Gorduras: ${data.result[0].gordura}</p>
+                `;
+            alimentoDetailsDiv.innerHTML = alimentoDetails;
+          })
+          .catch(error => console.error(error));
+      });
+
+      if (lineChart) {
+        lineChart.destroy();
       }
-      const data_alimento = {
-        labels: ['Proteina', 'Hidratos de Carbono', 'Gordura'], // Macronutrientes
-        datasets: [
-            {
+      fetch(`/api/alimento/${selectedAlimentoId}`)
+        .then(response => response.json())
+        .then(data => {
+          const data_alimento = {
+            labels: ['Proteina', 'Hidratos de Carbono', 'Gordura'], // Macronutrientes
+            datasets: [
+              {
                 label: 'Gramas',
                 data: [data.result[0].proteina, data.result[0].carbs, data.result[0].gordura], // Proteina: 12 | Hidratos de carbono: 29 | Gordura: 12
-    backgroundColor: [
-        'rgba(255, 99, 132)',
-        'rgba(54, 162, 235)',
-        'rgba(255, 206, 86)',
-    ],
-	}]
-}
-              lineChart = new Chart(ctx, {
-        type: 'pie', // Gráfico redondo
-        data: data_alimento,
-        options: {
-            responsive: false,
+                backgroundColor: [
+                  'rgba(255, 99, 132)',
+                  'rgba(54, 162, 235)',
+                  'rgba(255, 206, 86)',
+                ],
+              }]
+          }
+          lineChart = new Chart(ctx, {
+            type: 'pie', // Gráfico redondo
+            data: data_alimento,
+            options: {
+              responsive: false,
 
-            plugins: {
+              plugins: {
                 legend: {
-                    position: 'top',
+                  position: 'top',
                 },
                 title: {
-                    display: true,
-                    text: `Macronutrientes ${data.result[0].nome}`,
-                    font: {
-                        size: 20
-                    }
+                  display: true,
+                  text: `Macronutrientes ${data.result[0].nome}`,
+                  font: {
+                    size: 20
+                  }
 
                 },
 
+              }
             }
-        }
-    });  
+          });
 
-    Chart.defaults.font.size = 16;
-    Chart.defaults.color = '#FFF';
-    const alimentoDetails = `
+          Chart.defaults.font.size = 16;
+          Chart.defaults.color = '#FFF';
+
+
+          const alimentoDetails = `
                     <h3>${data.result[0].nome}</h3>
                     <p>Calorias: ${data.result[0].calorias}</p>
                     <p>Proteínas: ${data.result[0].proteina}</p>
                     <p>Carboidratos: ${data.result[0].carbs}</p>
                     <p>Gorduras: ${data.result[0].gordura}</p>
                 `;
-                alimentoDetailsDiv.innerHTML = alimentoDetails;
-      })
-      .catch(error => console.error(error));
-  });
-        
-        if (lineChart) {
-      lineChart.destroy();
+          alimentoDetailsDiv.innerHTML = alimentoDetails;
+        })
+        .catch(error => console.error(error));
     }
-    
-        
-
-        fetch(`/api/alimento/${selectedAlimentoId}`)
-            .then(response => response.json())
-            .then(data => {
-              
-              
-              const data_alimento = {
-        labels: ['Proteina', 'Hidratos de Carbono', 'Gordura'], // Macronutrientes
-        datasets: [
-            {
-                label: 'Gramas',
-                data: [data.result[0].proteina, data.result[0].carbs, data.result[0].gordura], // Proteina: 12 | Hidratos de carbono: 29 | Gordura: 12
-    backgroundColor: [
-        'rgba(255, 99, 132)',
-        'rgba(54, 162, 235)',
-        'rgba(255, 206, 86)',
-    ],
-	}]
-}
-              lineChart = new Chart(ctx, {
-        type: 'pie', // Gráfico redondo
-        data: data_alimento,
-        options: {
-            responsive: false,
-
-            plugins: {
-                legend: {
-                    position: 'top',
-                },
-                title: {
-                    display: true,
-                    text: `Macronutrientes ${data.result[0].nome}`,
-                    font: {
-                        size: 20
-                    }
-
-                },
-
-            }
-        }
-    });  
-
-    Chart.defaults.font.size = 16;
-    Chart.defaults.color = '#FFF';
-    
-    
-                const alimentoDetails = `
-                    <h3>${data.result[0].nome}</h3>
-                    <p>Calorias: ${data.result[0].calorias}</p>
-                    <p>Proteínas: ${data.result[0].proteina}</p>
-                    <p>Carboidratos: ${data.result[0].carbs}</p>
-                    <p>Gorduras: ${data.result[0].gordura}</p>
-                `;
-                alimentoDetailsDiv.innerHTML = alimentoDetails;
-            })
-            .catch(error => console.error(error));
-    }
-</script>
+  </script>

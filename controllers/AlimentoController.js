@@ -282,7 +282,7 @@ module.exports = {
   macros_calc: async (req, res) => {
     let Alimentos = await AlimentoService.visualizarTodos(req.user.id);
 
-    res.render("app/Alimentos/macros_calc", {rows: Alimentos})
+    res.render("app/Alimentos/macros_calc", {user: req.user, rows: Alimentos})
   },
 
   // Página Utilizador - Inserir pedido de alimentos
