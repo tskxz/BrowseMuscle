@@ -2,6 +2,7 @@ const UtilizadorService = require("../services/UtilizadoresService"); // Usa o s
 const bcrypt = require("bcrypt");
 const path = require("path");
 const { v4: uuidv4 } = require("uuid");
+const { validationResult } = require("express-validator");
 
 module.exports = {
   // API - JSON - Mostrar todos os dados que estão dentro da tabela Utilizadores
@@ -349,6 +350,12 @@ module.exports = {
 
   // API - Criar um utilizador
   criar: async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      req.flash("error", `Por favor, verifique que você não é um robô.`);
+      res.redirect("/auth/registar");
+    }
+
     let json = { error: "", result: [] };
 
     // Pega os valores do body
@@ -358,6 +365,8 @@ module.exports = {
     let email = req.body.email;
     let num_telemovel = req.body.num_telemovel;
     let password = req.body.password;
+
+    // Verifica se a resposta é vazia (usuário não verificado)
 
     // Com esses valores obtidos
     if (username && primeiro_nome && ultimo_nome && email && password) {
@@ -409,7 +418,6 @@ module.exports = {
       res.redirect("/auth/registar");
     }
   },
-
   // Apagar utilizador
   apagar: async (req, res) => {
     // Chama o serviço apagar para apagar o dado através do id
