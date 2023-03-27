@@ -354,68 +354,71 @@ module.exports = {
     if (!errors.isEmpty()) {
       req.flash("error", `Por favor, verifique que você não é um robô.`);
       res.redirect("/auth/registar");
-    }
+    } else {
+      let json = { error: "", result: [] };
 
-    let json = { error: "", result: [] };
+      // Pega os valores do body
+      let username = req.body.username;
+      let primeiro_nome = req.body.primeiro_nome;
+      let ultimo_nome = req.body.ultimo_nome;
+      let email = req.body.email;
+      let num_telemovel = req.body.num_telemovel;
+      let password = req.body.password;
 
-    // Pega os valores do body
-    let username = req.body.username;
-    let primeiro_nome = req.body.primeiro_nome;
-    let ultimo_nome = req.body.ultimo_nome;
-    let email = req.body.email;
-    let num_telemovel = req.body.num_telemovel;
-    let password = req.body.password;
+      // Verifica se a resposta é vazia (usuário não verificado)
 
-    // Verifica se a resposta é vazia (usuário não verificado)
+      // Com esses valores obtidos
+      if (username && primeiro_nome && ultimo_nome && email && password) {
+        // Tenta pegar algum utilizador com o username
+        let unico_username = await UtilizadorService.buscarUsername(username);
 
-    // Com esses valores obtidos
-    if (username && primeiro_nome && ultimo_nome && email && password) {
-      // Tenta pegar algum utilizador com o username
-      let unico_username = await UtilizadorService.buscarUsername(username);
+        // Tenta pegar algum utilizador com mesmo email
+        let unico_email = await UtilizadorService.buscarEmail(email);
 
-      // Tenta pegar algum utilizador com mesmo email
-      let unico_email = await UtilizadorService.buscarEmail(email);
+        // Se o username não existir, cria a conta
+        if (unico_username == false) {
+          if (unico_email == false) {
+            // Encriptação da password
+            const salt = await bcrypt.genSalt();
+            const hashedPassword = await bcrypt.hash(password, salt); // Encriptar a password
 
-      // Se o username não existir, cria a conta
-      if (unico_username == false) {
-        if (unico_email == false) {
-          // Encriptação da password
-          const salt = await bcrypt.genSalt();
-          const hashedPassword = await bcrypt.hash(password, salt); // Encriptar a password
+            // Chama o serviço criar que vai inserir os valores obtidos com a palavra passe encriptada
+            let UtilizadorId = await UtilizadorService.criar(
+              username,
+              primeiro_nome,
+              ultimo_nome,
+              email,
+              num_telemovel,
+              hashedPassword
+            );
 
-          // Chama o serviço criar que vai inserir os valores obtidos com a palavra passe encriptada
-          let UtilizadorId = await UtilizadorService.criar(
-            username,
-            primeiro_nome,
-            ultimo_nome,
-            email,
-            num_telemovel,
-            hashedPassword
-          );
+            // O resultado do UtilizadorId vai ser o id novo criado do utilizador
+            json.result = {
+              id: UtilizadorId,
+              username,
+              primeiro_nome,
+              ultimo_nome,
+              email,
+              num_telemovel,
+              password,
+            };
 
-          // O resultado do UtilizadorId vai ser o id novo criado do utilizador
-          json.result = {
-            id: UtilizadorId,
-            username,
-            primeiro_nome,
-            ultimo_nome,
-            email,
-            num_telemovel,
-            password,
-          };
-
-          req.flash("success", `Conta criada com sucesso! Entre na sua conta.`);
-          res.redirect("/auth/login");
+            req.flash(
+              "success",
+              `Conta criada com sucesso! Entre na sua conta.`
+            );
+            res.redirect("/auth/login");
+          } else {
+            req.flash("error", `Email já existe!`);
+            res.redirect("/auth/registar");
+          }
         } else {
-          req.flash("error", `Email já existe!`);
+          req.flash("error", `Username já existe!`);
           res.redirect("/auth/registar");
         }
       } else {
-        req.flash("error", `Username já existe!`);
         res.redirect("/auth/registar");
       }
-    } else {
-      res.redirect("/auth/registar");
     }
   },
   // Apagar utilizador
