@@ -4,6 +4,7 @@ const express = require('express');
 const auth = express.Router();
 const path = require('path');
 const passport = require('passport');
+const { check } = require("express-validator");
 
 // Middlewares
 const { checkNotAuthenticated } = require('../middlewares/authenticated');
@@ -32,7 +33,9 @@ auth.post('/', passport.authenticate('local', {
 }))
 
 // Rota para criar uma conta
-auth.post('/registar', checkNotAuthenticated, UtilizadorController.criar)
+auth.post('/registar', [
+    check('g-recaptcha-response').not().isEmpty()
+  ], checkNotAuthenticated, UtilizadorController.criar)
 
 // Rota do método post para criar uma conta
 auth.get('/registar', checkNotAuthenticated, function (req, res) {

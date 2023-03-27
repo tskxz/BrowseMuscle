@@ -2,6 +2,7 @@ const UtilizadorService = require("../services/UtilizadoresService"); // Usa o s
 const bcrypt = require("bcrypt");
 const path = require("path");
 const { v4: uuidv4 } = require("uuid");
+const { validationResult } = require("express-validator");
 
 module.exports = {
   // API - JSON - Mostrar todos os dados que estão dentro da tabela Utilizadores
@@ -349,6 +350,12 @@ module.exports = {
 
   // API - Criar um utilizador
   criar: async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      req.flash("error", `Por favor, verifique que você não é um robô.`);
+      res.redirect("/auth/registar");
+    }
+
     let json = { error: "", result: [] };
 
     // Pega os valores do body
@@ -358,66 +365,59 @@ module.exports = {
     let email = req.body.email;
     let num_telemovel = req.body.num_telemovel;
     let password = req.body.password;
-    let recaptcha = grecaptcha.getResponse();
 
     // Verifica se a resposta é vazia (usuário não verificado)
-    if (recaptcha.length === 0) {
-      req.flash("error", `Por favor, verifique que você não é um robô.`);
-      res.redirect("/auth/registar");
-    } else {
 
-      // Com esses valores obtidos
-      if (username && primeiro_nome && ultimo_nome && email && password) {
-        // Tenta pegar algum utilizador com o username
-        let unico_username = await UtilizadorService.buscarUsername(username);
+    // Com esses valores obtidos
+    if (username && primeiro_nome && ultimo_nome && email && password) {
+      // Tenta pegar algum utilizador com o username
+      let unico_username = await UtilizadorService.buscarUsername(username);
 
-        // Tenta pegar algum utilizador com mesmo email
-        let unico_email = await UtilizadorService.buscarEmail(email);
+      // Tenta pegar algum utilizador com mesmo email
+      let unico_email = await UtilizadorService.buscarEmail(email);
 
-        // Se o username não existir, cria a conta
-        if (unico_username == false) {
-          if (unico_email == false) {
-            // Encriptação da password
-            const salt = await bcrypt.genSalt();
-            const hashedPassword = await bcrypt.hash(password, salt); // Encriptar a password
+      // Se o username não existir, cria a conta
+      if (unico_username == false) {
+        if (unico_email == false) {
+          // Encriptação da password
+          const salt = await bcrypt.genSalt();
+          const hashedPassword = await bcrypt.hash(password, salt); // Encriptar a password
 
-            // Chama o serviço criar que vai inserir os valores obtidos com a palavra passe encriptada
-            let UtilizadorId = await UtilizadorService.criar(
-              username,
-              primeiro_nome,
-              ultimo_nome,
-              email,
-              num_telemovel,
-              hashedPassword
-            );
+          // Chama o serviço criar que vai inserir os valores obtidos com a palavra passe encriptada
+          let UtilizadorId = await UtilizadorService.criar(
+            username,
+            primeiro_nome,
+            ultimo_nome,
+            email,
+            num_telemovel,
+            hashedPassword
+          );
 
-            // O resultado do UtilizadorId vai ser o id novo criado do utilizador
-            json.result = {
-              id: UtilizadorId,
-              username,
-              primeiro_nome,
-              ultimo_nome,
-              email,
-              num_telemovel,
-              password,
-            };
+          // O resultado do UtilizadorId vai ser o id novo criado do utilizador
+          json.result = {
+            id: UtilizadorId,
+            username,
+            primeiro_nome,
+            ultimo_nome,
+            email,
+            num_telemovel,
+            password,
+          };
 
-            req.flash("success", `Conta criada com sucesso! Entre na sua conta.`);
-            res.redirect("/auth/login");
-          } else {
-            req.flash("error", `Email já existe!`);
-            res.redirect("/auth/registar");
-          }
+          req.flash("success", `Conta criada com sucesso! Entre na sua conta.`);
+          res.redirect("/auth/login");
         } else {
-          req.flash("error", `Username já existe!`);
+          req.flash("error", `Email já existe!`);
           res.redirect("/auth/registar");
         }
       } else {
+        req.flash("error", `Username já existe!`);
         res.redirect("/auth/registar");
       }
+    } else {
+      res.redirect("/auth/registar");
     }
   },
-
   // Apagar utilizador
   apagar: async (req, res) => {
     // Chama o serviço apagar para apagar o dado através do id
