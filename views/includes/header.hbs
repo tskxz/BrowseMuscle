@@ -16,6 +16,7 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
   <script src="/assets/js/bootstrap.min.js"></script>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 
   <style>
@@ -77,5 +78,49 @@
     }
   </style>
 
+  <style>
+  .cookie-popup {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #333;
+  padding: 10px;
+  color: #fff;
+  z-index: 9999;
+}
 
+.cookie-btn {
+  background-color: #fff;
+  color: #333;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  float: right;
+}
+</style>
+<style>
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+  }
+
+  @media (max-width: 767.98px) {
+    .my-container {
+      margin-top: 260px;
+      /* altura da barra de navegação */
+    }
+
+    ,
+    .my-container-crud-ex {
+      margin-top: 160px;
+    }
+
+    ,
+  }
+</style>
 </head>

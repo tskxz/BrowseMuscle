@@ -1,50 +1,6 @@
 {{> header }}
-<style>
-    .cookie-popup {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: #333;
-  padding: 10px;
-  color: #fff;
-  z-index: 9999;
-}
-
-.cookie-btn {
-  background-color: #fff;
-  color: #333;
-  padding: 5px 10px;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-  float: right;
-}
-</style>
-<br>
-<br>
-
-<div class="container pt-5 pb-5">
-    <div id="cookie-popup" class="cookie-popup">
-  <p>Este site utiliza cookies para melhorar a sua experiência. Ao continuar a navegar neste site, concorda com o uso de cookies.</p>
-  <button class="cookie-btn" onclick="hideCookiePopup()">OK</button>
-</div>
-
+{{> nav_bar}}
+<br><br><br><br><br><br><br>
     {{{body}}}
-</div>
 {{> footer }}
-
-<script>function hideCookiePopup() {
-  var popup = document.getElementById("cookie-popup");
-  popup.style.display = "none";
-}
-
-function showCookiePopup() {
-  var popup = document.getElementById("cookie-popup");
-  popup.style.display = "block";
-}
-
-// Mostra o popup após 1 segundo do carregamento da página
-setTimeout(function(){
-  showCookiePopup();
-}, 1000);</script>
+{{> cookie_popup}}

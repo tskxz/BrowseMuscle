@@ -1,0 +1,122 @@
+<body class="bg-black text-dark mt-0" data-bs-spy="scroll" data-bs-target="#navScroll">
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+
+        .card {
+            text-align: center;
+            width: 550px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px #8b05eb, 0 6px 36px #8b05eb;
+            cursor: pointer;
+            transition: all 0.5s;
+        }
+
+        .image img {
+            transition: all 0.5s
+        }
+
+        .name {
+            font-size: 40px;
+            font-weight: bold
+        }
+
+        .idd {
+            font-size: 25px;
+            font-weight: 600
+        }
+
+        .idd1 {
+            font-size: 19px
+        }
+
+        .number {
+            font-size: 22px;
+            font-weight: bold
+        }
+
+        .follow {
+            font-size: 19px;
+            font-weight: 500;
+            color: #444444
+        }
+
+        .text span {
+            font-size: 20px;
+            color: #545454;
+            font-weight: 500
+        }
+
+        .icons i {
+            font-size: 19px
+        }
+
+        hr .new1 {
+            border: 1px solid
+        }
+
+        .join {
+            font-size: 20px;
+            color: #000000;
+            font-weight: bold
+        }
+
+        .date {
+            background-color: #ccc
+        }
+
+        .card__image {
+            display: block;
+            margin: 0 auto;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            -o-object-fit: cover;
+            object-fit: cover;
+            box-shadow: 0 10px 20px rgba(255, 255, 255, 0), 0 6px 36px rgb(0, 0, 0);
+            border: 3px solid rgb(255, 255, 255);
+        }
+
+        .card__username {
+            color: #6e8192;
+        }
+
+        .card__title {
+            margin: 0;
+        }
+
+        @media only screen and (max-width: 900px) {
+            .card {
+                /* make the card wider on small devices, but with a maximum width of 900 pixels */
+                width: 900px;
+                max-width: 900px;
+            }
+
+        }
+    </style>
+
+    <div class="card p-4">
+        <div class=" image d-flex flex-column justify-content-center align-items-center">
+            {{#if foto}}
+            <img src="/upload/{{foto}}" class="card__image" /><br>
+            {{else}}
+            <img src="/upload/user.png" class="card__image" /><br>
+            {{/if}}
+            <h1 class="card_title">{{primeiro_nome}} {{ultimo_nome}}</h1>
+            <div class="card__username">@{{username}}</div>
+            <span class="idd1"><i class="bi bi-envelope"> {{email}}</i></span>
+            <span class="number">{{treinos_concluidos}} <span class="follow">treinos concluídos</span></span>
+            <br>
+            <div class="text mt-3"> <span>{{descricao}} </span> </div>
+            <div class=" d-flex mt-2">
+                <form action="/auth/logout" method="post">
+                    <button type="submit" class="btn btn-link">
+                        <i class="bi bi-box-arrow-right"></i>
+                    </button>
+                </form>
+            </div>

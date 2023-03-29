@@ -1,7 +1,6 @@
 {{> header }}
 <body class="bg-black text-dark mt-0" data-bs-spy="scroll" data-bs-target="#navScroll">
-  {{> nav_bar}}<br><br><br><br>
-  <h1 class="text-light">Calculadora de Macros</h1>
+  
   {{#if TMB}}
   {{#if proteina}}
   {{#if carbs}}
@@ -26,6 +25,7 @@
 
   <div class="row mt-5">
     <div class="col-md-6 offset-md-3">
+      <h1 class="text-light">Calculadora de Macros</h1>
       <form method="post" action="/calcular_macro">
         <div class="form-group">
           <label class="text-light" for="peso" class="text-light">Peso (kg):</label>

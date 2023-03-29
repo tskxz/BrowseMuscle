@@ -1,0 +1,19 @@
+<div class="container pt-5 pb-5">
+    <div id="cookie-popup" class="cookie-popup">
+  <p>Este site utiliza cookies para melhorar a sua experiência. Ao continuar a navegar neste site, concorda com o uso de cookies.</p>
+  <button class="cookie-btn" onclick="hideCookiePopup()">OK</button>
+</div>
+<script>function hideCookiePopup() {
+  var popup = document.getElementById("cookie-popup");
+  popup.style.display = "none";
+}
+
+function showCookiePopup() {
+  var popup = document.getElementById("cookie-popup");
+  popup.style.display = "block";
+}
+
+// Mostra o popup após 1 segundo do carregamento da página
+setTimeout(function(){
+  showCookiePopup();
+}, 1000);</script>
