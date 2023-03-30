@@ -267,15 +267,11 @@ app.get('/avancado', function (req, res) {
 
 // Rota para a página principal
 app.get('/', function (req, res) {
-	res.render('app/index', { layout: false, user: req.user })
-})
-
-app.get('/system', function (req, res) {
-	res.render('app/system', { layout: false, user: req.user })
+	res.render('app/index', { user: req.user })
 })
 
 app.get('/funcionalidades', function (req, res) {
-	res.render('app/content', { layout: false, user: req.user })
+	res.render('app/funcionalidades', { user: req.user })
 })
 
 module.exports = app;
