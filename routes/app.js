@@ -149,6 +149,15 @@ app.get('/escolher_musculo', checkAuthenticated, function (req, res) {
 	});
 })
 
+// Tabela Equipamentos para selecionar
+app.get('/escolher_equipamento', checkAuthenticated, function (req, res) {
+	res.render('app/Equipamentos/equipamentos', { user: req.user })
+})
+
+app.get('/escolher_dificuldade', checkAuthenticated, function (req, res) {
+	res.render('app/Dificuldades/dificuldade', { user: req.user })
+})
+
 // Visualização de músculos
 app.get('/Musculos', checkAuthenticated, function (req, res) {
 	res.render('app/Musculos/Musculos', { user: req.user })
@@ -217,11 +226,6 @@ app.get('/hamstring', function (req, res) {
 // Visualização da tabela exercícios para gluteo
 app.get('/gluteo', function (req, res) {
 	res.render('app/Musculos/gluteos', { layout: 'tabelas', user: req.user })
-})
-
-// Tabela Equipamentos para selecionar
-app.get('/Equipamentos', function (req, res) {
-	res.render('app/Equipamentos', { layout: 'tabelas', user: req.user })
 })
 
 // Visualização da tabela exercícios com barra

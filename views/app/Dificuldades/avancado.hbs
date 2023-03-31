@@ -42,28 +42,5 @@
 
 
 	}
-	function editar(id) {
-		url = "/admin/update_exercicios?id=";
-		//console.log(id);
-		window.location = url + id;
-	}
-
-	function apagar(id) {
-		url_api = "/api/exercicio/" + id;
-		console.log(url_api);
-		fetch(url_api, {
-			method: 'delete',
-			headers: {
-				'Content-Type': 'application/json'
-			},
-
-		}).then(response => response.json());
-
-		window.location.href = "/admin";
-	}
-
-
-
-
-
+	
 </script>
