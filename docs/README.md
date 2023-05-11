@@ -3,7 +3,7 @@
   <img src="https://raw.githubusercontent.com/8fn/BrowseMuscle/master/views/assets/img/browsemuscle_light.png" width="250px" height="50px">
 </p>
 <div align="center">
- <img alt="Website" src="https://img.shields.io/website?url=http%3A%2F%2F35.178.127.12%3A3000%2F"> <img src="https://img.shields.io/github/repo-size/8fn/browsemuscle"> <img src="https://img.shields.io/github/last-commit/8fn/browsemuscle"> <img alt="GitHub issues" src="https://img.shields.io/github/issues/8fn/BrowseMuscle"> <img alt="GitHub closed issues" src="https://img.shields.io/github/issues-closed/8fn/BrowseMuscle"> <img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/8fn/browsemuscle"> <img alt="GitHub closed pull requests" src="https://img.shields.io/github/issues-pr-closed/8fn/browsemuscle"> <img alt="GitHub" src="https://img.shields.io/github/license/8fn/browsemuscle"> <img src="https://img.shields.io/badge/-node.js-yellow"> <img src="https://img.shields.io/badge/-mysql-yellow">  
+  <img src="https://img.shields.io/github/repo-size/8fn/browsemuscle"> <img src="https://img.shields.io/github/last-commit/8fn/browsemuscle"> <img alt="GitHub issues" src="https://img.shields.io/github/issues/8fn/BrowseMuscle"> <img alt="GitHub closed issues" src="https://img.shields.io/github/issues-closed/8fn/BrowseMuscle"> <img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/8fn/browsemuscle"> <img alt="GitHub closed pull requests" src="https://img.shields.io/github/issues-pr-closed/8fn/browsemuscle"> <img alt="GitHub" src="https://img.shields.io/github/license/8fn/browsemuscle"> <img src="https://img.shields.io/badge/-node.js-yellow"> <img src="https://img.shields.io/badge/-mysql-yellow">  
 </div>
 
 ## ⚠️- Repositório Arquivado
